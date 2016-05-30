@@ -6,7 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.destroy_all
-users = User.create! [
+Delegation.destroy_all
+
+User.create! [
   { username: "carlos", password: "abc123" },
   { username: "mary", password: "123abc" }
+]
+
+Delegation.create! [
+	{name:"San Jose del Cabo"},
+	{name:"Cabo San Lucas"},
+	{name:"Miraflores"},
+	{name:"Santiago"},
+	{name:"La Rivera"}
 ]
