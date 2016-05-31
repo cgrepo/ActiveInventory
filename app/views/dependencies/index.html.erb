@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listado de Dependencias</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Direccion</th>
+      <th>Telefono</th>
+      <th>Responsable</th>
+      <th>Responsable Email</th>
+      <th>Delegacion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dependencies.each do |dependency| %>
+      <tr>
+        <td><%= dependency.name %></td>
+        <td><%= dependency.address %></td>
+        <td><%= dependency.telephone %></td>
+        <td><%= dependency.responsable %></td>
+        <td><%= dependency.responsable_email %></td>
+        <td><%= dependency.Delegation.name %></td>
+        <td><%= link_to 'Mostrar', dependency %></td>
+        <td><%= link_to 'Editar', edit_dependency_path(dependency) %></td>
+        <td><%= link_to 'Borrar', dependency, method: :delete, data: { confirm: 'esta usted seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Dependencia', new_dependency_path %>

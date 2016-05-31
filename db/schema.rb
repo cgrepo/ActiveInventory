@@ -11,9 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160530194127) do
+ActiveRecord::Schema.define(version: 20160530204051) do
 
   create_table "delegations", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dependencies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "telephone"
+    t.string   "responsable"
+    t.string   "responsable_email"
+    t.integer  "Delegation_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "dependencies", ["Delegation_id"], name: "index_dependencies_on_Delegation_id"
+
+  create_table "manufacturers", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :dependencies
   #get 'welcome/index'
   #get 'sessions/new'
   #get 'sessions/create'
