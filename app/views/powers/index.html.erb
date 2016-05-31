@@ -1,21 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Powers</h1>
+<h1>Listado de UPS / REGULADORES</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Ninventary</th>
-      <th>Nserie</th>
-      <th>Brand</th>
-      <th>Model</th>
-      <th>Nfactura</th>
-      <th>Buy date</th>
-      <th>No break</th>
-      <th>Operational</th>
-      <th>Reazon</th>
-      <th>Notes</th>
-      <th>Dependency</th>
+      <th>No Inventario</th>
+      <th>No Serie</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>ID factura</th>
+      <th>Fecha compra</th>
+      <th>Bateria?</th>
+      <th>Notas</th>
+      <th>Dependencia</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -30,13 +28,11 @@
         <td><%= power.nfactura %></td>
         <td><%= power.buy_date %></td>
         <td><%= power.no_break %></td>
-        <td><%= power.operational %></td>
-        <td><%= power.reazon %></td>
         <td><%= power.notes %></td>
-        <td><%= power.Dependency %></td>
-        <td><%= link_to 'Show', power %></td>
-        <td><%= link_to 'Edit', edit_power_path(power) %></td>
-        <td><%= link_to 'Destroy', power, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= power.Dependency.name %></td>
+        <td><%= link_to 'Mostrar', power %></td>
+        <td><%= link_to 'Editar', edit_power_path(power) %></td>
+        <td><%= link_to 'Borrar', power, method: :delete, data: { confirm: 'Esta usted seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -44,4 +40,4 @@
 
 <br>
 
-<%= link_to 'New Power', new_power_path %>
+<%= link_to 'Agregar', new_power_path %>

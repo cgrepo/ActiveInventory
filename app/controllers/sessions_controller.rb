@@ -9,9 +9,9 @@ class SessionsController < ApplicationController
   	password = params[:user][:password]
   	if user && user.authenticate(password)
   		session[:user_id] = user.id
-  		redirect_to root_path, notice: "Logged in successfully"  		
+  		redirect_to root_path, notice: "Logged in OK"  		
   	else
-  		redirect_to login_path, alert: "Invalid username/password combination"
+  		redirect_to login_path, alert: "Invalida combinacion de username/password"
   	end
   end
 

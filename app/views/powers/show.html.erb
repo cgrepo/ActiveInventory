@@ -1,59 +1,49 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Ninventary:</strong>
+  <strong>Numero de Inventario:</strong>
   <%= @power.ninventary %>
 </p>
 
 <p>
-  <strong>Nserie:</strong>
+  <strong>Numero de Serie:</strong>
   <%= @power.nserie %>
 </p>
 
 <p>
-  <strong>Brand:</strong>
+  <strong>Marca:</strong>
   <%= @power.brand %>
 </p>
 
 <p>
-  <strong>Model:</strong>
+  <strong>Modelo:</strong>
   <%= @power.model %>
 </p>
 
 <p>
-  <strong>Nfactura:</strong>
+  <strong>ID factura:</strong>
   <%= @power.nfactura %>
 </p>
 
 <p>
-  <strong>Buy date:</strong>
+  <strong>Fecha compra:</strong>
   <%= @power.buy_date %>
 </p>
 
 <p>
-  <strong>No break:</strong>
+  <strong>Bateria incluida:</strong>
   <%= @power.no_break %>
 </p>
 
 <p>
-  <strong>Operational:</strong>
-  <%= @power.operational %>
-</p>
-
-<p>
-  <strong>Reazon:</strong>
-  <%= @power.reazon %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
+  <strong>Notas:</strong>
   <%= @power.notes %>
 </p>
 
 <p>
   <strong>Dependency:</strong>
-  <%= @power.Dependency %>
+  <%= @power.Dependency.name %>
 </p>
 
-<%= link_to 'Edit', edit_power_path(@power) %> |
-<%= link_to 'Back', powers_path %>
+<%= link_to 'Editar', edit_power_path(@power) %> |
+<%= link_to 'Regresar', powers_path %>

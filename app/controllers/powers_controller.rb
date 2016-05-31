@@ -28,7 +28,7 @@ class PowersController < ApplicationController
 
     respond_to do |format|
       if @power.save
-        format.html { redirect_to @power, notice: 'Power was successfully created.' }
+        format.html { redirect_to @power, notice: 'Fuente creada satisfactoriamente.' }
         format.json { render :show, status: :created, location: @power }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PowersController < ApplicationController
   def update
     respond_to do |format|
       if @power.update(power_params)
-        format.html { redirect_to @power, notice: 'Power was successfully updated.' }
+        format.html { redirect_to @power, notice: 'Fuente actualizada satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @power }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class PowersController < ApplicationController
   def destroy
     @power.destroy
     respond_to do |format|
-      format.html { redirect_to powers_url, notice: 'Power was successfully destroyed.' }
+      format.html { redirect_to powers_url, notice: 'Fuente eliminada satisfactoriamente.' }
       format.json { head :no_content }
     end
   end

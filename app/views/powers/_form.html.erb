@@ -1,7 +1,7 @@
 <%= form_for(@power) do |f| %>
   <% if @power.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@power.errors.count, "error") %> prohibited this power from being saved:</h2>
+      <h2><%= pluralize(@power.errors.count, "error") %> No se pudo salvar:</h2>
 
       <ul>
       <% @power.errors.full_messages.each do |message| %>
@@ -12,48 +12,49 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :ninventary %><br>
+    <%= f.label :Inventario %><br>
     <%= f.text_field :ninventary %>
   </div>
   <div class="field">
-    <%= f.label :nserie %><br>
+    <%= f.label :Serie %><br>
     <%= f.text_field :nserie %>
   </div>
   <div class="field">
-    <%= f.label :brand %><br>
-    <%= f.text_field :brand %>
+    <%= f.label :Marca %><br>
+    <%#= f.text_field :brand %>
+    <%= f.select :brand, 
+    [['ISB Sola Basic'],
+    [''],
+    ['']] %>
   </div>
   <div class="field">
-    <%= f.label :model %><br>
-    <%= f.text_field :model %>
+    <%= f.label :Modelo %><br>
+    <%#= f.text_field :model %>
+    <%= f.select :model, 
+    [['XRN-21-801'],
+    [''],
+    ['']] %>
   </div>
   <div class="field">
-    <%= f.label :nfactura %><br>
+    <%= f.label :Factura %><br>
     <%= f.text_field :nfactura %>
   </div>
   <div class="field">
-    <%= f.label :buy_date %><br>
+    <%= f.label :Fecha_Compra %><br>
     <%= f.date_select :buy_date %>
   </div>
   <div class="field">
-    <%= f.label :no_break %><br>
+    <%= f.label :Bateria? %><br>
     <%= f.check_box :no_break %>
   </div>
   <div class="field">
-    <%= f.label :operational %><br>
-    <%= f.check_box :operational %>
-  </div>
-  <div class="field">
-    <%= f.label :reazon %><br>
-    <%= f.text_field :reazon %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br>
+    <%= f.label :Notas %><br>
     <%= f.text_area :notes %>
   </div>
   <div class="field">
-    <%= f.label :Dependency_id %><br>
-    <%= f.text_field :Dependency_id %>
+    <%= f.label :Dependencia %><br>
+    <%= f.collection_select(:Dependency_id, Dependency.all, :id, :name) %>
+    <%#= f.text_field :Dependency_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
