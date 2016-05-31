@@ -22,19 +22,19 @@ Delegation.create! [
 	{name:"La Rivera"}
 ]
 
-Manufacturer.create! [
-	{name:"BROTHER"},
-	{name:"CANON"},
-	{name:"CISCO"},
-	{name:"DELL"},
-	{name:"EPSON"},
-	{name:"HITACHI"},
-	{name:"HP"},
-	{name:"IBM"},
-	{name:"ISB SOLABASIC"},
-	{name:"KYOCERA"},
-	{name:"LENOVO"},
-	{name:"LEXMARK"},
-	{name:"SAMSUNG"},
-	{name:"XEROX"}
-]
+#Manufacturer.create! [
+#	{name:"BROTHER"},
+#	{name:"CANON"},
+#	{name:"CISCO"},
+#	{name:"DELL"},
+#	{name:"EPSON"},
+#	{name:"HITACHI"},
+#	{name:"HP"},
+#	{name:"IBM"},
+#	{name:"ISB SOLABASIC"},
+#	{name:"KYOCERA"},
+#	{name:"LENOVO"},
+#	{name:"LEXMARK"},
+#	{name:"SAMSUNG"},
+#	{name:"XEROX"}
+#]

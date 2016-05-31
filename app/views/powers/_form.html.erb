@@ -1,0 +1,61 @@
+<%= form_for(@power) do |f| %>
+  <% if @power.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@power.errors.count, "error") %> prohibited this power from being saved:</h2>
+
+      <ul>
+      <% @power.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ninventary %><br>
+    <%= f.text_field :ninventary %>
+  </div>
+  <div class="field">
+    <%= f.label :nserie %><br>
+    <%= f.text_field :nserie %>
+  </div>
+  <div class="field">
+    <%= f.label :brand %><br>
+    <%= f.text_field :brand %>
+  </div>
+  <div class="field">
+    <%= f.label :model %><br>
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%= f.label :nfactura %><br>
+    <%= f.text_field :nfactura %>
+  </div>
+  <div class="field">
+    <%= f.label :buy_date %><br>
+    <%= f.date_select :buy_date %>
+  </div>
+  <div class="field">
+    <%= f.label :no_break %><br>
+    <%= f.check_box :no_break %>
+  </div>
+  <div class="field">
+    <%= f.label :operational %><br>
+    <%= f.check_box :operational %>
+  </div>
+  <div class="field">
+    <%= f.label :reazon %><br>
+    <%= f.text_field :reazon %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :Dependency_id %><br>
+    <%= f.text_field :Dependency_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

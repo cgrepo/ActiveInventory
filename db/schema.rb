@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160530204051) do
+ActiveRecord::Schema.define(version: 20160531185503) do
 
   create_table "delegations", force: :cascade do |t|
     t.string   "name"
@@ -32,11 +32,23 @@ ActiveRecord::Schema.define(version: 20160530204051) do
 
   add_index "dependencies", ["Delegation_id"], name: "index_dependencies_on_Delegation_id"
 
-  create_table "manufacturers", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "powers", force: :cascade do |t|
+    t.string   "ninventary"
+    t.string   "nserie"
+    t.string   "brand"
+    t.string   "model"
+    t.string   "nfactura"
+    t.date     "buy_date"
+    t.boolean  "no_break",      default: false
+    t.boolean  "operational",   default: true
+    t.string   "reazon"
+    t.text     "notes"
+    t.integer  "Dependency_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
+
+  add_index "powers", ["Dependency_id"], name: "index_powers_on_Dependency_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"

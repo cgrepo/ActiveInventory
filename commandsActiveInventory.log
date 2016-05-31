@@ -1,0 +1,35 @@
+f:
+cd Coursera\ruby\ActiveInventory
+git status
+git add .
+git status
+git log
+git commit -nm "added_model_Delegation_seeded"
+git status
+git put master
+git push master
+git
+git help -a
+git help 
+git help push
+git remote
+git remote -v
+git push origin master
+rails g scaffold Dependency name address telephone responsable responsable_email Delegation:references
+rake db:migrate
+rails g model Manufacturer name
+rake db:migrate
+rake db:seed
+git status
+git log
+git status
+rake routes
+git status
+git add .
+git status
+git add .
+git log
+git commit -nm "scaffold_Dependencies-Delegation"
+git status
+git push origin master
+doskey /history > commandsActiveInventory.log

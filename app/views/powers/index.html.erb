@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Powers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ninventary</th>
+      <th>Nserie</th>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Nfactura</th>
+      <th>Buy date</th>
+      <th>No break</th>
+      <th>Operational</th>
+      <th>Reazon</th>
+      <th>Notes</th>
+      <th>Dependency</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @powers.each do |power| %>
+      <tr>
+        <td><%= power.ninventary %></td>
+        <td><%= power.nserie %></td>
+        <td><%= power.brand %></td>
+        <td><%= power.model %></td>
+        <td><%= power.nfactura %></td>
+        <td><%= power.buy_date %></td>
+        <td><%= power.no_break %></td>
+        <td><%= power.operational %></td>
+        <td><%= power.reazon %></td>
+        <td><%= power.notes %></td>
+        <td><%= power.Dependency %></td>
+        <td><%= link_to 'Show', power %></td>
+        <td><%= link_to 'Edit', edit_power_path(power) %></td>
+        <td><%= link_to 'Destroy', power, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Power', new_power_path %>
