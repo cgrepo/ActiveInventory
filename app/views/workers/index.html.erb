@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listado de Usuarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Perfil</th>
+      <th>Dependencia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @workers.each do |worker| %>
+      <tr>
+        <td><%= worker.name %></td>
+        <td><%= worker.email %></td>
+        <td><%= worker.profile %></td>
+        <td><%= worker.Dependency.name %></td>
+        <td><%= link_to 'Mostrar', worker %></td>
+        <td><%= link_to 'Editar', edit_worker_path(worker) %></td>
+        <td><%= link_to 'Borrar', worker, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Agregar Usuario', new_worker_path %>

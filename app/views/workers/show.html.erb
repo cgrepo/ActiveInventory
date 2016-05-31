@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @worker.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @worker.email %>
+</p>
+
+<p>
+  <strong>Perfil:</strong>
+  <%= @worker.profile %>
+</p>
+
+<p>
+  <strong>Dependencia:</strong>
+  <%= @worker.Dependency.name %>
+</p>
+
+<%= link_to 'Editar', edit_worker_path(@worker) %> |
+<%= link_to 'Regresar', workers_path %>

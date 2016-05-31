@@ -1,0 +1,34 @@
+<%= form_for(@worker) do |f| %>
+  <% if @worker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@worker.errors.count, "error") %> No se pudo salvar el usuario:</h2>
+
+      <ul>
+      <% @worker.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Nobre %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :Email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :Perfil %><br>
+    <%= f.text_area :profile %>
+  </div>
+  <div class="field">
+    <%= f.label :Dependency_id %><br>
+    <%#= f.text_field :Dependency_id %>
+    <%= f.collection_select(:Dependency_id, Dependency.all, :id, :name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
