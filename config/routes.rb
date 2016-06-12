@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :telephones
+  get 'reports/index'
+
+  resources :consumables
+  resources :statistics
+  resources :copiers
+  resources :printers
+  resources :networks
   resources :workers
   resources :powers
   resources :dependencies
@@ -11,4 +19,5 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   get "/login" => "sessions#new", as: "login"
   delete "/logout" => "sessions#destroy", as: "logout"
+  get "repo" => "reports#index"
 end
