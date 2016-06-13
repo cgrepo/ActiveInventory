@@ -5,10 +5,11 @@ class CreateTelephones < ActiveRecord::Migration
       t.string :nserie
       t.string :brand
       t.string :model
+      t.string :nfactura
       t.date :buy_date
       t.string :genus
       t.string :number
-      t.boolean :operational
+      t.boolean :operational, :default => true
       t.text :reazon
       t.text :notes
       t.references :Dependency, index: true, foreign_key: true

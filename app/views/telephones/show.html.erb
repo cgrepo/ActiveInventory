@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Ninventary:</strong>
+  <strong>No Inventario:</strong>
   <%= @telephone.ninventary %>
 </p>
 
 <p>
-  <strong>Nserie:</strong>
+  <strong>No serie:</strong>
   <%= @telephone.nserie %>
 </p>
 
 <p>
-  <strong>Brand:</strong>
+  <strong>Marca:</strong>
   <%= @telephone.brand %>
 </p>
 
@@ -19,22 +19,21 @@
   <strong>Model:</strong>
   <%= @telephone.model %>
 </p>
-
 <p>
-  <strong>Buy date:</strong>
-  <%= @telephone.buy_date %>
-</p>
-
-<p>
-  <strong>Genus:</strong>
+  <strong>Tipo:</strong>
   <%= @telephone.genus %>
 </p>
 
 <p>
-  <strong>Number:</strong>
-  <%= @telephone.number %>
+  <strong>Fecha de Compra:</strong>
+  <%= @telephone.buy_date %>
 </p>
 
+<p>
+  <strong>Numero:</strong>
+  <%= @telephone.number %>
+</p>
+<!--
 <p>
   <strong>Operational:</strong>
   <%= @telephone.operational %>
@@ -44,16 +43,16 @@
   <strong>Reazon:</strong>
   <%= @telephone.reazon %>
 </p>
-
+-->
 <p>
   <strong>Notes:</strong>
   <%= @telephone.notes %>
 </p>
 
 <p>
-  <strong>Dependency:</strong>
-  <%= @telephone.Dependency %>
+  <strong>Dependencia:</strong>
+  <%= @telephone.Dependency.name %>
 </p>
 
-<%= link_to 'Edit', edit_telephone_path(@telephone) %> |
-<%= link_to 'Back', telephones_path %>
+<%= link_to 'Editar', edit_telephone_path(@telephone) %> |
+<%= link_to 'Regresar', telephones_path %>

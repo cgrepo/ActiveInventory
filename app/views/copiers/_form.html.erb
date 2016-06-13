@@ -21,7 +21,13 @@
   </div>
   <div class="field">
     <%= f.label :Marca %><br>
-    <%= f.text_field :brand %>
+    <%= f.select :brand, 
+    [
+      ['CANON'],
+      ['BROTHER'],
+      ['XEROX']
+    ] %>
+    <%#= f.text_field :brand %>
   </div>
   <div class="field">
     <%= f.label :Modelo %><br>
@@ -40,7 +46,7 @@
     <%= f.text_area :notes %>
   </div>
   <div class="field">
-    <%= f.label :Dependency_id %><br>
+    <%= f.label :Dependencia %><br>
     <%= f.collection_select(:Dependency_id, Dependency.all, :id, :name) %>
     <%#= f.text_field :Dependency_id %>
   </div>

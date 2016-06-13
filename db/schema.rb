@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20160610173307) do
     t.string   "model"
     t.string   "nfactura"
     t.date     "buy_date"
-    t.boolean  "operational"
+    t.boolean  "operational",   default: true
     t.string   "reazon"
     t.text     "notes"
     t.integer  "Dependency_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "copiers", ["Dependency_id"], name: "index_copiers_on_Dependency_id"
@@ -96,12 +96,12 @@ ActiveRecord::Schema.define(version: 20160610173307) do
     t.string   "nfactura"
     t.date     "buy_date"
     t.string   "genus"
-    t.boolean  "operational"
+    t.boolean  "operational",   default: true
     t.string   "reazon"
     t.text     "notes"
     t.integer  "Dependency_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "printers", ["Dependency_id"], name: "index_printers_on_Dependency_id"
@@ -124,15 +124,16 @@ ActiveRecord::Schema.define(version: 20160610173307) do
     t.string   "nserie"
     t.string   "brand"
     t.string   "model"
+    t.string   "nfactura"
     t.date     "buy_date"
     t.string   "genus"
     t.string   "number"
-    t.boolean  "operational"
+    t.boolean  "operational",   default: true
     t.text     "reazon"
     t.text     "notes"
     t.integer  "Dependency_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "telephones", ["Dependency_id"], name: "index_telephones_on_Dependency_id"

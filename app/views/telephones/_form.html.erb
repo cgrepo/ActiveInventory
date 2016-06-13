@@ -10,35 +10,95 @@
       </ul>
     </div>
   <% end %>
-
+  <table>
+    <tr>
+      <td>
+        <%= f.label :Inventario %><br> 
+        <%= f.text_field :ninventary %>
+      </td>
+      <td>
+        <%= f.label :Serie %><br> 
+        <%= f.text_field :nserie %>
+      </td>
+      <td>
+        <%= f.label :Marca %><br> 
+        <%= f.text_field :brand %>
+      </td>
+      <td>
+        <%= f.label :Modelo %><br>
+        <%= f.text_field :model %>
+      </td>
+      <td>
+        <%= f.label :Tipo %><br>
+        <%= f.select :genus, 
+          [
+            ['VOIP'],
+            ['ANALOGICO']
+          ] %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :Numero %><br>
+        <%= f.text_field :number %>
+      </td>
+      <td>
+        <%= f.label :ID_Factura %><br>
+        <%= f.text_field :nfactura %>
+      </td>
+      <td>
+        <%= f.label :Fecha_Compra %><br>
+        <%= f.date_select :buy_date %>
+      </td>
+      <td>
+        <%= f.label :Dependencia %><br>
+        <%= f.collection_select(:Dependency_id, Dependency.all, :id, :name) %>
+      </td>
+    </tr>
+  </table>
+    <div class="field">
+    <%= f.label :Notas %><br>
+    <%= f.text_area :notes %>
+  </div>
+<!--
   <div class="field">
-    <%= f.label :ninventary %><br>
+    <%= f.label :Inventario %><br>
     <%= f.text_field :ninventary %>
   </div>
   <div class="field">
-    <%= f.label :nserie %><br>
+    <%= f.label :Serie %><br>
     <%= f.text_field :nserie %>
-  </div>
+  </div> 
   <div class="field">
-    <%= f.label :brand %><br>
+    <%= f.label :Marca %><br>
     <%= f.text_field :brand %>
   </div>
   <div class="field">
-    <%= f.label :model %><br>
+    <%= f.label :Modelo %><br>
     <%= f.text_field :model %>
   </div>
   <div class="field">
-    <%= f.label :buy_date %><br>
+    <%= f.label :Tipo %><br>
+    <%= f.select :genus, 
+    [
+      ['VOIP'],
+      ['ANALOGICO']
+    ] %>
+    <%#= f.text_field :genus %>
+  </div> 
+  <div class="field">
+    <%= f.label :Numero %><br>
+    <%= f.text_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :Fecha_Compra %><br>
     <%= f.date_select :buy_date %>
   </div>
   <div class="field">
-    <%= f.label :genus %><br>
-    <%= f.text_field :genus %>
-  </div>
-  <div class="field">
-    <%= f.label :number %><br>
-    <%= f.text_field :number %>
-  </div>
+    <%= f.label :No_Factura %><br>
+    <%= f.text_field :nfactura %>
+  </div> -->
+  <!--
   <div class="field">
     <%= f.label :operational %><br>
     <%= f.check_box :operational %>
@@ -46,15 +106,15 @@
   <div class="field">
     <%= f.label :reazon %><br>
     <%= f.text_area :reazon %>
-  </div>
+  </div> 
   <div class="field">
-    <%= f.label :notes %><br>
+    <%= f.label :Notas %><br>
     <%= f.text_area :notes %>
   </div>
   <div class="field">
-    <%= f.label :Dependency_id %><br>
+    <%= f.label :Dependencia %><br>
     <%= f.text_field :Dependency_id %>
-  </div>
+  </div> -->
   <div class="actions">
     <%= f.submit %>
   </div>

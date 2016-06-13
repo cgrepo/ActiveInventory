@@ -2,7 +2,6 @@ class CreateNetworks < ActiveRecord::Migration
   def change
     create_table :networks do |t|
       t.string :linktype
-      t.string :genus
       t.string :location
       t.string :iprange
       t.string :ip

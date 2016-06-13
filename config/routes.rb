@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :telephones
+  
   get 'reports/index'
 
   resources :consumables
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :workers
   resources :powers
   resources :dependencies
+  resources :telephones
   #get 'welcome/index'
   #get 'sessions/new'
   #get 'sessions/create'

@@ -7,7 +7,7 @@ class CreateCopiers < ActiveRecord::Migration
       t.string :model
       t.string :nfactura
       t.date :buy_date
-      t.boolean :operational
+      t.boolean :operational, :default => true
       t.string :reazon
       t.text :notes
       t.references :Dependency, index: true, foreign_key: true
