@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Numero de Inventario:</strong>
+  <%= @power.ninventary %>
+</p>
+
+<p>
+  <strong>Numero de Serie:</strong>
+  <%= @power.nserie %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @power.brand %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @power.model %>
+</p>
+
+<p>
+  <strong>ID factura:</strong>
+  <%= @power.nfactura %>
+</p>
+
+<p>
+  <strong>Fecha compra:</strong>
+  <%= @power.buy_date %>
+</p>
+
+<p>
+  <strong>Tipo Impresora:</strong>
+  <%= @printer.genus %>
+</p>
+
+<p>
+  <strong>Notas:</strong>
+  <%= @printer.notes %>
+</p>
+
+<p>
+  <strong>Dependency:</strong>
+  <%= @printer.Dependency %>
+</p>
+
+<%= link_to 'Editar', edit_printer_path(@printer) %> |
+<%= link_to 'Regresar', printers_path %>

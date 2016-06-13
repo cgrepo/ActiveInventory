@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @consumable.genus %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @consumable.model %>
+</p>
+
+<p>
+  <strong>Copier:</strong>
+  <%= @consumable.Copier.model %>
+</p>
+
+<p>
+  <strong>Printer:</strong>
+  <%= @consumable.Printer.model %>
+</p>
+
+<%= link_to 'Editar', edit_consumable_path(@consumable) %> |
+<%= link_to 'Regresar', consumables_path %>

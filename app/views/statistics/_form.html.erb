@@ -1,0 +1,52 @@
+<%= form_for(@statistic) do |f| %>
+  <% if @statistic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@statistic.errors.count, "error") %> prohibida la estadistica de ser salvada:</h2>
+
+      <ul>
+      <% @statistic.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :MES %><br>
+    <%#= f.text_field :month %>
+    <%= f.select :month, 
+    [
+      ['ENERO'],
+      ['FEBRERO'],
+      ['MARZO'],
+      ['ABRIL'],
+      ['MAYO'],
+      ['JUNIO'],
+      ['JULIO'],
+      ['AGOSTO'],
+      ['SEPTIEMBRE'],
+      ['OCTUBRE'],
+      ['NOVIEMBRE'],
+      ['DICIEMBRE']
+    ] %>
+  </div>
+  <div class="field">
+    <%= f.label :'Hojas empleadas' %><br>
+    <%= f.number_field :sheets %>
+  </div>
+  <div class="field">
+    <%= f.label :consumible %><br>
+    <%= f.number_field :consumable %>
+  </div>
+  <div class="field">
+    <%= f.label :Copier_id %><br>
+    <%= f.text_field :Copier_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Printer_id %><br>
+    <%= f.text_field :Printer_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

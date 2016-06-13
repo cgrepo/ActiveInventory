@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Networks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo de Enlace</th>
+      <th>Locacion</th>
+      <th>Rango IP</th>
+      <th>IP Gateway</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @networks.each do |network| %>
+      <tr>
+        <td><%= network.linktype %></td>
+        <td><%= network.location %></td>
+        <td><%= network.iprange %></td>
+        <td><%= network.ip %></td>
+        <td><%= link_to 'Mostrar', network %></td>
+        <td><%= link_to 'Editar', edit_network_path(network) %></td>
+        <td><%= link_to 'Borrar', network, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Agregar Red', new_network_path %>

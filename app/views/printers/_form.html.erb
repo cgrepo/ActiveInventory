@@ -1,0 +1,69 @@
+<%= form_for(@printer) do |f| %>
+  <% if @printer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@printer.errors.count, "error") %> prohibida esta impresora de ser salvada:</h2>
+
+      <ul>
+      <% @printer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Inventario %><br>
+    <%= f.text_field :ninventary %>
+  </div>
+  <div class="field">
+    <%= f.label :Serie %><br>
+    <%= f.text_field :nserie %>
+  </div>
+  <div class="field">
+    <%= f.label :Marca %><br>
+    <%= f.select :brand, 
+    [
+      ['HP'],
+      ['Lexmark'],
+      ['Brother'],
+      ['Canon'],
+      ['Xerox'],
+      ['Epson']
+    ] %>
+    <%#= f.text_field :brand %>
+  </div>
+  <div class="field">
+    <%= f.label :Modelo %><br>
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%= f.label :Factura %><br>
+    <%= f.text_field :nfactura %>
+  </div>
+  <div class="field">
+    <%= f.label :Fecha_Compra %><br>
+    <%= f.date_select :buy_date %>
+  </div>
+  <div class="field">
+    <%= f.label :Tipo %><br>
+    <%= f.select :genus, 
+    [
+      ['Laser Monocromatica'],
+      ['Laser Color'],
+      ['Injeccion de Tinta'],
+      ['Matricial']
+    ] %>
+    <%#= f.text_field :genus %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :Dependency_id %><br>
+    <%= f.text_field :Dependency_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mes:</strong>
+  <%= @statistic.month %>
+</p>
+
+<p>
+  <strong>Hojas empleadas:</strong>
+  <%= @statistic.sheets %>
+</p>
+
+<p>
+  <strong>Consumible:</strong>
+  <%= @statistic.consumable %>
+</p>
+
+<p>
+  <strong>Copier:</strong>
+  <%= @statistic.Copier.model %>
+</p>
+
+<p>
+  <strong>Printer:</strong>
+  <%= @statistic.Printer.model %>
+</p>
+
+<%= link_to 'Editar', edit_statistic_path(@statistic) %> |
+<%= link_to 'Regresar', statistics_path %>

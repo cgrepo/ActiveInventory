@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo Enlace:</strong>
+  <%= @network.linktype %>
+</p>
+
+<p>
+  <strong>Locacion:</strong>
+  <%= @network.location %>
+</p>
+
+<p>
+  <strong>Rango IP:</strong>
+  <%= @network.iprange %>
+</p>
+
+<p>
+  <strong>IP Gateway:</strong>
+  <%= @network.ip %>
+</p>
+
+<%= link_to 'Editar', edit_network_path(@network) %> |
+<%= link_to 'Regresar', networks_path %>

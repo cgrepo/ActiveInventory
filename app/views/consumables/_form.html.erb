@@ -1,0 +1,33 @@
+<%= form_for(@consumable) do |f| %>
+  <% if @consumable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@consumable.errors.count, "error") %> prohibido el consumible de ser salvado:</h2>
+
+      <ul>
+      <% @consumable.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Tipo %><br>
+    <%= f.text_field :genus %>
+  </div>
+  <div class="field">
+    <%= f.label :Modelo %><br>
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%#= f.label :Copier_id %><br>
+    <%#= f.text_field :Copier_id %>
+  </div>
+  <div class="field">
+    <%#= f.label :Printer_id %><br>
+    <%#= f.text_field :Printer_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

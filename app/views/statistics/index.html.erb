@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Statistics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mes</th>
+      <th>Hojas</th>
+      <th>Consumible</th>
+      <th>Copier</th>
+      <th>Printer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @statistics.each do |statistic| %>
+      <tr>
+        <td><%= statistic.month %></td>
+        <td><%= statistic.sheets %></td>
+        <td><%= statistic.consumable %></td>
+        <td><%= statistic.Copier.model %></td>
+        <td><%= statistic.Printer.model %></td>
+        <td><%= link_to 'Mostrar', statistic %></td>
+        <td><%= link_to 'Editar', edit_statistic_path(statistic) %></td>
+        <td><%= link_to 'Borrar', statistic, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Agregar estadistica', new_statistic_path %>

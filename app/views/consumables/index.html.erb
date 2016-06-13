@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listado Consumibles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Modelo</th>
+      <th>Copier</th>
+      <th>Printer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @consumables.each do |consumable| %>
+      <tr>
+        <td><%= consumable.genus %></td>
+        <td><%= consumable.model %></td>
+        <td><%= consumable.Copier.model if consumable.Copier %></td>
+        <td><%= consumable.Printer.model if consumable.Printer %></td>
+        <td><%= link_to 'Mostrar', consumable %></td>
+        <td><%= link_to 'Editar', edit_consumable_path(consumable) %></td>
+        <td><%= link_to 'Borrar', consumable, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Agregar Consumible', new_consumable_path %>

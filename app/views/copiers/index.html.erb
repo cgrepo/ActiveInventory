@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listado Copiadoras</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>No Inventario</th>
+      <th>No Serie</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>ID factura</th>
+      <th>Fecha compra</th>
+      <th>Notas</th>
+      <th>Dependencia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @copiers.each do |copier| %>
+      <tr>
+        <td><%= copier.ninventary %></td>
+        <td><%= copier.nserie %></td>
+        <td><%= copier.brand %></td>
+        <td><%= copier.model %></td>
+        <td><%= copier.nfactura %></td>
+        <td><%= copier.buy_date %></td>
+        <td><%#= copier.operational %></td>
+        <td><%#= copier.reazon %></td>
+        <td><%= copier.notes %></td>
+        <td><%= copier.Dependency.name %></td>
+        <td><%= link_to 'Mostrar', copier %></td>
+        <td><%= link_to 'Editar', edit_copier_path(copier) %></td>
+        <td><%= link_to 'Borrar', copier, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%#= link_to 'Agregar Copiadora', new_copier_path, class: "btn" %>
+<%= button_to "Agregar Copiadora", new_copier_path, 
+#:id => "open-contacts-dialog-btn",
+      #:class => "inbox-sf-add-btn tip", 
+      :method => :get %>
+<%#= link_to 'Agregar Copiadora', new_copier_path, class: "button" %>

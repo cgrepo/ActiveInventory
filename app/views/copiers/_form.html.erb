@@ -1,0 +1,50 @@
+<%= form_for(@copier) do |f| %>
+  <% if @copier.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@copier.errors.count, "error") %> prohibida la capiadora de ser salvada:</h2>
+
+      <ul>
+      <% @copier.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Inventario %><br>
+    <%= f.text_field :ninventary %>
+  </div>
+  <div class="field">
+    <%= f.label :Serie %><br>
+    <%= f.text_field :nserie %>
+  </div>
+  <div class="field">
+    <%= f.label :Marca %><br>
+    <%= f.text_field :brand %>
+  </div>
+  <div class="field">
+    <%= f.label :Modelo %><br>
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%= f.label :Factura %><br>
+    <%= f.text_field :nfactura %>
+  </div>
+  <div class="field">
+    <%= f.label :Fecha_Compra %><br>
+    <%= f.date_select :buy_date %>
+  </div>
+  <div class="field">
+    <%= f.label :Notas %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :Dependency_id %><br>
+    <%= f.collection_select(:Dependency_id, Dependency.all, :id, :name) %>
+    <%#= f.text_field :Dependency_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

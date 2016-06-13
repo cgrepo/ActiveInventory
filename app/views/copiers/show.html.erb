@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ninventary:</strong>
+  <%= @copier.ninventary %>
+</p>
+
+<p>
+  <strong>No Serie:</strong>
+  <%= @copier.nserie %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @copier.brand %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @copier.model %>
+</p>
+
+<p>
+  <strong>ID factura:</strong>
+  <%= @copier.nfactura %>
+</p>
+
+<p>
+  <strong>Fecha comprae:</strong>
+  <%= @copier.buy_date %>
+</p>
+
+<p>
+  <strong>Notas:</strong>
+  <%= @copier.notes %>
+</p>
+
+<p>
+  <strong>Dependencia:</strong>
+  <%= @copier.Dependency.name %>
+</p>
+
+<%= link_to 'Editar', edit_copier_path(@copier) %> |
+<%= link_to 'Regresar', copiers_path %>

@@ -1,0 +1,45 @@
+<%= form_for(@network) do |f| %>
+  <% if @network.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@network.errors.count, "error") %> prohibida la red de ser salvada:</h2>
+
+      <ul>
+      <% @network.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :'Tipo de conexion' %><br>
+    <%#= f.text_field :linktype %>
+    <%= f.select :linktype, 
+    [
+      ['ADSL-MODEM'],
+      ['ENLACE'],
+      ['WIFI']
+    ] %>
+  </div>
+  <div class="field">
+    <%= f.label :Locacion %><br>
+    <%#= f.text_field :location %>
+    <%= f.select :location, 
+    [
+      ['ED. DELEGACION CSL'],
+      ['DIF CSL'],
+      ['OFICINAS DESARROLLO URBANO CSL']
+    ] %>
+  </div>
+  <div class="field">
+    <%= f.label :'Rango IPs' %><br>
+    <%= f.text_field :iprange %>
+  </div>
+  <div class="field">
+    <%= f.label :'IP Gateway' %><br>
+    <%= f.text_field :ip %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  linktype: MyString
+  genus: MyString
+  location: MyString
+  iprange: MyString
+  ip: MyString
+
+two:
+  linktype: MyString
+  genus: MyString
+  location: MyString
+  iprange: MyString
+  ip: MyString
