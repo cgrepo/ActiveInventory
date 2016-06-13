@@ -1,0 +1,370 @@
+<%= form_for(@computer) do |f| %>
+  <% if @computer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@computer.errors.count, "error") %> prohibida esta computadora de ser salvada:</h2>
+
+      <ul>
+      <% @computer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div>
+  <table>
+    <tr>
+      <td>
+        <%= f.label :Inventario %><br>
+        <%= f.text_field :ninventary %>
+      </td>
+      <td>
+        <%= f.label :Serie %><br>
+        <%= f.text_field :nserie %>
+      </td>
+      <td>
+        <%= f.label :Marca %><br>
+        <%= f.select :brand, 
+        [
+          ['HP'],
+          ['LENOVO'],
+          ['CLON'],
+          ['COMPAQ'],
+          ['SONY'],
+          ['IBM'],
+          ['SAMSUNG'],
+          ['ASUS'],
+        ] %>
+        <%#= f.text_field :brand %>
+      </td>
+      <td>
+        <%= f.label :Modelo %><br>
+        <%= f.text_field :model %>
+      </td>
+      <td>
+        <%= f.label :Factura %><br>
+        <%= f.text_field :nfactura %>
+      </td>
+      <td>
+        <%= f.label :Fecha_Compra %><br>
+        <%= f.date_select :buy_date %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :Tipo %><br>
+        <%= f.select :genus, 
+        [
+          ['ESCRITORIO'],
+          ['LAPTOP'],
+          ['SERVIDOR'],
+          ['ALL_IN_ONE']
+        ] %>
+        <%#= f.text_field :genus %>
+      </td>
+      <td>
+        <%= f.label :Procesador %><br>
+        <%= f.text_field :processor %>
+      </td>
+      <td>
+        <%= f.label :Disco_Duro %><br>
+        <%= f.select :hd,
+        [
+          ['40 GB'],
+          ['80 GB'],
+          ['100 GB'],
+          ['120 GB'],
+          ['150 GB'],
+          ['160 GB'],
+          ['200 GB'],
+          ['220 GB'],
+          ['250 GB'],
+          ['280 GB'],
+          ['300 GB'],
+          ['320 GB'],
+          ['500 GB'],
+          ['1 TB'],
+          ['1.5 TB'],
+          ['2 TB'],
+          ['2.5 TB'],
+          ['3 TB'],
+          ['3.5 TB']
+        ] %>
+        <%#= f.text_field :hd %>
+      </td>
+      <td>
+        <%= f.label :Memoria %><br>
+        <%= f.select :memory,
+        [
+          ['192 MB'],
+          ['256 MB'],
+          ['512 MB'],
+          ['768 MB'],
+          ['896 MB'],
+          ['1 GB'],
+          ['1.2 GB'],
+          ['1.5 GB'],
+          ['2 GB'],
+          ['2.5 GB'],
+          ['3 GB'],
+          ['3.5 GB'],
+          ['4 GB'],
+          ['4.5 GB'],
+          ['6 GB'],
+          ['6.5 GB'],
+          ['8 GB'],
+          ['8.5 GB'],
+          ['12 GB'],
+          ['16 GB'],
+          ['32 GB']
+        ] %>
+        <%#= f.text_field :memory %>
+      </td>
+      <td>
+        <%= f.label :Bluetooth? %><br>
+        <%= f.check_box :bluetooth %>
+      </td>
+      <td>
+        <%= f.label :Sistema_Operativo %><br>
+        <%= f.select :os, 
+        [
+          ['LINUX UBUNTU'],
+          ['WINDOWS VISTA'],
+          ['WINDOWS VISTA B.'],
+          ['WINDOWS 7'],
+          ['WINDOWS 7 PRO'],
+          ['WINDOWS 7 STARTED'],
+          ['WINDOWS XP SP2'],
+          ['WINDOWS XP SP3'],
+          ['WINDOWS HOME SP3'],
+          ['WINDOWS XP PRO SP2'],
+          ['WINDOWS XP PRO SP3'],
+          ['WINDOWS 8'],
+          ['WINDOWS 8.1'],
+          ['WINDOWS 10'],
+          ['WINDOWS 10 PRO'],
+          ['WINDOWS SERVER 2003'],
+          ['WINDOWS SERVER 2008'],
+          ['WINDOWS SERVER 2012'],
+          ['WINDOWS MULTIPOINT SERVER 2010']
+        ]
+        
+        %>
+        <%#= f.text_field :os %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :ver_Office %><br>
+        <%= f.select :voffice, 
+        [
+          ['OFFICE 2000 Standar'],
+          ['OFFICE 2000 Profesional'],
+          ['OFFICE XP Standar'],
+          ['OFFICE XP Profesional'],
+          ['OFFICE XP Prof. edicion Esp'],
+          ['OFFICE 2003 Basic'],
+          ['OFFICE 2003 Student'],
+          ['OFFICE 2003 Small B'],
+          ['OFFICE 2003 Prof. Edit'],
+          ['OFFICE 2003 Enterprice Edic.'],
+          ['OFFICE 2007 Home Basic'],
+          ['OFFICE 2007 Home and Std'],
+          ['OFFICE 2007 Standard'],
+          ['OFFICE 2007 Small B'],
+          ['OFFICE 2007 Prof.'],
+          ['OFFICE 2007 Prof. Plus.'],
+          ['OFFICE 2007 Enterprise'],
+          ['OFFICE 2007 Ultimate.'],
+          ['OFFICE 2010-2013-2016 Start'],
+          ['OFFICE 2010-2013-2016 Online'],
+          ['OFFICE 2010-2013-2016 Home and st.'],
+          ['OFFICE 2010-2013-2016 Home and Business'],
+          ['OFFICE 2010-2013-2016 Small B.'],
+          ['OFFICE 2010-2013-2016 Standar'],
+          ['OFFICE 2010-2013-2016 Profesional'],
+          ['OFFICE 2010-2013-2016 Prof. Plus.']
+        ]
+        %>
+        <%#= f.text_field :voffice %>
+      </td>
+      <td>
+        <%= f.label :Usuarios %><br>
+        <%= f.text_field :users %>
+      </td>
+      <td>
+        <%= f.label :Nompre_Equipo %><br>
+        <%= f.text_field :name %>
+      </td>
+      <td>
+        <%= f.label :workgroup %><br>
+        <%= f.text_field :workgroup %>
+      </td>
+      <td>
+        <%= f.label :WIFI? %><br>
+        <%= f.check_box :wifi %>
+      </td>
+      <td>
+        <%= f.label :Mac_Lan %><br>
+        <%= f.text_field :maclan %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :IP_Lan %><br>
+        <%= f.text_field :iplan %>
+      </td>
+      <td>
+        <%= f.label :Mask_Lan %><br>
+        <%= f.text_field :masklan %>
+      </td>
+      <td>
+        <%= f.label :Mac_WIFI %><br>
+        <%= f.text_field :macwifi %>
+      </td>
+      <td>
+        <%= f.label :IP_WIFI %><br>
+        <%= f.text_field :ipwifi %>
+      </td>
+      <td>
+        <%= f.label :Mask_WUFI %><br>
+        <%= f.text_field :maskwifi %>
+      </td>
+      <td>
+        <%= f.label :Network_id %><br>
+        <%= f.text_field :Network_id %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :Notas %><br>
+        <%= f.text_area :notes %>
+      </td>
+    </tr>
+  </table>
+</div>
+<!--
+  <div class="field">
+    <%= f.label :Inventario %><br>
+    <%= f.text_field :ninventary %>
+  </div>
+  <div class="field">
+    <%= f.label :Serie %><br>
+    <%= f.text_field :nserie %>
+  </div>
+  <div class="field">
+    <%= f.label :Marca %><br>
+    <%= f.text_field :brand %>
+  </div>
+  <div class="field">
+    <%= f.label :Modelo %><br>
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%= f.label :Factura %><br>
+    <%= f.text_field :nfactura %>
+  </div>
+  <div class="field">
+    <%= f.label :Fecha_Compra %><br>
+    <%= f.date_select :buy_date %>
+  </div>
+  <div class="field">
+    <%= f.label :Tipo %><br>
+    <%= f.text_field :genus %>
+  </div>
+  <div class="field">
+    <%= f.label :Procesador %><br>
+    <%= f.text_field :processor %>
+  </div>
+  <div class="field">
+    <%= f.label :Disco_Duro %><br>
+    <%= f.text_field :hd %>
+  </div>
+  <div class="field">
+    <%= f.label :Memoria %><br>
+    <%= f.text_field :memory %>
+  </div>
+  <div class="field">
+    <%= f.label :Bluetooth? %><br>
+    <%= f.check_box :bluetooth %>
+  </div>
+  <div class="field">
+    <%= f.label :Sistema_Operativo %><br>
+    <%= f.text_field :os %>
+  </div> 
+  <div class="field">
+    <%= f.label :ver_Office %><br>
+    <%= f.text_field :voffice %>
+  </div>
+  <div class="field">
+    <%= f.label :Usuarios %><br>
+    <%= f.text_field :users %>
+  </div>
+  <div class="field">
+    <%= f.label :Nompre_Equipo %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :workgroup %><br>
+    <%= f.text_field :workgroup %>
+  </div>
+  <div class="field">
+    <%= f.label :WIFI? %><br>
+    <%= f.check_box :wifi %>
+  </div>
+  <div class="field">
+    <%= f.label :Mac_Lan %><br>
+    <%= f.text_field :maclan %>
+  </div>
+  <div class="field">
+    <%= f.label :IP_Lan %><br>
+    <%= f.text_field :iplan %>
+  </div>
+  <div class="field">
+    <%= f.label :Mask_Lan %><br>
+    <%= f.text_field :masklan %>
+  </div>
+  <div class="field">
+    <%= f.label :Mac_WIFI %><br>
+    <%= f.text_field :macwifi %>
+  </div>
+  <div class="field">
+    <%= f.label :IP_WIFI %><br>
+    <%= f.text_field :ipwifi %>
+  </div>
+  <div class="field">
+    <%= f.label :Mask_WIFI %><br>
+    <%= f.text_field :maskwifi %>
+  </div>
+-->
+<!--
+  <div class="field">
+    <%= f.label :operational %><br>
+    <%= f.check_box :operational %>
+  </div>
+  <div class="field">
+    <%= f.label :reazon %><br>
+    <%= f.text_area :reazon %>
+  </div> 
+-->
+<!--
+  <div class="field">
+    <%= f.label :Network_id %><br>
+    <%= f.text_field :Network_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Dependencia %><br>
+    <%= f.text_field :Dependency_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Worker_id %><br>
+    <%= f.text_field :Worker_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Notas %><br>
+    <%= f.text_area :notes %>
+  </div>
+-->
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

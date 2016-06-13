@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ninventary: MyString
+  nserie: MyString
+  brand: MyString
+  model: MyString
+  nfactura: MyString
+  buy_date: 2016-06-13
+  inch: 1.5
+  operational: false
+  reazon: MyText
+  notes: MyText
+  Dependency_id: 
+  Computer_id: 
+
+two:
+  ninventary: MyString
+  nserie: MyString
+  brand: MyString
+  model: MyString
+  nfactura: MyString
+  buy_date: 2016-06-13
+  inch: 1.5
+  operational: false
+  reazon: MyText
+  notes: MyText
+  Dependency_id: 
+  Computer_id: 

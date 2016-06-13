@@ -5,9 +5,10 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 </head>
 <body>
- 	<div>
+ 	<div class="be-gray">
  	 	<% if logged_in? %>
  	 	  <div style='float: right;'>
  	 	    Logged in as <%= current_user.username %> |
@@ -19,9 +20,48 @@
  	 	<% end %>
  	 	<%= logged_in? %>
  	</div>
- 	<div>
- 	 	<%= link_to 'PANEL', root_path %>
- 	</div>
+ 	<header>
+ 		<nav class="be-red white large-padding">
+ 			<ul class="no-list row center-xs">
+ 				<li class="col-md">
+ 					<%= link_to 'INICIO', root_path %>
+ 				</li>
+ 				<li class="col-md">
+ 					<%= link_to 'DEPENDENCIAS', dependencies_path %>
+ 				</li>
+ 				<li class="col-md">
+ 					<%= link_to 'USUARIOS', workers_path %>
+ 				</li>
+ 				<li class="col-md">
+ 					<%= link_to 'NETWORKS', networks_path %>
+ 				</li>
+ 				<li class="col-md">
+ 					<%= link_to 'COMPUTADORAS', computers_path %>
+ 				</li>
+ 				<li class="col-md">
+ 					<%= link_to 'MONITORES', screens_path %>
+ 				</li>
+ 				<li class="col-md">
+ 					<%= link_to 'UPS/REGULADORES', powers_path %>
+ 				</li>
+ 				<li class="col-md">
+ 					<%= link_to 'IMPRESORAS', printers_path %>
+ 				</li>
+ 				<li class="col-md">
+ 					<%= link_to 'COPIADORAS', copiers_path %>
+ 				</li>
+ 				<li class="col-md">
+ 					<%= link_to 'ESTADISTICAS', statistics_path %>
+ 				</li>
+ 				<li class="col-md">
+ 					<%= link_to 'CONSUMIBLES', consumables_path %>
+ 				</li>
+ 				<li class="col-md">
+ 					<%= link_to 'TELEFONIA', telephones_path %>
+ 				</li>
+ 			</ul>
+ 		</nav>
+ 	</header>	 		
 <%= yield %>
 
 </body>

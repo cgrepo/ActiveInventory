@@ -1,0 +1,61 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ninventary: MyString
+  nserie: MyString
+  brand: MyString
+  model: MyString
+  nfactura: MyString
+  buy_date: 2016-06-13
+  genus: MyString
+  processor: MyString
+  hd: MyString
+  memory: MyString
+  bluetooth: false
+  os: MyString
+  voffice: MyString
+  users: MyString
+  name: MyString
+  workgroup: MyString
+  wifi: false
+  maclan: MyString
+  iplan: MyString
+  masklan: MyString
+  macwifi: MyString
+  ipwifi: MyString
+  maskwifi: MyString
+  operational: false
+  reazon: MyText
+  Network_id: 
+  Dependency_id: 
+  Worker_id: 
+
+two:
+  ninventary: MyString
+  nserie: MyString
+  brand: MyString
+  model: MyString
+  nfactura: MyString
+  buy_date: 2016-06-13
+  genus: MyString
+  processor: MyString
+  hd: MyString
+  memory: MyString
+  bluetooth: false
+  os: MyString
+  voffice: MyString
+  users: MyString
+  name: MyString
+  workgroup: MyString
+  wifi: false
+  maclan: MyString
+  iplan: MyString
+  masklan: MyString
+  macwifi: MyString
+  ipwifi: MyString
+  maskwifi: MyString
+  operational: false
+  reazon: MyText
+  Network_id: 
+  Dependency_id: 
+  Worker_id: 

@@ -11,7 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610173307) do
+ActiveRecord::Schema.define(version: 20160613225529) do
+
+  create_table "computers", force: :cascade do |t|
+    t.string   "ninventary"
+    t.string   "nserie"
+    t.string   "brand"
+    t.string   "model"
+    t.string   "nfactura"
+    t.date     "buy_date"
+    t.string   "genus"
+    t.string   "processor"
+    t.string   "hd"
+    t.string   "memory"
+    t.boolean  "bluetooth"
+    t.string   "os"
+    t.string   "voffice"
+    t.string   "users"
+    t.string   "name"
+    t.string   "workgroup"
+    t.boolean  "wifi"
+    t.string   "maclan"
+    t.string   "iplan"
+    t.string   "masklan"
+    t.string   "macwifi"
+    t.string   "ipwifi"
+    t.string   "maskwifi"
+    t.boolean  "operational"
+    t.text     "reazon"
+    t.text     "notes"
+    t.integer  "Network_id"
+    t.integer  "Dependency_id"
+    t.integer  "Worker_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "computers", ["Dependency_id"], name: "index_computers_on_Dependency_id"
+  add_index "computers", ["Network_id"], name: "index_computers_on_Network_id"
+  add_index "computers", ["Worker_id"], name: "index_computers_on_Worker_id"
 
   create_table "consumables", force: :cascade do |t|
     t.string   "genus"
@@ -35,12 +73,14 @@ ActiveRecord::Schema.define(version: 20160610173307) do
     t.boolean  "operational",   default: true
     t.string   "reazon"
     t.text     "notes"
+    t.integer  "Network_id"
     t.integer  "Dependency_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
 
   add_index "copiers", ["Dependency_id"], name: "index_copiers_on_Dependency_id"
+  add_index "copiers", ["Network_id"], name: "index_copiers_on_Network_id"
 
   create_table "delegations", force: :cascade do |t|
     t.string   "name"
@@ -99,12 +139,34 @@ ActiveRecord::Schema.define(version: 20160610173307) do
     t.boolean  "operational",   default: true
     t.string   "reazon"
     t.text     "notes"
+    t.integer  "Network_id"
     t.integer  "Dependency_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
 
   add_index "printers", ["Dependency_id"], name: "index_printers_on_Dependency_id"
+  add_index "printers", ["Network_id"], name: "index_printers_on_Network_id"
+
+  create_table "screens", force: :cascade do |t|
+    t.string   "ninventary"
+    t.string   "nserie"
+    t.string   "brand"
+    t.string   "model"
+    t.string   "nfactura"
+    t.date     "buy_date"
+    t.float    "inch"
+    t.boolean  "operational"
+    t.text     "reazon"
+    t.text     "notes"
+    t.integer  "Dependency_id"
+    t.integer  "Computer_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "screens", ["Computer_id"], name: "index_screens_on_Computer_id"
+  add_index "screens", ["Dependency_id"], name: "index_screens_on_Dependency_id"
 
   create_table "statistics", force: :cascade do |t|
     t.string   "month"

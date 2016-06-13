@@ -1,0 +1,68 @@
+<%= form_for(@screen) do |f| %>
+  <% if @screen.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@screen.errors.count, "error") %> prohibido este monitor de ser salvado:</h2>
+
+      <ul>
+      <% @screen.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Inventario %><br>
+    <%= f.text_field :ninventary %>
+  </div>
+  <div class="field">
+    <%= f.label :Serie %><br>
+    <%= f.text_field :nserie %>
+  </div>
+  <div class="field">
+    <%= f.label :Marca %><br>
+    <%= f.text_field :brand %>
+  </div>
+  <div class="field">
+    <%= f.label :Modelo %><br>
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%= f.label :ID_Factura %><br>
+    <%= f.text_field :nfactura %>
+  </div>
+  <div class="field">
+    <%= f.label :Fecha_compra %><br>
+    <%= f.date_select :buy_date %>
+  </div>
+  <div class="field">
+    <%= f.label :Pulgadas %><br>
+    <%= f.text_field :inch %>
+  </div>
+  <!--
+  <div class="field">
+    <%= f.label :operational %><br>
+    <%= f.check_box :operational %>
+  </div>
+  <div class="field">
+    <%= f.label :reazon %><br>
+    <%= f.text_area :reazon %>
+  </div>
+-->
+  <div class="field">
+    <%= f.label :Notas %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :Dependency_id %><br>
+    <%= f.collection_select(:Dependency_id, Dependency.all, :id, :name) %>
+    <%#= f.text_field :Dependency_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Computer_id %><br>
+    <%= f.text_field :Computer_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
