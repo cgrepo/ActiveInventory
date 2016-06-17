@@ -2,6 +2,9 @@ class SessionsController < ApplicationController
  	skip_before_action :ensure_login, only: [:new, :create]
   def new
    	#only render the login form
+    respond_to do |format|
+      format.html { render  :layout => false  } 
+    end 
   end
 
   def create
