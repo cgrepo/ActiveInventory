@@ -1,4 +1,170 @@
 <p id="notice"><%= notice %></p>
+<div class="row be-gray">
+  <div class="col-xs">
+    <div class="box">
+      <strong>No Inventario:</strong><br>
+      <%= @computer.ninventary %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>No Serie:</strong><br>
+      <%= @computer.nserie %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Marca:</strong><br>
+      <%= @computer.brand %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Modelo:</strong><br>
+      <%= @computer.model %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>ID Factura:</strong><br>
+      <%= @computer.nfactura %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Fecha Compra:</strong><br>
+      <%= @computer.buy_date %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Tipo:</strong><br>
+      <%= @computer.genus %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Procesador:</strong><br>
+      <%= @computer.processor %>
+    </div>
+  </div>
+</div>
+<div class="row be-gray">
+  <div class="col-xs">
+    <div class="box">
+      <strong>Disco Duro:</strong><br>
+      <%= @computer.hd %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Memoria:</strong><br>
+      <%= @computer.memory %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Sistema Operativo:</strong><br>
+      <%= @computer.os %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Office Ver.:</strong><br>
+      <%= @computer.voffice %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Nombre:</strong><br>
+      <%= @computer.name %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Usuarios:</strong><br>
+      <%= @computer.users %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Workgroup:</strong><br>
+      <%= @computer.workgroup %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Asignada a:</strong><br>
+      <%= @computer.Worker.name %>
+    </div>
+  </div>
+</div>
+<div class="row be-gray">
+  <div class="col-xs">
+    <div class="box">
+      <strong>Bluetooth?</strong><br>
+      <%= 'si' if @computer.bluetooth %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Mac lan:</strong><br>
+      <%= @computer.maclan %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Ip lan:</strong><br>
+      <%= @computer.iplan %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Mask lan:</strong><br>
+      <%= @computer.masklan %>
+    </div>
+  </div>
+  <% if @computer.wifi %>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Wifi?</strong><br>
+      <%= 'si' if @computer.wifi %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Mac wifi:</strong><br>
+      <%= @computer.macwifi %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Ip wifi:</strong><br>
+      <%= @computer.ipwifi %>
+    </div>
+  </div>
+  <div class="col-xs">
+    <div class="box">
+      <strong>Mask wifi:</strong><br>
+      <%= @computer.maskwifi %>
+    </div>
+  </div>
+  <% end %>  
+</div>
+<div class="row be-gray">
+  <div class="col-xs">
+    <div class="box">
+      <strong>Conectado a:</strong><br>
+      <%= @computer.Network %><br>
+      <strong>Dependencia:</strong><br>
+      <%= @computer.Dependency.name %><br>
+      <strong>Notas:</strong><br>
+      <%= @computer.notes %>
+    </div>
+  </div>
+</div>
+
+<!--
 
 <p>
   <strong>No Inventario:</strong>
@@ -114,7 +280,7 @@
   <strong>Mask wifi:</strong>
   <%= @computer.maskwifi %>
 </p>
-<!--
+
 <p>
   <strong>Operational:</strong>
   <%= @computer.operational %>
@@ -124,7 +290,7 @@
   <strong>Reazon:</strong>
   <%= @computer.reazon %>
 </p>
--->
+
 <p>
   <strong>Notas:</strong>
   <%= @computer.notes %>
@@ -144,6 +310,6 @@
   <strong>Worker:</strong>
   <%= @computer.Worker %>
 </p>
-
-<%= link_to 'Edit', edit_computer_path(@computer) %> |
-<%= link_to 'Back', computers_path %>
+-->
+<%= link_to 'Editar', edit_computer_path(@computer) %> |
+<%= link_to 'Regresar', computers_path %>

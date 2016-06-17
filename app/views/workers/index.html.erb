@@ -19,7 +19,7 @@
         <td><%= worker.name %></td>
         <td><%= worker.email %></td>
         <td><%= worker.profile %></td>
-        <td><%= worker.Dependency.name %></td>
+        <td><%#= worker.Dependency.name %></td>
         <td><%= link_to 'Mostrar', worker %></td>
         <td><%= link_to 'Editar', edit_worker_path(worker) %></td>
         <td><%= link_to 'Borrar', worker, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
