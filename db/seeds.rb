@@ -12,7 +12,7 @@ Dependency.destroy_all
 
 User.create! [
   { username: "carlos", password: "th3pr!mag1n" },
-  { username: "mary", password: "173abc" }
+  { username: "mary", password: "h3ngell" }
 ]
 
 Delegation.create! [
