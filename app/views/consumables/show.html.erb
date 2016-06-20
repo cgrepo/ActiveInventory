@@ -1,5 +1,35 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs">
+			<div class="box">
+				<strong>Tipo:</strong><br>
+				<%= @consumable.genus %>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs">
+			<div class="box">
+				<strong>Modelo:</strong><br>
+				<%= @consumable.model %>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs">
+			<div class="box">
+				<strong><%= "Copiadora" if @consumable.Copier %></strong>
+				<%= @consumable.Copier.model if @consumable.Copier %>
+			</div>
+			<div class="box">
+				<strong><%= "Impresora" if @consumable.Printer %></strong>
+				<%= @consumable.Printer.model if @consumable.Printer %>
+			</div>
+		</div>
+	</div>
+</div>
+<!--
 <p>
   <strong>Tipo:</strong>
   <%= @consumable.genus %>
@@ -12,13 +42,13 @@
 
 <p>
   <strong>Copier:</strong>
-  <%= @consumable.Copier.model %>
+  <%#= @consumable.Copier.model %>
 </p>
 
 <p>
   <strong>Printer:</strong>
-  <%= @consumable.Printer.model %>
+  <%#= @consumable.Printer.model %>
 </p>
-
+-->
 <%= link_to 'Editar', edit_consumable_path(@consumable) %> |
 <%= link_to 'Regresar', consumables_path %>
