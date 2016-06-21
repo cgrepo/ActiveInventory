@@ -1,7 +1,72 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listado de Dependencias</h1>
-
+<h2>Listado de Dependencias</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-2">
+      <div class="box">
+        <strong>NOMBRE</strong>
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <div class="box">
+        <strong>TELEFONO</strong>
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <div class="box">
+        <strong>RESPONSABLE</strong>
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <div class="box">
+        <strong>EMAIL</strong>
+      </div>
+    </div>
+    <div class="col-xs-2">
+      <div class="box">
+        <strong>DELEGACION</strong>
+      </div>
+    </div>
+  </div>
+  <% @dependencies.each do |dependency| %>
+    <div class="row">
+      <div class="col-xs-2">
+        <div class="box">
+          <%= dependency.name %>
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <div class="box">
+          <%= dependency.telephone %>
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <div class="box">
+          <%= dependency.responsable %>
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <div class="box">
+          <%= dependency.responsable_email %>
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <div class="box">
+          <%= dependency.Delegation.name %>
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <div class="box">
+          <%= link_to 'Mostrar', dependency %>
+          <%= link_to 'Editar', edit_dependency_path(dependency) %>
+          <%= link_to 'Borrar', dependency, method: :delete, data: { confirm: 'esta usted seguro?' } %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<!--
 <table>
   <thead>
     <tr>
@@ -11,7 +76,7 @@
       <th>Responsable</th>
       <th>Responsable Email</th>
       <th>Delegacion</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -31,7 +96,7 @@
     <% end %>
   </tbody>
 </table>
-
+-->
 <br>
 
 <%= link_to 'Nueva Dependencia', new_dependency_path %>

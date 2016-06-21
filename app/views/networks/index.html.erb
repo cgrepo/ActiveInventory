@@ -1,7 +1,71 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Networks</h1>
+<h1>Listado de Redes</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs">
+      <div class="box">
+        <strong>Tipo de Enlace</strong>
+      </div>
+    </div>
+    <div class="col-xs">
+      <div class="box">
+        <strong>Locacion</strong>
+      </div>
+    </div>
+    <div class="col-xs">
+      <div class="box">
+        <strong>Rango IP</strong>
+      </div>
+    </div>
+    <div class="col-xs">
+      <div class="box">
+        <strong>IP Modem</strong>
+      </div>
+    </div>
+    <div class="col-xs">
+      <div class="box">
 
+      </div>
+    </div>
+  </div>
+  <% @networks.each do |network| %>
+    <div class="row">
+      <div class="col-xs">
+        <div class="box">
+          <%= network.linktype %>
+        </div>
+      </div>
+      <div class="col-xs">
+        <div class="box">
+          <%= network.location %>
+        </div>
+      </div>
+      <div class="col-xs">
+        <div class="box">
+          <%= network.iprange %>
+        </div>
+      </div>
+      <div class="col-xs">
+        <div class="box">
+          <%= network.ip %>
+        </div>
+      </div>
+      <div class="col-xs">
+        <div class="box">
+          <%= link_to 'Mostrar', network %>
+          <%= link_to 'Editar', edit_network_path(network) %>
+          <%= link_to 'Borrar', network, method: :delete, data: { confirm: 'Esta seguro?' } %>
+        </div>
+      </div>
+    </div>  
+      <tr>
+        <td></td>
+      </tr>
+  <% end %>
+  
+</div>
+<!--
 <table>
   <thead>
     <tr>
@@ -9,7 +73,7 @@
       <th>Locacion</th>
       <th>Rango IP</th>
       <th>IP Gateway</th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
@@ -27,7 +91,7 @@
     <% end %>
   </tbody>
 </table>
-
+-->
 <br>
 
 <%= link_to 'Agregar Red', new_network_path %>

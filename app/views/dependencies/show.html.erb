@@ -1,5 +1,45 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-8">
+      <div class="box">
+        <strong>Nombre:</strong>
+        <%= @dependency.name %>
+      </div>
+    </div>
+    <div class="col-xs-8">
+      <div class="box">
+        <strong>Direccion:</strong>
+        <%= @dependency.address %>
+      </div>
+    </div>
+    <div class="col-xs-8">
+      <div class="box">
+        <strong>Telefono:</strong>
+        <%= @dependency.telephone %>
+      </div>
+    </div>
+    <div class="col-xs-8">
+      <div class="box">
+        <strong>Responsable:</strong>
+        <%= @dependency.responsable %>
+      </div>
+    </div>
+    <div class="col-xs-8">
+      <div class="box">
+        <strong>Responsable email:</strong>
+        <%= @dependency.responsable_email %>
+      </div>
+    </div>
+    <div class="col-xs-8">
+      <div class="box">
+        <strong>Delegacion:</strong>
+        <%= @dependency.Delegation.name %>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
 <p>
   <strong>Nombre:</strong>
   <%= @dependency.name %>
@@ -29,6 +69,7 @@
   <strong>Delegacion:</strong>
   <%= @dependency.Delegation.name %>
 </p>
-
+-->
+<br>
 <%= link_to 'Editar', edit_dependency_path(@dependency) %> |
 <%= link_to 'Regresar', dependencies_path %>

@@ -1,24 +1,59 @@
 <p id="notice"><%= notice %></p>
+<div class="container-fluid large-padding">
+	<div class="row large-padding">
+    <div class="col-xs">
+      <div class="box">
+      	<strong>Tipo Enlace:</strong>
+	  		<%= @network.linktype %>
+      </div>
+    </div>
+  </div>
+  <div class="row large-padding">
+    <div class="col-xs">
+      <div class="box">
+      	<strong>Locacion:</strong>
+	  		<%= @network.location %>
+      </div>
+    </div>
+  </div>
+  <div class="row large-padding">
+    <div class="col-xs">
+      <div class="box">
+      	<strong>Rango IP:</strong>
+	  		<%= @network.iprange %>
+      </div>
+    </div>
+  </div>
+  <div class="row large-padding">
+    <div class="col-xs">
+      <div class="box">
+      	<strong>IP Gateway:</strong>
+	  		<%= @network.ip %>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+	<p>
+	  <strong>Tipo Enlace:</strong>
+	  <%= @network.linktype %>
+	</p>
 
-<p>
-  <strong>Tipo Enlace:</strong>
-  <%= @network.linktype %>
-</p>
+	<p>
+	  <strong>Locacion:</strong>
+	  <%= @network.location %>
+	</p>
 
-<p>
-  <strong>Locacion:</strong>
-  <%= @network.location %>
-</p>
+	<p>
+	  <strong>Rango IP:</strong>
+	  <%= @network.iprange %>
+	</p>
 
-<p>
-  <strong>Rango IP:</strong>
-  <%= @network.iprange %>
-</p>
-
-<p>
-  <strong>IP Gateway:</strong>
-  <%= @network.ip %>
-</p>
-
+	<p>
+	  <strong>IP Gateway:</strong>
+	  <%= @network.ip %>
+	</p>
+-->
+<br>
 <%= link_to 'Editar', edit_network_path(@network) %> |
 <%= link_to 'Regresar', networks_path %>

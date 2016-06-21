@@ -4,7 +4,7 @@ class DependenciesController < ApplicationController
   # GET /dependencies
   # GET /dependencies.json
   def index
-    @dependencies = Dependency.all
+    @dependencies = Dependency.all.order(:name)
   end
 
   # GET /dependencies/1

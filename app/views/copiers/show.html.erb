@@ -1,5 +1,80 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs">
+      <div class="box">
+        <strong>No Inventario:</strong>
+        <%= @copier.ninventary %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs">
+      <div class="box">
+        <strong>No Serie:</strong>
+        <%= @copier.nserie %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs">
+      <div class="box">
+        <strong>Marca:</strong>
+        <%= @copier.brand %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs">
+      <div class="box">
+        <strong>Modelo:</strong>
+        <%= @copier.model %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs">
+      <div class="box">
+        <strong>ID factura:</strong>
+        <%= @copier.nfactura %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs">
+      <div class="box">
+        <strong>Fecha compra:</strong>
+        <%= @copier.buy_date %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs">
+      <div class="box">
+        <strong>Notas:</strong>
+        <%= @copier.notes %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs">
+      <div class="box">
+        <strong>Dependencia:</strong>
+        <%= @copier.Dependency.name %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs">
+      <div class="box">
+        <br>
+        <%= link_to 'Editar', edit_copier_path(@copier) %> |
+        <%= link_to 'Regresar', copiers_path %>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
 <p>
   <strong>No Inventario:</strong>
   <%= @copier.ninventary %>
@@ -26,7 +101,7 @@
 </p>
 
 <p>
-  <strong>Fecha comprae:</strong>
+  <strong>Fecha compra:</strong>
   <%= @copier.buy_date %>
 </p>
 
@@ -39,6 +114,5 @@
   <strong>Dependencia:</strong>
   <%= @copier.Dependency.name %>
 </p>
+-->
 
-<%= link_to 'Editar', edit_copier_path(@copier) %> |
-<%= link_to 'Regresar', copiers_path %>
