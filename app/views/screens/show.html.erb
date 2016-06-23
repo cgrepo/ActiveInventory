@@ -1,64 +1,138 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>No inventario:</strong>
-  <%= @screen.ninventary %>
-</p>
-
-<p>
-  <strong>N serie:</strong>
-  <%= @screen.nserie %>
-</p>
-
-<p>
-  <strong>Marca:</strong>
-  <%= @screen.brand %>
-</p>
-
-<p>
-  <strong>Modelo:</strong>
-  <%= @screen.model %>
-</p>
-
-<p>
-  <strong>ID factura:</strong>
-  <%= @screen.nfactura %>
-</p>
-
-<p>
-  <strong>Fecha compra:</strong>
-  <%= @screen.buy_date %>
-</p>
-
-<p>
-  <strong>Pulgadas:</strong>
-  <%= @screen.inch %>
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="box be-gray">
+        <strong>No inventario:</strong>
+        <%= @screen.ninventary %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg">
+      <div class="box">
+        <strong>N serie:</strong>
+        <%= @screen.nserie %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg">
+      <div class="box">
+        <strong>Marca:</strong>
+        <%= @screen.brand %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg">
+      <div class="box">
+        <strong>Modelo:</strong>
+        <%= @screen.model %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg">
+      <div class="box">
+        <strong>ID factura:</strong>
+        <%= @screen.nfactura %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg">
+      <div class="box">
+        <strong>Fecha compra:</strong>
+        <%= @screen.buy_date %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg">
+      <div class="box">
+        <strong>Pulgadas:</strong>
+        <%= @screen.inch %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg">
+      <div class="box">
+        <strong>Notas:</strong>
+        <%= @screen.notes %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg">
+      <div class="box">
+        <strong>Dependencia:</strong>
+        <%= @screen.Dependency.name %>
+      </div>
+    </div>
+  </div>
+</div>
 <!--
-<p>
-  <strong>Operational:</strong>
-  <%= @screen.operational %>
-</p>
+  <p>
+    <strong>No inventario:</strong>
+    <%= @screen.ninventary %>
+  </p>
 
-<p>
-  <strong>Reazon:</strong>
-  <%= @screen.reazon %>
-</p>
+  <p>
+    <strong>N serie:</strong>
+    <%= @screen.nserie %>
+  </p>
+
+  <p>
+    <strong>Marca:</strong>
+    <%= @screen.brand %>
+  </p>
+
+  <p>
+    <strong>Modelo:</strong>
+    <%= @screen.model %>
+  </p>
+
+  <p>
+    <strong>ID factura:</strong>
+    <%= @screen.nfactura %>
+  </p>
+
+  <p>
+    <strong>Fecha compra:</strong>
+    <%= @screen.buy_date %>
+  </p>
+
+  <p>
+    <strong>Pulgadas:</strong>
+    <%= @screen.inch %>
+  </p>
+
+  <p>
+    <strong>Operational:</strong>
+    <%= @screen.operational %>
+  </p>
+
+  <p>
+    <strong>Reazon:</strong>
+    <%= @screen.reazon %>
+  </p>
+
+  <p>
+    <strong>Notas:</strong>
+    <%= @screen.notes %>
+  </p>
+
+  <p>
+    <strong>Dependencia:</strong>
+    <%= @screen.Dependency.name %>
+  </p>
+
+  <p>
+    <strong>Computer:</strong>
+    <%= @screen.Computer %>
+  </p>
 -->
-<p>
-  <strong>Notas:</strong>
-  <%= @screen.notes %>
-</p>
-
-<p>
-  <strong>Dependencia:</strong>
-  <%= @screen.Dependency.name %>
-</p>
-
-<p>
-  <strong>Computer:</strong>
-  <%= @screen.Computer %>
-</p>
-
 <%= link_to 'Editar', edit_screen_path(@screen) %> |
 <%= link_to 'Regresar', screens_path %>

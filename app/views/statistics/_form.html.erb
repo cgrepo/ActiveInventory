@@ -10,7 +10,49 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="container-fluid">
+    <div class="row large-padding">
+      <div class="col-lg">
+        <div class="box">
+          <%= f.label :MES %><br>
+          <%= f.select :month, [ ['ENERO'], ['FEBRERO'], ['MARZO'], ['ABRIL'], ['MAYO'], ['JUNIO'], ['JULIO'],
+                                 ['AGOSTO'], ['SEPTIEMBRE'], ['OCTUBRE'], ['NOVIEMBRE'], ['DICIEMBRE'] ] %>
+        </div>
+      </div>
+      <div class="col-lg">
+        <div class="box">
+          <%= f.label :'Hojas empleadas' %><br>
+          <%= f.number_field :sheets %>
+        </div>
+      </div>
+      <div class="col-lg">
+        <div class="box">
+          <%= f.label :consumible %><br>
+          <%= f.number_field :consumable %>
+        </div>
+      </div>
+      <div class="col-lg">
+        <div class="box">
+            <%= f.label :Impresora %><br>
+            <%= f.text_field :Printer_id %>
+        </div>
+      </div>
+      <div class="col-lg">
+        <div class="box">
+          <%= f.label :Copiadora %><br>
+          <%= f.text_field :Copier_id%>
+        </div>
+      </div>
+    </div>
+    <div class="row large-padding">
+      <div class="col-lg">
+        <div class="box">
+            <%= f.submit %>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--
   <div class="field">
     <%= f.label :MES %><br>
     <%#= f.text_field :month %>
@@ -49,4 +91,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+-->
 <% end %>

@@ -1,49 +1,91 @@
 <p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs">
+      <div class="box">
+        <strong>Numero de Inventario:</strong>
+        <%= @power.ninventary %>
+      </div>
+      <div class="box">
+        <strong>Numero de Serie:</strong>
+        <%= @power.nserie %>
+      </div>
+      <div class="box">
+        <strong>Marca:</strong>
+        <%= @power.brand %>
+      </div>
+      <div class="box">
+         <strong>Modelo:</strong>
+        <%= @power.model %>
+      </div>
+      <div class="box">
+        <strong>ID factura:</strong>
+        <%= @power.nfactura %>
+      </div>
+      <div class="box">
+        <strong>Fecha compra:</strong>
+        <%= @power.buy_date %>
+      </div>
+      <div class="box">
+        <strong>Tipo Impresora:</strong>
+        <%= @printer.genus %>
+      </div>
+      <div class="box">
+        <strong>Notas:</strong>
+        <%= @printer.notes %>
+      </div>
+      <div class="box">
+        <strong>Dependency:</strong>
+        <%= @printer.Dependency %>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+  <p>
+    <strong>Numero de Inventario:</strong>
+    <%= @power.ninventary %>
+  </p>
 
-<p>
-  <strong>Numero de Inventario:</strong>
-  <%= @power.ninventary %>
-</p>
+  <p>
+    <strong>Numero de Serie:</strong>
+    <%= @power.nserie %>
+  </p>
 
-<p>
-  <strong>Numero de Serie:</strong>
-  <%= @power.nserie %>
-</p>
+  <p>
+    <strong>Marca:</strong>
+    <%= @power.brand %>
+  </p>
 
-<p>
-  <strong>Marca:</strong>
-  <%= @power.brand %>
-</p>
+  <p>
+    <strong>Modelo:</strong>
+    <%= @power.model %>
+  </p>
 
-<p>
-  <strong>Modelo:</strong>
-  <%= @power.model %>
-</p>
+  <p>
+    <strong>ID factura:</strong>
+    <%= @power.nfactura %>
+  </p>
 
-<p>
-  <strong>ID factura:</strong>
-  <%= @power.nfactura %>
-</p>
+  <p>
+    <strong>Fecha compra:</strong>
+    <%= @power.buy_date %>
+  </p>
 
-<p>
-  <strong>Fecha compra:</strong>
-  <%= @power.buy_date %>
-</p>
+  <p>
+    <strong>Tipo Impresora:</strong>
+    <%= @printer.genus %>
+  </p>
 
-<p>
-  <strong>Tipo Impresora:</strong>
-  <%= @printer.genus %>
-</p>
+  <p>
+    <strong>Notas:</strong>
+    <%= @printer.notes %>
+  </p>
 
-<p>
-  <strong>Notas:</strong>
-  <%= @printer.notes %>
-</p>
-
-<p>
-  <strong>Dependency:</strong>
-  <%= @printer.Dependency %>
-</p>
-
+  <p>
+    <strong>Dependency:</strong>
+    <%= @printer.Dependency %>
+  </p>
+-->
 <%= link_to 'Editar', edit_printer_path(@printer) %> |
 <%= link_to 'Regresar', printers_path %>

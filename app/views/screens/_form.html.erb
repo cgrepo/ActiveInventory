@@ -10,7 +10,79 @@
       </ul>
     </div>
   <% end %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg">
+        <div class="box">
+          <%= f.label :Inventario %><br>
+          <%= f.text_field :ninventary %>
+        </div>
+      </div>
 
+      <div class="col-lg">
+        <div class="box">
+          <%= f.label :Serie %><br>
+          <%= f.text_field :nserie %>
+        </div>
+      </div>
+
+      <div class="col-lg">
+        <div class="box">
+          <%= f.label :Marca %><br>
+          <%= f.text_field :brand %>
+        </div>
+      </div>
+
+      <div class="col-lg">
+        <div class="box">
+          <%= f.label :Modelo %><br>
+          <%= f.text_field :model %>
+        </div>
+      </div>
+
+      <div class="col-lg">
+        <div class="box">
+          <%= f.label :ID_Factura %><br>
+          <%= f.text_field :nfactura %>
+        </div>
+      </div>
+
+      <div class="col-lg">
+        <div class="box">
+          <%= f.label :Fecha_compra %><br>
+          <%= f.date_select :buy_date %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2">
+        <div class="box">
+          <%= f.label :Pulgadas %><br>
+          <%= f.text_field :inch %>
+        </div>
+      </div>
+      <div class="col-lg">
+        <div class="box">
+          <%= f.label :Notas %><br>
+          <%= f.text_area :notes, size:"80x4" %>
+        </div>
+      </div>
+      <div class="col-lg">
+        <div class="box">
+          <%= f.label :Dependency_id %><br>
+          <%= f.collection_select(:Dependency_id, Dependency.all, :id, :name) %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg">
+        <div class="box">
+          <%= f.submit %>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--
   <div class="field">
     <%= f.label :Inventario %><br>
     <%= f.text_field :ninventary %>
@@ -39,16 +111,15 @@
     <%= f.label :Pulgadas %><br>
     <%= f.text_field :inch %>
   </div>
-  <!--
-  <div class="field">
-    <%= f.label :operational %><br>
-    <%= f.check_box :operational %>
-  </div>
-  <div class="field">
-    <%= f.label :reazon %><br>
-    <%= f.text_area :reazon %>
-  </div>
--->
+    <div class="field">
+      <%= f.label :operational %><br>
+      <%= f.check_box :operational %>
+    </div>
+    <div class="field">
+      <%= f.label :reazon %><br>
+      <%= f.text_area :reazon %>
+    </div>
+
   <div class="field">
     <%= f.label :Notas %><br>
     <%= f.text_area :notes %>
@@ -65,4 +136,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+-->
 <% end %>

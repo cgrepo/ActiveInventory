@@ -1,4 +1,21 @@
-<div>
+<%= stylesheet_link_tag 'reports', media: 'print, screen' %>
+<%= stylesheet_link_tag 'flexboxgrid', media: 'print, screen' %>
+	<div class="row be-blue">
+		<div class="col-lg be-gray">
+			<%= image_tag("logodire.png", size: "100", align: "middle") %>
+		</div>		
+		<div class="col-lg be-blue">
+			<%= image_tag("direccion.png", width: '290', height: '45') %>
+			<div class="row be-blue">
+			
+		<div class="col-lg be-gray">
+			<p style="font-size: 30px; font-family: Verdana; color: gray;">SOLICITUD DE SERVICIO</p>			
+		</div>
+		</div>
+		</div>
+	</div>
+
+<!--
  	<table>
  	 	 	<td style="padding: 10px;">
  	 	 	 	<%= image_tag("logodire.png", size: "80", align: "middle") %>
@@ -31,6 +48,7 @@
  	</table>
  	
 </div>
+-->
 <!--
 <div style = "height:100px; width:100px; background-color:#eeeeee;">
  	<%= image_tag("logodire.png", size: "100", align: "middle") %>

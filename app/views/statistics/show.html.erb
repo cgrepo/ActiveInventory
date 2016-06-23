@@ -1,29 +1,76 @@
 <p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg">
+      <div class="box">
+        <strong>Mes:</strong>
+        <%= @statistic.month %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg">
+      <div class="box">
+        <strong>Hojas empleadas:</strong>
+        <%= @statistic.sheets %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg">
+      <div class="box">
+        <strong>Consumible:</strong>
+        <%= @statistic.consumable %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg">
+      <div class="box">
+        <% if @statistic.Copier %>
+          <strong>Copier:</strong>
+          <%= @statistic.Copier.model %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg">
+      <div class="box">
+        <% if @statistic.Printer %>
+          <strong>Printer:</strong>
+          <%= @statistic.Printer.model %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+  <p>
+    <strong>Mes:</strong>
+    <%= @statistic.month %>
+  </p>
 
-<p>
-  <strong>Mes:</strong>
-  <%= @statistic.month %>
-</p>
+  <p>
+    <strong>Hojas empleadas:</strong>
+    <%= @statistic.sheets %>
+  </p>
 
-<p>
-  <strong>Hojas empleadas:</strong>
-  <%= @statistic.sheets %>
-</p>
+  <p>
+    <strong>Consumible:</strong>
+    <%#= @statistic.consumable %>
+  </p>
 
-<p>
-  <strong>Consumible:</strong>
-  <%= @statistic.consumable %>
-</p>
+  <p>
+    <strong>Copier:</strong>
+    <%#= @statistic.Copier.model %>
+  </p>
 
-<p>
-  <strong>Copier:</strong>
-  <%= @statistic.Copier.model %>
-</p>
-
-<p>
-  <strong>Printer:</strong>
-  <%= @statistic.Printer.model %>
-</p>
-
+  <p>
+    <strong>Printer:</strong>
+    <%#= @statistic.Printer.model %>
+  </p>
+-->
+<br>
 <%= link_to 'Editar', edit_statistic_path(@statistic) %> |
 <%= link_to 'Regresar', statistics_path %>

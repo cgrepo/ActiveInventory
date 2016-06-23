@@ -10,7 +10,72 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs">
+        <div class="box">
+          <%= f.label :Inventario %><br>
+          <%= f.text_field :ninventary %>
+        </div>
+      </div>
+      <div class="col-xs">
+        <div class="box">
+          <%= f.label :Serie %><br>
+          <%= f.text_field :nserie %>
+        </div>
+      </div>
+      <div class="col-xs">
+        <div class="box">
+          <%= f.label :Marca %><br>
+          <%= f.select :brand, [ ['HP'], ['Lexmark'], ['Brother'], ['Canon'], ['Xerox'], ['Epson'] ] %>
+        </div>
+      </div>
+      <div class="col-xs">
+        <div class="box">
+          <%= f.label :Modelo %><br>
+          <%= f.text_field :model %>
+        </div>
+      </div>
+      <div class="col-xs">
+        <div class="box">
+          <%= f.label :Factura %><br>
+          <%= f.text_field :nfactura %>
+        </div>
+      </div>
+      <div class="col-xs">
+        <div class="box">
+          <%= f.label :Fecha_Compra %><br>
+          <%= f.date_select :buy_date %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs">
+        <div class="box">
+          <%= f.label :Tipo %><br>
+          <%= f.select :genus, [ ['Laser Monocromatica'], ['Laser Color'], ['Injeccion de Tinta'], ['Matricial'] ] %>
+        </div>
+        <div class="box">
+          <%= f.label :notes %><br>
+          <%= f.text_area :notes, size:"60x6" %>
+        </div>
+      </div>
+      <div class="col-xs">
+        <div class="box">
+          <%= f.label :Dependencia %><br>
+          <%= f.collection_select(:Dependency_id, Dependency.all, :id, :name) %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs">
+        <div class="box">
+          <%= f.submit %>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--
   <div class="field">
     <%= f.label :Inventario %><br>
     <%= f.text_field :ninventary %>
@@ -66,4 +131,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+-->
 <% end %>
