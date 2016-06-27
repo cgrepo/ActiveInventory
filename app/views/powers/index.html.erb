@@ -87,43 +87,6 @@
     </div> 
   <% end %>
 </div>
-<!--
-<table>
-  <thead>
-    <tr>
-      <th>No Inventario</th>
-      <th>No Serie</th>
-      <th>Marca</th>
-      <th>Modelo</th>
-      <th>ID factura</th>
-      <th>Fecha compra</th>
-      <th>Bateria?</th>
-      <th>Notas</th>
-      <th>Dependencia</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @powers.each do |power| %>
-      <tr>
-        <td><%= power.ninventary %></td>
-        <td><%= power.nserie %></td>
-        <td><%= power.brand %></td>
-        <td><%= power.model %></td>
-        <td><%= power.nfactura %></td>
-        <td><%= power.buy_date %></td>
-        <td><%= power.no_break %></td>
-        <td><%= power.notes %></td>
-        <td><%= power.Dependency.name %></td>
-        <td><%= link_to 'Mostrar', power %></td>
-        <td><%= link_to 'Editar', edit_power_path(power) %></td>
-        <td><%= link_to 'Borrar', power, method: :delete, data: { confirm: 'Esta usted seguro?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
--->
 <br>
 
 <%= link_to 'Agregar', new_power_path %>

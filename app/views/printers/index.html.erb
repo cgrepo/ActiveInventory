@@ -76,43 +76,6 @@
     </div>
   <% end %>
 </div>
-<!--
-  <table>
-    <thead>
-      <tr>
-        <th>No Inventario</th>
-        <th>No Serie</th>
-        <th>Marca</th>
-        <th>Modelo</th>
-        <th>ID factura</th>
-        <th>Fecha compra</th>
-        <th>Tipo</th>
-        <th>Notes</th>
-        <th>Dependencia</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @printers.each do |printer| %>
-        <tr>
-          <td><%= printer.ninventary %></td>
-          <td><%= printer.nserie %></td>
-          <td><%= printer.brand %></td>
-          <td><%= printer.model %></td>
-          <td><%= printer.nfactura %></td>
-          <td><%= printer.buy_date %></td>
-          <td><%= printer.genus %></td>
-          <td><%= printer.notes %></td>
-          <td><%= printer.Dependency.name %></td>
-          <td><%= link_to 'Mostrar', printer %></td>
-          <td><%= link_to 'Editar', edit_printer_path(printer) %></td>
-          <td><%= link_to 'Borrar', printer, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
--->
 <br>
 
 <%= link_to 'Agregar Impresora', new_printer_path %>
