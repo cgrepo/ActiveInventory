@@ -158,12 +158,12 @@
         <strong>Conectado a:</strong><br>
         <%= @computer.Network %><br>
         <strong>Dependencia:</strong><br>
-        <%= @computer.Dependency.name %><br>
+        <%#= @computer.Dependency.name %><br>
         <strong>Notas:</strong><br>
         <%= @computer.notes %>
       </div>
     </div>
   </div>
-</div
+</div>
 <%= link_to 'Editar', edit_computer_path(@computer) %> |
 <%= link_to 'Regresar', computers_path %>
