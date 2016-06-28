@@ -100,7 +100,7 @@
                 <%= f.label :Disco_Duro %><br>
                 <%= f.select :hd,
                   [ ['40 GB'], ['80 GB'], ['100 GB'], ['120 GB'], ['150 GB'], ['160 GB'], ['200 GB'], ['220 GB'], ['250 GB'], 
-                  ['280 GB'], ['300 GB'], ['320 GB'], ['500 GB'], ['1 TB'], ['1.5 TB'], ['2 TB'], ['2.5 TB'], ['3 TB'], 
+                  ['280 GB'], ['300 GB'], ['320 GB'], ['350 GB'], ['500 GB'], ['1 TB'], ['1.5 TB'], ['2 TB'], ['2.5 TB'], ['3 TB'], 
                   ['3.5 TB'] ], {}, {:class => 'frms'}  %>
               </div>
             </div>
@@ -140,7 +140,7 @@
         <div class="box">
           <%= f.label :Procesador %><br>
           <%= f.select :processor,
-            [['Intel(R) Core(TM) i7-4600 M 2.90GHz']], {}, {:class => 'frms'} %><br>
+            [['Intel(R) Core(TM) i7-4600 M 2.90GHz'], ['Intel(R) Atom(TM) CPU D525 1.80GHz ']], {}, {:class => 'frms'} %><br>
           <%= f.label :Sistema_Operativo %><br>
           <%= f.select :os, 
             [ ['LINUX UBUNTU'], ['WINDOWS VISTA'], ['WINDOWS VISTA B.'], ['WINDOWS 7'], ['WINDOWS 7 PRO'], ['WINDOWS 7 STARTED'],
