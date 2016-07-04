@@ -29,7 +29,8 @@
       <div class="col-lg">
         <div class="box">
           <%= f.label :Marca %><br>
-          <%= f.text_field :brand %>
+          <%= f.select :brand, [['HP'], [''], ['']] %>
+          <%#= f.text_field :brand %>
         </div>
       </div>
 
@@ -58,7 +59,8 @@
       <div class="col-lg-2">
         <div class="box">
           <%= f.label :Pulgadas %><br>
-          <%= f.text_field :inch %>
+          <%= f.select :inch, [['14.0'], ['14.5'], ['15.0'], ['17.0'], ['19.0'], ['21.0'] ] %>
+          <%#= f.text_field :inch %>
         </div>
       </div>
       <div class="col-lg">

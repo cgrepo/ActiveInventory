@@ -88,7 +88,7 @@
               <div class="box">
                 <%= f.label :Marca %><br>
                 <%= f.select :brand, 
-                  [ ['HP'], ['LENOVO'], ['CLON'], ['COMPAQ'], ['SONY'], ['IBM'], ['SAMSUNG'], ['ASUS'] ], {}, 
+                  [ ['HP'], ['LENOVO'], ['CLON'], ['COMPAQ'], ['SONY'], ['IBM'], ['SAMSUNG'], ['ASUS'], ['DELL'], [''] ], {}, 
                   {:class => 'frms'} %>
               </div>
             </div>
@@ -140,7 +140,9 @@
         <div class="box">
           <%= f.label :Procesador %><br>
           <%= f.select :processor,
-            [['Intel(R) Core(TM) i7-4600 M 2.90GHz'], ['Intel(R) Atom(TM) CPU D525 1.80GHz ']], {}, {:class => 'frms'} %><br>
+            [ ['Intel(R) Core(TM) i7-4600 M 2.90GHz'], ['Intel(R) Atom(TM) CPU D525 1.80GHz '],  
+              ['Intel(R) Core(TM) i5-4590 3.30GHz'], ['Intel(R) Core(TM) 2 6400GHz'] ], ['Intel(R) Core(TM) i3-2130 3.40GHz'], 
+              {}, {:class => 'frms'} %><br>
           <%= f.label :Sistema_Operativo %><br>
           <%= f.select :os, 
             [ ['LINUX UBUNTU'], ['WINDOWS VISTA'], ['WINDOWS VISTA 64b'], ['WINDOWS VISTA B.'], ['WINDOWS VISTA B. 64b'], 

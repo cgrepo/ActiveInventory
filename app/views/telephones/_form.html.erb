@@ -27,7 +27,7 @@
       <div class="col-lg">
         <div class="box">
           <%= f.label :Marca %><br> 
-          <%= f.text_field :brand %>
+          <%= f.select :brand, [ ['PANASONIC'], [''] ], {}, {:class => 'frms'} %>
         </div>
       </div>
       <div class="col-lg">
