@@ -64,6 +64,9 @@
       </tr>
   <% end %>
 </div>
+<%= will_paginate @networks %>
+<br>
 <br>
 
-<%= link_to 'Agregar Red', new_network_path %>
+<%#= link_to 'Agregar Red', new_network_path %>
+<%= button_to 'Agregar red', new_network_path, method: :get %>

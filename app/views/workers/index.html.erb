@@ -47,6 +47,9 @@
 
   <% end %>
 </div>
+<%= will_paginate @workers %>
+<br>
 <br>
 
-<%= link_to 'Agregar Usuario', new_worker_path %>
+<%#= link_to 'Agregar Usuario', new_worker_path %>
+<%= button_to 'Agregar usuario', new_worker_path, method: :get %>

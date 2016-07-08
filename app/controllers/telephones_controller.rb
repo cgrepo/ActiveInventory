@@ -4,7 +4,7 @@ class TelephonesController < ApplicationController
   # GET /telephones
   # GET /telephones.json
   def index
-    @telephones = Telephone.all
+    @telephones = Telephone.all.paginate(page: params[:page], per_page: 15 )
   end
 
   # GET /telephones/1

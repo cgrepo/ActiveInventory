@@ -34,4 +34,8 @@
     </div>
   <% end %>
 </div>
-<%= link_to 'Agregar Consumible', new_consumable_path %>
+<%= will_paginate @consumables %>
+<br>
+<br>
+<%#= link_to 'Agregar Consumible', new_consumable_path %>
+<%= button_to 'Agregar consumible' , new_consumable_path, :method => :get %>

@@ -76,6 +76,9 @@
     </div>
   <% end %>
 </div>
+<%= will_paginate @printers %>
+<br>
 <br>
 
-<%= link_to 'Agregar Impresora', new_printer_path %>
+<%#= link_to 'Agregar Impresora', new_printer_path %>
+<%= button_to 'Agregar impresora', new_printer_path , method: :get %>

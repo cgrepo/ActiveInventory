@@ -87,6 +87,8 @@
     </div> 
   <% end %>
 </div>
+<%= will_paginate @powers %>
 <br>
-
-<%= link_to 'Agregar', new_power_path %>
+<br>
+<%#= link_to 'Agregar', new_power_path %>
+<%= button_to 'Agregar', new_power_path, method: :get %>

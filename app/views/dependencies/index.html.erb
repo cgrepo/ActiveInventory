@@ -67,5 +67,9 @@
   <% end %>
 </div>
 <br>
+<%= will_paginate @dependencies %>
+<br>
+<br>
+<%#= link_to 'Nueva Dependencia', new_dependency_path %>
+<%= button_to 'Agregar dependecia', new_dependency_path, method: :get %>
 
-<%= link_to 'Nueva Dependencia', new_dependency_path %>

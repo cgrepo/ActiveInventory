@@ -158,7 +158,7 @@
         <strong>Conectado a:</strong><br>
         <%= @computer.Network %><br>
         <strong>Dependencia:</strong><br>
-        <%#= @computer.Dependency.name %><br>
+        <%= @computer.Dependency.name if @computer.Dependency %><br>
         <strong>Notas:</strong><br>
         <%= @computer.notes %>
       </div>

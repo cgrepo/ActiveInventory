@@ -4,7 +4,7 @@ class WorkersController < ApplicationController
   # GET /workers
   # GET /workers.json
   def index
-    @workers = Worker.all
+    @workers = Worker.all.order(:name).paginate(page: params[:page], per_page: 15 )
   end
 
   # GET /workers/1

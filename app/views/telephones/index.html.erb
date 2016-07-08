@@ -90,6 +90,9 @@
     </div>
   <% end %>
 </div>
+<%= will_paginate @telephones %>
+<br>
 <br>
 
-<%= link_to 'New Telephone', new_telephone_path %>
+<%#= link_to 'New Telephone', new_telephone_path %>
+<%= button_to 'Agregar telefono', new_telephone_path , method: :get %>

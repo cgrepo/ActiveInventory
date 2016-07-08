@@ -1,6 +1,6 @@
 <%= form_for(@computer) do |f| %>
   <% if @computer.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" style='background-color:powderblue;'>
       <h2><%= pluralize(@computer.errors.count, "error") %> prohibida esta computadora de ser salvada:</h2>
 
       <ul>

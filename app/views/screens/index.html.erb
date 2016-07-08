@@ -66,6 +66,9 @@
     </div>
     <% end %>
 </div>
+<%= will_paginate @screens %>
+<br>
 <br>
 
-<%= link_to 'Agregar monitor', new_screen_path %>
+<%#= link_to 'Agregar monitor', new_screen_path %>
+<%= button_to 'Agregar monitor', new_screen_path , method: :get %>

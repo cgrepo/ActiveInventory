@@ -4,7 +4,7 @@ class ComputersController < ApplicationController
   # GET /computers
   # GET /computers.json
   def index
-    @computers = Computer.all
+    @computers = Computer.all.order(:name).paginate(page: params[:page], per_page: 15 )
   end
 
   # GET /computers/1

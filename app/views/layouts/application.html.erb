@@ -8,18 +8,24 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <div class="be-gray">
- 	 	<% if logged_in? %>
- 	 	  <div style='float: right;'>
- 	 	    Logged in as <%= current_user.username %> |
- 	 	    <%= link_to "Logout", logout_path, method: :delete %> 
- 	 	  </div>  
- 	 	<% end %>
- 	 	<% flash.each do |key, value| %>
- 	 	   	<p id='<%= key %>'><%= value %></p>
- 	 	<% end %>
- 	 	<%= logged_in? %>
- 	</div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm">
+                <div class="large-padding be-gray">
+         	 	<% if logged_in? %>
+         	 	  <div style='float: right;'>
+         	 	    Logged in as <%= current_user.username %> |
+         	 	    <%= link_to "Logout", logout_path, method: :delete %> 
+         	 	  </div>  
+         	 	<% end %>
+         	 	<% flash.each do |key, value| %>
+         	 	   	<p id='<%= key %>'><%= value %></p>
+         	 	<% end %>
+         	 	<%= logged_in? %>
+         	    </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="row be-blue white large-padding">
         <div class="col-sm">

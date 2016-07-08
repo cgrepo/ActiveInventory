@@ -65,6 +65,9 @@
     </div>
   <% end %>
 </div>
+<%= will_paginate @statistics %>
+<br>
 <br>
 
-<%= link_to 'Agregar estadistica', new_statistic_path %>
+<%#= link_to 'Agregar estadistica', new_statistic_path %>
+<%= button_to 'Nueva estadistica', new_statistic_path, method: :get %>

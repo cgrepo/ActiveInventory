@@ -4,7 +4,7 @@ class ConsumablesController < ApplicationController
   # GET /consumables
   # GET /consumables.json
   def index
-    @consumables = Consumable.all
+    @consumables = Consumable.all.paginate(page: params[:page], per_page: 15 )
   end
 
   # GET /consumables/1

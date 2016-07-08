@@ -67,10 +67,12 @@
     </div>
   <% end %>
 </div>
+<%= will_paginate @copiers %>
+<br>
 <br>
 
-<%= link_to 'Agregar Copiadora', new_copier_path, class: "btn" %>
-<%#= button_to "Agregar Copiadora", new_copier_path, 
+<%#= link_to 'Agregar Copiadora', new_copier_path, class: "btn" %>
+<%= button_to "Agregar Copiadora", new_copier_path, 
 #:id => "open-contacts-dialog-btn",
       #:class => "inbox-sf-add-btn tip", 
       :method => :get %>

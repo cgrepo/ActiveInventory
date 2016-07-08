@@ -4,7 +4,8 @@ class DependenciesController < ApplicationController
   # GET /dependencies
   # GET /dependencies.json
   def index
-    @dependencies = Dependency.all.order(:name)
+    @dependencies = Dependency.all.order(:name).paginate(page: params[:page], per_page: 15 )
+    #all.order(:name)
   end
 
   # GET /dependencies/1

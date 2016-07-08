@@ -56,7 +56,11 @@
   <div class="row">
     <div class="col-xs">
       <div class="box">
-        <%= button_to 'Nueva Computadora', new_computer_path, method: :get %>
+        <%= will_paginate @computers %>
+        <br>
+        <br>
+        <%= button_to 'Nueva Computadora', new_computer_path, method: :get %>        
+        <%#= link_to 'Agregar computadora', new_computer_path %>
       </div>
   </div>
   </div>

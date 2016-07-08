@@ -4,7 +4,7 @@ class ScreensController < ApplicationController
   # GET /screens
   # GET /screens.json
   def index
-    @screens = Screen.all
+    @screens = Screen.all.paginate(page: params[:page], per_page: 15 )
   end
 
   # GET /screens/1
