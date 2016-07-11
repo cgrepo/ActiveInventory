@@ -8,6 +8,14 @@ class CreatePrinters < ActiveRecord::Migration
       t.string :nfactura
       t.date :buy_date
       t.string :genus
+      t.boolean :net, :default => false
+      t.string  :net_ip
+      t.string  :net_mask
+      t.string  :net_mac
+      t.boolean :wifi, :default => false
+      t.string  :wifi_ip
+      t.string  :wifi_mask
+      t.string  :wifi_mac
       t.boolean :operational, :default => true
       t.string :reazon
       t.text :notes
