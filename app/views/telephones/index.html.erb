@@ -2,7 +2,7 @@
 
 <h2>Listado de Equipo Telefonico</h2>
 <div class="container-fluid">
-  <div class="row">
+  <div class="row be-soft_red">
     <div class="col-lg">
       <div class="box">
         <strong>No Inventario</strong>
@@ -44,7 +44,7 @@
     </div>
   </div>
   <% @telephones.each do |telephone| %>
-    <div class="row">
+    <div class="row <%= cycle('be-soft_gray','odd')%>">
       <div class="col-lg">
         <div class="box">
           <%= telephone.ninventary %>
@@ -90,9 +90,10 @@
     </div>
   <% end %>
 </div>
-<%= will_paginate @telephones %>
-<br>
-<br>
-
-<%#= link_to 'New Telephone', new_telephone_path %>
-<%= button_to 'Agregar telefono', new_telephone_path , method: :get %>
+<div>
+  <%= will_paginate @telephones %>
+  <br>
+  <br>
+  <%#= link_to 'New Telephone', new_telephone_path %>
+  <%= button_to 'Agregar telefono', new_telephone_path , method: :get %>
+</div>

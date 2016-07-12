@@ -2,7 +2,7 @@
 
 <h1>Listado Consumibles</h1>
 <div class="container-fluid">
-  <div class="row">
+  <div class="row be-soft_red">
     <div class="col-xs-2">
       <div class="box">
         <strong>Tipo</strong>
@@ -15,7 +15,7 @@
     </div>
   </div>
   <% @consumables.each do |consumable| %>
-    <div class="row">
+    <div class="row <%= cycle('be-soft_gray','odd') %>">
       <div class="col-xs-2">
         <div class="box">
           <%= consumable.genus %>
@@ -34,8 +34,10 @@
     </div>
   <% end %>
 </div>
-<%= will_paginate @consumables %>
-<br>
-<br>
-<%#= link_to 'Agregar Consumible', new_consumable_path %>
-<%= button_to 'Agregar consumible' , new_consumable_path, :method => :get %>
+<div>
+  <%= will_paginate @consumables %>
+  <br>
+  <br>
+  <%#= link_to 'Agregar Consumible', new_consumable_path %>
+  <%= button_to 'Agregar consumible' , new_consumable_path, :method => :get %>
+</div>

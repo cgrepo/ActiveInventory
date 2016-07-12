@@ -2,7 +2,7 @@
 
 <h1>Listado Copiadoras</h1>
 <div class="container-fluid">
-  <div class="row">
+  <div class="row be-gray">
     <div class="col-xs-2">
       <div class="box">
         <strong>No Inventario</strong>
@@ -31,7 +31,7 @@
     
   </div>
   <% @copiers.each do |copier| %>
-    <div class="row">
+    <div class="row <%= cycle('be-soft_gray','odd')%>" >
       <div class="col-xs-2">
         <div class="box">
           <%= copier.ninventary %>
@@ -67,13 +67,14 @@
     </div>
   <% end %>
 </div>
-<%= will_paginate @copiers %>
-<br>
-<br>
-
-<%#= link_to 'Agregar Copiadora', new_copier_path, class: "btn" %>
-<%= button_to "Agregar Copiadora", new_copier_path, 
-#:id => "open-contacts-dialog-btn",
-      #:class => "inbox-sf-add-btn tip", 
-      :method => :get %>
-<%#= link_to 'Agregar Copiadora', new_copier_path, class: "button" %>
+<div>
+  <%= will_paginate @copiers %>
+  <br>
+  <br>
+  <%#= link_to 'Agregar Copiadora', new_copier_path, class: "btn" %>
+  <%= button_to "Agregar Copiadora", new_copier_path, 
+  #:id => "open-contacts-dialog-btn",
+        #:class => "inbox-sf-add-btn tip", 
+        :method => :get %>
+  <%#= link_to 'Agregar Copiadora', new_copier_path, class: "button" %>
+</div>

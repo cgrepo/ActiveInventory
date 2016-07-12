@@ -2,7 +2,7 @@
 
 <h1>Listado de Impresoras</h1>
 <div class="container-fluid">
-  <div class="row">
+  <div class="row be-gray">
     <div class="col-xs">
       <div class="box">
         <strong>No inventario</strong>
@@ -35,7 +35,7 @@
     </div>
   </div>
   <% @printers.each do |printer| %>
-    <div class="row">
+    <div class="row <%= cycle('be-soft_gray','odd')%>">
       <div class="col-xs">
         <div class="box">
           <%= printer.ninventary %>
@@ -76,9 +76,10 @@
     </div>
   <% end %>
 </div>
-<%= will_paginate @printers %>
-<br>
-<br>
-
-<%#= link_to 'Agregar Impresora', new_printer_path %>
-<%= button_to 'Agregar impresora', new_printer_path , method: :get %>
+<div>
+  <%= will_paginate @printers %>
+  <br>
+  <br>
+  <%#= link_to 'Agregar Impresora', new_printer_path %>
+  <%= button_to 'Agregar impresora', new_printer_path , method: :get %>
+</div>

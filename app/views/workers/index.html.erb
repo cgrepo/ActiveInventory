@@ -2,7 +2,7 @@
 
 <h1>Listado de Usuarios</h1>
 <div class="container-fluid">
-  <div class="row">
+  <div class="row be-soft_red">
     <div class="col-lg-3">
       <div class="box">
         <strong>Nombre</strong>
@@ -20,7 +20,7 @@
     </div>
   </div>
   <% @workers.each do |worker| %>
-    <div class="row">
+    <div class="row <%= cycle('be-soft_gray','odd')%>">
       <div class="col-lg">
         <div class="box">
           <%= worker.name %>
