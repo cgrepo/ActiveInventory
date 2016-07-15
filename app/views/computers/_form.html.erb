@@ -42,9 +42,9 @@
         <div class="box">
           <%= f.label :workgroup %><br>
           <%= f.text_field :workgroup %><br>
-          <%= f.label :Network_id %><br>
-          <%= f.text_field :Network_id %>
-
+          <%= f.label :RED %><br>
+          <%= f.collection_select(:Network, Network.all, :id, :location ) %>
+          <%#= f.select :Network, Network.all.collect{|u| [u.location, u.id]} %>
         </div>
       </div>
       <div class="col-xs">
@@ -52,7 +52,7 @@
           <%= f.label :IP_Lan %><br>
           <%= f.text_field :iplan %><br>
           <%= f.label :IP_WIFI %><br>
-          <%= f.text_field :ipwifi %>
+          <%= f.text_field :ipwifi, :class =>'ipwifi', :disabled => 'true' %>
 
         </div>
       </div>
@@ -61,8 +61,7 @@
           <%= f.label :Mask_Lan %><br>
           <%= f.select :masklan, [['255.255.255.0'],['DHCP']], {}, {:class => 'frms'} %><br>
           <%= f.label :Mask_WIFI %><br>
-          <%= f.select :masklan, [['255.255.255.0'],['DHCP']], {}, {:class => 'frms'} %>
-          <%#= f.text_field :maskwifi %>
+          <%= f.select :maskwifi, [['255.255.255.0'],['DHCP']], {}, {:class => 'mskwifi', :disabled => 'true'} %>
         </div>
       </div>
       <div class="col-xs">
@@ -70,7 +69,7 @@
           <%= f.label :Mac_Lan %><br>
           <%= f.text_field :maclan %><br>
           <%= f.label :Mac_WIFI %><br>
-          <%= f.text_field :macwifi %>
+          <%= f.text_field :macwifi, :class =>'mcwifi', :disabled => 'true' %>
         </div>
       </div>
     </div>
@@ -80,16 +79,16 @@
           <div class="row">
             <div class="col-xs">
               <div class="box">
-                <%= f.label :Tipo %><br>
-                <%= f.select :genus, [ ['ESCRITORIO'], ['LAPTOP'], ['SERVIDOR'], ['ALL_IN_ONE'] ], {}, {:class => 'frms'} %>       
+                <%= f.label :Tipo %><br>  
+                <%= f.select :genus, [ ['ESCRITORIO'], ['LAPTOP'], ['SERVIDOR'], ['ALL_IN_ONE'] ],  {:class => 'frms'} %>       
               </div>
             </div>
             <div class="col-xs">
               <div class="box">
                 <%= f.label :Marca %><br>
                 <%= f.select :brand, 
-                  [ ['HP'], ['LENOVO'], ['CLON'], ['COMPAQ'], ['SONY'], ['IBM'], ['SAMSUNG'], ['ASUS'], ['DELL'], [''] ], {}, 
-                  {:class => 'frms'} %>
+                  [ ['HP'], ['LENOVO'], ['CLON'], ['COMPAQ'], ['SONY'], ['IBM'], ['SAMSUNG'], ['ASUS'], ['DELL'], ['ACER'] 
+                  ], {:include_blank => true}, {:class => 'frms'} %>
               </div>
             </div>
           </div>
@@ -100,8 +99,8 @@
                 <%= f.label :Disco_Duro %><br>
                 <%= f.select :hd,
                   [ ['40 GB'], ['80 GB'], ['100 GB'], ['120 GB'], ['150 GB'], ['160 GB'], ['200 GB'], ['220 GB'], ['250 GB'], 
-                  ['280 GB'], ['300 GB'], ['320 GB'], ['350 GB'], ['500 GB'], ['1 TB'], ['1.5 TB'], ['2 TB'], ['2.5 TB'], ['3 TB'], 
-                  ['3.5 TB'] ], {}, {:class => 'frms'}  %>
+                    ['280 GB'], ['300 GB'], ['320 GB'], ['350 GB'], ['500 GB'], ['1 TB'], ['1.5 TB'], ['2 TB'], ['2.5 TB'], ['3 TB'], 
+                    ['3.5 TB'] ], {}, {:class => 'frms'}  %>
               </div>
             </div>
             <div class="col-xs">
@@ -109,8 +108,8 @@
                 <%= f.label :Memoria %><br>
                 <%= f.select :memory,
                 [ ['192 MB'], ['256 MB'], ['512 MB'], ['768 MB'], ['896 MB'], ['1 GB'], ['1.2 GB'], ['1.5 GB'], ['2 GB'], ['2.5 GB'],
-              ['3 GB'], ['3.5 GB'], ['4 GB'], ['4.5 GB'], ['6 GB'], ['6.5 GB'], ['8 GB'], ['8.5 GB'], ['12 GB'],  ['16 GB'],
-              ['32 GB'] ], {}, {:class => 'frms'} %><br>
+                  ['3 GB'], ['3.5 GB'], ['4 GB'], ['4.5 GB'], ['6 GB'], ['6.5 GB'], ['8 GB'], ['8.5 GB'], ['12 GB'],  ['16 GB'],
+                  ['32 GB'] ], {}, {:class => 'frms'} %><br>
               </div>
             </div>
           </div>
@@ -141,9 +140,8 @@
           <%= f.label :Procesador %><br>
           <%= f.select :processor,
             [ ['Intel(R) Core(TM) i7-4600 M 2.90GHz'], ['Intel(R) Atom(TM) CPU D525 1.80GHz '],  
-              ['Intel(R) Core(TM) i5-4590 3.30GHz'], ['Intel(R) Core(TM) 2 6400GHz'], ['Intel(R) Core(TM) i3-2130 3.40GHz'] 
-              ['Intel(R) Celeron(R) N3050 1.60GHz'] ], 
-              {}, {:class => 'frms'} %><br>
+              ['Intel(R) Core(TM) i5-4590 3.30GHz'], ['Intel(R) Core(TM) 2 6400GHz'], ['Intel(R) Core(TM) i3-2130 3.40GHz'],
+              ['Intel(R) Celeron(R) N3050 1.60GHz'] ], {:include_blank => true}, {:class => 'frms'} %><br>
           <%= f.label :Sistema_Operativo %><br>
           <%= f.select :os, 
             [ ['LINUX UBUNTU'], ['WINDOWS VISTA'], ['WINDOWS VISTA 64b'], ['WINDOWS VISTA B.'], ['WINDOWS VISTA B. 64b'], 
@@ -152,17 +150,17 @@
               ['WINDOWS HOME SP3 64b'], ['WINDOWS XP PRO SP2'], ['WINDOWS XP PRO SP3'], ['WINDOWS XP PRO SP2 64b'], ['WINDOWS XP PRO SP3 64b'], 
               ['WINDOWS 8'], ['WINDOWS 8 64b'], ['WINDOWS 8.1'], ['WINDOWS 10'], ['WINDOWS 8.1 64b'], ['WINDOWS 10 64b'], ['WINDOWS 10 PRO'], 
               ['WINDOWS 10 PRO 64b'], ['WINDOWS SERVER 2003'], ['WINDOWS SERVER 2008'], ['WINDOWS SERVER 2012'], 
-              ['WINDOWS MULTIPOINT SERVER 2010'] ], {}, {:class => 'frms'} %>
+              ['WINDOWS MULTIPOINT SERVER 2010'] ], {:include_blank => true}, {:class => 'frms'} %>
         </div>
       </div>
       <div class="col-xs">
         <div class="box">
           <%= f.label :Responsable %><br>
-          <%= f.collection_select(:Worker_id, Worker.all, :id, :name) %>
+          <%= f.collection_select(:Worker_id, Worker.all, :id, :name, {:include_blank => true }, {:class => 'frms'} ) %>
         </div>
-              <div class="box">
+        <div class="box">
           <%= f.label :Dependencia %><br>
-          <%= f.collection_select(:Dependency_id, Dependency.all, :id, :name, {}, {:class => 'frms'}) %>
+          <%= f.collection_select(:Dependency_id, Dependency.all, :id, :name, {:include_blank => true}, {:class => 'frms'}) %>
         </div>
       </div>
     </div>
@@ -178,7 +176,7 @@
             ['OFFICE 2007 Prof. Plus.'], ['OFFICE 2007 Enterprise'], ['OFFICE 2007 Ultimate.'], 
             ['OFFICE 2010-2013-2016 Start'], ['OFFICE 2010-2013-2016 Online'], ['OFFICE 2010-2013-2016 Home and st.'], 
             ['OFFICE 2010-2013-2016 Home and Business'], ['OFFICE 2010-2013-2016 Small B.'], ['OFFICE 2010-2013-2016 Standar'], 
-            ['OFFICE 2010-2013-2016 Profesional'], ['OFFICE 2010-2013-2016 Prof. Plus.'], ['OFFICE 365'] ], {}, {:class => 'frms'} %>
+            ['OFFICE 2010-2013-2016 Profesional'], ['OFFICE 2010-2013-2016 Prof. Plus.'], ['OFFICE 365'] ], {:include_blank => true}, {:class => 'frms'} %>
         </div>
       </div>
       <div class="col-xs">

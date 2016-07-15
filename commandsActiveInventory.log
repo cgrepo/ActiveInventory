@@ -38,3 +38,14 @@ ATENCION CIUDADANA CSL,CATASTRO CSL,COMUNICACION SOCIAL CSL,CONTABILIDAD CSL,CON
 heroku run --app activeinventory console
 git push heroku master
 heroku pg:backups capture --app activeinventory
+u.update(password:"")
+Network.all.pluck :location
+las dos trabajan
+<%= f.collection_select(:Network, Network.all, :location, :id ) %>
+<%= f.collection_select(:A QUIEN SE HACE, METODO, :QUE SE SELECCIONA, :QUE SE MUESTRA ) %>
+<%= f.select :Network, Network.all.collect{|u| [u.location, u.id]} %>
+incluir espacio en blanco
+<%= f.select :genus, [ ['ESCRITORIO'], ['LAPTOP'], ['SERVIDOR'], ['ALL_IN_ONE'] ], {:include_blank => true}, {:class => 'frms'} %>
+<%= f.collection_select(:Worker_id, Worker.all, :id, :name, {:include_blank => true }, {:class => 'frms'} )
+deshabilitar un collection_select
+<%= f.select :maskwifi, [['255.255.255.0'],['DHCP']], {}, {:class => 'frms', :disabled => 'true'} %>
