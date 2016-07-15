@@ -12,6 +12,7 @@ class CreateComputers < ActiveRecord::Migration
       t.string :hd
       t.string :memory
       t.boolean :bluetooth
+      t.string  :macbluetooth
       t.string :os
       t.string :voffice
       t.string :users
