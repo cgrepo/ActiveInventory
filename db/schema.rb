@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613225529) do
+ActiveRecord::Schema.define(version: 20160718145039) do
 
   create_table "computers", force: :cascade do |t|
     t.string   "ninventary"
@@ -147,6 +147,15 @@ ActiveRecord::Schema.define(version: 20160613225529) do
 
   add_index "printers", ["Dependency_id"], name: "index_printers_on_Dependency_id"
   add_index "printers", ["Network_id"], name: "index_printers_on_Network_id"
+
+  create_table "processors", force: :cascade do |t|
+    t.string   "brand"
+    t.string   "genus"
+    t.string   "modelp"
+    t.string   "speed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "screens", force: :cascade do |t|
     t.string   "ninventary"

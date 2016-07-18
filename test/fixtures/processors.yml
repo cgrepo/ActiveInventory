@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  brand: MyString
+  genus: MyString
+  modelp: MyString
+  speed: MyString
+
+two:
+  brand: MyString
+  genus: MyString
+  modelp: MyString
+  speed: MyString

@@ -1,0 +1,41 @@
+<%= form_for(@processor) do |f| %>
+  <% if @processor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@processor.errors.count, "error") %> no se puede salvar este procesador!</h2>
+
+      <ul>
+      <% @processor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 be-soft_gray">
+        <div class="box large-padding">
+          <%= f.label :MARCA %><br>
+          <%= f.select :brand, [ ['Intel(R)'], ['AMD(R)'] ], {:include_blank => true} %><br>
+          <%#= f.text_field : %>      
+        </div>
+        <div class="box large-padding">
+          <%= f.label :TIPO %><br>
+          <%= f.select :genus, [ ['Atom(TM)'], ['Core(TM)'], ['Celeron(R)'] ], {:include_blank => true} %><br>
+        </div>
+        <div class="box large-padding">
+          <%= f.label :MODELO %><br>
+          <%= f.text_field :modelp %>
+        </div>
+        <div class="box large-padding">
+          <%= f.label :speed %><br>
+          <%= f.text_field :speed %>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <br>
+    <%= f.submit %>
+  </div>
+<% end %>

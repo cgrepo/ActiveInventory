@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listado Procesadores</h1>
+<div class='container-fluid'>
+  <div class='row be-soft_red'>
+    <div class='col-lg'>
+      <div class='box'>
+        <strong>MARCA</strong>
+      </div>
+    </div>
+    <div class='col-lg'>
+      <div class='box'>
+        <strong>TIPO</strong>
+      </div>
+    </div>
+    <div class='col-lg'>
+      <div class='box'>
+        <strong>MODELO</strong>
+      </div>
+    </div>
+    <div class='col-lg'>
+      <div class='box'>
+        <strong>VELOCIDAD</strong>
+      </div>
+    </div>
+    <div class='col-lg'>
+      <div class='box'>
+      </div>
+    </div>
+  </div>
+  <% @processors.each do |processor| %>
+    <div class="row <%= cycle('be-soft_gray','odd')%>">
+      <div class='col-lg'>
+        <div class='box'>
+          <%= processor.brand %>
+        </div>
+      </div>
+      <div class='col-lg'>
+        <div class='box'>
+          <%= processor.genus %>
+        </div>
+      </div>
+      <div class='col-lg'>
+        <div class='box'>
+          <%= processor.modelp %>
+        </div>
+      </div>
+      <div class='col-lg'>
+        <div class='box'>
+          <%= processor.speed %>
+        </div>
+      </div>
+      <div class='col-lg'>
+        <div class='box'>
+          <%= link_to 'Mostrar', processor %>
+          <%= link_to 'Editar', edit_processor_path(processor) %>
+          <%= link_to 'Borrar', processor, method: :delete, data: { confirm: 'Esta seguro?' } %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>
+
+<%= link_to 'Agregar Procesador', new_processor_path %>

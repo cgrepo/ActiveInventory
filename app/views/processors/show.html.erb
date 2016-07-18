@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<div class='container-fluid'>
+	<div class='row'>
+		<div class='col-lg-3  be-ligth_blue'>
+			<div class='box'>
+				<p>
+				  <strong>Marca:</strong>
+				  <%= @processor.brand %>
+				</p>
+				<p>
+				  <strong>Tipo:</strong>
+				  <%= @processor.genus %>
+				</p>
+				<p>
+				  <strong>Modelo:</strong>
+				  <%= @processor.modelp %>
+				</p>
+				<p>
+				  <strong>Velocidad:</strong>
+				  <%= @processor.speed %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%= link_to 'Editar', edit_processor_path(@processor) %> |
+<%= link_to 'Regresar', processors_path %>

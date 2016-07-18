@@ -42,7 +42,7 @@ u.update(password:"")
 Network.all.pluck :location
 las dos trabajan
 <%= f.collection_select(:Network, Network.all, :location, :id ) %>
-<%= f.collection_select(:A QUIEN SE HACE, METODO, :QUE SE SELECCIONA, :QUE SE MUESTRA ) %>
+<%= f.collection_select(:A QUE CAMPO SE VA A GUARDAR, QUE ARREGLO DE OBJETOS, :QUE SE SELECCIONA, :QUE METODO USAR PARA MOSTRAR, ... ) %>
 <%= f.select :Network, Network.all.collect{|u| [u.location, u.id]} %>
 incluir espacio en blanco
 <%= f.select :genus, [ ['ESCRITORIO'], ['LAPTOP'], ['SERVIDOR'], ['ALL_IN_ONE'] ], {:include_blank => true}, {:class => 'frms'} %>
