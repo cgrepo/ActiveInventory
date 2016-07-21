@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160718145039) do
     t.string   "hd"
     t.string   "memory"
     t.boolean  "bluetooth"
+    t.string   "macbluetooth"
     t.string   "os"
     t.string   "voffice"
     t.string   "users"
@@ -136,13 +137,21 @@ ActiveRecord::Schema.define(version: 20160718145039) do
     t.string   "nfactura"
     t.date     "buy_date"
     t.string   "genus"
+    t.boolean  "net",           default: false
+    t.string   "net_ip"
+    t.string   "net_mask"
+    t.string   "net_mac"
+    t.boolean  "wifi",          default: false
+    t.string   "wifi_ip"
+    t.string   "wifi_mask"
+    t.string   "wifi_mac"
     t.boolean  "operational",   default: true
     t.string   "reazon"
     t.text     "notes"
     t.integer  "Network_id"
     t.integer  "Dependency_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   add_index "printers", ["Dependency_id"], name: "index_printers_on_Dependency_id"

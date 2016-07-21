@@ -1,6 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listado de Usuarios</h1>
+<div class="container-fluid be-soft_purple large-padding">
+  <p id="notice"><%= notice %></p>
+  <h1>Listado de Usuarios</h1>
+</div>
 <div class="container-fluid">
   <div class="row be-soft_red">
     <div class="col-lg-3">
@@ -33,7 +34,7 @@
       </div>
       <div class="col-lg">
         <div class="box">
-          <%= worker.Dependency.name %>
+          <%= worker.Dependency.name if worker.Dependency %>
         </div>
       </div>
       <div class="col-lg">

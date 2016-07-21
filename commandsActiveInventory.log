@@ -49,3 +49,5 @@ incluir espacio en blanco
 <%= f.collection_select(:Worker_id, Worker.all, :id, :name, {:include_blank => true }, {:class => 'frms'} )
 deshabilitar un collection_select
 <%= f.select :maskwifi, [['255.255.255.0'],['DHCP']], {}, {:class => 'frms', :disabled => 'true'} %>
+
+

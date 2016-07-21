@@ -30,6 +30,17 @@ html, body {
   font-size: 10px;
   font-family: 'Open Sans', sans-serif;
 }
+.xsfont{
+  font-size: 10px;
+}
+.smfont{
+  font-size: 12px;
+}
+
+.textbdy{
+  width: 75%;
+  font-size: 11px;
+}
 
 .frms{
   font-size: 11px;
@@ -136,7 +147,7 @@ a,a:visited{
 
 .be-round_ligth_gray{
   background-color: #efefef;
-  color: #ECF0F1; 
+  color: black; 
 }
 
 .be-soft_blue{
