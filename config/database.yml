@@ -19,7 +19,16 @@ development:
 test:
   <<: *default
   database: db/test.sqlite3
+# this is weird but ill change this hope nothing goes wrong it was enabled 22/07/2016
+#production:
+#  <<: *default
+#  database: db/production.sqlite3
 
+#this comes from http://www.jackiejohnston.us/blog/switching-to-postgresql-production-database-for-heroku-deployment/
+#this error comes when trying to run migrations on heroku app
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: my_datbase_production
+  pool: 5
+  timeout: 5000
+
