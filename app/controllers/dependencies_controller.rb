@@ -4,7 +4,9 @@ class DependenciesController < ApplicationController
   # GET /dependencies
   # GET /dependencies.json
   def index
-    @dependencies = Dependency.all.order(:name).paginate(page: params[:page], per_page: 15 )
+    @delegation = params[:Delegation]
+    @dependencies = Dependency.all.order(:name).where(Delegation: @delegation).paginate(page: params[:page], per_page: 15 )
+    #@dependencies = Dependency.all.order(:name).paginate(page: params[:page], per_page: 15 )
     #all.order(:name)
   end
 
