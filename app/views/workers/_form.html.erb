@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-<div class="container-fluid">
+<div class="container-fluid large-padding be-round_ligth_gray">
   <div class="row">
     <div class="col-lg">
       <div class="box">
@@ -27,7 +27,7 @@
       </div>
       <div class="box">
         <%= f.label :Dependencia %><br>
-        <%= f.collection_select(:Dependency_id, Dependency.all, :id, :name) %>
+        <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true}) %>
       </div>
     </div>
   </div>

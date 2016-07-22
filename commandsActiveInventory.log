@@ -40,6 +40,9 @@ heroku run --app activeinventory rake db:migrate
 git push heroku master
 heroku pg:backups capture --app activeinventory
 heroku apps:delete activeinventory
+heroku apps:create activeinventory
+git push heroku master
+
 u.update(password:"")
 Network.all.pluck :location
 las dos trabajan

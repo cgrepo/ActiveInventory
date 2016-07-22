@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="container-fluid large-padding">
+  <div class="container-fluid large-padding be-round_ligth_gray">
     <div class="row">
       <div class="col-lg">
         <div class="box">
@@ -27,7 +27,7 @@
       <div class="col-lg">
         <div class="box">
           <%= f.label :Marca %><br> 
-          <%= f.select :brand, [ ['PANASONIC'], [''] ], {}, {:class => 'frms'} %>
+          <%= f.select :brand, [ ['PANASONIC'], [''] ], {include_blank: true}, {:class => 'frms'} %>
         </div>
       </div>
       <div class="col-lg">
@@ -39,7 +39,7 @@
       <div class="col-lg">
         <div class="box">
           <%= f.label :Tipo %><br>
-          <%= f.select :genus, [ ['VOIP'], ['ANALOGICO'] ] %>
+          <%= f.select :genus, [ ['VOIP'], ['ANALOGICO'] ], {include_blank: true} %>
         </div>
       </div>
       <div class="col-lg">
@@ -71,7 +71,7 @@
       <div class="col-lg">
         <div class="box">
           <%= f.label :Dependencia %><br>
-          <%= f.collection_select(:Dependency_id, Dependency.all, :id, :name) %>
+          <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true}) %>
         </div>
       </div>
     </div> 

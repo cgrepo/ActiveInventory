@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="container-fluid">
+  <div class="container-fluid large-padding be-round_ligth_gray">
     <div class="row">
       <div class="col-lg">
         <div class="box">
@@ -29,7 +29,7 @@
       <div class="col-lg">
         <div class="box">
           <%= f.label :Marca %><br>
-          <%= f.select :brand, [['HP'], [''], ['']] %>
+          <%= f.select :brand, [['HP'] ], {include_blank: true} %>
           <%#= f.text_field :brand %>
         </div>
       </div>
@@ -59,7 +59,7 @@
       <div class="col-lg-2">
         <div class="box">
           <%= f.label :Pulgadas %><br>
-          <%= f.select :inch, [['14.0'], ['14.5'], ['15.0'], ['17.0'], ['19.0'], ['21.0'] ] %>
+          <%= f.select :inch, [['14.0'], ['14.5'], ['15.0'], ['17.0'], ['19.0'], ['21.0'] ], {include_blank: true} %>
           <%#= f.text_field :inch %>
         </div>
       </div>
@@ -72,7 +72,7 @@
       <div class="col-lg">
         <div class="box">
           <%= f.label :Dependency_id %><br>
-          <%= f.collection_select(:Dependency_id, Dependency.all, :id, :name) %>
+          <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true}) %>
         </div>
       </div>
     </div>
