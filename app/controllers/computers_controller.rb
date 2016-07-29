@@ -42,7 +42,7 @@ class ComputersController < ApplicationController
   def update
     respond_to do |format|
       if @computer.update(computer_params)
-        format.html { redirect_to @computer, notice: 'Computadora fue actualizada satisfactoriament.' }
+        format.html { redirect_to @computer, notice: 'Computadora fue actualizada satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @computer }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class ComputersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def computer_params
-      params.require(:computer).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :genus, :processor, :hd, :memory, :bluetooth, :os, :voffice, :users, :name, :workgroup, :wifi, :maclan, :iplan, :masklan, :macwifi, :ipwifi, :maskwifi, :operational, :reazon, :notes, :Network_id, :Dependency_id, :Worker_id)
+      params.require(:computer).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :genus, :processor, :hd, :memory, :bluetooth, :macbluetooth ,:os, :voffice, :users, :name, :workgroup, :wifi, :maclan, :iplan, :masklan, :macwifi, :ipwifi, :maskwifi, :operational, :reazon, :notes, :Network_id, :Dependency_id, :Worker_id)
     end
 end

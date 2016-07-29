@@ -11,205 +11,132 @@
     </div>
   <% end %>
 
-  <div class="container-fluid">
-    <div class="row large-padding be-round_ligth_gray ">
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Inventario %><br>
-          <%= f.text_field :ninventary, class: 'frms' %><br>
-        </div>
-      </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Serie %><br>
-          <%= f.text_field :nserie, class: 'frms' %>
-        </div>
-      </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Modelo %><br>
-          <%= f.text_field :model, class: 'frms' %>
-        </div>
-      </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Marca %><br>
-          <%= f.select :brand, 
-            [ ['HP'], ['LENOVO'], ['CLON'], ['COMPAQ'], ['SONY'], ['IBM'], ['SAMSUNG'], ['ASUS'], ['DELL'], ['ACER'] ], 
-            {:include_blank => true}, {:class => 'frms'} %>
-        </div>
-      </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Tipo %><br>  
-          <%= f.select :genus, [ ['ESCRITORIO'], ['LAPTOP'], ['SERVIDOR'], ['ALL_IN_ONE'] ], 
-          {:include_blank => true},  {:class => 'frms'} %>       
-        </div>
-      </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Factura %><br>
-          <%= f.text_field :nfactura, :class => 'textbdy' %>
-        </div>
-      </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Fecha_Compra %><br>
-          <%= f.date_select :buy_date %>
-        </div>
-      </div>
-    </div>
-    <div class="row large-padding be-round_ligth_gray">
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Nompre_Equipo %><br>
-          <%= f.text_field :name %>
-        </div>
-      </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :'Usuarios de sistema' %><br>
-          <%= f.text_field :users, :placeholder => "todos usuarios locales" %>
-        </div>
-      </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Responsable %><br>
-          <%= f.collection_select(:Worker_id, Worker.all, :id, :name, {:include_blank => true }, {:class => 'frms'} ) %>
-        </div>
-      </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Disco_Duro %><br>
-          <%= f.select :hd,
+  <div class="container-fluid no-margins smfont">
+    <div class="row be-round_ligth_gray large-padding">
+      <div class="col-xs-2">
+        <%= f.label :Inventario %><br>
+        <%= f.text_field :ninventary, class:'form-control textbdy' %><br>
+        <%= f.label :Marca %><br>
+        <%= f.select :brand, 
+          [ ['HP'], ['LENOVO'], ['CLON'], ['COMPAQ'], ['SONY'], ['IBM'], ['SAMSUNG'], ['ASUS'], ['DELL'], ['ACER'] ], 
+            {:include_blank => true, :style => 'heigth: 13%;'}, {class:'btn  dropdown-toggle smfont'} %><br>
+        <%= f.label :Disco_Duro %><br>
+        <%= f.select :hd,
           [ ['40 GB'], ['80 GB'], ['100 GB'], ['120 GB'], ['150 GB'], ['160 GB'], ['200 GB'], ['220 GB'], ['250 GB'], ['280 GB'], 
           ['300 GB'], ['320 GB'], ['350 GB'], ['500 GB'], ['1 TB'], ['1.5 TB'], ['2 TB'], ['2.5 TB'], ['3 TB'], ['3.5 TB'] ], 
-          {:include_blank => true}, {:class => 'frms'}  %>
-        </div>
+          {:include_blank => true}, {class:'btn  dropdown-toggle smfont'}  %>
       </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Memoria %><br>
-          <%= f.select :memory,
+      <div class="col-xs-2">
+        <%= f.label :Serie %><br>
+        <%= f.text_field :nserie, class:'form-control textbdy' %><br>
+        <%= f.label :Tipo %><br>  
+        <%= f.select :genus, [ ['ESCRITORIO'], ['LAPTOP'], ['SERVIDOR'], ['ALL_IN_ONE'] ], 
+          {:include_blank => true},  {class:'btn  dropdown-toggle smfont'} %><br>
+        <%= f.label :Memoria %><br>
+        <%= f.select :memory,
           [ ['192 MB'], ['256 MB'], ['512 MB'], ['768 MB'], ['896 MB'], ['1 GB'], ['1.2 GB'], ['1.5 GB'], ['2 GB'], ['2.5 GB'],
             ['3 GB'], ['3.5 GB'], ['4 GB'], ['4.5 GB'], ['6 GB'], ['6.5 GB'], ['8 GB'], ['8.5 GB'], ['12 GB'],  ['16 GB'], ['32 GB'] ],
-            {:include_blank => true}, {:class => 'frms'} %>
-        </div>
+            {:include_blank => true}, {class:'btn  dropdown-toggle smfont'} %>  
       </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Procesador %><br>
-          <%= f.collection_select(:processor, Processor.all, :combined_value, :combined_value, 
-            {:include_blank => true}, {:class => 'frms'} ) %>
-        </div>
+      <div class="col-xs-3">
+        <%= f.label :Modelo %><br>
+        <%= f.text_field :model, class:'form-control textbdy' %><br>
+        <%= f.label :Fecha_Compra %><br>
+        <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}  %><br>
+        <%= f.label :Factura %><br>
+        <%= f.text_field :nfactura, class:'form-control textbdy' %>
       </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Sistema_Operativo %><br>
-          <%= f.select :os, 
-            [ ['LINUX UBUNTU'], ['WINDOWS VISTA'], ['WINDOWS VISTA 64b'], ['WINDOWS VISTA B.'], ['WINDOWS VISTA B. 64b'], 
-              ['WINDOWS 7'], ['WINDOWS 7 64b'], ['WINDOWS 7 PRO'], ['WINDOWS 7 PRO 64b'], ['WINDOWS 7 STARTER'], 
-              ['WINDOWS 7 STARTER 64b'], ['WINDOWS XP SP2'], ['WINDOWS XP SP2 64b'], ['WINDOWS XP SP3'], ['WINDOWS XP SP3 64b'], 
-              ['WINDOWS HOME SP3'], ['WINDOWS HOME SP3 64b'], ['WINDOWS XP PRO SP2'], ['WINDOWS XP PRO SP3'], 
-              ['WINDOWS XP PRO SP2 64b'], ['WINDOWS XP PRO SP3 64b'], ['WINDOWS 8'], ['WINDOWS 8 64b'], ['WINDOWS 8.1'], 
-              ['WINDOWS 10'], ['WINDOWS 8.1 64b'], ['WINDOWS 10 64b'], ['WINDOWS 10 PRO'], ['WINDOWS 10 PRO 64b'], 
-              ['WINDOWS SERVER 2003'], ['WINDOWS SERVER 2008'], ['WINDOWS SERVER 2012'], ['WINDOWS MULTIPOINT SERVER 2010'] ], 
-              {:include_blank => true}, {:class => 'frms'} %>
-        </div>
-        </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :ver_Office %><br>
-          <%= f.select :voffice, [
-            ['OFFICE 2000 Standar'], ['OFFICE 2000 Profesional'], ['OFFICE XP Standar'], ['OFFICE XP Profesional'], 
-            ['OFFICE XP Prof. edicion Esp'], ['OFFICE 2003 Basic'], ['OFFICE 2003 Student'], ['OFFICE 2003 Small B'],
-            ['OFFICE 2003 Prof. Edit'], ['OFFICE 2003 Enterprice Edic.'], ['OFFICE 2007 Home Basic'], ['OFFICE 2007 Home and Std'], 
-            ['OFFICE 2007 Standard'], ['OFFICE 2007 Small B'], ['OFFICE 2007 Prof.'], ['OFFICE 2007 Prof. Plus.'], 
-            ['OFFICE 2007 Enterprise'], ['OFFICE 2007 Ultimate.'], ['OFFICE 2010-2013-2016 Start'], ['OFFICE 2010-2013-2016 Online'], 
-            ['OFFICE 2010-2013-2016 Home and st.'], ['OFFICE 2010-2013-2016 Home and Business'], ['OFFICE 2010-2013-2016 Small B.'], 
-            ['OFFICE 2010-2013-2016 Standar'], ['OFFICE 2010-2013-2016 Profesional'], ['OFFICE 2010-2013-2016 Prof. Plus.'], 
-            ['OFFICE 365'] ], {:include_blank => true}, {:class => 'frms'} %>
-        </div> 
-        </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Dependencia %><br>
-          <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {:include_blank => true}, {:class => 'frms'}) %>
-        </div>
-        </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :workgroup %><br>
-          <%= f.text_field :workgroup, placeholder:'grupo de trabajo' %>
-        </div>
-        </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :RED %><br>
-          <%= f.collection_select(:Network, Network.all, :id, :location, {:include_blank => true}, {:class => 'frms'} ) %>
-        </div>
+      <div class="col-xs-4">
+        <%= f.label :Nompre_Equipo %><br>
+        <%= f.text_field :name, class:'form-control textbdy' %><br>
+        <%= f.label :Responsable %><br>
+        <%= f.collection_select(:Worker_id, Worker.all, :id, :name, {:include_blank => true }, 
+          {class:'btn  dropdown-toggle smfont'} ) %><br>
+        <%= f.label :workgroup %><br>
+        <%= f.text_field :workgroup, placeholder:'grupo de trabajo', class:'form-control txtbdy' %>
       </div>
     </div>
-    <div class="row large-padding be-round_ligth_gray">
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Mac_Lan %><br>
-          <%= f.text_field :maclan %>
-        </div>
-        <div class="box">
-          <%= f.label :IP_Lan %><br>
-          <%= f.text_field :iplan %>
-        </div>
-        <div class="box"
-          <%= f.label :Mask_Lan %><br>
-          <%= f.select :masklan, [['255.255.255.0'],['DHCP']], {}, {:class => ''} %>
-        </div>
+    <div class="row be-round_ligth_gray large-padding">
+      <div class="col-xs-4">
+        <%= f.label :Procesador %><br>
+        <%= f.collection_select(:processor, Processor.all.order(:modelp), :combined_value, :combined_value, 
+          {:include_blank => true}, {class:'btn  dropdown-toggle smfont'} ) %>
       </div>
-      <div class="col-xs">
-        <div class="box">
+      <div class="col-xs-3">
+        <%= f.label :Sistema_Operativo %><br>
+        <%= f.select :os, 
+          [ ['LINUX UBUNTU'], ['WINDOWS VISTA'], ['WINDOWS VISTA 64b'], ['WINDOWS VISTA B.'], ['WINDOWS VISTA B. 64b'], 
+            ['WINDOWS 7'], ['WINDOWS 7 64b'], ['WINDOWS 7 PRO'], ['WINDOWS 7 PRO 64b'], ['WINDOWS 7 STARTER'], 
+            ['WINDOWS 7 STARTER 64b'], ['WINDOWS XP SP2'], ['WINDOWS XP SP2 64b'], ['WINDOWS XP SP3'], ['WINDOWS XP SP3 64b'], 
+            ['WINDOWS HOME SP3'], ['WINDOWS HOME SP3 64b'], ['WINDOWS XP PRO SP2'], ['WINDOWS XP PRO SP3'], 
+            ['WINDOWS XP PRO SP2 64b'], ['WINDOWS XP PRO SP3 64b'], ['WINDOWS 8'], ['WINDOWS 8 64b'], ['WINDOWS 8.1'], 
+            ['WINDOWS 10'], ['WINDOWS 8.1 64b'], ['WINDOWS 10 64b'], ['WINDOWS 10 PRO'], ['WINDOWS 10 PRO 64b'], 
+            ['WINDOWS SERVER 2003'], ['WINDOWS SERVER 2008'], ['WINDOWS SERVER 2012'], ['WINDOWS MULTIPOINT SERVER 2010'] ], 
+            {:include_blank => true}, {class:'btn  dropdown-toggle smfont'} %>
+      </div>
+      <div class="col-xs-4">
+        <%= f.label :'Usuarios de sistema' %><br>
+        <%= f.text_field :users, placeholder:'usuarios locales', class:'form-control ' %>
+      </div>
+    </div>
+    <div class="row be-round_ligth_gray large-padding">
+      <div class="col-xs-4">
+        <%= f.label :RED %><br>
+        <%= f.collection_select(:Network_id, Network.all, :id, :location, {:include_blank => true}, 
+        {class:'btn  dropdown-toggle smfont'} ) %>
+      </div>
+      <div class="col-xs-3">
+        <%= f.label :ver_Office %><br>
+        <%= f.select :voffice, [
+          ['OFFICE 2000 Standar'], ['OFFICE 2000 Profesional'], ['OFFICE XP Standar'], ['OFFICE XP Profesional'], 
+          ['OFFICE XP Prof. edicion Esp'], ['OFFICE 2003 Basic'], ['OFFICE 2003 Student'], ['OFFICE 2003 Small B'],
+          ['OFFICE 2003 Prof. Edit'], ['OFFICE 2003 Enterprice Edic.'], ['OFFICE 2007 Home Basic'], ['OFFICE 2007 Home and Std'], 
+          ['OFFICE 2007 Standard'], ['OFFICE 2007 Small B'], ['OFFICE 2007 Prof.'], ['OFFICE 2007 Prof. Plus.'], 
+          ['OFFICE 2007 Enterprise'], ['OFFICE 2007 Ultimate.'], ['OFFICE 2010-2013-2016 Start'], ['OFFICE 2010-2013-2016 Online'], 
+          ['OFFICE 2010-2013-2016 Home and st.'], ['OFFICE 2010-2013-2016 Home and Business'], ['OFFICE 2010-2013-2016 Small B.'], 
+          ['OFFICE 2010-2013-2016 Standar'], ['OFFICE 2010-2013-2016 Profesional'], ['OFFICE 2010-2013-2016 Prof. Plus.'], 
+          ['OFFICE 365'] ], {:include_blank => true}, {class:'btn  dropdown-toggle smfont'} %>
+      </div>
+      <div class="col-xs-4">
+        <%= f.label :Dependencia %><br>
+        <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {:include_blank => true}, 
+          {class:'btn  dropdown-toggle smfont'}) %>
+      </div>
+    </div>
+    <div class="row be-round_ligth_gray large-padding">
+      <div class="col-xs-3">
+        <%= f.label :Mac_Lan %><br>
+        <%= f.text_field :maclan, class:'form-control smfont txtnet' %><br>
+        <%= f.label :IP_Lan %><br>
+        <%= f.text_field :iplan, class:'form-control smfont txtnet' %>
+        <%= f.label :Mask_Lan %><br>
+        <%= f.select :masklan, [['255.255.255.0'],['DHCP']], {}, {class:'btn  dropdown-toggle smfont'} %><br>
+      </div>
+      <div class="col-xs-3">
           <%= f.label :WIFI? %><br>
-          <%= f.check_box :wifi %>
-        </div>
-      </div>
-      <div class="col-xs">
-        <div class="box">
+          <%= f.check_box :wifi %><br>
           <%= f.label :Mac_WIFI %><br>
           <%#= f.text_field :macwifi, :class =>'mcwifi', :disabled => 'false' %>
-          <%= f.text_field :macwifi, :class =>'mcwifi' %>
-        </div>
-        <div class="box">
+          <%= f.text_field :macwifi, class:'form-control smfont txtnet' %>
           <%= f.label :IP_WIFI %><br>
           <%#= f.text_field :ipwifi, :class =>'ipwifi', :disabled => 'false' %>
-          <%= f.text_field :ipwifi, :class =>'ipwifi' %>
-        </div>
-        <div class="box">
+          <%= f.text_field :ipwifi, class:'form-control smfont txtnet' %>
           <%= f.label :Mask_WIFI %><br>
           <%#= f.select :maskwifi, [['255.255.255.0'],['DHCP']], {}, {:class => 'mskwifi', :disabled => 'false'} %>
-          <%= f.select :maskwifi, [['255.255.255.0'],['DHCP']], {}, {:class => ''} %>
-        </div>
+          <%= f.select :maskwifi, [['255.255.255.0'],['DHCP']], {}, {class:'btn  dropdown-toggle smfont'} %>
       </div>
-      <div class="col-xs">
-        <div class="box">
+      <div class="col-xs-3">
           <%= f.label :Bluetooth? %><br>
-          <%= f.check_box :bluetooth %>
-        </div>
-        <div class="box">
+          <%= f.check_box :bluetooth %><br>
           <%= f.label :Mac_Bluetooth %><br>
-          <%= f.text_field :macbluetooth, :class =>'macbluetooth' %>
-        </div>
-      </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Notas %>
-          <%= f.text_area :notes, size:"75x5" %>
-        </div>
+          <%= f.text_field :macbluetooth, class:'form-control smfont txtnet' %><br>
+          <%= f.label :Notas %><br>
+          <%= f.text_area :notes, size:"65x3" %>
       </div>
     </div>
-    <div class="row large-padding">
+    <div class="row">
       <div class="col-xs">
-        <div class="box">
-          <%= f.submit %>
-        </div>
+          <%= f.submit  %>
       </div>
     </div>
   </div>

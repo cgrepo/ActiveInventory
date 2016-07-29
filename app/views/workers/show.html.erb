@@ -1,37 +1,39 @@
 <p id="notice"><%= notice %></p>
-<div class="container-fluid">
+<div class="container-fluid be-gray ">
   <div class="row">
     <div class="col-lg">
-      <div class="box">
+
       	<strong>Nombre:</strong>
 	  		<%= @worker.name %>
-      </div>
+
     </div>
   </div>
   <div class="row">
     <div class="col-lg">
-      <div class="box">
+
       	<strong>Email:</strong>
 	  		<%= @worker.email %>
-      </div>
+
     </div>
   </div>
   <div class="row">
     <div class="col-lg">
-      <div class="box">
+
       	<strong>Perfil:</strong>
 	  		<%= @worker.profile %>
-      </div>
+
     </div>
   </div>
   <div class="row">
     <div class="col-lg">
-      <div class="box">
+
       	<strong>Dependencia:</strong>
-	  		<%= @worker.Dependency.name %>
-      </div>
+	  		<%= @worker.Dependency.name if @worker.Dependency   %>
+
     </div>
   </div>
 </div>
-<%= link_to 'Editar', edit_worker_path(@worker) %> |
-<%= link_to 'Regresar', workers_path %>
+<br>
+
+<%= link_to 'Editar', edit_worker_path(@worker) , class:'btn btn-default btn-sm' %> |
+<%= link_to 'Regresar', workers_path , class:'btn btn-default btn-sm' %>

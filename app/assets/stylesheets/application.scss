@@ -15,36 +15,25 @@
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Slab';
 
 html, body {
   background: #fff;
   /*font-family: Arial, sans-serif;
    font-weight: bold;*/
-  /*font-family: 'Roboto', sans-serif;*/
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto Slab', serif;
   margin: 0;
   padding: 0;
   /* text-transform: lowercase; */
 }
 
 /* FORM PAGES */
-.colclass{
-  font-size: 10px;
-  font-family: 'Open Sans', sans-serif;
-}
-.xsfont{
-  font-size: 10px;
-}
-.smfont{
-  font-size: 12px;
-}
+.xsfont{ font-size: 10px; }
+.smfont{ font-size: 12px; }
+.textbdy{ width: 65%; height: 14%; }
 
-.textbdy{
-  width: 75%;
-  font-size: 11px;
-}
-
-.frms{
+.txtnet{ width: 43%; height: 14%; }
+.frms{ 
   font-size: 11px;
   font-family: 'Open Sans', sans-serif;
 }
@@ -55,7 +44,6 @@ html, body {
   font-size: 16px;
   width: 300px;
 }
-
 .field {
   display: block;
   margin: 0;
@@ -63,7 +51,6 @@ html, body {
   font-family: sans-serif;
   font-size: 18px;
 }
-
 .passwd {
   color: #666666;
   width: 100%;
@@ -91,7 +78,6 @@ html, body {
   border: 0;
   margin-top: 6px;
 }
-
 .btn-create {
   color: #FFFFFF;
   font-size: 13px;
@@ -101,29 +87,19 @@ html, body {
   margin-top: 6px;
 }
 
-
 /* THISE ARE TESTS */
-a,a:visited{
-  color: inherit !important;
-}
-.be-blue{
-  background-color: #0064c8;
-}
-
-.white{
-  color: #ECF0F1;
-}
-
+a,a:visited{ color: inherit !important; }
+.be-blue{ background-color: #0064c8; }
+.large-padding{ padding: 10px 7px; }
+.white{ color: #ECF0F1; }
 .be-gray{
   background-color: #414141;
   color: #ECF0F1;
 }
-
 .be-soft_gray{
  background-color: #ECECEC;
  color: black;
 }
-
 .be-soft_gray2{
   background-color: #cbcbd2;
   color: #ECF0F1; 
@@ -136,22 +112,18 @@ a,a:visited{
   background-color: #7f60a5;
   color: #ECF0F1;
 }
-
 .be-round_gray{
   background-color: #8a9da7;
   color: #ECF0F1; 
 }
-
 .be-round_soft_gray{
   background-color: #c0c1c2;
   color: #ECF0F1;  
 }
-
 .be-round_ligth_gray{
   background-color: #efefef;
   color: black; 
 }
-
 .be-soft_blue{
   background-color: #0e678e;
   color: #ECF0F1;    
@@ -160,8 +132,23 @@ a,a:visited{
   background-color: #0078ad;
   color: #ECF0F1;  
 }
-
-.large-padding{
-  padding: 10px 7px;
+.no-margins{
+  margin-left:-15px;
+  margin-right:-15px;
+  margin-bottom: 0px;
 }
-ul { list-style: none; margin: 20px; }
+.no-borders{
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-top-style: transparent;
+  border-right-style: transparent;
+  border-bottom-style: transparent;
+  border-left-style: transparent;
+}
+.btn-act{
+  background-color: #0064c8;
+  color: black;
+}
+

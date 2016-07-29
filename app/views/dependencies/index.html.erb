@@ -1,12 +1,13 @@
-<div class="container-fluid be-soft_purple large-padding">
-  <p id="notice"><%= notice %></p>
-  <h2>Listado de Dependencias</h2>
-
-<%= form_tag(dependencies_path, method: "get") do  %>
-  <div class="container-fluid ">
-    <div class="row">    
-      <div class="col-xs-offset-7 col-xs-6 ">
-        <div class="box">
+<div class="container-fluid no-margins">
+  <div class="row be-soft_purple">  
+      <div class="col-xs-12">
+        <p id="notice"><%= notice %></p>
+        <h2>Listado de Dependencias</h2>
+      </div>
+      <div class="col-xs-8">
+      </div>
+      <div class="col-xs-4">
+        <%= form_tag(dependencies_path, method: "get") do  %>  
           <%= radio_button_tag(:Delegation, 1 ) %>
           <%= label_tag(:delegation_id, "SAN JOSE") %>
           <%= radio_button_tag(:Delegation, 2 ) %>
@@ -15,14 +16,13 @@
           <%= label_tag(:delegation_id, "SANTIAGO") %>
           <%= radio_button_tag(:Delegation, 4 ) %>
           <%= label_tag(:delegation_id, "LA RIVERA") %>
-          <%= submit_tag "MOSTRAR"%>
-        </div>
-      </div>
+          <%= submit_tag "MOSTRAR", class:'btn btn-default btn-xs' %>
+        <% end %>
     </div>
   </div>
-<% end %>
 </div>
-<div class="container-fluid">
+
+<div class="container-fluid no-margins">
   <div class="row be-gray">
     <div class="col-xs-2">
       <div class="box">
@@ -52,37 +52,25 @@
   </div>
   <% @dependencies.each do |dependency| %>
     <div class="row <%= cycle('be-soft_gray','odd') %>">
-      <div class="col-xs-2">
-        <div class="box">
+      <div class="col-xs-2 smfont">
           <%= dependency.name %>
-        </div>
       </div>
-      <div class="col-xs-2">
-        <div class="box">
-          <%= dependency.telephone %>
-        </div>
+      <div class="col-xs-2 smfont">        
+          <%= dependency.telephone %>        
       </div>
-      <div class="col-xs-2">
-        <div class="box">
-          <%= dependency.responsable %>
-        </div>
+      <div class="col-xs-2 smfont">        
+          <%= dependency.responsable %>        
       </div>
-      <div class="col-xs-2">
-        <div class="box">
-          <%= dependency.responsable_email %>
-        </div>
+      <div class="col-xs-2 smfont">        
+          <%= dependency.responsable_email %>        
       </div>
-      <div class="col-xs-2">
-        <div class="box">
-          <%= dependency.Delegation.name %>
-        </div>
+      <div class="col-xs-2 smfont">        
+          <%= dependency.Delegation.name %>        
       </div>
-      <div class="col-xs-2">
-        <div class="box">
-          <%= link_to 'Mostrar', dependency %>
-          <%= link_to 'Editar', edit_dependency_path(dependency) %>
-          <%= link_to 'Borrar', dependency, method: :delete, data: { confirm: 'esta usted seguro?' } %>
-        </div>
+      <div class="col-xs-2 smfont">       
+          <%= link_to 'Mostrar', dependency, class:'btn btn-default  btn-xs' %>
+          <%= link_to 'Editar', edit_dependency_path(dependency), class:'btn btn-default  btn-xs' %>
+          <%= link_to 'Borrar', dependency, method: :delete, data: { confirm: 'esta usted seguro?' } , class:'btn btn-default btn-xs'%>
       </div>
     </div>
   <% end %>
@@ -91,6 +79,6 @@
 <%= will_paginate @dependencies %>
 <br>
 <br>
-<%#= link_to 'Nueva Dependencia', new_dependency_path %>
-<%= button_to 'Agregar dependecia', new_dependency_path, method: :get %>
+<%= link_to 'Agregar dependecia', new_dependency_path, class:'btn btn-default btn-xs' %>
+
 
