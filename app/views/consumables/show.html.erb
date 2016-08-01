@@ -1,33 +1,21 @@
 <p id="notice"><%= notice %></p>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-xs">
-			<div class="box">
-				<strong>Tipo:</strong><br>
-				<%= @consumable.genus %>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs">
-			<div class="box">
-				<strong>Modelo:</strong><br>
-				<%= @consumable.model %>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs">
-			<div class="box">
-				<strong><%= "Copiadora" if @consumable.Copier %></strong>
-				<%#= @consumable.Copier.model if @consumable.Copier %>
-			</div>
-			<div class="box">
-				<strong><%= "Impresora" if @consumable.Printer %></strong>
-				<%#= @consumable.Printer.model if @consumable.Printer %>
-			</div>
+<div class="container-fluid ">
+	<div class="row ">
+		<div class="col-xs-4 large-padding be-gray">
+			<strong>Tipo:</strong><br>
+			<%= @consumable.genus %><br>
+			<strong>Modelo:</strong><br>
+			<%= @consumable.model %><br>
+			<% if @consumable.Copier %>
+				<strong>COPIADORA</strong><br>
+				<%= @consumable.Copier.model %>
+			<% end %>
+			<% if @consumable.Printer %>
+				<strong>"IMPRESORA"</strong><br>
+				<%= @consumable.Printer.model %>
+			<% end %>
 		</div>
 	</div>
 </div>
-<%= link_to 'Editar', edit_consumable_path(@consumable) %> |
-<%= link_to 'Regresar', consumables_path %>
+<%= link_to 'Editar', edit_consumable_path(@consumable), class:'btn btn-default  btn-sm' %> |
+<%= link_to 'Regresar', consumables_path, class:'btn btn-default  btn-sm' %>

@@ -13,22 +13,17 @@
   
   <div class="container-fluid large-padding be-round_ligth_gray">
     <div class="row">
-      <div class="col-xs">
-        <div class="box">
-            <%= f.label :Tipo %><br>
-            <%= f.select :genus, [ ['CARTUCHO TONER'], ['CARTUCHO INJECCION'], ['CINTA'] ], {include_blank: true}, {:class => 'frms'} %>
-        </div>
-        <div class="box">
-            <%= f.label :Modelo %><br>
-            <%= f.text_field :model %>
-        </div>
+      <div class="col-xs-1">
+          <%= f.label :Tipo %><br>
+          <%= f.select :genus, [ ['CARTUCHO TONER'], ['CARTUCHO INJECCION'], ['CINTA'] ], {include_blank: true}, 
+            {class:'btn  dropdown-toggle smfont'} %><br>
+          <%= f.label :Modelo %><br>
+          <%= f.text_field :model, class:'form-control smfont' %>
       </div>
     </div>
-    <div class="row">
+    <div class="row large-padding">
       <div class="col-xs">
-        <div class="box">
-          <%= f.submit "Crear consumible" %>
-        </div>
+        <%= f.submit  %>
       </div>
     </div>
   </div>

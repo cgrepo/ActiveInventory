@@ -13,41 +13,37 @@
 
   <div class="container-fluid large-padding be-round_ligth_gray">
     <div class="row">
-      <div class="col-xs-8">
-        <div class="box">
+      <div class="col-xs-2">        
           <%= f.label :'Tipo de conexion' %><br>
-          <%= f.select :linktype, [ ['ADSL-MODEM'], ['ENLACE'], ['ENLACE-WIFI'] ] %>
-        </div>
+          <%= f.select :linktype, [ ['ADSL-MODEM'], ['ENLACE'], ['ENLACE-WIFI'] ], {}, {class:'btn  dropdown-toggle smfont'}  %>
       </div>
-      <div class="col-xs-8">
-        <div class="box">
-          <%= f.label :Locacion %><br>
-          <%= f.select :location, [
-            ['ED. DELEGACION CSL-COMUNICACION SOCIAL'], ['ED. DELEGACION CSL-RECAUDACION'], ['ED. DELEGACION CSL-DELEGADO'],
-            ['DIF CSL'], ['OFICINAS DESARROLLO URBANO CSL'], ['PROTECCION CIVIL'], ['ALMACEN-CERRO DEL TIMBRE'],
-            ['ZOFEMAT-CERRO DEL TIMBRE'], ['ECOLOGIA-CERRO DEL TIMBRE'], ['JUVENTUD-CERRO DEL TIMBRE'], ['SERVICIOS PUBLICOS CSL'],
-            ['COMANDANCIA CANGREJOS'], ['BIBLIOTECA LOMAS DEL SOL'], ['BIBLIOTECA AMELIA WILKES'], ['CULTURA CSL'],
-            ['MODULO REGISTRO CIVIL'], ['MODULO DESARROLLO URBANO'] ], {include_blank: true} %>
-        </div>
+      <div class="col-xs-8">       
+        <%= f.label :Locacion %><br>
+        <%= f.select :location, [
+          ['ED. DELEGACION CSL-COMUNICACION SOCIAL'], ['ED. DELEGACION CSL-RECAUDACION'], ['ED. DELEGACION CSL-DELEGADO'],
+          ['DIF CSL'], ['OFICINAS DESARROLLO URBANO CSL'], ['PROTECCION CIVIL'], ['ALMACEN-CERRO DEL TIMBRE'],
+          ['ZOFEMAT-CERRO DEL TIMBRE'], ['ECOLOGIA-CERRO DEL TIMBRE'], ['JUVENTUD-CERRO DEL TIMBRE'], ['SERVICIOS PUBLICOS CSL'],
+          ['COMANDANCIA CANGREJOS'], ['BIBLIOTECA LOMAS DEL SOL'], ['BIBLIOTECA AMELIA WILKES'], ['CULTURA CSL'],
+          ['MODULO REGISTRO CIVIL'], ['MODULO DESARROLLO URBANO'] ], {include_blank: true}, {class:'btn  dropdown-toggle smfont'} %>
       </div>
-      <div class="col-xs-8">
-        <div class="box">
-          <%= f.label :'Rango IPs' %><br>
-          <%= f.text_field :iprange %>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2">        
+        <%= f.label :'Rango IPs' %><br>
+        <%= f.text_field :iprange, class:'form-control smfont' %>
       </div>
-      <div class="col-xs-8">
-        <div class="box">
-          <%= f.label :'IP Gateway' %><br>
-          <%= f.text_field :ip %>
-        </div>
+      <div class="col-xs-2">        
+        <%= f.label :'IP Gateway' %><br>
+        <%= f.text_field :ip, class:'form-control smfont' %>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-8">
-        <div class="box">
-          <%= f.submit %>
-        </div>
+      <br>
+      <br>
+
+        <%= f.submit %>
       </div>
+    </div>
   </div>
 <% end %>
