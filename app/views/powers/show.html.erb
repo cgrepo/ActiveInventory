@@ -1,78 +1,60 @@
 <p id="notice"><%= notice %></p>
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid large-padding be-gray">
+  <div class="row ">
     <div class="col-xs">
-      <div class="box">
-        <strong>Numero de Inventario:</strong>
-        <%= @power.ninventary %>
-      </div>
+      <strong>Numero de Inventario:</strong>
+      <%= @power.ninventary %>
     </div>
   </div>
   <div class="row">
     <div class="col-xs">
-      <div class="box">
-        <strong>Numero de Serie:</strong>
-        <%= @power.nserie %>
-      </div>
+      <strong>Numero de Serie:</strong>
+      <%= @power.nserie %>
     </div>
   </div>
   <div class="row">
     <div class="col-xs">
-      <div class="box">
-        <strong>Marca:</strong>
-        <%= @power.brand %>
-      </div>
+      <strong>Marca:</strong>
+      <%= @power.brand %>
     </div>
   </div>
   <div class="row">
     <div class="col-xs">
-      <div class="box">
-        <strong>Modelo:</strong>
-        <%= @power.model %>
-      </div>
+      <strong>Modelo:</strong>
+      <%= @power.model %>
     </div>
   </div>
   <div class="row">
     <div class="col-xs">
-      <div class="box">
-        <strong>ID factura:</strong>
-        <%= @power.nfactura %>
-      </div>
+      <strong>ID factura:</strong>
+      <%= @power.nfactura %>
     </div>
   </div>
   <div class="row">
     <div class="col-xs">
-      <div class="box">
-        <strong>Fecha compra:</strong>
-        <%= @power.buy_date %>
-      </div>
+      <strong>Fecha compra:</strong>
+      <%= @power.buy_date %>
     </div>
   </div>
   <div class="row">
     <div class="col-xs">
-      <div class="box">
-        <strong>Bateria incluida:</strong>
-        <%="SI" if @power.no_break %>
-      </div>
+      <strong>Bateria incluida:</strong>
+      <%="SI" if @power.no_break %>
     </div>
   </div>
   <div class="row">
     <div class="col-xs">
-      <div class="box">
-        <strong>Notas:</strong>
-        <%= @power.notes %>
-      </div>
+      <strong>Notas:</strong>
+      <%= @power.notes %>
     </div>
   </div>
   <div class="row">
     <div class="col-xs">
-      <div class="box">
-        <strong>Dependency:</strong>
-        <%= @power.Dependency.name %>
-      </div>
+      <strong>Dependency:</strong>
+      <%= @power.Dependency.name if @power.Dependency%>
     </div>
   </div>
 </div>
 <br>
-<%= link_to 'Editar', edit_power_path(@power) %> |
-<%= link_to 'Regresar', powers_path %>
+<%= link_to 'Editar', edit_power_path(@power), class:'btn btn-default  btn-sm' %> |
+<%= link_to 'Regresar', powers_path, class:'btn btn-default  btn-sm' %>

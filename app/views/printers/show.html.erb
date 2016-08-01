@@ -1,45 +1,27 @@
 <p id="notice"><%= notice %></p>
 <div class="container-fluid">
-  <div class="row">
+  <div class="row large-padding be-gray">
     <div class="col-xs">
-      <div class="box">
         <strong>Numero de Inventario:</strong>
-        <%= @printer.ninventary %>
-      </div>
-      <div class="box">
+        <%= @printer.ninventary %><br>
         <strong>Numero de Serie:</strong>
-        <%= @printer.nserie %>
-      </div>
-      <div class="box">
+        <%= @printer.nserie %><br>
         <strong>Marca:</strong>
-        <%= @printer.brand %>
-      </div>
-      <div class="box">
+        <%= @printer.brand %><br>
          <strong>Modelo:</strong>
-        <%= @printer.model %>
-      </div>
-      <div class="box">
+        <%= @printer.model %><br>
         <strong>ID factura:</strong>
-        <%= @printer.nfactura %>
-      </div>
-      <div class="box">
+        <%= @printer.nfactura %><br>
         <strong>Fecha compra:</strong>
-        <%= @printer.buy_date %>
-      </div>
-      <div class="box">
+        <%= @printer.buy_date %><br>
         <strong>Tipo Impresora:</strong>
-        <%= @printer.genus %>
-      </div>
-      <div class="box">
+        <%= @printer.genus %><br>
         <strong>Notas:</strong>
-        <%= @printer.notes %>
-      </div>
-      <div class="box">
+        <%= @printer.notes %><br>
         <strong>Dependency:</strong>
-        <%= @printer.Dependency.name %>
-      </div>
-    </div>
+        <%= @printer.Dependency.name if  @printer.Dependency %><br>
+     </div>
   </div>
 </div>
-<%= link_to 'Editar', edit_printer_path(@printer) %> |
-<%= link_to 'Regresar', printers_path %>
+<%= link_to 'Editar', edit_printer_path(@printer), class:'btn btn-default  btn-sm' %> |
+<%= link_to 'Regresar', printers_path, class:'btn btn-default  btn-sm' %>

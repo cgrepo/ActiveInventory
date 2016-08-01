@@ -12,68 +12,52 @@
   <% end %>
   <div class="container-fluid large-padding be-round_ligth_gray">
     <div class="row">
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Inventario %><br>
-          <%= f.text_field :ninventary %>
-        </div>
+      <div class="col-xs-1">      
+        <%= f.label :Inventario %><br>
+        <%= f.text_field :ninventary, class:'form-control smfont' %>
       </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Serie %><br>
-          <%= f.text_field :nserie %>
-        </div>
+      <div class="col-xs-2">       
+        <%= f.label :Serie %><br>
+        <%= f.text_field :nserie, class:'form-control smfont' %>
       </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Marca %><br>
-          <%= f.select :brand, [ ['HP'], ['Lexmark'], ['Brother'], ['Canon'], ['Xerox'], ['Epson'], ['Samsung'], [''] ],
-          {include_blank: true} %>
-        </div>
+      <div class="col-xs-1">        
+        <%= f.label :Marca %><br>
+        <%= f.select :brand, [ ['HP'], ['Lexmark'], ['Brother'], ['Canon'], ['Xerox'], ['Epson'], ['Samsung'], [''] ],
+          {include_blank: true}, {class:'btn  dropdown-toggle smfont'} %>
       </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Modelo %><br>
-          <%= f.text_field :model %>
-        </div>
+      <div class="col-xs-2">       
+        <%= f.label :Modelo %><br>
+        <%= f.text_field :model, class:'form-control smfont' %>
       </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Factura %><br>
-          <%= f.text_field :nfactura %>
-        </div>
+      <div class="col-xs-1">        
+        <%= f.label :Factura %><br>
+        <%= f.text_field :nfactura, class:'form-control smfont' %>
       </div>
-      <div class="col-xs">
-        <div class="box">
+      <div class="col-xs-3">       
           <%= f.label :Fecha_Compra %><br>
-          <%= f.date_select :buy_date %>
-        </div>
+          <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]} %>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Tipo %><br>
-          <%= f.select :genus, [ ['Laser Monocromatica'], ['Laser Color'], ['Injeccion de Tinta'], ['Matricial'] ], 
-          {include_blank: true} %>
-        </div>
-        <div class="box">
-          <%= f.label :notes %><br>
-          <%= f.text_area :notes, size:"60x6" %>
-        </div>
+      <div class="col-xs-2">        
+        <%= f.label :Tipo %><br>
+        <%= f.select :genus, [ ['Laser Monocromatica'], ['Laser Color'], ['Injeccion de Tinta'], ['Matricial'] ], 
+          {include_blank: true}, {class:'btn  dropdown-toggle smfont'} %>
+      </div>        
+      <div class="col-xs-4">
+        <%= f.label :Dependencia %><br>
+        <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true}, 
+          {class:'btn  dropdown-toggle smfont'}) %>
       </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= f.label :Dependencia %><br>
-          <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true}) %>
-        </div>
+      <div class="col-xs-4">
+        <%= f.label :notes %><br>
+        <%= f.text_area :notes, size:"50x3", class:'form-control smfont' %>
       </div>
+
     </div>
     <div class="row">
       <div class="col-xs">
-        <div class="box">
           <%= f.submit %>
-        </div>
       </div>
     </div>
   </div>

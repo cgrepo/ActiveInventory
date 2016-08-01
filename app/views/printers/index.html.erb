@@ -4,75 +4,49 @@
 </div>
 <div class="container-fluid">
   <div class="row be-gray">
-    <div class="col-xs">
-      <div class="box">
-        <strong>No inventario</strong>
-      </div>
+    <div class="col-xs-1">
+      <strong>Inventario</strong>
+    </div>
+    <div class="col-xs-2">      
+      <strong>Serie</strong>
+    </div>
+    <div class="col-xs-1">
+      <strong>Marca</strong>
+    </div>
+    <div class="col-xs-2">      
+      <strong>Modelo</strong>
+    </div>
+    <div class="col-xs-2">
+      <strong>Tipo</strong>
     </div>
     <div class="col-xs">
-      <div class="box">
-        <strong>No serie</strong>
-      </div>
-    </div>
-    <div class="col-xs">
-      <div class="box">
-        <strong>Marca</strong>
-      </div>
-    </div>
-    <div class="col-xs">
-      <div class="box">
-        <strong>Modelo</strong>
-      </div>
-    </div>
-    <div class="col-xs">
-      <div class="box">
-        <strong>Tipo</strong>
-      </div>
-    </div>
-    <div class="col-xs">
-      <div class="box">
-        <strong>Dependencia</strong>
-      </div>
+      <strong>Dependencia</strong>
     </div>
   </div>
   <% @printers.each do |printer| %>
     <div class="row <%= cycle('be-soft_gray','odd')%>">
-      <div class="col-xs">
-        <div class="box">
-          <%= printer.ninventary %>
-        </div>
+      <div class="col-xs-1">
+        <%= printer.ninventary %>
       </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= printer.nserie %>
-        </div>
+      <div class="col-xs-2">        
+        <%= printer.nserie %>
       </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= printer.brand %>
-        </div>
+      <div class="col-xs-1">        
+        <%= printer.brand %>
       </div>
-      <div class="col-xs">
-        <div class="box">
+      <div class="col-xs-2">        
           <%= printer.model %>
-        </div>
       </div>
-      <div class="col-xs">
-        <div class="box">
+      <div class="col-xs-2">       
           <%= printer.genus %>
-        </div>
+      </div>
+      <div class="col-xs-2">
+        <%= printer.Dependency.name if printer.Dependency %>
       </div>
       <div class="col-xs">
-        <div class="box">
-          <%= printer.Dependency.name %>
-        </div>
-      </div>
-      <div class="col-xs">
-        <div class="box">
-          <%= link_to 'Mostrar', printer %>
-          <%= link_to 'Editar', edit_printer_path(printer) %>
-          <%= link_to 'Borrar', printer, method: :delete, data: { confirm: 'Esta seguro?' } %>
-        </div>
+          <%= link_to 'Mostrar', printer, class:'btn btn-default  btn-sm' %>
+          <%= link_to 'Editar', edit_printer_path(printer), class:'btn btn-default  btn-sm' %>
+          <%= link_to 'Borrar', printer, method: :delete, data: { confirm: 'Esta seguro?' }, class:'btn btn-default  btn-sm' %>
       </div>
     </div>
   <% end %>
@@ -81,6 +55,6 @@
   <%= will_paginate @printers %>
   <br>
   <br>
-  <%#= link_to 'Agregar Impresora', new_printer_path %>
-  <%= button_to 'Agregar impresora', new_printer_path , method: :get %>
+  <%= link_to 'Agregar Impresora', new_printer_path, class:'btn btn-default  btn-sm' %>
+  <%#= button_to 'Agregar impresora', new_printer_path , method: :get %>
 </div>
