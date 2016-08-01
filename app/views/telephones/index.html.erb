@@ -4,89 +4,55 @@
 </div>
 <div class="container-fluid">
   <div class="row be-soft_red">
-    <div class="col-lg">
-      <div class="box">
-        <strong>No Inventario</strong>
-      </div>
+    <div class="col-xs-1">      
+      <strong>Inventario</strong>
     </div>
-    <div class="col-lg">
-      <div class="box">
-        <strong>No Serie</strong>
-      </div>
+    <div class="col-xs-1">      
+      <strong>No Serie</strong>
     </div>
-    <div class="col-lg">
-      <div class="box">
-        <strong>Marca</strong>
-      </div>
+    <div class="col-xs-1">      
+      <strong>Marca</strong>
     </div>
-    <div class="col-lg">
-      <div class="box">
-        <strong>Modelo</strong>
-      </div>
+    <div class="col-xs-1">
+      <strong>Modelo</strong>
     </div>
-    <div class="col-lg">
-      <div class="box">
-        <strong>Tipo</strong>
-      </div>
+    <div class="col-xs-1">
+      <strong>Tipo</strong>
     </div>
-    <div class="col-lg">
-      <div class="box">
-        <strong>Numero</strong>
-      </div>
+    <div class="col-xs-1">
+      <strong>Numero</strong>
     </div>
-    <div class="col-lg">
-      <div class="box">
-        <strong>Dependencia</strong>
-      </div>
-    </div>
-    <div class="col-lg">
-      <div class="box">
-      </div>
+    <div class="col-xs">
+      <strong>Dependencia</strong>
     </div>
   </div>
   <% @telephones.each do |telephone| %>
     <div class="row <%= cycle('be-soft_gray','odd')%>">
-      <div class="col-lg">
-        <div class="box">
-          <%= telephone.ninventary %>
-        </div>
+      <div class="col-xs-1">
+        <%= telephone.ninventary %>
       </div>
-      <div class="col-lg">
-        <div class="box">
-          <%= telephone.nserie %>
-        </div>
+      <div class="col-xs-1">        
+        <%= telephone.nserie %>
       </div>
-      <div class="col-lg">
-        <div class="box">
-          <%= telephone.brand %>
-        </div>
+      <div class="col-xs-1">        
+        <%= telephone.brand %>
       </div>
-      <div class="col-lg">
-        <div class="box">
-          <%= telephone.model %>
-        </div>
+      <div class="col-xs-1">
+        <%= telephone.model %>
       </div>
-      <div class="col-lg">
-        <div class="box">
-          <%= telephone.genus %>
-        </div>
+      <div class="col-xs-1">        
+        <%= telephone.genus %>
       </div>
-      <div class="col-lg">
-        <div class="box">
-          <%= telephone.number %>
-        </div>
+      <div class="col-xs-1">        
+        <%= telephone.number %>
       </div>
-      <div class="col-lg">
-        <div class="box">
-          <%= telephone.Dependency.name %>
-        </div>
+      <div class="col-xs-4">
+        <%= telephone.Dependency.name if telephone.Dependency %>
       </div>
-      <div class="col-lg">
-        <div class="box">
-          <%= link_to 'Show', telephone %>
-          <%= link_to 'Edit', edit_telephone_path(telephone) %>
-          <%= link_to 'Destroy', telephone, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
+      <div class="col-xs-2">        
+          <%= link_to 'Mostrar', telephone, class:'btn btn-default  btn-sm' %>
+          <%= link_to 'Editar', edit_telephone_path(telephone), class:'btn btn-default  btn-sm' %>
+          <%= link_to 'Borrar', telephone, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default  btn-sm' %>
       </div>
     </div>
   <% end %>

@@ -2,7 +2,6 @@
   <% if @statistic.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@statistic.errors.count, "error") %> prohibida la estadistica de ser salvada:</h2>
-
       <ul>
       <% @statistic.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,43 +11,32 @@
   <% end %>
   <div class="container-fluid large-padding be-round_ligth_gray">
     <div class="row large-padding">
-      <div class="col-lg">
-        <div class="box">
-          <%= f.label :MES %><br>
-          <%= f.select :month, [ ['ENERO'], ['FEBRERO'], ['MARZO'], ['ABRIL'], ['MAYO'], ['JUNIO'], ['JULIO'],
-                                 ['AGOSTO'], ['SEPTIEMBRE'], ['OCTUBRE'], ['NOVIEMBRE'], ['DICIEMBRE'] ] %>
-        </div>
+      <div class="col-xs-2">
+        <%= f.label :MES %><br>
+        <%= f.select :month, [ ['ENERO'], ['FEBRERO'], ['MARZO'], ['ABRIL'], ['MAYO'], ['JUNIO'], ['JULIO'],
+                                 ['AGOSTO'], ['SEPTIEMBRE'], ['OCTUBRE'], ['NOVIEMBRE'], ['DICIEMBRE'] ], {}, 
+                                 {class:'btn  dropdown-toggle smfont'} %>
       </div>
-      <div class="col-lg">
-        <div class="box">
-          <%= f.label :'Hojas empleadas' %><br>
-          <%= f.number_field :sheets %>
-        </div>
+      <div class="col-xs-2">
+        <%= f.label :'Hojas empleadas' %><br>
+        <%= f.number_field :sheets, class:'form-control smfont' %>
       </div>
-      <div class="col-lg">
-        <div class="box">
-          <%= f.label :consumible %><br>
-          <%= f.number_field :consumable %>
-        </div>
+      <div class="col-xs-2">        
+        <%= f.label :consumible %><br>
+        <%= f.number_field :consumable, class:'form-control smfont' %>
       </div>
-      <div class="col-lg">
-        <div class="box">
-            <%= f.label :Impresora %><br>
-            <%= f.text_field :Printer_id %>
-        </div>
+      <div class="col-xs-2">
+        <%= f.label :Impresora %><br>
+        <%= f.text_field :Printer_id, class:'form-control smfont' %>
       </div>
-      <div class="col-lg">
-        <div class="box">
-          <%= f.label :Copiadora %><br>
-          <%= f.text_field :Copier_id%>
-        </div>
+      <div class="col-xs-2">        
+        <%= f.label :Copiadora %><br>
+        <%= f.text_field :Copier_id, class:'form-control smfont' %>
       </div>
     </div>
     <div class="row large-padding">
-      <div class="col-lg">
-        <div class="box">
-            <%= f.submit %>
-        </div>
+      <div class="col-xs">       
+        <%= f.submit %>
       </div>
     </div>
   </div>

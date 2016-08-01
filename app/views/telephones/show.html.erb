@@ -1,79 +1,61 @@
 <p id="notice"><%= notice %></p>
-<div class="container-fluid">
+<div class="container-fluid large-padding be-gray">
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>No Inventario:</strong>
-        <%= @telephone.ninventary %>
-      </div>
+    <div class="col-xs">      
+      <strong>No Inventario:</strong>
+      <%= @telephone.ninventary %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>No serie:</strong>
-        <%= @telephone.nserie %>
-      </div>
+    <div class="col-xs">      
+      <strong>No serie:</strong>
+      <%= @telephone.nserie %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-         <strong>Marca:</strong>
-        <%= @telephone.brand %>
-      </div>
+    <div class="col-xs">      
+      <strong>Marca:</strong>
+      <%= @telephone.brand %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>Model:</strong>
-        <%= @telephone.model %>
-      </div>
+    <div class="col-xs">      
+      <strong>Model:</strong>
+      <%= @telephone.model %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>Tipo:</strong>
-        <%= @telephone.genus %>
-      </div>
+    <div class="col-xs">      
+      <strong>Tipo:</strong>
+      <%= @telephone.genus %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>Fecha de Compra:</strong>
-        <%= @telephone.buy_date %>
-      </div>
+    <div class="col-xs">      
+      <strong>Fecha de Compra:</strong>
+      <%= @telephone.buy_date %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>Numero:</strong>
-        <%= @telephone.number %>
-      </div>
+    <div class="col-xs">      
+      <strong>Numero:</strong>
+      <%= @telephone.number %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-         <strong>Notes:</strong>
-        <%= @telephone.notes %>
-      </div>
+    <div class="col-xs">      
+      <strong>Notas:</strong>
+      <%= @telephone.notes %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>Dependencia:</strong>
-        <%= @telephone.Dependency.name %>
-      </div>
+    <div class="col-xs">      
+      <strong>Dependencia:</strong>
+      <%= @telephone.Dependency.name if @telephone.Dependency %>
     </div>
   </div>
 </div>
 <br>
 
-<%= link_to 'Editar', edit_telephone_path(@telephone) %> |
-<%= link_to 'Regresar', telephones_path %>
+<%= link_to 'Editar', edit_telephone_path(@telephone), class:'btn btn-default  btn-sm' %> |
+<%= link_to 'Regresar', telephones_path, class:'btn btn-default  btn-sm' %>

@@ -1,35 +1,27 @@
 <p id="notice"><%= notice %></p>
 <div class="container-fluid be-gray ">
   <div class="row">
-    <div class="col-lg">
-
-      	<strong>Nombre:</strong>
-	  		<%= @worker.name %>
-
+    <div class="col-xs">
+      <strong>Nombre:</strong>
+	  	<%= @worker.name %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-
-      	<strong>Email:</strong>
-	  		<%= @worker.email %>
-
+    <div class="col-xs">
+      <strong>Email:</strong>
+	  	<%= @worker.email %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-
-      	<strong>Perfil:</strong>
-	  		<%= @worker.profile %>
-
+    <div class="col-xs">
+      <strong>Perfil:</strong>
+	  	<%= @worker.profile %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-
-      	<strong>Dependencia:</strong>
-	  		<%= @worker.Dependency.name if @worker.Dependency   %>
-
+    <div class="col-xs">
+      <strong>Dependencia:</strong>
+	  	<%= @worker.Dependency.name if @worker.Dependency   %>
     </div>
   </div>
 </div>

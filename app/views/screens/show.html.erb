@@ -1,77 +1,59 @@
 <p id="notice"><%= notice %></p>
-<div class="container-fluid">
+<div class="container-fluid large-padding be-gray">
   <div class="row">
-    <div class="col-lg-3">
-      <div class="box be-gray">
-        <strong>No inventario:</strong>
-        <%= @screen.ninventary %>
-      </div>
+    <div class="col-xs">
+      <strong>No inventario:</strong>
+      <%= @screen.ninventary %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>N serie:</strong>
-        <%= @screen.nserie %>
-      </div>
+    <div class="col-xs">      
+      <strong>SERIE:</strong>
+      <%= @screen.nserie %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>Marca:</strong>
-        <%= @screen.brand %>
-      </div>
+    <div class="col-xs">     
+      <strong>Marca:</strong>
+      <%= @screen.brand %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>Modelo:</strong>
-        <%= @screen.model %>
-      </div>
+    <div class="col-xs">      
+      <strong>Modelo:</strong>
+      <%= @screen.model %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>ID factura:</strong>
-        <%= @screen.nfactura %>
-      </div>
+    <div class="col-xs">     
+      <strong>ID factura:</strong>
+      <%= @screen.nfactura %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>Fecha compra:</strong>
-        <%= @screen.buy_date %>
-      </div>
+    <div class="col-xs">      
+      <strong>Fecha compra:</strong>
+      <%= @screen.buy_date %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>Pulgadas:</strong>
-        <%= @screen.inch %>
-      </div>
+    <div class="col-xs">
+      <strong>Pulgadas:</strong>
+      <%= @screen.inch %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>Notas:</strong>
-        <%= @screen.notes %>
-      </div>
+    <div class="col-xs">      
+      <strong>Notas:</strong>
+      <%= @screen.notes %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>Dependencia:</strong>
-        <%= @screen.Dependency.name %>
-      </div>
+    <div class="col-xs">     
+      <strong>Dependencia:</strong>
+      <%= @screen.Dependency.name if  @screen.Dependency %>
     </div>
   </div>
 </div>
-<%= link_to 'Editar', edit_screen_path(@screen) %> |
-<%= link_to 'Regresar', screens_path %>
+<%= link_to 'Editar', edit_screen_path(@screen), class:'btn btn-default  btn-sm' %> |
+<%= link_to 'Regresar', screens_path, class:'btn btn-default  btn-sm' %>

@@ -4,65 +4,43 @@
 </div>
 <div class="container-fluid">
   <div class="row be-gray">
-    <div class="col-lg-2">
-      <div class="box">
-        <strong>No inventario</strong>
-      </div>
+    <div class="col-xs-1">      
+      <strong>Inventario</strong>
     </div>
-    <div class="col-lg-2">
-      <div class="box">
-        <strong>No serie</strong>
-      </div>
+    <div class="col-xs-2">
+      <strong>No serie</strong>
     </div>
-    <div class="col-lg-2">
-      <div class="box">
-        <strong>Marca</strong>
-      </div>
+    <div class="col-xs-1">      
+      <strong>Marca</strong>
     </div>
-    <div class="col-lg-2">
-      <div class="box">
-        <strong>Modelo</strong>
-      </div>
+    <div class="col-xs-2">
+      <strong>Modelo</strong>
     </div>
-    <div class="col-lg-2">
-      <div class="box">
-        <strong>Dependencia</strong>
-      </div>
+    <div class="col-xs">
+      <strong>Dependencia</strong>
     </div>
   </div>          
   <% @screens.each do |screen| %>
     <div class="row <%= cycle('be-soft_gray','odd')%>">
-      <div class="col-lg">
-        <div class="box">
-          <%= screen.ninventary %>
-        </div>
+      <div class="col-xs-1">
+        <%= screen.ninventary %>
       </div>
-      <div class="col-lg">
-        <div class="box">
-          <%= screen.nserie %>
-        </div>
+      <div class="col-xs-2">
+        <%= screen.nserie %>
       </div>
-      <div class="col-lg">
-        <div class="box">
-          <%= screen.brand %>
-        </div>
+      <div class="col-xs-1">
+        <%= screen.brand %>
       </div>
-      <div class="col-lg">
-        <div class="box">
-          <%= screen.model %>
-        </div>
+      <div class="col-xs-2">
+        <%= screen.model %>
       </div>
-      <div class="col-lg">
-        <div class="box">
-          <%= screen.Dependency.name %>
-        </div>
+      <div class="col-xs-3">        
+        <%= screen.Dependency.name if screen.Dependency %>  
       </div>
-      <div class="col-lg">
-        <div class="box">
-          <%= link_to 'Mostrar', screen %>
-          <%= link_to 'Editar', edit_screen_path(screen) %>
-          <%= link_to 'Borrar', screen, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
+      <div class="col-xs-3">
+        <%= link_to 'Mostrar', screen, class:'btn btn-default  btn-sm' %>
+        <%= link_to 'Editar', edit_screen_path(screen), class:'btn btn-default  btn-sm' %>
+        <%= link_to 'Borrar', screen, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default  btn-sm' %>
       </div>
     </div>
     <% end %>

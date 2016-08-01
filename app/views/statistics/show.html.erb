@@ -1,50 +1,40 @@
 <p id="notice"><%= notice %></p>
-<div class="container-fluid">
+<div class="container-fluid be-gray large-padding">
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>Mes:</strong>
-        <%= @statistic.month %>
-      </div>
+    <div class="col-xs">
+      <strong>Mes:</strong>
+      <%= @statistic.month %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>Hojas empleadas:</strong>
-        <%= @statistic.sheets %>
-      </div>
+    <div class="col-xs">      
+      <strong>Hojas empleadas:</strong>
+      <%= @statistic.sheets %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
-        <strong>Consumible:</strong>
-        <%= @statistic.consumable %>
-      </div>
+    <div class="col-xs">      
+      <strong>Consumible:</strong>
+      <%= @statistic.consumable %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
+    <div class="col-xs">      
         <% if @statistic.Copier %>
           <strong>Copier:</strong>
           <%= @statistic.Copier.model %>
         <% end %>
-      </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg">
-      <div class="box">
+    <div class="col-xs">
         <% if @statistic.Printer %>
           <strong>Printer:</strong>
           <%= @statistic.Printer.model %>
         <% end %>
-      </div>
     </div>
   </div>
 </div>
 <br>
-<%= link_to 'Editar', edit_statistic_path(@statistic) %> |
-<%= link_to 'Regresar', statistics_path %>
+<%= link_to 'Editar', edit_statistic_path(@statistic), class:'btn btn-default  btn-sm' %> |
+<%= link_to 'Regresar', statistics_path, class:'btn btn-default  btn-sm' %>
