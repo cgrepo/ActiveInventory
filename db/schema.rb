@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803150650) do
+ActiveRecord::Schema.define(version: 20160803170446) do
 
   create_table "computer_brands", force: :cascade do |t|
     t.string   "name"
@@ -107,6 +107,13 @@ ActiveRecord::Schema.define(version: 20160803150650) do
   end
 
   add_index "dependencies", ["Delegation_id"], name: "index_dependencies_on_Delegation_id"
+
+  create_table "memos", force: :cascade do |t|
+    t.float    "size"
+    t.string   "msize"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "networks", force: :cascade do |t|
     t.string   "linktype"

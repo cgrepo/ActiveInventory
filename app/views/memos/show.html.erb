@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tamaño:</strong>
+  <%= @memo.size %><%=  @memo.msize %>
+</p>
+
+
+<%= link_to 'Editar', edit_memo_path(@memo), class:'btn btn-default  btn-lg' %> |
+<%= link_to 'Regresar', memos_path, class:'btn btn-default  btn-lg' %>

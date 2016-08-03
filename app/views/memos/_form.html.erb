@@ -1,0 +1,26 @@
+<%= form_for(@memo) do |f| %>
+  <% if @memo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@memo.errors.count, "error") %> prohibited this memo from being saved:</h2>
+
+      <ul>
+      <% @memo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container-fluid smfont">
+    <div class="row be-round_ligth_gray large-padding">
+      <div class="col-xs-1">
+        <%= f.label :size %><br>
+        <%= f.text_field :size, class:'form-control' %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.label :Tipo %><br>
+        <%= f.select :msize, [ ['MB'], ['GB'] ], {:include_blank => true}, {class:'btn  dropdown-toggle smfont'} %>
+      </div>
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

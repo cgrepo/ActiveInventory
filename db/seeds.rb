@@ -11,7 +11,8 @@
 # Processor.destroy_all
 # Network.destroy_all
 # Worker.destroy_all
-ComputerBrand.destroy_all
+#ComputerBrand.destroy_all
+Memo.destroy_all
 
 # User.create! [
 #  { username: "carlos", password: "th3pr!mag1n" },
@@ -75,17 +76,41 @@ ComputerBrand.destroy_all
 	# {name:'Pablo miranda ', email:'', profile:'Inspector Desarrollo Urbano CSL'},
  # ]
 
-ComputerBrand.create! [
-	{name:'ACER'},
-	{name:'ASUS'},
-	{name:'CLON'},
-	{name:'COMPAQ'},
-	{name:'DELL'},
-	{name:'HP'},
-	{name:'IBM'},
-	{name:'LENOVO'},
-	{name:'SAMSUNG'},
-	{name:'SONY'}	
+# ComputerBrand.create! [
+# 	{name:'ACER'},
+# 	{name:'ASUS'},
+# 	{name:'CLON'},
+# 	{name:'COMPAQ'},
+# 	{name:'DELL'},
+# 	{name:'HP'},
+# 	{name:'IBM'},
+# 	{name:'LENOVO'},
+# 	{name:'SAMSUNG'},
+# 	{name:'SONY'}	
+# ]
+
+Memo.create! [
+	{size:'192', msize:'MB'},
+	{size:'256', msize:'MB'},
+	{size:'512', msize:'MB'},
+	{size:'768', msize:'MB'},
+	{size:'896', msize:'MB'},
+	{size:'1', msize:'GB'},
+	{size:'1.2', msize:'GB'},
+	{size:'1.5', msize:'GB'},
+	{size:'2', msize:'GB'},
+	{size:'2.5', msize:'GB'},
+	{size:'3', msize:'GB'},
+	{size:'3.5', msize:'GB'},
+	{size:'4', msize:'GB'},
+	{size:'4.5', msize:'GB'},
+	{size:'6', msize:'GB'},
+	{size:'6.5', msize:'GB'},
+	{size:'8', msize:'GB'},
+	{size:'8.5', msize:'GB'},
+	{size:'12', msize:'GB'},
+	{size:'16', msize:'GB'},
+	{size:'32', msize:'GB'}
 ]
 
 #Manufacturer.create! [
