@@ -3,58 +3,38 @@
   <h1>Listado de Impresoras</h1>
 </div>
 <div class="container-fluid">
-  <div class="row be-gray">
-    <div class="col-xs-1">
-      <strong>Inventario</strong>
-    </div>
-    <div class="col-xs-2">      
-      <strong>Serie</strong>
-    </div>
-    <div class="col-xs-1">
-      <strong>Marca</strong>
-    </div>
-    <div class="col-xs-2">      
-      <strong>Modelo</strong>
-    </div>
-    <div class="col-xs-2">
-      <strong>Tipo</strong>
-    </div>
-    <div class="col-xs">
-      <strong>Dependencia</strong>
-    </div>
+  <div class="table-responsive no-margins">
+    <table class="table table-hover table-striped">
+      <thead>
+        <th>Inventario</th>
+        <th>Serie</th>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Tipo</th>
+        <th>Dependencia</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <% @printers.each do |printer| %>
+          <tr>
+            <td> <%= printer.ninventary %></td>
+            <td> <%= printer.nserie %></td>
+            <td> <%= printer.brand %></td>
+            <td> <%= printer.model %></td>
+            <td> <%= printer.genus %></td>
+            <td> <%= printer.Dependency.name if printer.Dependency %></td>
+            <td>
+              <%= link_to 'Mostrar', printer, class:'btn btn-default  btn-sm' %>
+              <%= link_to 'Editar', edit_printer_path(printer), class:'btn btn-default  btn-sm' %>
+              <%= link_to 'Borrar', printer, method: :delete, data: { confirm: 'Esta seguro?' }, class:'btn btn-default  btn-sm' %>
+            </td>
+          </tr>
+          <% end %>
+      </tbody>
+    </table>
   </div>
-  <% @printers.each do |printer| %>
-    <div class="row <%= cycle('be-soft_gray','odd')%>">
-      <div class="col-xs-1">
-        <%= printer.ninventary %>
-      </div>
-      <div class="col-xs-2">        
-        <%= printer.nserie %>
-      </div>
-      <div class="col-xs-1">        
-        <%= printer.brand %>
-      </div>
-      <div class="col-xs-2">        
-          <%= printer.model %>
-      </div>
-      <div class="col-xs-2">       
-          <%= printer.genus %>
-      </div>
-      <div class="col-xs-2">
-        <%= printer.Dependency.name if printer.Dependency %>
-      </div>
-      <div class="col-xs">
-          <%= link_to 'Mostrar', printer, class:'btn btn-default  btn-sm' %>
-          <%= link_to 'Editar', edit_printer_path(printer), class:'btn btn-default  btn-sm' %>
-          <%= link_to 'Borrar', printer, method: :delete, data: { confirm: 'Esta seguro?' }, class:'btn btn-default  btn-sm' %>
-      </div>
-    </div>
-  <% end %>
 </div>
-<div>
-  <%= will_paginate @printers %>
-  <br>
-  <br>
-  <%= link_to 'Agregar Impresora', new_printer_path, class:'btn btn-default  btn-sm' %>
-  <%#= button_to 'Agregar impresora', new_printer_path , method: :get %>
-</div>
+
+<%= will_paginate @printers %>
+<br>
+<%= link_to 'Agregar', new_printer_path, class:'btn btn-default  btn-sm' %>

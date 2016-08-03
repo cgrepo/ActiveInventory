@@ -3,64 +3,40 @@
   <h2>Listado de Equipo Telefonico</h2>
 </div>
 <div class="container-fluid">
-  <div class="row be-soft_red">
-    <div class="col-xs-1">      
-      <strong>Inventario</strong>
-    </div>
-    <div class="col-xs-1">      
-      <strong>No Serie</strong>
-    </div>
-    <div class="col-xs-1">      
-      <strong>Marca</strong>
-    </div>
-    <div class="col-xs-1">
-      <strong>Modelo</strong>
-    </div>
-    <div class="col-xs-1">
-      <strong>Tipo</strong>
-    </div>
-    <div class="col-xs-1">
-      <strong>Numero</strong>
-    </div>
-    <div class="col-xs">
-      <strong>Dependencia</strong>
-    </div>
+  <div class="table-responsive no-margins">
+    <table class="table table-hover table-striped">
+      <thead>
+        <th>Inventario</th>
+        <th>Serie</th>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Tipo</th>
+        <th>Dependencia</th>
+        <th></th>
+        <th></th>
+      </thead>
+      <tbody>
+        <% @telephones.each do |telephone| %>
+          <tr>
+            <td> <%= telephone.ninventary %></td>
+            <td> <%= telephone.nserie %></td>
+            <td> <%= telephone.brand %></td>
+            <td> <%= telephone.model %></td>
+            <td> <%= telephone.genus %></td>
+            <td> <%= telephone.number %></td>
+            <td> <%= telephone.Dependency.name if telephone.Dependency %></td>
+            <td> 
+              <%= link_to 'Mostrar', telephone, class:'btn btn-default  btn-sm' %>
+              <%= link_to 'Editar', edit_telephone_path(telephone), class:'btn btn-default  btn-sm' %>
+              <%= link_to 'Borrar', telephone, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default  btn-sm' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
-  <% @telephones.each do |telephone| %>
-    <div class="row <%= cycle('be-soft_gray','odd')%>">
-      <div class="col-xs-1">
-        <%= telephone.ninventary %>
-      </div>
-      <div class="col-xs-1">        
-        <%= telephone.nserie %>
-      </div>
-      <div class="col-xs-1">        
-        <%= telephone.brand %>
-      </div>
-      <div class="col-xs-1">
-        <%= telephone.model %>
-      </div>
-      <div class="col-xs-1">        
-        <%= telephone.genus %>
-      </div>
-      <div class="col-xs-1">        
-        <%= telephone.number %>
-      </div>
-      <div class="col-xs-4">
-        <%= telephone.Dependency.name if telephone.Dependency %>
-      </div>
-      <div class="col-xs-2">        
-          <%= link_to 'Mostrar', telephone, class:'btn btn-default  btn-sm' %>
-          <%= link_to 'Editar', edit_telephone_path(telephone), class:'btn btn-default  btn-sm' %>
-          <%= link_to 'Borrar', telephone, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default  btn-sm' %>
-      </div>
-    </div>
-  <% end %>
 </div>
-<div>
-  <%= will_paginate @telephones %>
-  <br>
-  <br>
-  <%#= link_to 'New Telephone', new_telephone_path %>
-  <%= button_to 'Agregar telefono', new_telephone_path , method: :get %>
-</div>
+<%= will_paginate @telephones %>
+<br>
+<%= link_to 'Agregar', new_telephone_path, class:'btn btn-default  btn-sm' %>
+  

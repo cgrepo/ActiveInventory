@@ -56,3 +56,21 @@ deshabilitar un collection_select
 <%= f.select :maskwifi, [['255.255.255.0'],['DHCP']], {}, {:class => 'frms', :disabled => 'true'} %>
 
 
+<div class="container-fluid">
+  <div class="table-responsive no-margins">
+    <table class="table table-hover table-striped">
+      <thead>
+        <th></th>
+        <th></th>
+        <th></th>
+      </thead>
+      <tbody>
+        <%  do || %>
+          <tr>
+            <td> </td>
+          </tr>
+          <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -21,64 +21,39 @@
     </div>
   </div>
 </div>
-
-<div class="container-fluid no-margins">
-  <div class="row be-gray">
-    <div class="col-xs-2">
-      <div class="box">
-        <strong>NOMBRE</strong>
-      </div>
-    </div>
-    <div class="col-xs-2">
-      <div class="box">
-        <strong>TELEFONO</strong>
-      </div>
-    </div>
-    <div class="col-xs-2">
-      <div class="box">
-        <strong>RESPONSABLE</strong>
-      </div>
-    </div>
-    <div class="col-xs-2">
-      <div class="box">
-        <strong>EMAIL</strong>
-      </div>
-    </div>
-    <div class="col-xs-2">
-      <div class="box">
-        <strong>DELEGACION</strong>
-      </div>
-    </div>
+<div class="container-fluid">
+  <div class="table-responsive no-margins">
+    <table class="table table-hover table-striped">
+      <thead>
+        <th>Nombre</th>
+        <th>Telefono</th>
+        <th>Responsable</th>
+        <th>Correo</th>
+        <th>Delegacion</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <% @dependencies.each do |dependency| %>
+          <tr>
+            <td> <%= dependency.name %></td>
+            <td> <%= dependency.telephone %></td>
+            <td> <%= dependency.responsable %></td>
+            <td> <%= dependency.responsable_email %></td>
+            <td> <%= dependency.Delegation.name if dependency.Delegation %></td>
+            <td>
+              <%= link_to 'Mostrar', dependency, class:'btn btn-default  btn-xs' %>
+              <%= link_to 'Editar', edit_dependency_path(dependency), class:'btn btn-default  btn-xs' %>
+              <%= link_to 'Borrar', dependency, method: :delete, data: { confirm: 'esta usted seguro?' } , 
+                class:'btn btn-default btn-xs'%>
+            </td>
+          </tr>
+          <% end %>
+      </tbody>
+    </table>
   </div>
-  <% @dependencies.each do |dependency| %>
-    <div class="row <%= cycle('be-soft_gray','odd') %>">
-      <div class="col-xs-2 smfont">
-          <%= dependency.name %>
-      </div>
-      <div class="col-xs-2 smfont">        
-          <%= dependency.telephone %>        
-      </div>
-      <div class="col-xs-2 smfont">        
-          <%= dependency.responsable %>        
-      </div>
-      <div class="col-xs-2 smfont">        
-          <%= dependency.responsable_email %>        
-      </div>
-      <div class="col-xs-2 smfont">        
-          <%= dependency.Delegation.name %>        
-      </div>
-      <div class="col-xs-2 smfont">       
-          <%= link_to 'Mostrar', dependency, class:'btn btn-default  btn-xs' %>
-          <%= link_to 'Editar', edit_dependency_path(dependency), class:'btn btn-default  btn-xs' %>
-          <%= link_to 'Borrar', dependency, method: :delete, data: { confirm: 'esta usted seguro?' } , class:'btn btn-default btn-xs'%>
-      </div>
-    </div>
-  <% end %>
 </div>
-<br>
 <%= will_paginate @dependencies %>
 <br>
-<br>
-<%= link_to 'Agregar dependecia', new_dependency_path, class:'btn btn-default btn-xs' %>
+<%= link_to 'Agregar', new_dependency_path, class:'btn btn-default btn-xs' %>
 
 
