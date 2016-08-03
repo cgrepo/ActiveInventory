@@ -12,7 +12,8 @@
 # Network.destroy_all
 # Worker.destroy_all
 #ComputerBrand.destroy_all
-Memo.destroy_all
+#Memo.destroy_all
+Hardd.destroy_all
 
 # User.create! [
 #  { username: "carlos", password: "th3pr!mag1n" },
@@ -89,28 +90,51 @@ Memo.destroy_all
 # 	{name:'SONY'}	
 # ]
 
-Memo.create! [
-	{size:'192', msize:'MB'},
-	{size:'256', msize:'MB'},
-	{size:'512', msize:'MB'},
-	{size:'768', msize:'MB'},
-	{size:'896', msize:'MB'},
-	{size:'1', msize:'GB'},
-	{size:'1.2', msize:'GB'},
-	{size:'1.5', msize:'GB'},
-	{size:'2', msize:'GB'},
-	{size:'2.5', msize:'GB'},
-	{size:'3', msize:'GB'},
-	{size:'3.5', msize:'GB'},
-	{size:'4', msize:'GB'},
-	{size:'4.5', msize:'GB'},
-	{size:'6', msize:'GB'},
-	{size:'6.5', msize:'GB'},
-	{size:'8', msize:'GB'},
-	{size:'8.5', msize:'GB'},
-	{size:'12', msize:'GB'},
-	{size:'16', msize:'GB'},
-	{size:'32', msize:'GB'}
+# Memo.create! [
+# 	{size:'192', msize:'MB'},
+# 	{size:'256', msize:'MB'},
+# 	{size:'512', msize:'MB'},
+# 	{size:'768', msize:'MB'},
+# 	{size:'896', msize:'MB'},
+# 	{size:'1', msize:'GB'},
+# 	{size:'1.2', msize:'GB'},
+# 	{size:'1.5', msize:'GB'},
+# 	{size:'2', msize:'GB'},
+# 	{size:'2.5', msize:'GB'},
+# 	{size:'3', msize:'GB'},
+# 	{size:'3.5', msize:'GB'},
+# 	{size:'4', msize:'GB'},
+# 	{size:'4.5', msize:'GB'},
+# 	{size:'6', msize:'GB'},
+# 	{size:'6.5', msize:'GB'},
+# 	{size:'8', msize:'GB'},
+# 	{size:'8.5', msize:'GB'},
+# 	{size:'12', msize:'GB'},
+# 	{size:'16', msize:'GB'},
+# 	{size:'32', msize:'GB'}
+# ]
+
+Hardd.create! [
+	{size:'40',tsize:'GB'},
+	{size:'80',tsize:'GB'},
+	{size:'100',tsize:'GB'},
+	{size:'120',tsize:'GB'},
+	{size:'150',tsize:'GB'},
+	{size:'160',tsize:'GB'},
+	{size:'200',tsize:'GB'},
+	{size:'220',tsize:'GB'},
+	{size:'250',tsize:'GB'},
+	{size:'280',tsize:'GB'},
+	{size:'300',tsize:'GB'},
+	{size:'320',tsize:'GB'},
+	{size:'350',tsize:'GB'},
+	{size:'500',tsize:'GB'},
+	{size:'1',tsize:'TB'},
+	{size:'1.5',tsize:'TB'},
+	{size:'2',tsize:'TB'},
+	{size:'2.5',tsize:'TB'},
+	{size:'3',tsize:'TB'},
+	{size:'3.5',tsize:'TB'}
 ]
 
 #Manufacturer.create! [

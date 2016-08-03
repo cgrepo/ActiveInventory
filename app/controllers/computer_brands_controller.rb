@@ -4,7 +4,7 @@ class ComputerBrandsController < ApplicationController
   # GET /computer_brands
   # GET /computer_brands.json
   def index
-    @computer_brands = ComputerBrand.all.order(:name).paginate(page: params[:page], per_page: 10 )
+    @computer_brands = ComputerBrand.all.order(:name).paginate(page: params[:page], per_page: 7 )
   end
 
   # GET /computer_brands/1

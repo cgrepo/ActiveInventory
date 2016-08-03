@@ -16,7 +16,6 @@
               <tr>
                 <td><%= computer_brand.name %></td>
                 <td>
-                  <%#= link_to 'Mostrar', computer_brand, class:'btn btn-default  btn-sm' %>
                   <%= link_to 'Editar', edit_computer_brand_path(computer_brand), class:'btn btn-default  btn-sm' %>
                   <%= link_to 'Borrar', computer_brand, method: :delete, data: { confirm: 'Are you sure?' }, 
                     class:'btn btn-default  btn-sm' %></td>
@@ -25,9 +24,12 @@
           </tbody>
         </table>
       </div>
+    </div>
+    <div class="col-xs">
       <%= will_paginate @computer_brands %>
+      <br>
       <%= link_to 'Agregar', new_computer_brand_path, class:'btn btn-default btn-lg' %>
-      </div>
+    </div>
   </div>
 </div>
 

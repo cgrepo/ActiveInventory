@@ -2,34 +2,41 @@
   <p id="notice"><%= notice %></p>
   <h1>Listado Procesadores</h1>
 </div>
-<div class="container-fluid">
-  <div class="table-responsive no-margins">
-    <table class="table table-hover table-striped">
-      <thead>
-        <th>Marca</th>
-        <th>Tipo</th>
-        <th>Modelo</th>
-        <th>Velocidad</th>
-        <th></th>
-      </thead>
-      <tbody>
-        <% @processors.each do |processor| %>
-          <tr>
-            <td> <%= processor.brand %></td>
-            <td> <%= processor.genus %></td>
-            <td> <%= processor.modelp %></td>
-            <td> <%= processor.speed %></td>
-            <td>
-              <%= link_to 'Mostrar', processor, class:'btn btn-default  btn-sm' %>
-              <%= link_to 'Editar', edit_processor_path(processor), class:'btn btn-default  btn-sm' %>
-              <%= link_to 'Borrar', processor, method: :delete, data: { confirm: 'Esta seguro?' }, class:'btn btn-default  btn-sm' %>
-            </td>
-          </tr>
-          <% end %>
-      </tbody>
-    </table>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <div class="table-responsive no-margins">
+        <table class="table table-hover table-striped">
+          <thead>
+            <th>Marca</th>
+            <th>Tipo</th>
+            <th>Modelo</th>
+            <th>Velocidad</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <% @processors.each do |processor| %>
+              <tr>
+                <td> <%= processor.brand %></td>
+                <td> <%= processor.genus %></td>
+                <td> <%= processor.modelp %></td>
+                <td> <%= processor.speed %></td>
+                <td>
+                  
+                  <%= link_to 'Editar', edit_processor_path(processor), class:'btn btn-default  btn-sm' %>
+                  <%= link_to 'Borrar', processor, method: :delete, data: { confirm: 'Esta seguro?' }, class:'btn btn-default  btn-sm' %>
+                </td>
+              </tr>
+              <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-xs">
+      <%= will_paginate @processors %>
+      <br>
+      <%= link_to 'Agregar', new_processor_path, class:'btn btn-default btn-lg' %>
+    </div>
   </div>
 </div>
-<%= will_paginate @processors %>
-<br>
-<%= link_to 'Agregar', new_processor_path, class:'btn btn-default btn-lg' %>
+

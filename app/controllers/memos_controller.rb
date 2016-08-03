@@ -4,7 +4,7 @@ class MemosController < ApplicationController
   # GET /memos
   # GET /memos.json
   def index
-    @memos = Memo.all.order(:size).paginate(page: params[:page], per_page: 10 )
+    @memos = Memo.all.order(:size).paginate(page: params[:page], per_page: 7 )
   end
 
   # GET /memos/1

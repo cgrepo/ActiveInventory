@@ -3,30 +3,34 @@
   <h1>Listado de Memorias</h1>
 </div>
 <div class="container">
-  <div class="table-responsive">
-    <table class="table table-hover table-striped">
-      <thead>
-        <th>Tamaño</th>
-        <th>Tipo</th>
-        <th></th>  
-      </thead>
-      <tbody>
-        <% @memos.each do |memo| %>
-          <tr >
-            <td><%= memo.size %></td>
-            <td><%= memo.msize %></td>
-            <td>
-              <%#= link_to 'Show', memo %>
-              <%= link_to 'Edit', edit_memo_path(memo), class:'btn btn-default btn-sm' %>
-              <%= link_to 'Destroy', memo, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default btn-sm' %>
-            </td>
-          </tr>
-          <% end %>
-      </tbody>
-    </table>
+  <div class="row">
+    <div class="col-xs-5">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped">
+          <thead>
+            <th>Tamaño</th>
+            <th></th>  
+          </thead>
+          <tbody>
+            <% @memos.each do |memo| %>
+              <tr >
+                <td><%= memo.combined_value %></td>
+                <td>
+                  <%#= link_to 'Show', memo %>
+                  <%= link_to 'Edit', edit_memo_path(memo), class:'btn btn-default btn-sm' %>
+                  <%= link_to 'Destroy', memo, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default btn-sm' %>
+                </td>
+              </tr>
+              <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-xs">
+      <%= will_paginate(@memos) %>
+      <br>
+      <%= link_to 'Agregar Memoria', new_memo_path, class:'btn btn-default  btn-lg' %>
+    </div>
   </div>
-  <%= will_paginate(@memos) %>
-  <br>
-  <%= link_to 'Agregar Memoria', new_memo_path, class:'btn btn-default  btn-lg' %>
 </div>
 

@@ -20,10 +20,8 @@
         <%= f.collection_select(:brand, ComputerBrand.all, :name, :name, {:include_blank => true }, 
           {class:'btn  dropdown-toggle smfont'} ) %><br>
         <%= f.label :Disco_Duro %><br>
-        <%= f.select :hd,
-          [ ['40 GB'], ['80 GB'], ['100 GB'], ['120 GB'], ['150 GB'], ['160 GB'], ['200 GB'], ['220 GB'], ['250 GB'], ['280 GB'], 
-          ['300 GB'], ['320 GB'], ['350 GB'], ['500 GB'], ['1 TB'], ['1.5 TB'], ['2 TB'], ['2.5 TB'], ['3 TB'], ['3.5 TB'] ], 
-          {:include_blank => true}, {class:'btn  dropdown-toggle smfont'}  %>
+        <%= f.collection_select(:hd, Hardd.all, :combined_value, :combined_value, {:include_blank => true}, 
+          {class:'btn  dropdown-toggle smfont'}) %>
       </div>
       <div class="col-xs-2">
         <%= f.label :Serie %><br>

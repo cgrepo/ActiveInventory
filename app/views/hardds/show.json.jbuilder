@@ -1,0 +1,1 @@
+json.partial! "hardds/hardd", hardd: @hardd
