@@ -17,9 +17,8 @@
         <%= f.label :Inventario %><br>
         <%= f.text_field :ninventary, class:'form-control textbdy' %><br>
         <%= f.label :Marca %><br>
-        <%= f.select :brand, 
-          [ ['HP'], ['LENOVO'], ['CLON'], ['COMPAQ'], ['SONY'], ['IBM'], ['SAMSUNG'], ['ASUS'], ['DELL'], ['ACER'] ], 
-            {:include_blank => true, :style => 'heigth: 13%;'}, {class:'btn  dropdown-toggle smfont'} %><br>
+        <%= f.collection_select(:brand, ComputerBrand.all, :name, :name, {:include_blank => true }, 
+          {class:'btn  dropdown-toggle smfont'} ) %><br>
         <%= f.label :Disco_Duro %><br>
         <%= f.select :hd,
           [ ['40 GB'], ['80 GB'], ['100 GB'], ['120 GB'], ['150 GB'], ['160 GB'], ['200 GB'], ['220 GB'], ['250 GB'], ['280 GB'], 

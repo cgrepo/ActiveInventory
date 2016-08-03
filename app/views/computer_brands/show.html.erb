@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="row large-padding be-gray">
+		<div class="col-xs-3 ">
+			<p id="notice"><%= notice %></p>
+			<p>
+	  		<strong>Nombre:</strong>
+	  		<%= @computer_brand.name %>
+			</p>
+		</div>
+	</div>
+	<br>
+	<%= link_to 'Editar', edit_computer_brand_path(@computer_brand), class:'btn btn-default  btn-sm' %> |
+	<%= link_to 'Regresar', computer_brands_path, class:'btn btn-default  btn-sm' %>
+</div>
+

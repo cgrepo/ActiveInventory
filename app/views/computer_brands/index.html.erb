@@ -1,0 +1,29 @@
+<div class="container-fluid be-soft_purple large-padding">
+  <p id="notice"><%= notice %></p>
+  <h1>Listado de Marcas de Procesadores</h1>
+</div>
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered">
+      <thead>
+        <th>Nombre</th>
+        <th colspan="3"></th>
+      </thead>
+      <tbody>
+        <% @computer_brands.each do |computer_brand| %>
+          <tr>
+            <td><%= computer_brand.name %></td>
+            <td>
+              <%= link_to 'Mostrar', computer_brand, class:'btn btn-default  btn-sm' %>
+              <%= link_to 'Editar', edit_computer_brand_path(computer_brand), class:'btn btn-default  btn-sm' %>
+              <%= link_to 'Borrar', computer_brand, method: :delete, data: { confirm: 'Are you sure?' }, 
+                class:'btn btn-default  btn-sm' %></td>
+          </tr>
+          <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= will_paginate @computer_brands %>
+  <%= link_to 'Agregar', new_computer_brand_path, class:'btn btn-default btn-lg' %>
+</div>
+

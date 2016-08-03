@@ -11,6 +11,7 @@
 # Processor.destroy_all
 # Network.destroy_all
 # Worker.destroy_all
+ComputerBrand.destroy_all
 
 # User.create! [
 #  { username: "carlos", password: "th3pr!mag1n" },
@@ -54,7 +55,7 @@
 # 	{linktype:'ADSL-MODEM', location:'BIBLIOTECA AMELIA WILKES', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
 # 	{linktype:'ADSL-MODEM', location:'CULTURA CSL-CERRO DEL TIMBRE', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
 # 	{linktype:'ENLACE-WIFI', location:'MODULO REGISTRO CIVIL', iprange:'', ip:''},
-# 	{linktype:'NLACE-WIFI', location:'MODULO DESARROLLO URBANO', iprange:'', ip:''}
+# 	{linktype:'ENLACE-WIFI', location:'MODULO DESARROLLO URBANO', iprange:'', ip:''}
 # ]
 
 # Worker.create! name:"elmor", email:"thehive@hive.com", profile:"test", Dependency_id:2
@@ -73,6 +74,19 @@
 	# {name:'Omar Navarro ', email:'omar.navarro@loscabos.gob.mx ', profile:'Contabilidad SJC'},
 	# {name:'Pablo miranda ', email:'', profile:'Inspector Desarrollo Urbano CSL'},
  # ]
+
+ComputerBrand.create! [
+	{name:'ACER'},
+	{name:'ASUS'},
+	{name:'CLON'},
+	{name:'COMPAQ'},
+	{name:'DELL'},
+	{name:'HP'},
+	{name:'IBM'},
+	{name:'LENOVO'},
+	{name:'SAMSUNG'},
+	{name:'SONY'}	
+]
 
 #Manufacturer.create! [
 # 	{name:"BROTHER"},

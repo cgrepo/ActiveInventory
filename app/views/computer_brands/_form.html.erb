@@ -1,0 +1,22 @@
+<%= form_for(@computer_brand) do |f| %>
+  <% if @computer_brand.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@computer_brand.errors.count, "error") %> prohibited this computer_brand from being saved:</h2>
+
+      <ul>
+      <% @computer_brand.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="container-fluid smfont">
+  <div class="row be-round_ligth_gray large-padding">
+    <div class="col-xs-2">
+      <%= f.label :Nombre_Marca %><br>
+      <%= f.text_field :name, class:'form-control' %><br>
+      <%= f.submit %>
+    </div>
+  </div>
+</div>
+<% end %>

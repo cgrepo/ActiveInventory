@@ -15,7 +15,7 @@
         <% @workers.each do |worker| %>
           <tr>
             <td> <%= worker.name %></td>
-            <td> <%= worker.profile %>/td>
+            <td> <%= worker.profile %></td>
             <td> <%= worker.Dependency.name if worker.Dependency %></td>
             <td>
               <%= link_to 'Mostrar', worker, class:'btn btn-default  btn-sm' %>

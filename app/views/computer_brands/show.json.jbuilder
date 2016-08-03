@@ -1,0 +1,1 @@
+json.partial! "computer_brands/computer_brand", computer_brand: @computer_brand

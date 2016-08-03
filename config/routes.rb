@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :computer_brands
   get 'admins/index'
 
   resources :processors
