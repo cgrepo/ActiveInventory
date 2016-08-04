@@ -177,7 +177,7 @@ Osy.create! [
 ]
 
 Officev.create! [
-	{name:'OFFICE 2000 Standar'},F
+	{name:'OFFICE 2000 Standar'},
 	{name:'OFFICE 2000 Profesional'},
 	{name:'OFFICE XP Standar'},
 	{name:'OFFICE XP Profesional'},

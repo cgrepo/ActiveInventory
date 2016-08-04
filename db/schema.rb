@@ -132,11 +132,13 @@ ActiveRecord::Schema.define(version: 20160804033007) do
 
   create_table "networks", force: :cascade do |t|
     t.string   "linktype"
+    t.boolean  "wifirouter", default: false
+    t.string   "ssid_name"
     t.string   "location"
     t.string   "iprange"
     t.string   "ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "officevs", force: :cascade do |t|
