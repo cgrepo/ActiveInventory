@@ -27,7 +27,7 @@
         <%= f.label :Serie %><br>
         <%= f.text_field :nserie, class:'form-control textbdy' %><br>
         <%= f.label :Tipo %><br>  
-        <%= f.select :genus, [ ['ESCRITORIO'], ['PORTATIL'], ['SERVIDOR'] ], 
+        <%= f.select :genus, [ ['ESCRITORIO'],['ESCRITORIO ALL IN ONE'] ,['PORTATIL'], ['SERVIDOR'] ], 
           {:include_blank => true},  {class:'btn  dropdown-toggle smfont'} %><br>
         <%= f.label :Memoria %><br>
         <%= f.collection_select(:memory, Memo.all, :combined_value, :combined_value, {:include_blank => true}, 
@@ -76,15 +76,8 @@
       </div>
       <div class="col-xs-3">
         <%= f.label :ver_Office %><br>
-        <%= f.select :voffice, [
-          ['OFFICE 2000 Standar'], ['OFFICE 2000 Profesional'], ['OFFICE XP Standar'], ['OFFICE XP Profesional'], 
-          ['OFFICE XP Prof. edicion Esp'], ['OFFICE 2003 Basic'], ['OFFICE 2003 Student'], ['OFFICE 2003 Small B'],
-          ['OFFICE 2003 Prof. Edit'], ['OFFICE 2003 Enterprice Edic.'], ['OFFICE 2007 Home Basic'], ['OFFICE 2007 Home and Std'], 
-          ['OFFICE 2007 Standard'], ['OFFICE 2007 Small B'], ['OFFICE 2007 Prof.'], ['OFFICE 2007 Prof. Plus.'], 
-          ['OFFICE 2007 Enterprise'], ['OFFICE 2007 Ultimate.'], ['OFFICE 2010-2013-2016 Start'], ['OFFICE 2010-2013-2016 Online'], 
-          ['OFFICE 2010-2013-2016 Home and st.'], ['OFFICE 2010-2013-2016 Home and Business'], ['OFFICE 2010-2013-2016 Small B.'], 
-          ['OFFICE 2010-2013-2016 Standar'], ['OFFICE 2010-2013-2016 Profesional'], ['OFFICE 2010-2013-2016 Prof. Plus.'], 
-          ['OFFICE 365'] ], {:include_blank => true}, {class:'btn  dropdown-toggle smfont'} %>
+        <%= f.collection_select(:voffice, Officev.all.order(:name), :name, :name, {:include_blank => true},
+          {class:'btn  dropdown-toggle smfont'} ) %>
       </div>
       <div class="col-xs-4">
         <%= f.label :Dependencia %><br>
