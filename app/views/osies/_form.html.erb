@@ -1,0 +1,27 @@
+<%= form_for(@osy) do |f| %>
+  <% if @osy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@osy.errors.count, "error") %> prohibited this osy from being saved:</h2>
+
+      <ul>
+      <% @osy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="container-fluid smfont">
+    <div class="row be-round_ligth_gray large-padding">
+      <div class="col-xs-4">
+        <%= f.label :Nombre %><br>
+        <%= f.text_field :name, class:'form-control' %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.label :version %><br>
+        <%= f.select :version, [ ['x32'], ['x64'] ], {:include_blank => true}, {class:'btn  dropdown-toggle smfont'} %>
+      </div>
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>
+

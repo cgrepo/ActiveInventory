@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803181912) do
+ActiveRecord::Schema.define(version: 20160803193907) do
 
   create_table "computer_brands", force: :cascade do |t|
     t.string   "name"
@@ -77,13 +77,21 @@ ActiveRecord::Schema.define(version: 20160803181912) do
     t.string   "model"
     t.string   "nfactura"
     t.date     "buy_date"
+    t.boolean  "net",           default: false
+    t.string   "net_ip"
+    t.string   "net_mask"
+    t.string   "net_mac"
+    t.boolean  "wifi",          default: false
+    t.string   "wifi_ip"
+    t.string   "wifi_mask"
+    t.string   "wifi_mac"
     t.boolean  "operational",   default: true
     t.string   "reazon"
     t.text     "notes"
     t.integer  "Network_id"
     t.integer  "Dependency_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   add_index "copiers", ["Dependency_id"], name: "index_copiers_on_Dependency_id"
@@ -127,6 +135,13 @@ ActiveRecord::Schema.define(version: 20160803181912) do
     t.string   "location"
     t.string   "iprange"
     t.string   "ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "osies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,1 @@
+json.array! @osies, partial: 'osies/osy', as: :osy

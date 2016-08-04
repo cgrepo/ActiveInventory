@@ -1,0 +1,35 @@
+<div class="container-fluid be-soft_purple large-padding">
+  <p id="notice"><%= notice %></p>
+  <h1>Listado de Sistemas Operativos</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped">
+          <thead>
+            <th>Sistema Operativo</th>
+            <th></th>  
+          </thead>
+          <tbody>
+            <% @osies.each do |osy| %>
+              <tr>
+                <td><%= osy.combined_value %></td>
+                <td>
+                  <%= link_to 'Editar', edit_osy_path(osy), class:'btn btn-default  btn-sm' %>
+                  <%= link_to 'Borrar', osy, method: :delete, data: { confirm: 'Esta usted seguro?' }, 
+                    class:'btn btn-default  btn-sm' %>
+                </td>
+              </tr>
+              <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-xs">
+      <%= will_paginate(@osies) %>
+      <br>
+      <%= link_to 'Agregar OS', new_osy_path, class:'btn btn-default  btn-lg' %>
+    </div>
+  </div>
+</div>

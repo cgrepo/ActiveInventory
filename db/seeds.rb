@@ -11,9 +11,10 @@
 # Processor.destroy_all
 # Network.destroy_all
 # Worker.destroy_all
-#ComputerBrand.destroy_all
-#Memo.destroy_all
-Hardd.destroy_all
+# ComputerBrand.destroy_all
+# Memo.destroy_all
+# Hardd.destroy_all
+# Osy.destroy_all
 
 # User.create! [
 #  { username: "carlos", password: "th3pr!mag1n" },
@@ -61,21 +62,21 @@ Hardd.destroy_all
 # ]
 
 # Worker.create! name:"elmor", email:"thehive@hive.com", profile:"test", Dependency_id:2
- # Worker.create! [
- # 	{name:'Carlos A. Garcia G.', email:'carlos.garcia@loscabos.gob.mx', profile:'Asistente de la Direccion Mpal. de Sistemas'},
- # 	{name:'Maria J. Ochoa A.', email:'sistemas_csl@loscabos.gob.mx', profile:'Coordinadora de Sistemas en CSL'},
- # 	{name:'Jose A. Casillas E.', email:'carlos.garcia@loscabos.gob.mx', profile:'Asistente de la Direccion Mpal. de Sistemas'},
-	# {name:'Alan Manriquez', email:'', profile:'Inspector Desarrollo Urbano CSL'},
-	# {name:'Florencia Olachea Villafaña', email:'dif.enlace.csl@outlook.com', profile:'Recepcion DIF CSL'},
-	# {name:'Gabriela vernadet herrera salas', email:'', profile:'Abogada Juridico Dif CSL'},
-	# {name:'Gustavo costich olvera ', email:'gustavoco25@gmail.com', profile:'Abogado Juridico Dif CSL'},
-	# {name:'Isodel Adara Canett Ojeda', email:'isodel891@hotmail.com', profile:'Coordinadora de Desarrollo Urbano CSL'},
-	# {name:'Luz Maria Norrab ', email:'luznorrab@live.com.mx', profile:'Directora de Contabilidad'},
-	# {name:'Maria Isabel Ventura Zavala ', email:'isabelventura78@hotmail.com ', profile:'Asistente de Coordinacion de Imagen Urbana CSL'},
-	# {name:'Monserrat anahi marron castro ', email:'monse_marron@hotmail.com ', profile:'Abogada Juridico Dif CSL'},
-	# {name:'Omar Navarro ', email:'omar.navarro@loscabos.gob.mx ', profile:'Contabilidad SJC'},
-	# {name:'Pablo miranda ', email:'', profile:'Inspector Desarrollo Urbano CSL'},
- # ]
+#  Worker.create! [
+#  	{name:'Carlos A. Garcia G.', email:'carlos.garcia@loscabos.gob.mx', profile:'Asistente de la Direccion Mpal. de Sistemas'},
+#  	{name:'Maria J. Ochoa A.', email:'sistemas_csl@loscabos.gob.mx', profile:'Coordinadora de Sistemas en CSL'},
+#  	{name:'Jose A. Casillas E.', email:'carlos.garcia@loscabos.gob.mx', profile:'Asistente de la Direccion Mpal. de Sistemas'},
+# 	{name:'Alan Manriquez', email:'', profile:'Inspector Desarrollo Urbano CSL'},
+# 	{name:'Florencia Olachea Villafaña', email:'dif.enlace.csl@outlook.com', profile:'Recepcion DIF CSL'},
+# 	{name:'Gabriela vernadet herrera salas', email:'', profile:'Abogada Juridico Dif CSL'},
+# 	{name:'Gustavo costich olvera ', email:'gustavoco25@gmail.com', profile:'Abogado Juridico Dif CSL'},
+# 	{name:'Isodel Adara Canett Ojeda', email:'isodel891@hotmail.com', profile:'Coordinadora de Desarrollo Urbano CSL'},
+# 	{name:'Luz Maria Norrab ', email:'luznorrab@live.com.mx', profile:'Directora de Contabilidad'},
+# 	{name:'Maria Isabel Ventura Zavala ', email:'isabelventura78@hotmail.com ', profile:'Asistente de Coordinacion de Imagen Urbana CSL'},
+# 	{name:'Monserrat anahi marron castro ', email:'monse_marron@hotmail.com ', profile:'Abogada Juridico Dif CSL'},
+# 	{name:'Omar Navarro ', email:'omar.navarro@loscabos.gob.mx ', profile:'Contabilidad SJC'},
+# 	{name:'Pablo miranda ', email:'', profile:'Inspector Desarrollo Urbano CSL'},
+#  ]
 
 # ComputerBrand.create! [
 # 	{name:'ACER'},
@@ -114,28 +115,65 @@ Hardd.destroy_all
 # 	{size:'32', msize:'GB'}
 # ]
 
-Hardd.create! [
-	{size:'40',tsize:'GB'},
-	{size:'80',tsize:'GB'},
-	{size:'100',tsize:'GB'},
-	{size:'120',tsize:'GB'},
-	{size:'150',tsize:'GB'},
-	{size:'160',tsize:'GB'},
-	{size:'200',tsize:'GB'},
-	{size:'220',tsize:'GB'},
-	{size:'250',tsize:'GB'},
-	{size:'280',tsize:'GB'},
-	{size:'300',tsize:'GB'},
-	{size:'320',tsize:'GB'},
-	{size:'350',tsize:'GB'},
-	{size:'500',tsize:'GB'},
-	{size:'1',tsize:'TB'},
-	{size:'1.5',tsize:'TB'},
-	{size:'2',tsize:'TB'},
-	{size:'2.5',tsize:'TB'},
-	{size:'3',tsize:'TB'},
-	{size:'3.5',tsize:'TB'}
-]
+# Hardd.create! [
+# 	{size:'40',tsize:'GB'},
+# 	{size:'80',tsize:'GB'},
+# 	{size:'100',tsize:'GB'},
+# 	{size:'120',tsize:'GB'},
+# 	{size:'150',tsize:'GB'},
+# 	{size:'160',tsize:'GB'},
+# 	{size:'200',tsize:'GB'},
+# 	{size:'220',tsize:'GB'},
+# 	{size:'250',tsize:'GB'},
+# 	{size:'280',tsize:'GB'},
+# 	{size:'300',tsize:'GB'},
+# 	{size:'320',tsize:'GB'},
+# 	{size:'350',tsize:'GB'},
+# 	{size:'500',tsize:'GB'},
+# 	{size:'1',tsize:'TB'},
+# 	{size:'1.5',tsize:'TB'},
+# 	{size:'2',tsize:'TB'},
+# 	{size:'2.5',tsize:'TB'},
+# 	{size:'3',tsize:'TB'},
+# 	{size:'3.5',tsize:'TB'}
+# ]
+
+# Osy.create! [
+# 	{name:'LINUX UBUNTU',version:'x32'},
+# 	{name:'WINDOWS HOME SP3',version:'x32'},
+# 	{name:'WINDOWS XP SP2',version:'x32'},
+# 	{name:'WINDOWS XP SP3',version:'x32'},
+# 	{name:'WINDOWS XP PRO SP2',version:'x32'},
+# 	{name:'WINDOWS XP PRO SP3',version:'x32'},
+# 	{name:'WINDOWS VISTA',version:'x32'},
+# 	{name:'WINDOWS VISTA BUSSINES',version:'x32'},
+# 	{name:'WINDOWS 7 STARTER',version:'x32'},
+# 	{name:'WINDOWS 7',version:'x32'},
+# 	{name:'WINDOWS 7 PRO',version:'x32'},
+# 	{name:'WINDOWS 8',version:'x32'},
+# 	{name:'WINDOWS 8.1',version:'x32'},
+# 	{name:'WINDOWS 10',version:'x32'},
+# 	{name:'WINDOWS 10 PRO',version:'x32'},
+# 	{name:'WINDOWS SERVER 2003',version:'x32'},
+# 	{name:'WINDOWS SERVER 2008',version:'x32'},
+# 	{name:'WINDOWS SERVER 2012',version:'x32'},
+# 	{name:'WINDOWS MULTIPOINT SERVER 2010',version:'x32'},
+# 	{name:'WINDOWS XP PRO SP2',version:'x64'},
+# 	{name:'WINDOWS XP PRO SP3',version:'x64'},
+# 	{name:'WINDOWS VISTA',version:'x64'},
+# 	{name:'WINDOWS VISTA BUSSINES',version:'x64'},
+# 	{name:'WINDOWS 7 STARTER',version:'x64'},
+# 	{name:'WINDOWS 7',version:'x64'},
+# 	{name:'WINDOWS 7 PRO',version:'x64'},
+# 	{name:'WINDOWS 8',version:'x64'},
+# 	{name:'WINDOWS 8.1',version:'x64'},
+# 	{name:'WINDOWS 10',version:'x64'},
+# 	{name:'WINDOWS 10 PRO',version:'x64'},
+# 	{name:'WINDOWS SERVER 2003',version:'x64'},
+# 	{name:'WINDOWS SERVER 2008',version:'x64'},
+# 	{name:'WINDOWS SERVER 2012',version:'x64'},
+# 	{name:'WINDOWS MULTIPOINT SERVER 2010',version:'x64'}
+# ]
 
 #Manufacturer.create! [
 # 	{name:"BROTHER"},

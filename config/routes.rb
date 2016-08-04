@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :osies
   resources :hardds
   resources :memos
   resources :computer_brands

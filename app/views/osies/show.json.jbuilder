@@ -1,0 +1,1 @@
+json.partial! "osies/osy", osy: @osy

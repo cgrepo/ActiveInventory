@@ -17,8 +17,8 @@
                 <td><%= memo.combined_value %></td>
                 <td>
                   <%#= link_to 'Show', memo %>
-                  <%= link_to 'Edit', edit_memo_path(memo), class:'btn btn-default btn-sm' %>
-                  <%= link_to 'Destroy', memo, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default btn-sm' %>
+                  <%= link_to 'Editar', edit_memo_path(memo), class:'btn btn-default btn-sm' %>
+                  <%= link_to 'Borrar', memo, method: :delete, data: { confirm: 'Esta usted seguro?' }, class:'btn btn-default btn-sm' %>
                 </td>
               </tr>
               <% end %>

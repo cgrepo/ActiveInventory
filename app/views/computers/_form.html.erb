@@ -59,20 +59,14 @@
       </div>
       <div class="col-xs-3">
         <%= f.label :Sistema_Operativo %><br>
-        <%= f.select :os, 
-          [ ['LINUX UBUNTU'], ['WINDOWS VISTA'], ['WINDOWS VISTA 64b'], ['WINDOWS VISTA B.'], ['WINDOWS VISTA B. 64b'], 
-            ['WINDOWS 7'], ['WINDOWS 7 64b'], ['WINDOWS 7 PRO'], ['WINDOWS 7 PRO 64b'], ['WINDOWS 7 STARTER'], 
-            ['WINDOWS 7 STARTER 64b'], ['WINDOWS XP SP2'], ['WINDOWS XP SP2 64b'], ['WINDOWS XP SP3'], ['WINDOWS XP SP3 64b'], 
-            ['WINDOWS HOME SP3'], ['WINDOWS HOME SP3 64b'], ['WINDOWS XP PRO SP2'], ['WINDOWS XP PRO SP3'], 
-            ['WINDOWS XP PRO SP2 64b'], ['WINDOWS XP PRO SP3 64b'], ['WINDOWS 8'], ['WINDOWS 8 64b'], ['WINDOWS 8.1'], 
-            ['WINDOWS 10'], ['WINDOWS 8.1 64b'], ['WINDOWS 10 64b'], ['WINDOWS 10 PRO'], ['WINDOWS 10 PRO 64b'], 
-            ['WINDOWS SERVER 2003'], ['WINDOWS SERVER 2008'], ['WINDOWS SERVER 2012'], ['WINDOWS MULTIPOINT SERVER 2010'] ], 
-            {:include_blank => true}, {class:'btn  dropdown-toggle smfont'} %>
+        <%= f.collection_select(:os, Osy.all.order(:version), :combined_value, :combined_value, {:include_blank => true}, 
+          {class:'btn  dropdown-toggle smfont'} ) %>
       </div>
       <div class="col-xs-4">
         <%= f.label :'Usuarios de sistema' %><br>
         <%= f.text_field :users, placeholder:'usuarios locales', class:'form-control ' %>
       </div>
+      450 545 500pm sabado id
     </div>
     <div class="row be-round_ligth_gray large-padding">
       <div class="col-xs-4">
