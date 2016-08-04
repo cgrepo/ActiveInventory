@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803193907) do
+ActiveRecord::Schema.define(version: 20160804033007) do
 
   create_table "computer_brands", force: :cascade do |t|
     t.string   "name"
@@ -135,6 +135,12 @@ ActiveRecord::Schema.define(version: 20160803193907) do
     t.string   "location"
     t.string   "iprange"
     t.string   "ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "officevs", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

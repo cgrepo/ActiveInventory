@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :officevs
   resources :osies
   resources :hardds
   resources :memos

@@ -1,0 +1,1 @@
+json.array! @officevs, partial: 'officevs/officev', as: :officev

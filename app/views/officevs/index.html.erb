@@ -1,0 +1,36 @@
+<div class="container-fluid be-soft_purple large-padding">
+  <p id="notice"><%= notice %></p>
+  <h1>Listing de Versiones de Ofimatica</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped">
+          <thead>
+            <th>Version</th>
+            <th></th>  
+          </thead>
+          <tbody>
+            <% @officevs.each do |officev| %>
+              <tr>
+                <td><%= officev.name %></td>
+                <td>
+                  <%= link_to 'Edit', edit_officev_path(officev), class:'btn btn-default btn-sm' %>
+                  <%= link_to 'Destroy', officev, method: :delete, data: { confirm: 'Esta usted seguro?' }, 
+                    class:'btn btn-default btn-sm' %>
+                </td>
+              </tr>
+              <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-xs">
+      <%= will_paginate(@officevs) %>
+      <br>
+      <%= link_to 'Agregar Office', new_officev_path, class:'btn btn-default  btn-lg' %>
+    </div>
+  </div>
+</div>
+
