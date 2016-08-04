@@ -24,7 +24,7 @@
           ['DIF CSL'], ['OFICINAS DESARROLLO URBANO CSL'], ['PROTECCION CIVIL'], ['ALMACEN-CERRO DEL TIMBRE'],
           ['ZOFEMAT-CERRO DEL TIMBRE'], ['ECOLOGIA-CERRO DEL TIMBRE'], ['JUVENTUD-CERRO DEL TIMBRE'], ['SERVICIOS PUBLICOS CSL'],
           ['COMANDANCIA CANGREJOS'], ['BIBLIOTECA LOMAS DEL SOL'], ['BIBLIOTECA AMELIA WILKES'], ['CULTURA CSL'],
-          ['MODULO REGISTRO CIVIL'], ['MODULO DESARROLLO URBANO'] ], {include_blank: true}, {class:'btn  dropdown-toggle smfont'} %>
+          ['MODULO REGISTRO CIVIL'], ['MODULO DESARROLLO URBANO'], ['TTO CANGREJOS'] ], {include_blank: true}, {class:'btn  dropdown-toggle smfont'} %>
       </div>
     </div>
     <div class="row">
@@ -35,6 +35,12 @@
       <div class="col-xs-2">        
         <%= f.label :'IP Gateway' %><br>
         <%= f.text_field :ip, class:'form-control smfont' %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.label :WIFI? %><br>
+        <%= f.check_box :wifirouter %><br>      
+        <%= f.label :'Nombre_SSID' %><br>
+        <%= f.text_field :ssid_name, class:'form-control smfont' %>
       </div>
     </div>
     <div class="row">
