@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :brand_models
   resources :officevs
   resources :osies
   resources :hardds

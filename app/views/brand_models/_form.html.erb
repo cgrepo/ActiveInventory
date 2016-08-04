@@ -1,0 +1,53 @@
+<%= form_for(@brand_model) do |f| %>
+  <% if @brand_model.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@brand_model.errors.count, "error") %> prohibited this brand_model from being saved:</h2>
+
+      <ul>
+      <% @brand_model.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :upsb %><br>
+    <%= f.text_field :upsb %>
+  </div>
+  <div class="field">
+    <%= f.label :upsm %><br>
+    <%= f.text_field :upsm %>
+  </div>
+  <div class="field">
+    <%= f.label :monitorb %><br>
+    <%= f.text_field :monitorb %>
+  </div>
+  <div class="field">
+    <%= f.label :monitorm %><br>
+    <%= f.text_field :monitorm %>
+  </div>
+  <div class="field">
+    <%= f.label :copierb %><br>
+    <%= f.text_field :copierb %>
+  </div>
+  <div class="field">
+    <%= f.label :copierm %><br>
+    <%= f.text_field :copierm %>
+  </div>
+  <div class="field">
+    <%= f.label :printeb %><br>
+    <%= f.text_field :printeb %>
+  </div>
+  <div class="field">
+    <%= f.label :printerm %><br>
+    <%= f.text_field :printerm %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

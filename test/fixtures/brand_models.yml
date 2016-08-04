@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  upsb: MyString
+  upsm: MyString
+  monitorb: MyString
+  monitorm: MyString
+  copierb: MyString
+  copierm: MyString
+  printeb: MyString
+  printerm: MyString
+
+two:
+  description: MyString
+  upsb: MyString
+  upsm: MyString
+  monitorb: MyString
+  monitorm: MyString
+  copierb: MyString
+  copierm: MyString
+  printeb: MyString
+  printerm: MyString
