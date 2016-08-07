@@ -19,7 +19,7 @@
       </div>
       <div class="col-xs-2 ">
         <%= f.label :TIPO %><br>
-        <%= f.select :genus, [ ['Atom(TM)'], ['Core(TM)'], ['Celeron(R)'] ], {:include_blank => true}, 
+        <%= f.select :genus, [ ['Atom(TM)'], ['Core(TM)'], ['Celeron(R)'] ['Pentium(R)'] ['Xenon(R)']], {:include_blank => true}, 
           {class:'btn  dropdown-toggle smfont'} %>
       </div>
       <div class="col-xs-1 ">
@@ -30,9 +30,8 @@
         <%= f.label :speed %><br>
         <%= f.text_field :speed, class:'form-control smfont' %>
       </div>
-        </div>
-      </div>
     </div>
+  </div>
   <div class="actions">
     <br>
     <%= f.submit %>
