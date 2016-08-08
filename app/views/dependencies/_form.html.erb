@@ -9,41 +9,43 @@
       </ul>
     </div>
   <% end %>
-  <div class="container-fluid large-padding be-round_ligth_gray no-margins">
+  <div class="container-fluid large-padding be-round_ligth_gray ">
     <div class="row">
-      <div class="col-xs">
+      <div class="col-xs-4 col-md-4">
           <%= f.label :Nombre%><br>
           <%= f.text_field :name, class:'form-control xsfont'  %>
       </div>
-      <div class="col-xs">
+      <div class="col-xs-5 col-md-2">
+          <%= f.label :Telefono %><br>
+          <%= f.text_field :telephone, class:'form-control smfont' %>
+      </div>
+      <div class="col-xs-4 col-md-3">
+          <%= f.label :Responsable_email %><br>
+          <%= f.text_field :responsable_email, class:'form-control smfont' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-5 col-md-3">
+          <%= f.label :Responsable %><br>
+          <%= f.text_field :responsable, class:'form-control smfont' %>
+      </div>
+      <div class="col-xs-1 col-md-2">
+          <%= f.label :Delegacion %><br>
+          <%= f.collection_select(:Delegation_id, Delegation.all, :id, :name, {include_blank: true}, {class:'btn  dropdown-toggle'}) %>
+      </div>
+      <div class="col-xs-8 col-md-7">
           <%= f.label :Direccion %><br>
           <%= f.select :address, 
           [ ['Av. Miguel Hidalgo E/Blvd. Constituyentes y Camino al Faro'],
             ['Col. Jacarandas C. Violeta SN'],
-            ['Cerrito del Timbre C. Matamoros SN E/Lazaro Cardenas y Niños Heroes'] ], {:include_blank => true}, 
+            ['Cerrito del Timbre C. Matamoros SN E/Lazaro C. y Niños Heroes'] ], {:include_blank => true}, 
             {class:'btn dropdown-toggle'} %>
-      </div>
-      <div class="col-xs">
-          <%= f.label :Telefono %><br>
-          <%= f.text_field :telephone, class:'form-control smfont' %>
-      </div>
-      <div class="col-xs">
-          <%= f.label :Responsable %><br>
-          <%= f.text_field :responsable, class:'form-control smfont' %>
-      </div>
-      <div class="col-xs">
-          <%= f.label :Responsable_email %><br>
-          <%= f.text_field :responsable_email, class:'form-control smfont' %>
-      </div>
-      <div class="col-xs">
-          <%= f.label :Delegacion %><br>
-          <%= f.collection_select(:Delegation_id, Delegation.all, :id, :name, {include_blank: true}, {class:'btn  dropdown-toggle'}) %>
       </div>
     </div>
     <div class="row">
       <div class="col-xs">
           <br>
-          <%= f.submit :Agregar , class:'btn btn-defalt btn-sm be-soft_purple' %>
+          <%= f.submit %>
       </div>
     </div>
   </div>

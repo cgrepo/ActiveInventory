@@ -1,6 +1,14 @@
 <div class="container-fluid be-soft_purple large-padding">
   <p id="notice"><%= notice %></p>
   <h1>Listado de Usuarios</h1>
+  <div class="row large-padding">
+    <div class="col-xs col-md">
+      <span class="pull-left"><%= will_paginate @workers %> </span>
+    </div>
+    <div class"col-xs col-md">
+      <span class="pull-right"><%= link_to 'Agregar Usuario', new_worker_path, class:'btn btn-default btn-lg be-gray' %> </span>
+    </div>
+  </div>
 </div>
 <div class="container-fluid">
   <div class="table-responsive no-margins">
@@ -28,6 +36,4 @@
     </table>
   </div>
 </div>
-<%= will_paginate @workers %>
-<br>
-<%= link_to 'Agregar Usuario', new_worker_path, class:'btn btn-default  btn-sm' %>
+

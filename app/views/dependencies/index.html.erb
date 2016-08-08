@@ -1,12 +1,10 @@
-<div class="container-fluid no-margins">
-  <div class="row be-soft_purple">  
-      <div class="col-xs-12">
+<div class="container-fluid large-padding be-soft_purple">
+  <div class="row ">  
+      <div class="col-xs-12 col-md">
         <p id="notice"><%= notice %></p>
         <h2>Listado de Dependencias</h2>
       </div>
-      <div class="col-xs-8">
-      </div>
-      <div class="col-xs-4">
+      <div class="col-xs-12">
         <%= form_tag(dependencies_path, method: "get") do  %>  
           <%= radio_button_tag(:Delegation, 1 ) %>
           <%= label_tag(:delegation_id, "SAN JOSE") %>
@@ -16,44 +14,59 @@
           <%= label_tag(:delegation_id, "SANTIAGO") %>
           <%= radio_button_tag(:Delegation, 4 ) %>
           <%= label_tag(:delegation_id, "LA RIVERA") %>
-          <%= submit_tag "MOSTRAR", class:'btn btn-default btn-xs' %>
-        <% end %>
+          <%= submit_tag "MOSTRAR", class:'btn btn-default btn-sm' %>
+        <% end %>       
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-7">
+        <span class="pull-left">
+          <%= will_paginate @dependencies %>
+        </span>
+      </div>
+      <div class="col-xs-5">
+        <span class="pull-right">
+          <%= link_to 'Agregar', new_dependency_path, class:'btn btn-default be-gray btn-lg' %>
+        </span>
+      </div>
+    </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="table-responsive no-margins">
+        <table class="table table-hover table-striped">
+          <thead>
+            <th>Nombre</th>
+            <th>Telefono</th>
+            <th>Responsable</th>
+            <th>Correo</th>
+            <th>Delegacion</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <% @dependencies.each do |dependency| %>
+              <tr>
+                <td> <%= dependency.name %></td>
+                <td> <%= dependency.telephone %></td>
+                <td> <%= dependency.responsable %></td>
+                <td> <%= dependency.responsable_email %></td>
+                <td> <%= dependency.Delegation.name if dependency.Delegation %></td>
+                <td>
+                  <%= link_to 'Mostrar', dependency, class:'btn btn-default  btn-xs' %>
+                  <%= link_to 'Editar', edit_dependency_path(dependency), class:'btn btn-default  btn-xs' %>
+                  <%= link_to 'Borrar', dependency, method: :delete, data: { confirm: 'esta usted seguro?' } , 
+                    class:'btn btn-default btn-xs'%>
+                </td>
+              </tr>
+              <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
-<div class="container-fluid">
-  <div class="table-responsive no-margins">
-    <table class="table table-hover table-striped">
-      <thead>
-        <th>Nombre</th>
-        <th>Telefono</th>
-        <th>Responsable</th>
-        <th>Correo</th>
-        <th>Delegacion</th>
-        <th></th>
-      </thead>
-      <tbody>
-        <% @dependencies.each do |dependency| %>
-          <tr>
-            <td> <%= dependency.name %></td>
-            <td> <%= dependency.telephone %></td>
-            <td> <%= dependency.responsable %></td>
-            <td> <%= dependency.responsable_email %></td>
-            <td> <%= dependency.Delegation.name if dependency.Delegation %></td>
-            <td>
-              <%= link_to 'Mostrar', dependency, class:'btn btn-default  btn-xs' %>
-              <%= link_to 'Editar', edit_dependency_path(dependency), class:'btn btn-default  btn-xs' %>
-              <%= link_to 'Borrar', dependency, method: :delete, data: { confirm: 'esta usted seguro?' } , 
-                class:'btn btn-default btn-xs'%>
-            </td>
-          </tr>
-          <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
-<%= will_paginate @dependencies %>
-<br>
-<%= link_to 'Agregar', new_dependency_path, class:'btn btn-default btn-xs' %>
+
+
 
 
