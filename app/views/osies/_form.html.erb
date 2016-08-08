@@ -10,17 +10,22 @@
       </ul>
     </div>
   <% end %>
-<div class="container-fluid smfont">
-    <div class="row be-round_ligth_gray large-padding">
-      <div class="col-xs-4">
+<div class="container smfont">
+    <div class="row">
+      <div class="col-xs-8 col-md-4 be-round_ligth_gray large-padding">
         <%= f.label :Nombre %><br>
         <%= f.text_field :name, class:'form-control' %>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-4 col-md-1 be-round_ligth_gray large-padding">
         <%= f.label :version %><br>
-        <%= f.select :version, [ ['x32'], ['x64'] ], {:include_blank => true}, {class:'btn  dropdown-toggle smfont'} %>
+        <%= f.select :version, [ ['x32'], ['x64'] ], {:include_blank => true}, {class:'btn  dropdown-toggle smfont'} %><br>
       </div>
-      <%= f.submit %>
+        
+    </div>
+    <div class="row">
+      <div class="col-xs col-md-5 be-round_ligth_gray large-padding">
+         <%= f.submit %> 
+      </div>
     </div>
   </div>
 <% end %>

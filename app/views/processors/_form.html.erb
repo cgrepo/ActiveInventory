@@ -12,21 +12,21 @@
   <% end %>
   <div class="container-fluid">
     <div class="row be-soft_gray large-padding">
-      <div class="col-xs">
+      <div class="col-xs-4 col-md-2">
         <%= f.label :MARCA %><br>
         <%= f.select :brand, [ ['Intel(R)'], ['AMD(R)'] ], {:include_blank => true}, {class:'btn  dropdown-toggle smfont'} %>
           <%#= f.text_field : %>      
       </div>
-      <div class="col-xs ">
+      <div class="col-xs-4 col-md-2">
         <%= f.label :TIPO %><br>
         <%= f.select :genus, [ ['Atom(TM)'], ['Core(TM)'], ['Celeron(R)'], ['Pentium(R)'], ['Xenon(R)']], {:include_blank => true}, 
           {class:'btn  dropdown-toggle smfont'} %>
       </div>
-      <div class="col-xs">
+      <div class="col-xs-2">
         <%= f.label :MODELO %><br>
         <%= f.text_field :modelp, class:'form-control smfont' %>
       </div>
-      <div class="col-xs ">
+      <div class="col-xs-2">
         <%= f.label :VELOCIDAD %><br>
         <%= f.text_field :speed, class:'form-control smfont' %>
       </div>

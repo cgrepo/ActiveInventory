@@ -1,14 +1,18 @@
 <p id="notice"><%= notice %></p>
+<div class="container-fluid large-padding be-gray">
+	<div class="row">
+		<div class="col-xs-2 col-md-2">
+			<p>
+			  <strong>Nombre:</strong>
+			  <%= @osy.name %>
+			</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @osy.name %>
-</p>
-
-<p>
-  <strong>Version:</strong>
-  <%= @osy.version %>
-</p>
-
-<%= link_to 'Edit', edit_osy_path(@osy), class:'btn btn-default  btn-sm' %> |
-<%= link_to 'Back', osies_path, class:'btn btn-default  btn-sm' %>
+			<p>
+			  <strong>Version:</strong>
+			  <%= @osy.version %> bits
+			</p>
+		</div>
+	</div>
+</div>
+<%= link_to 'Editar', edit_osy_path(@osy), class:'btn btn-default  btn-sm' %> |
+<%= link_to 'Regresar', osies_path, class:'btn btn-default  btn-sm' %>
