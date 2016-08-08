@@ -35,17 +35,11 @@ Processor.destroy_all
 # 	dep.Delegation = Delegation.find_by(name:"Cabo San Lucas")
 # 	dep.save!
 # end
-line = 'AMD(R),ATHLON(TM),DUAL Core,2.2GHz:AMD(R),ATHLON(TM),DUAL Core,2.6GHz:AMD(R),ATHLON(TM),DUAL Core4450B2.3GHz:AMD(R),ATHLON(TM),II X2 240,2.8GHz:Intel(R),ATOM(TM),D525,1.8GHz:Intel(R),Celeron(R),G440,1.6GHz:Intel(R),Celeron(R),J1900,1.9GHz:Intel(R),Celeron(R),J1900,A,1.9GHz:Intel(R),Core(TM),13-4330,3.5GHz:Intel(R),Core(TM),2 6300,1.8GHz:Intel(R),Core(TM),2 6400 A,2.1GHz:Intel(R),Core(TM),2 6600,2.4GHz:Intel(R),Core(TM),2 Duo E4600,2.3GHz:Intel(R),Core(TM),2 Duo E6550,2.3GHz:Intel(R),Core(TM),2 Duo T5780,2.0GHz:Intel(R),Core(TM),2 Duo i3,2.9GHz:Intel(R),Core(TM),2 Duo i3-2130,3.4GHz:Intel(R),Core(TM),2 Duo i3-4130,3.4GHz:Intel(R),Core(TM),2 Duo,1.8GHz:Intel(R),Core(TM),2 Duo,2.1GHz:Intel(R),Core(TM),2 Duo,2.3GHz:Intel(R),Core(TM),2 Duo,2.4GHz:Intel(R),Core(TM),2,1.8GHz:Intel(R),Core(TM),Core i5-3330 A,3.0GHz:Intel(R),Core(TM),i3 4150,3.5GHz:Intel(R),Core(TM),i3-2100 A,3.1GHz:Intel(R),Core(TM),i3-2100,3.1GHz:Intel(R),Core(TM),i3-2350M,2.3GHz:Intel(R),Core(TM),i3-2370M,2.4GHz:Intel(R),Core(TM),i3-3220 A,3.3GHz:Intel(R),Core(TM),i3-3220,3.3GHz:Intel(R),Core(TM),i3-4005U,1.7GHz:Intel(R),Core(TM),i3-4150,3.506GHz:Intel(R),Core(TM),i3-4150,3.5GHz:Intel(R),Core(TM),i3-4330,3.5GHz:Intel(R),Core(TM),i5-3330,3.0GHz:Intel(R),Core(TM),i5-3330,3.6GHz:Intel(R),Core(TM),i5-4460 A,3.2GHz:Intel(R),Core(TM),i5-4460,3.2GHz:Intel(R),Core(TM),i5-4590,3.3GHz:Intel(R),PENTIUM(R),4,1.8GHz:Intel(R),PENTIUM(R),4,2.3GHz:Intel(R),PENTIUM(R),4,2.4GHz:Intel(R),PENTIUM(R),4,2.8GHz:Intel(R),PENTIUM(R),4,2.9GHz:Intel(R),PENTIUM(R),4,3.0GHz:Intel(R),PENTIUM(R),4,3.1GHz:Intel(R),PENTIUM(R),4,3.2GHz:Intel(R),PENTIUM(R),4,3.4GHz:Intel(R),PENTIUM(R),4,3.6GHz:Intel(R),PENTIUM(R),A,2.4GHz:Intel(R),PENTIUM(R),D,2.8GHz:Intel(R),PENTIUM(R),D,2.9GHz:Intel(R),PENTIUM(R),D,3.0GHz:Intel(R),PENTIUM(R),DUAL Core,2.6GHz:Intel(R),PENTIUM(R),DUAL Core,2.8GHz:Intel(R),PENTIUM(R),DUAL E2200 A,2.2GHz:Intel(R),PENTIUM(R),G630,2.7GHz:Intel(R),PENTIUM(R),4,3.0GHz:Intel(R),PENTIUM(R),4,3.2GHz:Intel(R),XENON(R),E3-1245 V3 A,3.4GHz:Intel(R),XENON(R),E3-1245V3,3.4GHz:Intel(R),Core(TM),i7-4600,2.9Ghz:Intel(R),Celeron(R),N3050,1.8GHz'
+line = 'AMD(R),Athlon(TM),Dual Core,2.2GHz:AMD(R),Athlon(TM),Dual Core,2.6GHz:AMD(R),Athlon(TM),Dual Core 4450B,2.3GHz:AMD(R),Athlon(TM),II X2 240,2.8GHz:Intel(R),Atom(TM),D525,1.8GHz:Intel(R),Celeron(R),G440,1.6GHz:Intel(R),Celeron(R),J1900,1.9GHz:Intel(R),Celeron(R),J1900,1.9GHz:Intel(R),Core(TM),13-4330,3.5GHz:Intel(R),Core(TM),2 6300,1.8GHz:Intel(R),Core(TM),2 6400,2.1GHz:Intel(R),Core(TM),2 6600,2.4GHz:Intel(R),Core(TM),2 Duo E4600,2.3GHz:Intel(R),Core(TM),2 Duo E6550,2.3GHz:Intel(R),Core(TM),2 Duo T5780,2.0GHz:Intel(R),Core(TM),2 Duo i3,2.9GHz:Intel(R),Core(TM),2 Duo i3-2130,3.4GHz:Intel(R),Core(TM),2 Duo i3-4130,3.4GHz:Intel(R),Core(TM),2 Duo,1.8GHz:Intel(R),Core(TM),2 Duo,2.1GHz:Intel(R),Core(TM),2 Duo,2.3GHz:Intel(R),Core(TM),2 Duo,2.4GHz:Intel(R),Core(TM),2 Duo,1.8GHz:Intel(R),Core(TM),i5-3330,3.0GHz:Intel(R),Core(TM),i3 4150,3.5GHz:Intel(R),Core(TM),i3-2100,3.1GHz:Intel(R),Core(TM),i3-2350M,2.3GHz:Intel(R),Core(TM),i3-2370M,2.4GHz:Intel(R),Core(TM),i3-3220,3.3GHz:Intel(R),Core(TM),i3-4005U,1.7GHz:Intel(R),Core(TM),i3-4150,3.5GHz:Intel(R),Core(TM),i3-4330,3.5GHz:Intel(R),Core(TM),i5-3330,3.0GHz:Intel(R),Core(TM),i5-3330,3.6GHz:Intel(R),Core(TM),i5-4460,3.2GHz:Intel(R),Core(TM),i5-4590,3.3GHz:Intel(R),Pentium(R),4,1.8GHz:Intel(R),Pentium(R),4,2.3GHz:Intel(R),Pentium(R),4,2.4GHz:Intel(R),Pentium(R),4,2.8GHz:Intel(R),Pentium(R),4,2.9GHz:Intel(R),Pentium(R),4,3.0GHz:Intel(R),Pentium(R),4,3.1GHz:Intel(R),Pentium(R),4,3.2GHz:Intel(R),Pentium(R),4,3.4GHz:Intel(R),Pentium(R),4,3.6GHz:Intel(R),Pentium(R),4,2.4GHz:Intel(R),Pentium(R),D,2.8GHz:Intel(R),Pentium(R),D,2.9GHz:Intel(R),Pentium(R),D,3.0GHz:Intel(R),Pentium(R),Dual Core,2.6GHz:Intel(R),Pentium(R),Dual Core,2.8GHz:Intel(R),Pentium(R),Dual E2200 A,2.2GHz:Intel(R),Pentium(R),G630,2.7GHz:Intel(R),Pentium(R),4,3.0GHz:Intel(R),Pentium(R),4,3.2GHz:Intel(R),Xenon(R),E3-1245V3,3.4GHz:Intel(R),Core(TM),i7-4600,2.9Ghz:Intel(R),Celeron(R),N3050,1.8GHz'
 line.split(':').each do |e|
-	puts e
 	p = e.split(',')
-	puts "{brand:'#{p[0]}', genus:'#{p[1]}',  modelp:'#{p[2]}', speed:'#{p[3]}'}"
+	Processor.create! brand:p[0], genus:p[1],  modelp:p[2], speed:p[3]
 end
-
-# Processor.create! [
-
-# 	{brand:' '}
-# ]
 
 # Network.create! [
 # 	{linktype:'ADSL-MODEM', location:'DIF CSL', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
@@ -60,11 +54,12 @@ end
 # 	{linktype:'ADSL-MODEM', location:'BIBLIOTECA LOMAS DEL SOL', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
 # 	{linktype:'ADSL-MODEM', location:'BIBLIOTECA AMELIA WILKES', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
 # 	{linktype:'ADSL-MODEM', location:'CULTURA CSL-CERRO DEL TIMBRE', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
+#   {linktype:'ADSL-MODEM', location:'COMANDANCIA CANGREJOS CSL', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
 # 	{linktype:'ENLACE-WIFI', location:'MODULO REGISTRO CIVIL', iprange:'', ip:''},
 # 	{linktype:'ENLACE-WIFI', location:'MODULO DESARROLLO URBANO', iprange:'', ip:''}
 # ]
 
-# Worker.create! name:"elmor", email:"thehive@hive.com", profile:"test", Dependency_id:2
+
 #  Worker.create! [
 #  	{name:'Carlos A. Garcia G.', email:'carlos.garcia@loscabos.gob.mx', profile:'Asistente de la Direccion Mpal. de Sistemas'},
 #  	{name:'Maria J. Ochoa A.', email:'sistemas_csl@loscabos.gob.mx', profile:'Coordinadora de Sistemas en CSL'},

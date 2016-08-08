@@ -24,6 +24,14 @@
 	  		<%= @network.ip %>
     </div>
   </div>
+  <% if @network.wifirouter %>
+    <div class="row">
+      <div class="col-xs-4 large-padding">      
+          <strong>SSID:</strong>
+          <%= @network.ssid_name %>
+      </div>
+    </div>
+  <% end %>
 </div>
 <br>
 <%= link_to 'Editar', edit_network_path(@network), class:'btn btn-default  btn-sm' %> |
