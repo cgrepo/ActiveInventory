@@ -12,46 +12,43 @@
   <% end %>
   <div class="container-fluid large-padding be-round_ligth_gray">
     <div class="row">
-      <div class="col-xs-1">        
+      <div class="col-xs-4 col-md-2">        
         <%= f.label :Inventario %><br>
         <%= f.text_field :ninventary, class:'form-control smfont' %>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-4 col-md-2">
         <%= f.label :Serie %><br>
         <%= f.text_field :nserie, class:'form-control smfont' %>
       </div>
-      <div class="col-xs-2">        
-        <%= f.label :Marca %><br>
-        <%= f.select :brand, [ ['CANON'], ['BROTHER'], ['XEROX'] ], {include_blank: true},{class:'btn  dropdown-toggle smfont'}  %>
-      </div>
-      <div class="col-xs-2">        
+      <div class="col-xs-4 col-md-2">        
         <%= f.label :Modelo %><br>
         <%= f.text_field :model, class:'form-control smfont' %>
       </div>
-      <div class="col-xs-2">        
+      <div class="col-xs-4 col-md-2">        
         <%= f.label :Factura %><br>
         <%= f.text_field :nfactura, class:'form-control smfont' %>
       </div>
-      <div class="col-xs-3">        
+      <div class="col-xs-2 col-md-2">        
+        <%= f.label :Marca %><br>
+        <%= f.select :brand, [ ['CANON'], ['BROTHER'], ['XEROX'] ], {include_blank: true},{class:'btn  dropdown-toggle smfont'}  %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-md-3">        
         <%= f.label :Fecha_Compra %><br>
         <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]} %>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs">        
+      <div class="col-xs-6 col-md-8">        
         <%= f.label :Notas %><br>
-        <%= f.text_area :notes, size:"70x3" %>
+        <%= f.text_area :notes, size:"43x2" %>
       </div>
-      <div class="col-xs">        
+      <div class="col-xs-10 col-md-6">        
         <%= f.label :Dependencia %><br>
         <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true}, 
           {class:'btn  dropdown-toggle smfont'} ) %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs">        
-        <%= f.submit %><br>
-        <br>
+          <br>
+          <br>
+          <%= f.submit %>
       </div>
     </div>
   </div>

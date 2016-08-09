@@ -1,37 +1,50 @@
 <div class="container-fluid be-soft_purple large-padding">
-  <p id="notice"><%= notice %></p>
-  <h1>Listado Consumibles</h1>
-</div>
-<div class="container-fluid">
-  <div class="table-responsive no-margins">
-    <table class="table table-hover table-striped">
-      <thead>
-        <th>Tipo</th>
-        <th>Modelo</th>
-        <th></th>
-      </thead>
-      <tbody>
-        <% @consumables.each do |consumable| %>
-          <tr>
-            <td>
-              <%= consumable.genus %>
-            </td>
-            <td>
-              <%= consumable.model %>
-            </td>
-            <td>
-              <%= link_to 'Mostrar', consumable, class:'btn btn-default  btn-sm' %> 
-              <%= link_to 'Editar', edit_consumable_path(consumable), class:'btn btn-default btn-sm' %> 
-              <%= link_to 'Borrar', consumable, method: :delete, data: { confirm: 'Esta seguro?' }, 
-              class:'btn btn-default btn-sm' %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <div class="row">
+    <div class="col-xs-12">
+      <p id="notice"><%= notice %></p>
+      <h1>Listado Consumibles</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 col-md-6"><span class="pull-left"><%= will_paginate @consumables %></span></div>
+    <div class="col-xs-6 col-md-6">
+      <span class="pull-right">
+        <%= link_to 'Agregar', new_consumable_path,  class:'btn btn-default btn-lg be-gray' %>
+        <%#= button_to 'Agregar consumible' , new_consumable_path, :method => :get ,  class:'btn btn-default  btn-sm'%>
+      </span>
+  </div>
   </div>
 </div>
-<%= will_paginate @consumables %>
-<br>
-<%= link_to 'Agregar', new_consumable_path,  class:'btn btn-default  btn-sm' %>
-<%#= button_to 'Agregar consumible' , new_consumable_path, :method => :get ,  class:'btn btn-default  btn-sm'%>
+<div class="container">
+  <div class="row">
+    <div class="col-xs- col-md-8">
+      <div class="table-responsive ">
+        <table class="table table-hover table-striped">
+          <thead>
+            <th>Tipo</th>
+            <th>Modelo</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <% @consumables.each do |consumable| %>
+              <tr>
+                <td>
+                  <%= consumable.genus %>
+                </td>
+                <td>
+                  <%= consumable.model %>
+                </td>
+                <td>
+                  <%= link_to 'Mostrar', consumable, class:'btn btn-default  btn-sm' %> 
+                  <%= link_to 'Editar', edit_consumable_path(consumable), class:'btn btn-default btn-sm' %> 
+                  <%= link_to 'Borrar', consumable, method: :delete, data: { confirm: 'Esta seguro?' }, 
+                  class:'btn btn-default btn-sm' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
