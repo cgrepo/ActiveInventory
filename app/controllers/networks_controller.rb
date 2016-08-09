@@ -4,7 +4,7 @@ class NetworksController < ApplicationController
   # GET /networks
   # GET /networks.json
   def index
-    @networks = Network.all.paginate(page: params[:page], per_page: 15 )
+    @networks = Network.all.paginate(page: params[:page], per_page: 10 )
   end
 
   # GET /networks/1

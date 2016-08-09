@@ -1,32 +1,32 @@
 <p id="notice"><%= notice %></p>
 <div class="container-fluid large-padding be-gray">
 	<div class="row ">
-    <div class="col-xs-4 large-padding">     
+    <div class="col-xs col-md large-padding">     
       	<strong>Tipo Enlace:</strong>
 	  		<%= @network.linktype %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-4 large-padding">      
+    <div class="col-xs col-md large-padding">      
       	<strong>Locacion:</strong>
 	  		<%= @network.location %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-4 large-padding">      
+    <div class="col-xs col-md large-padding">      
       	<strong>Rango IP:</strong>
 	  		<%= @network.iprange %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-4 large-padding">      
+    <div class="col-xs col-md large-padding">      
       	<strong>IP Gateway:</strong>
 	  		<%= @network.ip %>
     </div>
   </div>
   <% if @network.wifirouter %>
     <div class="row">
-      <div class="col-xs-4 large-padding">      
+      <div class="col-xs col-md large-padding">      
           <strong>SSID:</strong>
           <%= @network.ssid_name %>
       </div>
@@ -34,5 +34,5 @@
   <% end %>
 </div>
 <br>
-<%= link_to 'Editar', edit_network_path(@network), class:'btn btn-default  btn-sm' %> |
-<%= link_to 'Regresar', networks_path, class:'btn btn-default  btn-sm' %>
+<%= link_to 'Editar', edit_network_path(@network), class:'btn btn-default  btn-lg' %> |
+<%= link_to 'Regresar', networks_path, class:'btn btn-default  btn-lg' %>

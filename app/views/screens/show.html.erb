@@ -1,59 +1,48 @@
 <p id="notice"><%= notice %></p>
 <div class="container-fluid large-padding be-gray">
-  <div class="row">
-    <div class="col-xs">
-      <strong>No inventario:</strong>
+  <div class="row ">
+    <div class="col-xs-5 col-md-2">
+      <strong>Inventario:</strong>
       <%= @screen.ninventary %>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">      
-      <strong>SERIE:</strong>
+    <div class="col-xs-4 col-md-2">
+      <strong>Serie:</strong>
       <%= @screen.nserie %>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">     
+    <div class="col-xs-3 col-md-2">
       <strong>Marca:</strong>
       <%= @screen.brand %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs">      
+    <div class="col-xs-4 col-md-2">
       <strong>Modelo:</strong>
       <%= @screen.model %>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">     
-      <strong>ID factura:</strong>
+    <div class="col-xs-4 col-md-2">
+      <strong>Factura:</strong>
       <%= @screen.nfactura %>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">      
-      <strong>Fecha compra:</strong>
+    <div class="col-xs-5 col-md-2">
+      <strong>Compra:</strong>
       <%= @screen.buy_date %>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">
+    <div class="col-xs-3 col-md">
       <strong>Pulgadas:</strong>
       <%= @screen.inch %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs">      
+    <div class="col-xs-12 col-md">     
+      <strong>Dependencia:</strong>
+      <%= @screen.Dependency.name if  @screen.Dependency %>
+    </div>
+    <div class="col-xs-12 col-md">      
       <strong>Notas:</strong>
       <%= @screen.notes %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs">     
-      <strong>Dependencia:</strong>
-      <%= @screen.Dependency.name if  @screen.Dependency %>
-    </div>
-  </div>
 </div>
-<%= link_to 'Editar', edit_screen_path(@screen), class:'btn btn-default  btn-sm' %> |
-<%= link_to 'Regresar', screens_path, class:'btn btn-default  btn-sm' %>
+
+<%= link_to 'Editar', edit_screen_path(@screen), class:'btn btn-default btn-lg' %> |
+<%= link_to 'Regresar', screens_path, class:'btn btn-default btn-lg' %>
