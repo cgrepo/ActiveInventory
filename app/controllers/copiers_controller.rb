@@ -4,7 +4,7 @@ class CopiersController < ApplicationController
   # GET /copiers
   # GET /copiers.json
   def index
-    @copiers = Copier.all.paginate(page: params[:page], per_page: 15 )
+    @copiers = Copier.all.paginate(page: params[:page], per_page: 10 )
   end
 
   # GET /copiers/1

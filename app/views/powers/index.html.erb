@@ -1,9 +1,21 @@
-<div class="container-fluid be-soft_purple large-padding">
-  <p id="notice"><%= notice %></p>
-  <h1>Listado de UPS / REGULADORES</h1>
+<div class="container-fluid be-soft_purple">
+  <div class="row">
+    <div class="col-xs">
+      <p id="notice"><%= notice %></p>
+      <h1>UPS REGULADORES</h1>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-md">
+        <span class="pull-left"><%= will_paginate @powers %></span>
+      </div>
+      <div class="col-xs-6 col-md">
+        <span class="pull-right"><%= link_to 'Agregar', new_power_path, class:'btn btn-default btn-lg be-gray' %></span>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="container-fluid">
-  <div class="table-responsive no-margins">
+  <div class="table-responsive">
     <table class="table table-hover table-striped">
       <thead>
         <th>Inventario</th>
@@ -35,6 +47,3 @@
     </table>
   </div>
 </div>
-  <%= will_paginate @powers %>
-  <br>
-  <%= link_to 'Agregar', new_power_path, class:'btn btn-default  btn-sm' %>
