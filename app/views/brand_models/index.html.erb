@@ -6,14 +6,9 @@
   <thead>
     <tr>
       <th>Description</th>
-      <th>Upsb</th>
-      <th>Upsm</th>
+      <th>Marca</th>
+      <th>Modelo</th>
       <th>Monitorb</th>
-      <th>Monitorm</th>
-      <th>Copierb</th>
-      <th>Copierm</th>
-      <th>Printeb</th>
-      <th>Printerm</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,14 +17,8 @@
     <% @brand_models.each do |brand_model| %>
       <tr>
         <td><%= brand_model.description %></td>
-        <td><%= brand_model.upsb %></td>
-        <td><%= brand_model.upsm %></td>
-        <td><%= brand_model.monitorb %></td>
-        <td><%= brand_model.monitorm %></td>
-        <td><%= brand_model.copierb %></td>
-        <td><%= brand_model.copierm %></td>
-        <td><%= brand_model.printeb %></td>
-        <td><%= brand_model.printerm %></td>
+        <td><%= brand_model.brandx %></td>
+        <td><%= brand_model.modelx %></td>
         <td><%= link_to 'Show', brand_model %></td>
         <td><%= link_to 'Edit', edit_brand_model_path(brand_model) %></td>
         <td><%= link_to 'Destroy', brand_model, method: :delete, data: { confirm: 'Are you sure?' } %></td>

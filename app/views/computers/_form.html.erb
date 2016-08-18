@@ -19,8 +19,8 @@
       </div>
       <div class="col-xs col-md-2">
         <%= f.label :Marca %><br>
-        <%= f.collection_select(:brand, ComputerBrand.all, :name, :name, {:include_blank => true }, 
-          {class:'btn  dropdown-toggle smfont'} ) %>
+        <%= f.collection_select(:brand, BrandModel.where(description:"COMPUTADORA").group(:brandx), :brandx, :brandx, 
+        {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
       </div>
       <div class="col-xs col-md-2">
         <%= f.label :Serie %><br>
@@ -29,6 +29,8 @@
     <div class="col-xs col-md-2">
       <%= f.label :Modelo %><br>
       <%= f.text_field :model, class:'form-control textbdy' %>
+      <%= f.collection_select(:model, BrandModel.where(description:"COMPUTADORA"), :modelx, :modelx, {:include_blank => true }, 
+          {class:'btn  dropdown-toggle smfont'} ) %>
     </div>
     <div class="col-xs col-md-2">
       <%= f.label :Tipo %><br>  

@@ -15,14 +15,8 @@ ActiveRecord::Schema.define(version: 20160804185658) do
 
   create_table "brand_models", force: :cascade do |t|
     t.string   "description"
-    t.string   "upsb"
-    t.string   "upsm"
-    t.string   "monitorb"
-    t.string   "monitorm"
-    t.string   "copierb"
-    t.string   "copierm"
-    t.string   "printeb"
-    t.string   "printerm"
+    t.string   "brandx"
+    t.string   "modelx"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

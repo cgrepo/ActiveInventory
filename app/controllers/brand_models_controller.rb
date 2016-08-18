@@ -24,6 +24,7 @@ class BrandModelsController < ApplicationController
   # POST /brand_models
   # POST /brand_models.json
   def create
+    #byebug
     @brand_model = BrandModel.new(brand_model_params)
 
     respond_to do |format|
@@ -69,6 +70,6 @@ class BrandModelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def brand_model_params
-      params.require(:brand_model).permit(:description, :upsb, :upsm, :monitorb, :monitorm, :copierb, :copierm, :printeb, :printerm)
+      params.require(:brand_model).permit(:description, :brandx, :modelx)
     end
 end

@@ -16,18 +16,20 @@
         <%= f.text_field :ninventary, class:'form-control smfont' %>
       </div>
       <div class="col-xs-4 col-md">        
-          <%= f.label :Serie %><br>
-          <%= f.text_field :nserie, class:'form-control smfont' %>
+        <%= f.label :Serie %><br>
+        <%= f.text_field :nserie, class:'form-control smfont' %>
       </div>
       <div class="col-xs-4 col-md">        
         <%= f.label :Modelo %><br>
-        <%= f.text_field :model, class:'form-control smfont' %>
+        <%= f.collection_select(:model, BrandModel.where(description:"MONITOR"), :modelx, :modelx, 
+        {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
       </div>   
     </div>
     <div class="row">
       <div class="col-xs-3 col-md-1">        
-          <%= f.label :Marca %><br>
-          <%= f.select :brand, [['HP'] ], {include_blank: true}, {class:'btn  dropdown-toggle smfont'} %>
+        <%= f.label :Marca %><br>
+        <%= f.collection_select(:brand, BrandModel.where(description:"MONITOR").group(:brandx), :brandx, :brandx, 
+          {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
           <%#= f.text_field :brand %>
       </div>
       <div class="col-xs-3 col-md-1">        

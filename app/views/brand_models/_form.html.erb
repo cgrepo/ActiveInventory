@@ -10,44 +10,61 @@
       </ul>
     </div>
   <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs col-md">
+        <%= f.label :Tipo %><br>
+        <%= f.select :description, [ ['COMPUTADORA'], ['REGULADOR/UPS'], ['MONITOR'], ['IMPRESORA'], ['COPIADORA'], ['TELEFONO'] ],
+         {class:'btn  dropdown-toggle smfont'}, id:"brands", 
+         onchange:'
 
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+          var e = document.getElementById("brands");
+          var strUser = e.options[e.selectedIndex].value;
+          
+          switch(strUser){
+            case "IMPRESORA":
+              $("#printer-section").show();
+              $("#copier-section").hide();
+              $("#ups-section").hide();
+              $("#monitor-section").hide();
+            break;
+            case "COPIADORA":
+              $("#printer-section").hide();
+              $("#copier-section").show();
+              $("#ups-section").hide();
+              $("#monitor-section").hide();
+            break;
+            case "UPS":
+              $("#printer-section").hide();
+              $("#copier-section").hide();
+              $("#ups-section").show();
+              $("#monitor-section").hide();
+            break;
+            case "MONITOR":
+              $("#printer-section").hide();
+              $("#copier-section").hide();
+              $("#ups-section").hide();
+              $("#monitor-section").show();
+            break;
+
+          }
+         
+            '
+           %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :upsb %><br>
-    <%= f.text_field :upsb %>
-  </div>
-  <div class="field">
-    <%= f.label :upsm %><br>
-    <%= f.text_field :upsm %>
-  </div>
-  <div class="field">
-    <%= f.label :monitorb %><br>
-    <%= f.text_field :monitorb %>
-  </div>
-  <div class="field">
-    <%= f.label :monitorm %><br>
-    <%= f.text_field :monitorm %>
-  </div>
-  <div class="field">
-    <%= f.label :copierb %><br>
-    <%= f.text_field :copierb %>
-  </div>
-  <div class="field">
-    <%= f.label :copierm %><br>
-    <%= f.text_field :copierm %>
-  </div>
-  <div class="field">
-    <%= f.label :printeb %><br>
-    <%= f.text_field :printeb %>
-  </div>
-  <div class="field">
-    <%= f.label :printerm %><br>
-    <%= f.text_field :printerm %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+   <div class="container ">
+    <div class="row">
+      <div class="col-xs-6 col-md">
+        <%= f.label :Marca %><br>
+        <%= f.text_field :brandx, class:'form-control smfont' %>
+        <%= f.label :Modelo %><br>
+        <%= f.text_field :modelx, class:'form-control smfont' %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    </div>
   </div>
 <% end %>

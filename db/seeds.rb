@@ -8,7 +8,7 @@
 # User.destroy_all
 # Delegation.destroy_all
 # Dependency.destroy_all
-Processor.destroy_all
+# Processor.destroy_all
 # Network.destroy_all
 # Worker.destroy_all
 # ComputerBrand.destroy_all
@@ -16,7 +16,7 @@ Processor.destroy_all
 # Hardd.destroy_all
 # Osy.destroy_all
 # Officev.destroy_all
-
+BrandModel.destroy_all
 # User.create! [
 #  { username: "carlos", password: "th3pr!mag1n" },
 #  { username: "mary", password: "h3ngell" }
@@ -202,6 +202,41 @@ end
 # 	{name:'OFFICE 2010-2013-2016 Prof. Plus.'},
 # 	{name:'OFFICE 365'}
 # ]
+BrandModel.create! [
+	{description:'COMPUTADORA', brandx:'ACER', modelx:''},
+	{description:'COMPUTADORA',brandx:'ASUS', modelx:''},
+	{description:'COMPUTADORA',brandx:'CLON', modelx:''},
+	{description:'COMPUTADORA',brandx:'COMPAQ', modelx:''},
+	{description:'COMPUTADORA',brandx:'DELL', modelx:''},
+	{description:'COMPUTADORA',brandx:'HP', modelx:''},
+	{description:'COMPUTADORA',brandx:'IBM', modelx:''},
+	{description:'COMPUTADORA',brandx:'LENOVO', modelx:''},
+	{description:'COMPUTADORA',brandx:'SAMSUNG', modelx:''},
+	{description:'COMPUTADORA',brandx:'SONY', modelx:''},
+	{description:'REGULADOR/UPS',brandx:'ISB SOLABASIC', modelx:'XRN-21-801'},
+	{description:'REGULADOR/UPS',brandx:'ISB SOLABASIC', modelx:'DN-21-132'},
+	{description:'MONITOR',brandx:'HP', modelx:'V244h'},
+	{description:'MONITOR',brandx:'HP', modelx:'VH22'},
+	{description:'MONITOR',brandx:'HP', modelx:'P240va'},
+	{description:'IMPRESORA',brandx:'HP', modelx:'k550'},
+	{description:'IMPRESORA',brandx:'HP', modelx:'P2va'},
+	{description:'IMPRESORA',brandx:'EPSON', modelx:'P240va1'},
+	{description:'IMPRESORA',brandx:'EPSON', modelx:'788'},
+	{description:'IMPRESORA',brandx:'SAMSUNG', modelx:'788'},
+	{description:'IMPRESORA',brandx:'CANON', modelx:'788'},
+	{description:'IMPRESORA',brandx:'BROTHER', modelx:'788'},
+	{description:'IMPRESORA',brandx:'LEXMARK', modelx:'788'},
+	{description:'COPIADORA',brandx:'CANON', modelx:'dc456'},
+	{description:'COPIADORA',brandx:'CANON', modelx:'scpp'},
+	{description:'COPIADORA',brandx:'CANON', modelx:'cnn'},
+	{description:'COPIADORA',brandx:'BROTHER', modelx:'BRT222'},
+	{description:'COPIADORA',brandx:'BROTHER', modelx:'BRT78'},
+	{description:'COPIADORA',brandx:'XEROX', modelx:'xrs'},
+	{description:'TELEFONO',brandx:'PANASONIC', modelx:'KX-TS6LX'},
+	{description:'TELEFONO',brandx:'CISCO', modelx:'CS-899'}
+
+]
+
 #Manufacturer.create! [
 # 	{name:"BROTHER"},
 # 	{name:"CANON"},

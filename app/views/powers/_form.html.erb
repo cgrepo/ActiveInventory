@@ -22,13 +22,15 @@
       </div>
       <div class="col-xs col-md-2">
         <%= f.label :Marca %><br>
-        <%= f.select :brand, [['ISB Sola Basic'], ['TDE NET']], {include_blank: true}, {class:'btn  dropdown-toggle smfont'} %>
+        <%= f.collection_select(:brand, BrandModel.where(description:"REGULADOR/UPS").group(:brandx), :brandx, :brandx, 
+        {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-4 col-md-2">        
         <%= f.label :Modelo %><br>
-        <%= f.select :model, [['XRN-21-801'], ['DN-21-132']], {include_blank: true}, {class:'btn  dropdown-toggle smfont'} %>
+        <%= f.collection_select(:model, BrandModel.where(description:"REGULADOR/UPS"), :modelx, :modelx, 
+        {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
       </div>
       <div class="col-xs-4 col-md-3">
         <%= f.label :Factura %><br>

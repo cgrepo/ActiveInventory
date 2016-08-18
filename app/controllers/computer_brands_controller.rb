@@ -14,6 +14,7 @@ class ComputerBrandsController < ApplicationController
 
   # GET /computer_brands/new
   def new
+    
     @computer_brand = ComputerBrand.new
   end
 

@@ -22,7 +22,8 @@
       </div>
       <div class="col-xs-4 col-md-2">        
         <%= f.label :Modelo %><br>
-        <%= f.text_field :model, class:'form-control smfont' %>
+        <%= f.collection_select(:model, BrandModel.where(description:"COPIADORA"), :modelx, :modelx, 
+        {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
       </div>
       <div class="col-xs-4 col-md-2">        
         <%= f.label :Factura %><br>
@@ -30,7 +31,8 @@
       </div>
       <div class="col-xs-2 col-md-2">        
         <%= f.label :Marca %><br>
-        <%= f.select :brand, [ ['CANON'], ['BROTHER'], ['XEROX'] ], {include_blank: true},{class:'btn  dropdown-toggle smfont'}  %>
+        <%= f.collection_select(:brand, BrandModel.where(description:"COPIADORA").group(:brandx).order(:brandx), :brandx, :brandx, 
+          {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
       </div>
     </div>
     <div class="row">
