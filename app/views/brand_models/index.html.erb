@@ -1,32 +1,43 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid be-soft_purple large-padding">
+  <p id="notice"><%= notice %></p>
+  <h1>Marcas/Modelos</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs col-md-5">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th>Equipo</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th></th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-<h1>Listing Brand Models</h1>
+        <tbody>
+          <% @brand_models.each do |brand_model| %>
+            <tr>
+              <td><%= brand_model.description %></td>
+              <td><%= brand_model.brandx %></td>
+              <td><%= brand_model.modelx %></td>
+              <td><%= link_to 'Editar', edit_brand_model_path(brand_model), class:'btn btn-default btn-sm' %></td>
+              <td><%= link_to 'Borrar', brand_model, method: :delete, data: { confirm: 'Esta usted seguro?' }, 
+                  class:'btn btn-default btn-sm' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-xs">
+    <%= will_paginate(@brand_models) %>
+    <br>
+    <%= link_to 'Agregar', new_brand_model_path, class:'btn btn-default  btn-lg' %>
+  </div>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Marca</th>
-      <th>Modelo</th>
-      <th>Monitorb</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @brand_models.each do |brand_model| %>
-      <tr>
-        <td><%= brand_model.description %></td>
-        <td><%= brand_model.brandx %></td>
-        <td><%= brand_model.modelx %></td>
-        <td><%= link_to 'Show', brand_model %></td>
-        <td><%= link_to 'Edit', edit_brand_model_path(brand_model) %></td>
-        <td><%= link_to 'Destroy', brand_model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Brand model', new_brand_model_path %>
