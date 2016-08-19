@@ -5,7 +5,7 @@
         <h2>Listado de Dependencias</h2>
       </div>
       <div class="col-xs-12">
-        <%= form_tag(dependencies_path, method: "get") do  %>  
+        <%= form_tag(dependencies_path ,method: "get", remote: true) do  %>  
           <%= radio_button_tag(:Delegation, 1 ) %>
           <%= label_tag(:delegation_id, "SAN JOSE") %>
           <%= radio_button_tag(:Delegation, 2 ) %>
@@ -14,8 +14,11 @@
           <%= label_tag(:delegation_id, "SANTIAGO") %>
           <%= radio_button_tag(:Delegation, 4 ) %>
           <%= label_tag(:delegation_id, "LA RIVERA") %>
+          <%= radio_button_tag(:Delegation, 5 ) %>
+          <%= label_tag(:delegation_id, "MIRAFLORES") %>
           <%= submit_tag "MOSTRAR", class:'btn btn-default btn-sm' %>
-        <% end %>       
+        <% end %>
+
       </div>
     </div>
     <div class="row">
@@ -31,41 +34,14 @@
       </div>
     </div>
 </div>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="table-responsive no-margins">
-        <table class="table table-hover table-striped">
-          <thead>
-            <th>Nombre</th>
-            <th>Telefono</th>
-            <th>Responsable</th>
-            <th>Correo</th>
-            <th>Delegacion</th>
-            <th></th>
-          </thead>
-          <tbody>
-            <% @dependencies.each do |dependency| %>
-              <tr>
-                <td> <%= dependency.name %></td>
-                <td> <%= dependency.telephone %></td>
-                <td> <%= dependency.responsable %></td>
-                <td> <%= dependency.responsable_email %></td>
-                <td> <%= dependency.Delegation.name if dependency.Delegation %></td>
-                <td>
-                  <%= link_to 'Mostrar', dependency, class:'btn btn-default  btn-xs' %>
-                  <%= link_to 'Editar', edit_dependency_path(dependency), class:'btn btn-default  btn-xs' %>
-                  <%= link_to 'Borrar', dependency, method: :delete, data: { confirm: 'esta usted seguro?' } , 
-                    class:'btn btn-default btn-xs'%>
-                </td>
-              </tr>
-              <% end %>
-          </tbody>
-        </table>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12" id="mydata">
+        <%= render 'show_data' %>
       </div>
     </div>
   </div>
-</div>
 
 
 

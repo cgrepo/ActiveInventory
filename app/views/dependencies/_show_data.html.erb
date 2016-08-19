@@ -1,0 +1,28 @@
+<div class="table-responsive no-margins">
+  <table class="table table-hover table-striped">
+    <thead>
+      <th>Nombre</th>
+      <th>Telefono</th>
+      <th>Responsable</th>
+      <th>Correo</th>
+      <th>Delegacion</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <% @dependencies.each do |dependency| %>
+        <tr>
+          <td> <%= dependency.name %></td>
+          <td> <%= dependency.telephone %></td>
+          <td> <%= dependency.responsable %></td>
+          <td> <%= dependency.responsable_email %></td>
+          <td> <%= dependency.Delegation.name if dependency.Delegation %></td>
+          <td>
+            <%= link_to 'Mostrar', dependency, class:'btn btn-default  btn-xs' %>
+            <%= link_to 'Editar', edit_dependency_path(dependency), class:'btn btn-default  btn-xs' %>
+            <%= link_to 'Borrar', dependency,method: :delete, data: { confirm: 'esta usted seguro?' }, class:'btn btn-default btn-xs'%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
