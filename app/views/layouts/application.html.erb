@@ -7,54 +7,57 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container-fluid ">
-    <div class="row large-padding be-gray">
-      <div class="col-xs">
-        <% if logged_in? %>
-         	<span class="pull-right">
-         	 	Usuario <%= current_user.username.upcase %> |
-            <%= link_to 'ADMIN', admins_index_path %> |
-         	 	<%= link_to "Logout", logout_path, method: :delete %> <span class="glyphicon glyphicon-log-in"></span>
-         	 </span>
-        <% end %>
-        <% flash.each do |key, value| %>
-         	<p id='<%= key %>'><%= value %></p>
-        <% end %>
-         <%= logged_in? %>
+  <section id="myheader">
+    <div class="container-fluid ">
+      <div class="row large-padding be-gray">
+        <div class="col-xs">
+          <% if logged_in? %>
+           	<span class="pull-right">
+           	 	Usuario <%= current_user.username.upcase %> |
+              <%= link_to 'ADMIN', admins_index_path %> |
+           	 	<%= link_to "Logout", logout_path, method: :delete %> <span class="glyphicon glyphicon-log-in"></span>
+           	 </span>
+          <% end %>
+          <% flash.each do |key, value| %>
+           	<p id='<%= key %>'><%= value %></p>
+          <% end %>
+           <%= logged_in? %>
+        </div>
       </div>
     </div>
-  </div>
-<div class="container-fluid be-blue white">
-  <div class="row">
-    <div class="col-xs">
-      <nav class="navbar navbar-default be-blue no-borders">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+    <div class="container-fluid be-blue white">
+      <div class="row">
+        <div class="col-xs">
+          <nav class="navbar navbar-default be-blue no-borders">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav xsfont ">
+                <li><%= link_to 'DEPENDENCIAS', dependencies_path %></li>
+                <li><%= link_to 'USUARIOS', workers_path %></li>
+                <li><%= link_to 'NETWORKS', networks_path %></li>
+                <li><%= link_to 'COMPUTADORAS', computers_path %></li>
+                <li><%= link_to 'MONITORES', screens_path %></li>
+                <li><%= link_to 'UPS/REGULADORES', powers_path %></li>
+                <li><%= link_to 'IMPRESORAS', printers_path %></li>
+                <li><%= link_to 'COPIADORAS', copiers_path %></li>
+                <li><%= link_to 'ESTADISTICAS', statistics_path %></li>
+                <li><%= link_to 'CONSUMIBLES', consumables_path %></li>
+                <li><%= link_to 'TELEFONIA', telephones_path %></li>
+              </ul>
+            </div>
+          </nav>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav xsfont ">
-            <li><%= link_to 'DEPENDENCIAS', dependencies_path %></li>
-            <li><%= link_to 'USUARIOS', workers_path %></li>
-            <li><%= link_to 'NETWORKS', networks_path %></li>
-            <li><%= link_to 'COMPUTADORAS', computers_path %></li>
-            <li><%= link_to 'MONITORES', screens_path %></li>
-            <li><%= link_to 'UPS/REGULADORES', powers_path %></li>
-            <li><%= link_to 'IMPRESORAS', printers_path %></li>
-            <li><%= link_to 'COPIADORAS', copiers_path %></li>
-            <li><%= link_to 'ESTADISTICAS', statistics_path %></li>
-            <li><%= link_to 'CONSUMIBLES', consumables_path %></li>
-            <li><%= link_to 'TELEFONIA', telephones_path %></li>
-          </ul>
-        </div>
-      </nav>
+      </div>
     </div>
-  </div>
-</div>
-<%= yield %>
-
+  </section>
+  
+  <%= yield %>
+  
 </body>
 </html>

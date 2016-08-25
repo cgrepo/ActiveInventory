@@ -1,16 +1,18 @@
-<%= stylesheet_link_tag 'reports', media: 'print, screen' %>
-<%= stylesheet_link_tag 'flexboxgrid', media: 'print, screen' %>
-	<div class="row be-blue">
-		<div class="col-lg be-gray">
-			<%= image_tag("logodire.png", size: "100", align: "middle") %>
-		</div>		
-		<div class="col-lg be-blue">
-			<%= image_tag("direccion.png", width: '290', height: '45') %>
-			<div class="row be-blue">
-			
-		<div class="col-lg be-gray">
-			<p style="font-size: 30px; font-family: Verdana; color: gray;">SOLICITUD DE SERVICIO</p>			
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<%= image_tag("logodire.png", :width => 120, :height => 120) %>
 		</div>
-		</div>
+		<div class="col-md-9">
+			<span class="pull-right">
+				<%= image_tag("direccion.png") %>
+				
+			</span>
+			<span class="pull-left">
+				<br>
+				<br>
+				<h1 style="color:gray">SOLICITUD DE SERVICIO</h1>
+			</span>
 		</div>
 	</div>
+</div>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   
+  get 'reports/index'
+
   resources :brand_models
   resources :officevs
   resources :osies

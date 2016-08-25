@@ -1,36 +1,6 @@
 // Place all the styles related to the reports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-tml, body {
-  background: #fff;
-  font-family: 'Open Sans', sans-serif;
-  margin: 0;
-  padding: 0;
+#myheader{
+	display: none;
 }
-
-
-.be-gray{
-  background-color: #414141;
-  color: #ECF0F1;
-}
-
-.large-padding{
-  padding: 10px 7px;
-}
-
-.be-blue{
-  background-color: #0064c8;
-}
-
-.be-orange{
-	background-color: orange;
-}
-.side1 {
-  background-color: #96d1f8;
- }
-.side2 {
-  background-color: #E6E6E6;
- }
-.side3{
-  background-color: #414141;
- }
