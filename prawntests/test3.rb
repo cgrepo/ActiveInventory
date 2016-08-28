@@ -2,7 +2,8 @@ require 'prawn'
 require 'date'
 
 Prawn::Document.generate 'theyard.pdf' do 
-	stroke_axis
+	#stroke_axis
+#-----------START--------------------------------------------------------------------------------------------------------------------
 	Prawn::Font::AFM.hide_m17n_warning = true
 	imgshield = "logodire.png"	
 	image imgshield, at: [26,710], fit:[82,82]
@@ -23,35 +24,37 @@ Prawn::Document.generate 'theyard.pdf' do
     {:text => "#{Time.now.strftime("%m/%d/%Y")} " , size:9, style:[:bold], font:'Helvetica' },
     {:text => " FOLIO: " , size:9, style:[:normal], font:'Calibri', color:'b0a8a8' },
     {:text => " 00000000001" , size:9, style:[:bold], font:'Verdana' }
-  ], at:[5,620]
+  ], at:[30,620]
   formatted_text_box [
     {:text => 'Por medio de la presente se solicita el servicio a el equipo especificado en este documento a la empresa:' , size:11, 
       style:[:normal], font:'Calibri' },
   ], at:[10,605]
 
-	stroke_color 'c5c1c1'#'b0a8a8'
+	stroke_color 'c5c1c1'#
   stroke do
     #-------FIRST BOX-------------------
-    rounded_rectangle [5,595], 550,50, 6
-    horizontal_line 10,550, at:580
-    horizontal_line 10,550, at:564
+      rounded_rectangle [5,595], 550,50, 6
+      horizontal_line 10,550, at:580
+      horizontal_line 10,550, at:564
     #-------SECOND----------------------
-    rounded_rectangle [5,540], 550,63, 6
-    horizontal_line 10,550, at:525
-    horizontal_line 10,550, at:510
-    horizontal_line 10,550, at:495
-    #----THIRD--------------------------
-    rounded_rectangle [5,472], 550,100, 6
-    horizontal_line 10,550, at:442
-    horizontal_line 10,550, at:428
-    #------FOURT------------------------
-    rounded_rectangle [5,367], 550,65, 6
-    horizontal_line 103,550, at:350
-    horizontal_line 10,550, at:337
-    horizontal_line 10,550, at:324
-    #horizontal_line 10,550, at:311
+      rounded_rectangle [5,540], 550,63, 6
+      horizontal_line 10,550, at:525
+      horizontal_line 10,550, at:510
+      horizontal_line 10,550, at:495
+    #-------THIRD-----------------------
+      rounded_rectangle [5,472], 550,100, 6
+      horizontal_line 10,550, at:442
+      horizontal_line 10,550, at:428
+    #-------FOURT-----------------------
+      rounded_rectangle [5,367], 550,68, 6
+      horizontal_line 103,550, at:350
+      horizontal_line 10,550, at:337
+      horizontal_line 10,550, at:324
     #------FIFTH------------------------
-    #rounded_rectangle [5,312], 550,120, 6
+      rounded_rectangle [5,294], 550,55, 6
+      horizontal_line 73,550, at:278
+      horizontal_line 10,550, at:265
+      horizontal_line 10,550, at:252
   end
 #--------------FIRST BOX DATA--------------------------------------------------------------------------------------------------------
   formatted_text_box [
@@ -147,4 +150,67 @@ Prawn::Document.generate 'theyard.pdf' do
     {text:'Hora salida: ', size:10, font:'Calibri' },
   ], at:[420,311]
 
+#--------------FIFTH BOX DATA--------------------------------------------------------------------------------------------------------
+  formatted_text_box [ 
+    {text:'Observaciones: ', size:10, font:'Calibri' },
+  ], at:[10,289]
+
+#--------------SELECT DATA-----------------------------------------------------------------------------------------------------------
+  formatted_text_box [
+      {:text => 'Esta conforme con la atencion que proporciono la empresa al dar el servicio a el equipo especificado. Califique el servicio : ' , 
+        size:8, style:[:normal], font:'Calibri', color:'000000' },
+    ], at:[10,230]
+
+  formatted_text_box [
+    {:text => 'BUENO                              REGULAR                                MALO' , 
+      size:8, style:[:normal], font:'Calibri', color:'000000' },
+  ], at:[45,212]
+
+  formatted_text_box [ {:text => 'FIRMA AUTORIZACION',  size:8, style:[:normal], font:'Calibri', color:'000000' }, ], at:[15,145]
+  formatted_text_box [ {:text => 'FIRMA SOLICITANTE',  size:8, style:[:normal], font:'Calibri', color:'000000' },  ], at:[245,145]
+  formatted_text_box [ {:text => 'FIRMA PROVEEDOR',  size:8, style:[:normal], font:'Calibri', color:'000000' }, ], at:[470,145]
+
+#--------------OPTIONS---------------------------------------------------------------------------------------------------------------
+  stroke_color '9f9a9a'
+  fill_color 'cfd0cb'
+  #stroke_color '948b8b'      
+  rectangle [30,215], 10,10
+  fill_and_stroke
+  rectangle [107,215], 10,10
+  fill_and_stroke
+  rectangle [195,215], 10,10
+  fill_and_stroke
+
+#--------------SIGNS N LINE----------------------------------------------------------------------------------------------------------
+  stroke_color '9f9a9a'
+  fill_color 'cecece'
+  rectangle [5,190], 100,40
+  fill_and_stroke
+  rectangle [225,190], 100,40
+  fill_and_stroke
+  rectangle [455,190], 100,40
+  fill_and_stroke
+  
+  stroke_color '138CBA'
+  self.line_width = 4       
+  stroke do
+    horizontal_line 7, 555, :at => 110
+  end
+
+#--------------FOOT STINK------------------------------------------------------------------------------------------------------------
+  
+  bounding_box([7, 103], :width => 125, :height => 45) do
+    font('Calibri', size:10, color:'b8b8b8') do
+      text 'Prolongación Manuel doblado'
+      text 'Plaza Centenario local 5 y 6'
+      text 'Col. Centro, San José del Cabo'
+    end
+  end
+  bounding_box([405, 103], :width => 150, :height => 45) do
+    font('Calibri', size:10, color:'b8b8b8') do
+      text 'Tel. 624-146-7600 ext 127', align: :right
+      text 'email: sistemas@loscabos.gob.mx', align: :right
+      text 'www.loscabos.gob.mx', align: :right
+    end
+  end
 end
