@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :providers
   get 'reports/index'
 
   resources :brand_models

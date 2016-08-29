@@ -1,0 +1,43 @@
+<%= form_for(@provider) do |f| %>
+  <% if @provider.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
+
+      <ul>
+      <% @provider.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="container-fluid">
+  <div class="row be-soft_gray large-padding">
+    <div class="col-xs col-md-4">
+      <%= f.label :Nombre %><br>
+      <%= f.text_field :name, class:'form-control smfont' %>
+    </div>
+    <div class="col-xs col-md-5">
+      <%= f.label :Direccion %><br>
+      <%= f.text_field :address, class:'form-control smfont' %>
+    </div>
+    <div class="col-xs col-md-3">
+        <%= f.label :'Telefono(s)' %><br>
+        <%= f.text_field :telephone, class:'form-control smfont' %>
+    </div>
+  </div>
+    <div class="row be-soft_gray large-padding">    
+      <div class="col-xs col-md-2">
+        <%= f.label :rfc %><br>
+        <%= f.text_field :rfc, class:'form-control smfont' %>
+      </div>
+      <div class="col-xs col-md-3">
+        <%= f.label :email %><br>
+        <%= f.text_field :email, class:'form-control smfont' %>
+      </div>
+      <div class="col-xs col-md-3">
+        <br>
+        <%= f.submit %>
+      </div>
+    </div>
+  </div>
+<% end %>

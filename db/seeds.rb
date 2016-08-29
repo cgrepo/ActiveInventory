@@ -16,7 +16,7 @@
 # Hardd.destroy_all
 # Osy.destroy_all
 # Officev.destroy_all
-BrandModel.destroy_all
+#BrandModel.destroy_all
 # User.create! [
 #  { username: "carlos", password: "th3pr!mag1n" },
 #  { username: "mary", password: "h3ngell" }
@@ -35,11 +35,11 @@ BrandModel.destroy_all
 # 	dep.Delegation = Delegation.find_by(name:"Cabo San Lucas")
 # 	dep.save!
 # end
-line = 'AMD(R),Athlon(TM),Dual Core,2.2GHz:AMD(R),Athlon(TM),Dual Core,2.6GHz:AMD(R),Athlon(TM),Dual Core 4450B,2.3GHz:AMD(R),Athlon(TM),II X2 240,2.8GHz:Intel(R),Atom(TM),D525,1.8GHz:Intel(R),Celeron(R),G440,1.6GHz:Intel(R),Celeron(R),J1900,1.9GHz:Intel(R),Celeron(R),J1900,1.9GHz:Intel(R),Core(TM),13-4330,3.5GHz:Intel(R),Core(TM),2 6300,1.8GHz:Intel(R),Core(TM),2 6400,2.1GHz:Intel(R),Core(TM),2 6600,2.4GHz:Intel(R),Core(TM),2 Duo E4600,2.3GHz:Intel(R),Core(TM),2 Duo E6550,2.3GHz:Intel(R),Core(TM),2 Duo T5780,2.0GHz:Intel(R),Core(TM),2 Duo i3,2.9GHz:Intel(R),Core(TM),2 Duo i3-2130,3.4GHz:Intel(R),Core(TM),2 Duo i3-4130,3.4GHz:Intel(R),Core(TM),2 Duo,1.8GHz:Intel(R),Core(TM),2 Duo,2.1GHz:Intel(R),Core(TM),2 Duo,2.3GHz:Intel(R),Core(TM),2 Duo,2.4GHz:Intel(R),Core(TM),2 Duo,1.8GHz:Intel(R),Core(TM),i5-3330,3.0GHz:Intel(R),Core(TM),i3 4150,3.5GHz:Intel(R),Core(TM),i3-2100,3.1GHz:Intel(R),Core(TM),i3-2350M,2.3GHz:Intel(R),Core(TM),i3-2370M,2.4GHz:Intel(R),Core(TM),i3-3220,3.3GHz:Intel(R),Core(TM),i3-4005U,1.7GHz:Intel(R),Core(TM),i3-4150,3.5GHz:Intel(R),Core(TM),i3-4330,3.5GHz:Intel(R),Core(TM),i5-3330,3.0GHz:Intel(R),Core(TM),i5-3330,3.6GHz:Intel(R),Core(TM),i5-4460,3.2GHz:Intel(R),Core(TM),i5-4590,3.3GHz:Intel(R),Pentium(R),4,1.8GHz:Intel(R),Pentium(R),4,2.3GHz:Intel(R),Pentium(R),4,2.4GHz:Intel(R),Pentium(R),4,2.8GHz:Intel(R),Pentium(R),4,2.9GHz:Intel(R),Pentium(R),4,3.0GHz:Intel(R),Pentium(R),4,3.1GHz:Intel(R),Pentium(R),4,3.2GHz:Intel(R),Pentium(R),4,3.4GHz:Intel(R),Pentium(R),4,3.6GHz:Intel(R),Pentium(R),4,2.4GHz:Intel(R),Pentium(R),D,2.8GHz:Intel(R),Pentium(R),D,2.9GHz:Intel(R),Pentium(R),D,3.0GHz:Intel(R),Pentium(R),Dual Core,2.6GHz:Intel(R),Pentium(R),Dual Core,2.8GHz:Intel(R),Pentium(R),Dual E2200 A,2.2GHz:Intel(R),Pentium(R),G630,2.7GHz:Intel(R),Pentium(R),4,3.0GHz:Intel(R),Pentium(R),4,3.2GHz:Intel(R),Xenon(R),E3-1245V3,3.4GHz:Intel(R),Core(TM),i7-4600,2.9Ghz:Intel(R),Celeron(R),N3050,1.8GHz'
-line.split(':').each do |e|
-	p = e.split(',')
-	Processor.create! brand:p[0], genus:p[1],  modelp:p[2], speed:p[3]
-end
+# line = 'AMD(R),Athlon(TM),Dual Core,2.2GHz:AMD(R),Athlon(TM),Dual Core,2.6GHz:AMD(R),Athlon(TM),Dual Core 4450B,2.3GHz:AMD(R),Athlon(TM),II X2 240,2.8GHz:Intel(R),Atom(TM),D525,1.8GHz:Intel(R),Celeron(R),G440,1.6GHz:Intel(R),Celeron(R),J1900,1.9GHz:Intel(R),Celeron(R),J1900,1.9GHz:Intel(R),Core(TM),13-4330,3.5GHz:Intel(R),Core(TM),2 6300,1.8GHz:Intel(R),Core(TM),2 6400,2.1GHz:Intel(R),Core(TM),2 6600,2.4GHz:Intel(R),Core(TM),2 Duo E4600,2.3GHz:Intel(R),Core(TM),2 Duo E6550,2.3GHz:Intel(R),Core(TM),2 Duo T5780,2.0GHz:Intel(R),Core(TM),2 Duo i3,2.9GHz:Intel(R),Core(TM),2 Duo i3-2130,3.4GHz:Intel(R),Core(TM),2 Duo i3-4130,3.4GHz:Intel(R),Core(TM),2 Duo,1.8GHz:Intel(R),Core(TM),2 Duo,2.1GHz:Intel(R),Core(TM),2 Duo,2.3GHz:Intel(R),Core(TM),2 Duo,2.4GHz:Intel(R),Core(TM),2 Duo,1.8GHz:Intel(R),Core(TM),i5-3330,3.0GHz:Intel(R),Core(TM),i3 4150,3.5GHz:Intel(R),Core(TM),i3-2100,3.1GHz:Intel(R),Core(TM),i3-2350M,2.3GHz:Intel(R),Core(TM),i3-2370M,2.4GHz:Intel(R),Core(TM),i3-3220,3.3GHz:Intel(R),Core(TM),i3-4005U,1.7GHz:Intel(R),Core(TM),i3-4150,3.5GHz:Intel(R),Core(TM),i3-4330,3.5GHz:Intel(R),Core(TM),i5-3330,3.0GHz:Intel(R),Core(TM),i5-3330,3.6GHz:Intel(R),Core(TM),i5-4460,3.2GHz:Intel(R),Core(TM),i5-4590,3.3GHz:Intel(R),Pentium(R),4,1.8GHz:Intel(R),Pentium(R),4,2.3GHz:Intel(R),Pentium(R),4,2.4GHz:Intel(R),Pentium(R),4,2.8GHz:Intel(R),Pentium(R),4,2.9GHz:Intel(R),Pentium(R),4,3.0GHz:Intel(R),Pentium(R),4,3.1GHz:Intel(R),Pentium(R),4,3.2GHz:Intel(R),Pentium(R),4,3.4GHz:Intel(R),Pentium(R),4,3.6GHz:Intel(R),Pentium(R),4,2.4GHz:Intel(R),Pentium(R),D,2.8GHz:Intel(R),Pentium(R),D,2.9GHz:Intel(R),Pentium(R),D,3.0GHz:Intel(R),Pentium(R),Dual Core,2.6GHz:Intel(R),Pentium(R),Dual Core,2.8GHz:Intel(R),Pentium(R),Dual E2200 A,2.2GHz:Intel(R),Pentium(R),G630,2.7GHz:Intel(R),Pentium(R),4,3.0GHz:Intel(R),Pentium(R),4,3.2GHz:Intel(R),Xenon(R),E3-1245V3,3.4GHz:Intel(R),Core(TM),i7-4600,2.9Ghz:Intel(R),Celeron(R),N3050,1.8GHz'
+# line.split(':').each do |e|
+# 	p = e.split(',')
+# 	Processor.create! brand:p[0], genus:p[1],  modelp:p[2], speed:p[3]
+# end
 
 # Network.create! [
 # 	{linktype:'ADSL-MODEM', location:'DIF CSL', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
@@ -202,40 +202,40 @@ end
 # 	{name:'OFFICE 2010-2013-2016 Prof. Plus.'},
 # 	{name:'OFFICE 365'}
 # ]
-BrandModel.create! [
-	{description:'COMPUTADORA', brandx:'ACER', modelx:''},
-	{description:'COMPUTADORA',brandx:'ASUS', modelx:''},
-	{description:'COMPUTADORA',brandx:'CLON', modelx:''},
-	{description:'COMPUTADORA',brandx:'COMPAQ', modelx:''},
-	{description:'COMPUTADORA',brandx:'DELL', modelx:''},
-	{description:'COMPUTADORA',brandx:'HP', modelx:''},
-	{description:'COMPUTADORA',brandx:'IBM', modelx:''},
-	{description:'COMPUTADORA',brandx:'LENOVO', modelx:''},
-	{description:'COMPUTADORA',brandx:'SAMSUNG', modelx:''},
-	{description:'COMPUTADORA',brandx:'SONY', modelx:''},
-	{description:'REGULADOR/UPS',brandx:'ISB SOLABASIC', modelx:'XRN-21-801'},
-	{description:'REGULADOR/UPS',brandx:'ISB SOLABASIC', modelx:'DN-21-132'},
-	{description:'MONITOR',brandx:'HP', modelx:'V244h'},
-	{description:'MONITOR',brandx:'HP', modelx:'VH22'},
-	{description:'MONITOR',brandx:'HP', modelx:'P240va'},
-	{description:'IMPRESORA',brandx:'HP', modelx:'k550'},
-	{description:'IMPRESORA',brandx:'HP', modelx:'P2va'},
-	{description:'IMPRESORA',brandx:'EPSON', modelx:'P240va1'},
-	{description:'IMPRESORA',brandx:'EPSON', modelx:'788'},
-	{description:'IMPRESORA',brandx:'SAMSUNG', modelx:'788'},
-	{description:'IMPRESORA',brandx:'CANON', modelx:'788'},
-	{description:'IMPRESORA',brandx:'BROTHER', modelx:'788'},
-	{description:'IMPRESORA',brandx:'LEXMARK', modelx:'788'},
-	{description:'COPIADORA',brandx:'CANON', modelx:'dc456'},
-	{description:'COPIADORA',brandx:'CANON', modelx:'scpp'},
-	{description:'COPIADORA',brandx:'CANON', modelx:'cnn'},
-	{description:'COPIADORA',brandx:'BROTHER', modelx:'BRT222'},
-	{description:'COPIADORA',brandx:'BROTHER', modelx:'BRT78'},
-	{description:'COPIADORA',brandx:'XEROX', modelx:'xrs'},
-	{description:'TELEFONO',brandx:'PANASONIC', modelx:'KX-TS6LX'},
-	{description:'TELEFONO',brandx:'CISCO', modelx:'CS-899'}
+# BrandModel.create! [
+# 	{description:'COMPUTADORA', brandx:'ACER', modelx:''},
+# 	{description:'COMPUTADORA',brandx:'ASUS', modelx:''},
+# 	{description:'COMPUTADORA',brandx:'CLON', modelx:''},
+# 	{description:'COMPUTADORA',brandx:'COMPAQ', modelx:''},
+# 	{description:'COMPUTADORA',brandx:'DELL', modelx:''},
+# 	{description:'COMPUTADORA',brandx:'HP', modelx:''},
+# 	{description:'COMPUTADORA',brandx:'IBM', modelx:''},
+# 	{description:'COMPUTADORA',brandx:'LENOVO', modelx:''},
+# 	{description:'COMPUTADORA',brandx:'SAMSUNG', modelx:''},
+# 	{description:'COMPUTADORA',brandx:'SONY', modelx:''},
+# 	{description:'REGULADOR/UPS',brandx:'ISB SOLABASIC', modelx:'XRN-21-801'},
+# 	{description:'REGULADOR/UPS',brandx:'ISB SOLABASIC', modelx:'DN-21-132'},
+# 	{description:'MONITOR',brandx:'HP', modelx:'V244h'},
+# 	{description:'MONITOR',brandx:'HP', modelx:'VH22'},
+# 	{description:'MONITOR',brandx:'HP', modelx:'P240va'},
+# 	{description:'IMPRESORA',brandx:'HP', modelx:'k550'},
+# 	{description:'IMPRESORA',brandx:'HP', modelx:'P2va'},
+# 	{description:'IMPRESORA',brandx:'EPSON', modelx:'P240va1'},
+# 	{description:'IMPRESORA',brandx:'EPSON', modelx:'788'},
+# 	{description:'IMPRESORA',brandx:'SAMSUNG', modelx:'788'},
+# 	{description:'IMPRESORA',brandx:'CANON', modelx:'788'},
+# 	{description:'IMPRESORA',brandx:'BROTHER', modelx:'788'},
+# 	{description:'IMPRESORA',brandx:'LEXMARK', modelx:'788'},
+# 	{description:'COPIADORA',brandx:'CANON', modelx:'dc456'},
+# 	{description:'COPIADORA',brandx:'CANON', modelx:'scpp'},
+# 	{description:'COPIADORA',brandx:'CANON', modelx:'cnn'},
+# 	{description:'COPIADORA',brandx:'BROTHER', modelx:'BRT222'},
+# 	{description:'COPIADORA',brandx:'BROTHER', modelx:'BRT78'},
+# 	{description:'COPIADORA',brandx:'XEROX', modelx:'xrs'},
+# 	{description:'TELEFONO',brandx:'PANASONIC', modelx:'KX-TS6LX'},
+# 	{description:'TELEFONO',brandx:'CISCO', modelx:'CS-899'}
 
-]
+# ]
 
 #Manufacturer.create! [
 # 	{name:"BROTHER"},
@@ -253,3 +253,23 @@ BrandModel.create! [
 # 	{name:"SAMSUNG"},
 # 	{name:"XEROX"}
 #]
+
+Provider.create! [
+	{ 
+		name:"COPY SERVICIOS BAJA Y /O DINORA GUILLERMINA ARCE MURILLO", 
+		address:"ROSARIO MORALES ESQ-IGNACIO ZARAGOZA LOCAL-2 PLAZA SAN MARCOS CABO SAN LUCAS BCS",
+		telephone:"17-2-01-74 14-4-47-25 CEL:6241416559",
+		rfc:"AEMD750922QT4",
+		email:"ceesga@hotmail.com"
+	},
+
+				
+	{
+		name:"BAJA DIGITAL S.A DE C.V.", 
+		address:"AVE. IGNACIO ALLENDE #880, LOCAL 1 Y 2 COL. CENTRO LA PAZ BCS.",
+		telephone:"14-2-22-32",
+		rfc:"BDI981121TY8",
+		email:"facturacioncabo@bajadigital.com.mx"
+	}
+					
+]

@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listado Proveedores</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md">
+      <div class="table-responsive no-margins">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Direccion</th>
+              <th>Telefono(s)</th>
+              <th>Rfc</th>
+              <th>Email</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <% @providers.each do |provider| %>
+              <tr>
+                <td><%= provider.name %></td>
+                <td><%= provider.address %></td>
+                <td><%= provider.telephone %></td>
+                <td><%= provider.rfc %></td>
+                <td><%= provider.email %></td>
+                <td><%= link_to 'Editar', edit_provider_path(provider), class:'btn btn-default btn-sm' %></td>
+                <td>
+                  <%= link_to 'Borrar', provider, method: :delete, data: { confirm: 'Esta usted seguro?' }, 
+                    class:'btn btn-default btn-sm'%>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs">
+      <%= will_paginate @providers %>
+      <br>
+      <%= link_to 'Agregar', new_provider_path, class:'btn btn-default btn-lg' %>
+    </div>
+  </div>
+</div>
