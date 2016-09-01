@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Idfolio:</strong>
+  <%= @service_request.idFolio %>
+</p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @service_request.kind %>
+</p>
+
+<p>
+  <strong>Itdiagnosis:</strong>
+  <%= @service_request.itDiagnosis %>
+</p>
+
+<p>
+  <strong>Providerdiagnosis:</strong>
+  <%= @service_request.ProviderDiagnosis %>
+</p>
+
+<p>
+  <strong>Material:</strong>
+  <%= @service_request.material %>
+</p>
+
+<p>
+  <strong>Documentrequest:</strong>
+  <%= @service_request.DocumentRequest %>
+</p>
+
+<p>
+  <strong>Requestdate:</strong>
+  <%= @service_request.RequestDate %>
+</p>
+
+<p>
+  <strong>Executiondate:</strong>
+  <%= @service_request.ExecutionDate %>
+</p>
+
+<p>
+  <strong>History:</strong>
+  <%= @service_request.History %>
+</p>
+
+<p>
+  <strong>Delegation:</strong>
+  <%= @service_request.Delegation %>
+</p>
+
+<p>
+  <strong>Dependency:</strong>
+  <%= @service_request.Dependency %>
+</p>
+
+<p>
+  <strong>Copier:</strong>
+  <%= @service_request.Copier %>
+</p>
+
+<p>
+  <strong>Provider:</strong>
+  <%= @service_request.Provider %>
+</p>
+
+<%= link_to 'Editar', edit_service_request_path(@service_request), class:'btn btn-default btn-lg' %> |
+<%= link_to 'Regresar', service_requests_path, class:'btn btn-default btn-lg' %>

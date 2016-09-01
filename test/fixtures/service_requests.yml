@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idFolio: MyString
+  kind: MyString
+  itDiagnosis: MyString
+  ProviderDiagnosis: MyString
+  material: MyString
+  DocumentRequest: MyString
+  RequestDate: 2016-08-30
+  ExecutionDate: 2016-08-30
+  History: MyText
+  Delegation_id: 
+  Dependency_id: 
+  Copier_id: 
+  Provider_id: 
+
+two:
+  idFolio: MyString
+  kind: MyString
+  itDiagnosis: MyString
+  ProviderDiagnosis: MyString
+  material: MyString
+  DocumentRequest: MyString
+  RequestDate: 2016-08-30
+  ExecutionDate: 2016-08-30
+  History: MyText
+  Delegation_id: 
+  Dependency_id: 
+  Copier_id: 
+  Provider_id: 

@@ -22,10 +22,8 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-7">
-        <span class="pull-left">
-          <%= will_paginate @dependencies %>
-        </span>
+      <div class="col-xs-7" id="mypaginate">
+        <%= render 'show_paginate' %>
       </div>
       <div class="col-xs-5">
         <span class="pull-right">

@@ -1,0 +1,2 @@
+json.extract! service_request, :id, :idFolio, :kind, :itDiagnosis, :ProviderDiagnosis, :material, :DocumentRequest, :RequestDate, :ExecutionDate, :History, :Delegation_id, :Dependency_id, :Copier_id, :Provider_id, :created_at, :updated_at
+json.url service_request_url(service_request, format: :json)

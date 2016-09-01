@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829172737) do
+ActiveRecord::Schema.define(version: 20160830151656) do
 
   create_table "brand_models", force: :cascade do |t|
     t.string   "description"
@@ -246,6 +246,29 @@ ActiveRecord::Schema.define(version: 20160829172737) do
 
   add_index "screens", ["Computer_id"], name: "index_screens_on_Computer_id"
   add_index "screens", ["Dependency_id"], name: "index_screens_on_Dependency_id"
+
+  create_table "service_requests", force: :cascade do |t|
+    t.string   "idFolio"
+    t.string   "kind"
+    t.string   "itDiagnosis"
+    t.string   "ProviderDiagnosis"
+    t.string   "material"
+    t.string   "DocumentRequest"
+    t.date     "RequestDate"
+    t.date     "ExecutionDate"
+    t.text     "History"
+    t.integer  "Delegation_id"
+    t.integer  "Dependency_id"
+    t.integer  "Copier_id"
+    t.integer  "Provider_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "service_requests", ["Copier_id"], name: "index_service_requests_on_Copier_id"
+  add_index "service_requests", ["Delegation_id"], name: "index_service_requests_on_Delegation_id"
+  add_index "service_requests", ["Dependency_id"], name: "index_service_requests_on_Dependency_id"
+  add_index "service_requests", ["Provider_id"], name: "index_service_requests_on_Provider_id"
 
   create_table "statistics", force: :cascade do |t|
     t.string   "month"

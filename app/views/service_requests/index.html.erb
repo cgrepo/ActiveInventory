@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Service Requests</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md">
+      <div class="table-responsive no-margins">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>no</th>
+              <th>Idfolio</th>
+              <th>Kind</th>
+             <!-- <th>Itdiagnosis</th>
+              <th>Providerdiagnosis</th>
+              <th>Material</th>
+              <th>Documentrequest</th>
+              <th>Requestdate</th>
+              <th>Executiondate</th>
+              <th>History</th> -->
+              <th>Delegation</th>
+              <th>Dependency</th>
+              <th>Copier</th>
+              <th>Provider</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @service_requests.each do |service_request| %>
+              <tr>
+                <td><%= service_request.id %></td>
+                <td><%= service_request.idFolio %></td>
+                <td><%= service_request.kind %></td>
+              <!--  <td><%= service_request.itDiagnosis %></td>
+                <td><%= service_request.ProviderDiagnosis %></td>
+                <td><%= service_request.material %></td>
+                <td><%= service_request.DocumentRequest %></td>
+                <td><%= service_request.RequestDate %></td>
+                <td><%= service_request.ExecutionDate %></td>
+                <td><%= service_request.History %></td> -->
+                <td><%= service_request.Delegation.name %></td>
+                <td><%= service_request.Dependency %></td>
+                <td><%= service_request.Copier %></td>
+                <td><%= service_request.Provider %></td>
+                <td><%= link_to 'Mostrar', service_request, class:'btn btn-default btn-sm' %></td>
+                <td><%= link_to 'Editar', edit_service_request_path(service_request), class:'btn btn-default btn-sm' %></td>
+                <td>
+                  <%= link_to 'Borrar', service_request, method: :delete, data: { confirm: 'Esta usted seguro?' }, 
+                    class:'btn btn-default btn-sm' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<br>
+
+<%= link_to 'New Service request', new_service_request_path %>
