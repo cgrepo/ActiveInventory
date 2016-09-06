@@ -10,54 +10,43 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :idFolio %><br>
-    <%= f.text_field :idFolio %>
+ <div class="container-fluid smfont be-round_ligth_gray large-padding">
+  <div class="row">
+    <div class="col-xs-5 col-md-2">
+      <%= f.label :Tipo %><br>
+      <%= f.select :kind, [ ['DIAGNOSTICO'], ['MANTENIMIENTO'], ['REPARACION'] ], {:include_blank => true}, 
+        {class:'btn  dropdown-toggle smfont'} %>
+    </div>
+    <div class="col-xs-7 col-md-6">
+      <%= f.label :DIagnostico_TI %><br>
+      <%= f.text_field :itDiagnosis, class:'form-control xsfont' %>
+    </div>
+    <div class="col-xs-5 col-md-2">
+      <%= f.label :Solicitud %><br>
+      <%= f.text_field :DocumentRequest, class:'form-control xsfont' %>
+    </div>
+    <div class="col-xs col-md">
+      <%= f.label :Fecha_solicitud %><br>
+      <%= f.date_select :RequestDate, {order: [:day, :month, :year]} %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :kind %><br>
-    <%= f.text_field :kind %>
-  </div>
-  <div class="field">
-    <%= f.label :itDiagnosis %><br>
-    <%= f.text_field :itDiagnosis %>
-  </div>
-  <div class="field">
-    <%= f.label :ProviderDiagnosis %><br>
-    <%= f.text_field :ProviderDiagnosis %>
-  </div>
-  <div class="field">
-    <%= f.label :material %><br>
-    <%= f.text_field :material %>
-  </div>
-  <div class="field">
-    <%= f.label :DocumentRequest %><br>
-    <%= f.text_field :DocumentRequest %>
-  </div>
-  <div class="field">
-    <%= f.label :RequestDate %><br>
-    <%= f.date_select :RequestDate %>
-  </div>
-  <div class="field">
-    <%= f.label :ExecutionDate %><br>
-    <%= f.date_select :ExecutionDate %>
-  </div>
-  <div class="field">
-    <%= f.label :History %><br>
-    <%= f.text_area :History %>
-  </div>
-  <div class="field">
-    <%= f.label :Delegation_id %><br>
-    <%= f.text_field :Delegation_id %>
-  </div>
-  <div class="field">
-    <%= f.label :Dependency_id %><br>
-    <%= f.text_field :Dependency_id %>
-  </div>
+    <div class="row">
+      <div class="col-xs-5 col-md-2">
+        <%= f.label :Delegacion %><br>
+        <%= f.collection_select(:Delegation_id, Delegation.all, :id, :name, 
+          {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
+      </div>
+      <div class="col-xs-11 col-md-5">
+        <%= f.label :Dependencia %><br>
+        <%= f.collection_select(:Dependency_id, Dependency.all, :id, :name,
+          {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
+      </div>
+    </div>
+ </div>
   <div class="field">
     <%= f.label :Copier_id %><br>
-    <%= f.text_field :Copier_id %>
+    <%= f.collection_select(:Copier_id, Copier.all.where(Dependency_id:118), :id, :ninventary,
+          {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
   </div>
   <div class="field">
     <%= f.label :Provider_id %><br>

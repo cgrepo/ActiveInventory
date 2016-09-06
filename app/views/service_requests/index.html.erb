@@ -1,73 +1,95 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid be-soft_purple large-padding">
+  <div class="row">
+    <div class="col-xs">
+      <p id="notice"><%= notice %></p>
+      <h1>Solicitudes de Servicio</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 col-md-6">
+      <span class="pull-left">
+        <%= will_paginate(@service_requests) %>
+      </span>
+    </div>
+    <div class="col-xs-6 col-md-6">
+      <span class="pull-right">
+        <%= link_to 'Agregar', new_service_request_path, class:'btn btn-default btn-lg be-gray'%>
+      </span>
+    </div>
+  </div>
+</div>
+<div class="container-fluid ">
+  <div class="row">
+    <div class="col-xs col-md">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>Idfolio</th>
+              <th>Tipo</th>
+              <th>Documento</th>
+              <th>Solicitud</th>
+              <th>Delegacion</th>
+              <th>Dependencia</th>
+              <th>Proveedor</th>
+              <th>Equipo</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @service_requests.each do |service_request| %>
+              <tr>
+                <td><%= service_request.idFolio %></td>
+                <td><%= service_request.kind %></td>
+                <td><%= service_request.DocumentRequest %></td> 
+                <td><%= service_request.RequestDate %></td>
+               
+                <% if service_request.Delegation %>
+                  <td><%= service_request.Delegation.name %></td>
+                <% end %>
+                
+                <% if service_request.Dependency %>
+                  <td><%= service_request.Dependency.name %></td>
+                <% end %>
+                
+                <% if service_request.Provider %>
+                  <td><%= service_request.Provider.name[0..18] %></td>
+                <% end %>
+                <% if service_request.Copier %>
+                  <td>COPIADORA<%#= service_request.Copier.ninventary %></td>
+                <% end %>
+                
+                <% if service_request.Printer %>
+                  <td>IMPRESORA
+                    <%#= service_request.Printer.ninventary %></td>
+                <% end %>
+                
+                <% if service_request.Screen %>
+                  <td>MONITOR
+                    <%#= service_request.Screen.ninventary %></td>
+                <% end %>
+                
+                <% if service_request.Telephone %>
+                  <td>TELEFONO
+                    <%#= service_request.Telephone.ninventary %></td>
+                <% end %>
 
-<h1>Listing Service Requests</h1>
+                <% if service_request.Power %>
+                  <td>REGULADOR/UPS
+                    <%#= service_request.Power.ninventary %></td>
+                <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Idfolio</th>
-      <th>Tipo</th>
-      <th>Documento</th>
-      <th>Solicitud</th>
-      <th>Delegacion</th>
-      <th>Dependencia</th>
-      <th>Proveedor</th>
-      <th>Equipo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+                <td><%= link_to 'Mostrar', service_request, class:'btn btn-default btn-sm' %></td>
+                <td><%= link_to 'Editar', edit_service_request_path(service_request), class:'btn btn-default btn-sm' %></td>
+                <td><%= link_to 'Borrar', service_request, method: :delete, data: { confirm: 'Esta seguro?' },
+                    class:'btn btn-default btn-sm' %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-  <tbody>
-    <% @service_requests.each do |service_request| %>
-      <tr>
-        <td><%= service_request.idFolio %></td>
-        <td><%= service_request.kind %></td>
-        <td><%= service_request.DocumentRequest %></td> 
-        <td><%= service_request.RequestDate %></td>
-       
-        <% if service_request.Delegation %>
-          <td><%= service_request.Delegation.name %></td>
-        <% end %>
-        
-        <% if service_request.Dependency %>
-          <td><%= service_request.Dependency.name %></td>
-        <% end %>
-        
-        <% if service_request.Provider %>
-          <td><%= service_request.Provider.name %></td>
-        <% end %>
-        <% if service_request.Copier %>
-          <td>COPIADORA<%#= service_request.Copier.ninventary %></td>
-        <% end %>
-        
-        <% if service_request.Printer %>
-          <td>IMPRESORA
-            <%#= service_request.Printer.ninventary %></td>
-        <% end %>
-        
-        <% if service_request.Screen %>
-          <td>MONITOR
-            <%#= service_request.Screen.ninventary %></td>
-        <% end %>
-        
-        <% if service_request.Telephone %>
-          <td>TELEFONO
-            <%#= service_request.Telephone.ninventary %></td>
-        <% end %>
-
-        <% if service_request.Power %>
-          <td>REGULADOR/UPS
-            <%#= service_request.Power.ninventary %></td>
-        <% end %>
-
-        <td><%= link_to 'Mostrar', service_request %></td>
-        <td><%= link_to 'Editar', edit_service_request_path(service_request) %></td>
-        <td><%= link_to 'Borrar', service_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+  </div>
+</div>
 <br>
-
-<%= link_to 'New Service request', new_service_request_path %>
