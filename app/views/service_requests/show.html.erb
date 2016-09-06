@@ -56,14 +56,34 @@
 </p>
 
 <p>
+  <strong>Provider:</strong>
+  <%= @service_request.Provider %>
+</p>
+
+<p>
   <strong>Copier:</strong>
   <%= @service_request.Copier %>
 </p>
 
 <p>
-  <strong>Provider:</strong>
-  <%= @service_request.Provider %>
+  <strong>Printer:</strong>
+  <%= @service_request.Printer %>
 </p>
 
-<%= link_to 'Editar', edit_service_request_path(@service_request), class:'btn btn-default btn-lg' %> |
-<%= link_to 'Regresar', service_requests_path, class:'btn btn-default btn-lg' %>
+<p>
+  <strong>Screen:</strong>
+  <%= @service_request.Screen %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @service_request.Telephone %>
+</p>
+
+<p>
+  <strong>Power:</strong>
+  <%= @service_request.Power %>
+</p>
+
+<%= link_to 'Edit', edit_service_request_path(@service_request) %> |
+<%= link_to 'Back', service_requests_path %>

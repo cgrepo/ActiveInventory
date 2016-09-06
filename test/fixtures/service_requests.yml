@@ -7,13 +7,17 @@ one:
   ProviderDiagnosis: MyString
   material: MyString
   DocumentRequest: MyString
-  RequestDate: 2016-08-30
-  ExecutionDate: 2016-08-30
+  RequestDate: 2016-09-02
+  ExecutionDate: 2016-09-02
   History: MyText
   Delegation_id: 
   Dependency_id: 
-  Copier_id: 
   Provider_id: 
+  Copier_id: 
+  Printer_id: 
+  Screen_id: 
+  Telephone_id: 
+  Power_id: 
 
 two:
   idFolio: MyString
@@ -22,10 +26,14 @@ two:
   ProviderDiagnosis: MyString
   material: MyString
   DocumentRequest: MyString
-  RequestDate: 2016-08-30
-  ExecutionDate: 2016-08-30
+  RequestDate: 2016-09-02
+  ExecutionDate: 2016-09-02
   History: MyText
   Delegation_id: 
   Dependency_id: 
-  Copier_id: 
   Provider_id: 
+  Copier_id: 
+  Printer_id: 
+  Screen_id: 
+  Telephone_id: 
+  Power_id: 

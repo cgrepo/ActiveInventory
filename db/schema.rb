@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830151656) do
+ActiveRecord::Schema.define(version: 20160902205143) do
 
   create_table "brand_models", force: :cascade do |t|
     t.string   "description"
@@ -259,8 +259,12 @@ ActiveRecord::Schema.define(version: 20160830151656) do
     t.text     "History"
     t.integer  "Delegation_id"
     t.integer  "Dependency_id"
-    t.integer  "Copier_id"
     t.integer  "Provider_id"
+    t.integer  "Copier_id"
+    t.integer  "Printer_id"
+    t.integer  "Screen_id"
+    t.integer  "Telephone_id"
+    t.integer  "Power_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
@@ -268,7 +272,11 @@ ActiveRecord::Schema.define(version: 20160830151656) do
   add_index "service_requests", ["Copier_id"], name: "index_service_requests_on_Copier_id"
   add_index "service_requests", ["Delegation_id"], name: "index_service_requests_on_Delegation_id"
   add_index "service_requests", ["Dependency_id"], name: "index_service_requests_on_Dependency_id"
+  add_index "service_requests", ["Power_id"], name: "index_service_requests_on_Power_id"
+  add_index "service_requests", ["Printer_id"], name: "index_service_requests_on_Printer_id"
   add_index "service_requests", ["Provider_id"], name: "index_service_requests_on_Provider_id"
+  add_index "service_requests", ["Screen_id"], name: "index_service_requests_on_Screen_id"
+  add_index "service_requests", ["Telephone_id"], name: "index_service_requests_on_Telephone_id"
 
   create_table "statistics", force: :cascade do |t|
     t.string   "month"

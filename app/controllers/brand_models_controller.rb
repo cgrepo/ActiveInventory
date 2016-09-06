@@ -4,7 +4,7 @@ class BrandModelsController < ApplicationController
   # GET /brand_models
   # GET /brand_models.json
   def index
-    @brand_models = BrandModel.all.order(:brandx).paginate(page: params[:page], per_page: 7 )
+    @brand_models = BrandModel.all.order(:description).paginate(page: params[:page], per_page: 7 )
   end
 
   # GET /brand_models/1

@@ -12,8 +12,12 @@ class CreateServiceRequests < ActiveRecord::Migration
       t.text :History
       t.references :Delegation, index: true, foreign_key: true
       t.references :Dependency, index: true, foreign_key: true
-      t.references :Copier, index: true, foreign_key: true
       t.references :Provider, index: true, foreign_key: true
+      t.references :Copier, index: true, foreign_key: true
+      t.references :Printer, index: true, foreign_key: true
+      t.references :Screen, index: true, foreign_key: true
+      t.references :Telephone, index: true, foreign_key: true
+      t.references :Power, index: true, foreign_key: true
 
       t.timestamps null: false
     end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   
   resources :service_requests
+  resources :service_requests
   resources :providers
   get 'reports/index'
 

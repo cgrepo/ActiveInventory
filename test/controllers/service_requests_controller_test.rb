@@ -18,7 +18,7 @@ class ServiceRequestsControllerTest < ActionController::TestCase
 
   test "should create service_request" do
     assert_difference('ServiceRequest.count') do
-      post :create, service_request: { Copier_id: @service_request.Copier_id, Delegation_id: @service_request.Delegation_id, Dependency_id: @service_request.Dependency_id, DocumentRequest: @service_request.DocumentRequest, ExecutionDate: @service_request.ExecutionDate, History: @service_request.History, ProviderDiagnosis: @service_request.ProviderDiagnosis, Provider_id: @service_request.Provider_id, RequestDate: @service_request.RequestDate, idFolio: @service_request.idFolio, itDiagnosis: @service_request.itDiagnosis, kind: @service_request.kind, material: @service_request.material }
+      post :create, service_request: { Copier_id: @service_request.Copier_id, Delegation_id: @service_request.Delegation_id, Dependency_id: @service_request.Dependency_id, DocumentRequest: @service_request.DocumentRequest, ExecutionDate: @service_request.ExecutionDate, History: @service_request.History, Power_id: @service_request.Power_id, Printer_id: @service_request.Printer_id, ProviderDiagnosis: @service_request.ProviderDiagnosis, Provider_id: @service_request.Provider_id, RequestDate: @service_request.RequestDate, Screen_id: @service_request.Screen_id, Telephone_id: @service_request.Telephone_id, idFolio: @service_request.idFolio, itDiagnosis: @service_request.itDiagnosis, kind: @service_request.kind, material: @service_request.material }
     end
 
     assert_redirected_to service_request_path(assigns(:service_request))
@@ -35,7 +35,7 @@ class ServiceRequestsControllerTest < ActionController::TestCase
   end
 
   test "should update service_request" do
-    patch :update, id: @service_request, service_request: { Copier_id: @service_request.Copier_id, Delegation_id: @service_request.Delegation_id, Dependency_id: @service_request.Dependency_id, DocumentRequest: @service_request.DocumentRequest, ExecutionDate: @service_request.ExecutionDate, History: @service_request.History, ProviderDiagnosis: @service_request.ProviderDiagnosis, Provider_id: @service_request.Provider_id, RequestDate: @service_request.RequestDate, idFolio: @service_request.idFolio, itDiagnosis: @service_request.itDiagnosis, kind: @service_request.kind, material: @service_request.material }
+    patch :update, id: @service_request, service_request: { Copier_id: @service_request.Copier_id, Delegation_id: @service_request.Delegation_id, Dependency_id: @service_request.Dependency_id, DocumentRequest: @service_request.DocumentRequest, ExecutionDate: @service_request.ExecutionDate, History: @service_request.History, Power_id: @service_request.Power_id, Printer_id: @service_request.Printer_id, ProviderDiagnosis: @service_request.ProviderDiagnosis, Provider_id: @service_request.Provider_id, RequestDate: @service_request.RequestDate, Screen_id: @service_request.Screen_id, Telephone_id: @service_request.Telephone_id, idFolio: @service_request.idFolio, itDiagnosis: @service_request.itDiagnosis, kind: @service_request.kind, material: @service_request.material }
     assert_redirected_to service_request_path(assigns(:service_request))
   end
 
