@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row be-soft_gray large-padding">
       <div class="col-xs-4 col-md-2">
         <%= f.label :MARCA %><br>
@@ -30,10 +30,10 @@
         <%= f.label :VELOCIDAD %><br>
         <%= f.text_field :speed, class:'form-control smfont' %>
       </div>
+      <div class="col-xs-2">
+        <br>
+        <%= f.submit %>
+      </div>
     </div>
-  </div>
-  <div class="actions">
-    <br>
-    <%= f.submit %>
   </div>
 <% end %>

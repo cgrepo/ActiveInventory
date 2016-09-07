@@ -15,6 +15,7 @@ class ServiceRequestsController < ApplicationController
   # GET /service_requests/new
   def new
     @service_request = ServiceRequest.new
+    @dependencies = Dependency.all
   end
 
   # GET /service_requests/1/edit
@@ -58,6 +59,13 @@ class ServiceRequestsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to service_requests_url, notice: 'Service request was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def get_dependencies
+    @dependencies = Dependency.where(Delegation:params[:Delegation_id])
+    respond_to do |format|
+      format.js
     end
   end
 

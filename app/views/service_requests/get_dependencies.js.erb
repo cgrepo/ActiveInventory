@@ -1,0 +1,5 @@
+$('.dependencies_collection').empty();
+<% @dependencies.each do |dependency| %>
+	// console.log('<option value="<%= dependency.id %>"><%= dependency.name %></option>');
+	$('.dependencies_collection').append($('<option value="<%= dependency.id %>"><%= dependency.name %></option>'));
+<% end %>

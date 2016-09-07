@@ -42,6 +42,7 @@ heroku pg:backups capture --app activeinventory
 heroku apps:delete activeinventory --confirm activeinventory
 heroku apps:create activeinventory
 git push heroku master
+heroku run rake db:seed
 
 u.update(password:"")
 Network.all.pluck :location
@@ -74,3 +75,8 @@ deshabilitar un collection_select
     </table>
   </div>
 </div>
+
+
+#<% @dependencies.each do |dependency| %>
+#	$('.dependencies_collection').append($('<option value="<%=dependency.id %><%=dependencies.name %></option>"'));
+#<% end %>

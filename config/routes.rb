@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   
-  
-  resources :service_requests
-  resources :service_requests
+  resources :service_requests do
+    collection do
+      get 'get_dependencies', to:'service_requests#get_dependencies'
+    end
+  end
+
   resources :providers
   get 'reports/index'
 
