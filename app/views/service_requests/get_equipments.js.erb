@@ -1,0 +1,11 @@
+$('.copiers_collection').empty();
+<% @copiers.each do |copier| %>
+	 //console.log('<option value="<%= copier.id %>"><%= copier.brand %></option>');
+	 <% data = '[ ' + copier.brand + ' ]--' %>
+	 <% if copier.ninventary								%>
+	 	<%	data += copier.ninventary 				%>
+	 <%	else copier.ninventary							%>
+	 	<%	data += copier.nserie							%>
+	 <%	end																	%>
+	$('.copiers_collection').append($('<option value="<%= copier.id  %>"><%= data %></option>'));
+<% end %>

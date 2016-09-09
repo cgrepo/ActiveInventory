@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   
+
   resources :service_requests do
     collection do
       get 'get_dependencies', to:'service_requests#get_dependencies'
+      get 'get_equipments', to:'service_requests#get_equipments'
     end
   end
 

@@ -7,4 +7,7 @@ class ServiceRequest < ActiveRecord::Base
   belongs_to :Screen
   belongs_to :Telephone
   belongs_to :Power
+
+  validates :kind, :itDiagnosis, :RequestDate, :DocumentRequest, :Delegation, :Dependency,  :Provider, presence:true
+  
 end

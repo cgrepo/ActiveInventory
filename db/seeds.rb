@@ -432,4 +432,4 @@
 		# 		{ idFolio:'250816238-SJC/F2E',	kind:'REPARACION',	itDiagnosis:'ANTECEDENTES: CONSTANTE ATASCO DE HOJA, RODILLO DE ACCESO DE HOJA DETERIORADO, RUIDO EN LA UNIDAD ADF.  MANTENIMINETO Y DIAGNOSTICO EN GENERAL',	ProviderDiagnosis:'',	material:'',	DocumentRequest:'SOL. SISTEMAS',	RequestDate: DateTime.strptime('25/08/2016','%d/%m/%Y'),	Delegation: Delegation.find_by(name:"San Jose del Cabo"),	Dependency: Dependency.find_by(name:'SECRETARIA PARTICULA MUNICIPAL' ),	Provider: Provider.find_by(name:'BAJA DIGITAL S.A DE C.V.' ),	Copier: Copier.find_by(ninventary:'034794') }
 
 		# ]
-	
+		

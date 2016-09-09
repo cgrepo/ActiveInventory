@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902205143) do
+ActiveRecord::Schema.define(version: 20160909034215) do
 
   create_table "brand_models", force: :cascade do |t|
     t.string   "description"
@@ -246,6 +246,37 @@ ActiveRecord::Schema.define(version: 20160902205143) do
 
   add_index "screens", ["Computer_id"], name: "index_screens_on_Computer_id"
   add_index "screens", ["Dependency_id"], name: "index_screens_on_Dependency_id"
+
+  create_table "service_documents", force: :cascade do |t|
+    t.string   "idFolio"
+    t.string   "kind"
+    t.string   "itDiagnosis"
+    t.string   "ProviderDiagnosis"
+    t.string   "material"
+    t.string   "DocumentRequest"
+    t.date     "RequestDate"
+    t.date     "ExecutionDate"
+    t.text     "History"
+    t.integer  "Delegation_id"
+    t.integer  "Dependency_id"
+    t.integer  "Provider_id"
+    t.integer  "Copier_id"
+    t.integer  "Printer_id"
+    t.integer  "Screen_id"
+    t.integer  "Telephone_id"
+    t.integer  "Power_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "service_documents", ["Copier_id"], name: "index_service_documents_on_Copier_id"
+  add_index "service_documents", ["Delegation_id"], name: "index_service_documents_on_Delegation_id"
+  add_index "service_documents", ["Dependency_id"], name: "index_service_documents_on_Dependency_id"
+  add_index "service_documents", ["Power_id"], name: "index_service_documents_on_Power_id"
+  add_index "service_documents", ["Printer_id"], name: "index_service_documents_on_Printer_id"
+  add_index "service_documents", ["Provider_id"], name: "index_service_documents_on_Provider_id"
+  add_index "service_documents", ["Screen_id"], name: "index_service_documents_on_Screen_id"
+  add_index "service_documents", ["Telephone_id"], name: "index_service_documents_on_Telephone_id"
 
   create_table "service_requests", force: :cascade do |t|
     t.string   "idFolio"

@@ -15,7 +15,7 @@ class ServiceRequestsController < ApplicationController
   # GET /service_requests/new
   def new
     @service_request = ServiceRequest.new
-    @dependencies = Dependency.all
+    set_vars     
   end
 
   # GET /service_requests/1/edit
@@ -25,10 +25,13 @@ class ServiceRequestsController < ApplicationController
   # POST /service_requests
   # POST /service_requests.json
   def create
+   
     @service_request = ServiceRequest.new(service_request_params)
 
     respond_to do |format|
+      set_vars
       if @service_request.save
+        #byebug
         format.html { redirect_to @service_request, notice: 'Service request was successfully created.' }
         format.json { render :show, status: :created, location: @service_request }
       else
@@ -61,15 +64,30 @@ class ServiceRequestsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  # POULATE 
   def get_dependencies
     @dependencies = Dependency.where(Delegation:params[:Delegation_id])
     respond_to do |format|
       format.js
     end
   end
-
+  
+  def get_equipments
+    @copiers = Copier.where(Dependency:params[:Dependency_id])
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   private
+    def set_vars
+      @dependencies = Dependency.all.limit 3
+      @copiers = Copier.all.limit 3
+      @printers = Printer.all.limit 3
+      @telephones =Telephone.all.limit 3
+      @screens = Screen.all.limit 3
+      @powers = Power.all.limit 3
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_service_request
       @service_request = ServiceRequest.find(params[:id])
