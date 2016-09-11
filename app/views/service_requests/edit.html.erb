@@ -1,6 +1,14 @@
-<h1>Editing Service Request</h1>
-
+<div class="container-fluid be-soft_purple large-padding">	
+	<h1>Edicion Solicitudes de Servicio</h1>
+</div>
 <%= render 'form_update' %>
-
-<%= link_to 'Mostrar', @service_request %> |
-<%= link_to 'Regresar', service_requests_path %>
+<div class="container">
+	<div class="row">
+		<div class="col-xs col-md">
+		<span class="pull-rigth">
+			<br>
+			<%= link_to 'Mostrar', @service_request, class:'btn btn-default  btn-lg' %> |
+			<%= link_to 'Regresar', service_requests_path, class:'btn btn-default  btn-lg' %>
+		</span>
+	</div>
+</div>

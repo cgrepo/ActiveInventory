@@ -32,7 +32,7 @@ class ServiceRequestsController < ApplicationController
       set_vars
       if @service_request.save
         #byebug
-        format.html { redirect_to @service_request, notice: 'Service request was successfully created.' }
+        format.html { redirect_to @service_request, notice: 'Solicitud de servicio creada satisfactoriamente.' }
         format.json { render :show, status: :created, location: @service_request }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class ServiceRequestsController < ApplicationController
   def update
     respond_to do |format|
       if @service_request.update(service_request_params)
-        format.html { redirect_to @service_request, notice: 'Service request was successfully updated.' }
+        format.html { redirect_to @service_request, notice: 'Solicitud de servicio actualizada satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @service_request }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class ServiceRequestsController < ApplicationController
   def destroy
     @service_request.destroy
     respond_to do |format|
-      format.html { redirect_to service_requests_url, notice: 'Service request was successfully destroyed.' }
+      format.html { redirect_to service_requests_url, notice: 'Solicitud de servicio borrada satisfactoriamente.' }
       format.json { head :no_content }
     end
   end

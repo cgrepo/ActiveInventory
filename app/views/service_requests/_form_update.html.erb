@@ -1,7 +1,7 @@
 <%= form_for(@service_request) do |f| %>
   <% if @service_request.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@service_request.errors.count, "error") %> prohibited this service_request from being saved:</h2>
+      <h2><%= pluralize(@service_request.errors.count, "falla") %> no se puede generar la solicitud de servicio:</h2>
 
       <ul>
       <% @service_request.errors.full_messages.each do |message| %>
@@ -11,59 +11,116 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :idFolio %><br>
-    <%= f.text_field :idFolio %>
+<div class="container smfont be-round_ligth_gray">
+  <div class="row">
+    <div class="col-xs-3 col-md-3">
+      <%= f.label :idFolio %><br>
+      <%= f.text_field :idFolio, readonly:true, class:'form-control xsfont' %>
+    </div>
+    <div class="col-xs-3 col-md-3">
+      <%= f.label :kind %><br>
+      <%= f.text_field :kind, readonly:true, class:'form-control xsfont' %>
+    </div>
+    <div class="col-xs-3 col-md-3">
+      <%= f.label :itDiagnosis %><br>
+      <%= f.text_field :itDiagnosis, readonly:true, class:'form-control xsfont' %>
+    </div>
+    <div class="col-xs-3 col-md-3">
+      <%= f.label :DocumentRequest %><br>
+      <%= f.text_field :DocumentRequest, readonly:true, class:'form-control xsfont'  %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :kind %><br>
-    <%= f.text_field :kind %>
+  <div class="row">
+    <div class="col-xs-3 col-md-3">
+      <%= f.label :RequestDate %><br>
+      <%= f.date_select :RequestDate, disabled:true, class:'form-control xsfont' %>
+    </div>
+    <div class="col-xs-2 col-md-2">
+      <%= f.label :Delegacion %><br>
+      <%#= f.text_field :Delegation_id, readonly:true, class:'form-control xsfont' %>
+      <%= @service_request.Delegation.name %>
+    </div>
+    <div class="col-xs-3 col-md-3">
+      <%= f.label :Dependencia %><br>
+      <%#= f.text_field :Dependency_id, readonly:true, class:'form-control xsfont' %>
+      <%= @service_request.Dependency.name %>
+    </div>
+    <div class="col-xs-3 col-md-3">
+      <%= f.label :Proveedor %><br>
+      <%#= f.text_field :Provider_id, readonly:true, class:'form-control xsfont' %>
+      <%= @service_request.Provider.name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :itDiagnosis %><br>
-    <%= f.text_field :itDiagnosis %>
+  <div class="row">
+    <div class="col-xs-2 col-md-2">
+      
+      <%#= f.text_field :Copier_id, readonly:true, class:'form-control xsfont' %>
+      <% if @service_request.Copier %>
+        <%= f.label :Copiadora %><br>
+        <% unless @service_request.Copier.ninventary.blank? %>
+          <%= @service_request.Copier.ninventary %> -- <%= @service_request.Copier.brand %>
+        <% else %>
+          <%= @service_request.Copier.nserie %> -- <%= @service_request.Copier.brand %>
+        <% end %>
+
+      <% elsif @service_request.Printer %>
+        <%= f.label :Impresora %><br>
+        <% if @service_request.Printer.ninventary.blank? %>
+          <%= @service_request.Printer.ninventary %> -- <%= @service_request.Printer.brand %>
+        <% else %>
+          <%= @service_request.Printer.nserie %> -- <%= @service_request.Printer.brand %>
+        <% end %>
+
+      <% elsif @service_request.Screen %>
+        <%= f.label :Monitor %><br>
+        <% if @service_request.Screen.ninventary.blank? %>
+          <%= @service_request.Screen.ninventary %> -- <%= @service_request.Screen.brand %>
+        <% else %>
+          <%= @service_request.Screen.nserie %> -- <%= @service_request.Screen.brand %>
+        <% end %>
+
+      <% elsif @service_request.Telephone %>
+        <%= f.label :Telefono %><br>
+        <% if @service_request.Telephone.ninventary.blank? %>
+          <%= @service_request.Telephone.ninventary %> -- <%= @service_request.Telephone.brand %>
+        <% else %>
+          <%= @service_request.Telephone.nserie %> -- <%= @service_request.Telephone.brand %>
+        <% end %>
+
+      <% elsif @service_request.Power %>
+        <%= f.label :Regulador_UPS %><br>
+        <% if @service_request.Power.ninventary.blank? %>
+          <%= @service_request.Power.ninventary %> -- <%= @service_request.Power.brand %>
+        <% else %>
+          <%= @service_request.Power.nserie %> -- <%= @service_request.Power.brand %>
+        <% end %>
+         
+      <% end %>
+    </div>
+    <div class="col-xs-4 col-md-4">
+      <%= f.label :ProviderDiagnosis %><br>
+      <%= f.text_field :ProviderDiagnosis, class:'form-control xsfont' %>
+    </div>
+    <div class="col-xs-6 col-md-6">
+      <%= f.label :material %><br>
+    <%= f.text_field :material, class:'form-control xsfont' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :ProviderDiagnosis %><br>
-    <%= f.text_field :ProviderDiagnosis %>
+  <div class="row">
+    <div class="col-xs-3 col-md-3">
+      <%= f.label :ExecutionDate %><br>
+      <%= f.date_select :ExecutionDate %>
+    </div>
+    <div class="col-xs-6 col-md-6">
+      <%= f.label :History %><br>
+      <%= f.text_area :History, size:'75x2' %>
+    </div>
+    <div class="col-xs-3 col-md-3">
+      <br>
+      <br>
+      <br>
+      <%= f.submit %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :material %><br>
-    <%= f.text_field :material %>
-  </div>
-  <div class="field">
-    <%= f.label :DocumentRequest %><br>
-    <%= f.text_field :DocumentRequest %>
-  </div>
-  <div class="field">
-    <%= f.label :RequestDate %><br>
-    <%= f.date_select :RequestDate %>
-  </div>
-  <div class="field">
-    <%= f.label :ExecutionDate %><br>
-    <%= f.date_select :ExecutionDate %>
-  </div>
-  <div class="field">
-    <%= f.label :History %><br>
-    <%= f.text_area :History %>
-  </div>
-  <div class="field">
-    <%= f.label :Delegation_id %><br>
-    <%= f.text_field :Delegation_id %>
-  </div>
-  <div class="field">
-    <%= f.label :Dependency_id %><br>
-    <%= f.text_field :Dependency_id %>
-  </div>
-  <div class="field">
-    <%= f.label :Copier_id %><br>
-    <%= f.text_field :Copier_id %>
-  </div>
-  <div class="field">
-    <%= f.label :Provider_id %><br>
-    <%= f.text_field :Provider_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>

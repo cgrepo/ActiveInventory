@@ -8,6 +8,22 @@ class ServiceRequest < ActiveRecord::Base
   belongs_to :Telephone
   belongs_to :Power
 
-  validates :kind, :itDiagnosis, :RequestDate, :DocumentRequest, :Delegation, :Dependency,  :Provider, presence:true
-  
+   HUMANIZED_ATTRIBUTES = {
+    :kind=> 'Tipo',
+    :itDiagnosis => 'Diagnostico TI',
+    :RequestDate => 'Fecha solicitud', 
+    :DocumentRequest => 'Solicitud', 
+    :ProviderDiagnosis => 'Diagnostico Proveedor',
+    :ExecutionDate => 'Fecha ejecucion',
+    :History => 'Bitacora'
+  }
+
+  def self.human_attribute_name(attr, options = {})
+    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
+  end
+
+  validates :kind, :itDiagnosis, :RequestDate, :DocumentRequest, :Delegation, :Dependency,  :Provider, 
+  	presence: { message: "no puede estar en blanco" }
+
+
 end

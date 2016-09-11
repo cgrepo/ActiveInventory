@@ -2,7 +2,7 @@
   <%#= debug @service_request.errors %>
   <% if @service_request.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@service_request.errors.count, "error") %> prohibited this service_request from being saved:</h2>
+      <h2><%= pluralize(@service_request.errors.count, "falla") %> no se puede generar la solicitud de servicio:</h2>
 
       <ul>
       <% @service_request.errors.full_messages.each do |message| %>
@@ -30,7 +30,7 @@
       </div>
       <div class="col-xs col-md-3">
         <%= f.label :Fecha_solicitud %><br>
-        <%= f.date_select :RequestDate, {order: [:day, :month, :year]} %>
+        <%= f.date_select :RequestDate, {order: [:day, :month, :year], :include_blank => true},  {} %>
       </div>
       <div class="col-xs col-md-2">
         <%= f.label :Delegacion %><br>
@@ -55,7 +55,7 @@
         <%= f.collection_select(:Provider_id, Provider.all, :id, :name,  {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} )%>
       </div>
     </div>
-    <!--  <div class="row">
+    <div class="row">
       <div class="col-xs-3 col-md-3">
         <%= f.label :Impresoras %><br>
         <%= f.collection_select(:Printer_id, @printers, :id, :ninventary,
@@ -76,12 +76,14 @@
         <%= f.collection_select(:Power_id, @powers, :id, :ninventary,
           {:include_blank => true }, {class:'btn  dropdown-toggle smfont copiers_collection'} ) %>
       </div>
-    </div> -->
+    </div>
     <div class="row">
       <div class="col-xs col-md">
-        <br>
-        <br>
-        <%= f.submit %>
+        <span class="pull-right">
+          <br>
+          <br>
+          <%= f.submit %>
+        </span>
       </div>
     </div>
  </div>
