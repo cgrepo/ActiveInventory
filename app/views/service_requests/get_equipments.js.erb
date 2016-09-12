@@ -1,11 +1,64 @@
 $('.copiers_collection').empty();
-<% @copiers.each do |copier| %>
-	 //console.log('<option value="<%= copier.id %>"><%= copier.brand %></option>');
-	 <% data = '[ ' + copier.brand + ' ]--' %>
-	 <% if copier.ninventary								%>
-	 	<%	data += copier.ninventary 				%>
-	 <%	else copier.ninventary							%>
-	 	<%	data += copier.nserie							%>
-	 <%	end																	%>
-	$('.copiers_collection').append($('<option value="<%= copier.id  %>"><%= data %></option>'));
+<% if @copiers %>
+	<% @copiers.each do |copier| %>
+		 <% data = '[ ' + copier.brand + ' ]--' %>
+		 <% if copier.ninventary								%>
+		 <%		data += copier.ninventary 				%>
+		 <%	else copier.ninventary							%>
+		 <%		data += copier.nserie							%>
+		 <%	end																	%>
+		$('.copiers_collection').append($('<option value="<%= copier.id  %>"><%= data %></option>'));
+	<% end %>
+<% end %>
+
+$('.printers_collection').empty();
+<% if @printers %>
+	<% @printers.each do |printer| %>
+		 <% data = '[ ' + printer.brand + ' ]--'%>
+		 <% if printer.ninventary								%>
+		 <%		data += printer.ninventary 				%>
+		 <%	else printer.ninventary							%>
+		 <%		data += printer.nserie						%>
+		 <%	end																	%>
+		$('.printers_collection').append($('<option value="<%= printer.id  %>"><%= data %></option>'));
+	<% end %>
+<% end %>
+
+$('.telephones_collection').empty();
+<% if @telephones %>
+	<% @telephones.each do |telephone| %>
+		 <% data = '[ ' + telephone.brand + ' ]--'%>
+		 <% if telephone.ninventary								%>
+		 <%		data += telephone.ninventary 				%>
+		 <%	else telephone.ninventary							%>
+		 <%		data += telephone.nserie						%>
+		 <%	end																		%>
+		$('.telephones_collection').append($('<option value="<%= telephone.id  %>"><%= data %></option>'));
+	<% end %>
+<% end %>
+
+$('.screens_collection').empty();
+<% if @screens %>
+	<% @screens.each do |screen| %>
+		 <% data = '[ ' + screen.brand + ' ]--'	%>
+		 <% if screen.ninventary								%>
+		 <%		data += screen.ninventary 				%>
+		 <%	else screen.ninventary							%>
+		 <%		data += screen.nserie							%>
+		 <%	end																	%>
+		$('.screens_collection').append($('<option value="<%= screen.id  %>"><%= data %></option>'));
+	<% end %>
+<% end %>
+
+$('.powers_collection').empty();
+<% if @powers %>
+	<% @powers.each do |power| %>
+		 <% data = '[ ' + power.brand + ' ]--'	%>
+		 <% if power.ninventary									%>
+		 <%		data += power.ninventary 					%>
+		 <%	else power.ninventary								%>
+		 <%		data += power.nserie							%>
+		 <%	end																	%>
+		$('.powers_collection').append($('<option value="<%= power.id  %>"><%= data %></option>'));
+	<% end %>
 <% end %>

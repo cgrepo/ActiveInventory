@@ -27,7 +27,8 @@ class ServiceRequestsController < ApplicationController
   def create
    
     @service_request = ServiceRequest.new(service_request_params)
-
+    @service_request.idFolio = setFolio
+    byebug
     respond_to do |format|
       set_vars
       if @service_request.save
@@ -73,13 +74,20 @@ class ServiceRequestsController < ApplicationController
   end
   
   def get_equipments
+
     @copiers = Copier.where(Dependency:params[:Dependency_id])
+    @printers = Printer.where(Dependency:params[:Dependency_id])
+    @telephones = Telephone.where(Dependency:params[:Dependency_id])
+    @screens = Screen.where(Dependency:params[:Dependency_id])
+    @powers = Power.where(Dependency:params[:Dependency_id])
+
     respond_to do |format|
       format.js
     end
   end
   
   private
+    
     def set_vars
       @dependencies = Dependency.all.limit 3
       @copiers = Copier.all.limit 3
@@ -88,6 +96,26 @@ class ServiceRequestsController < ApplicationController
       @screens = Screen.all.limit 3
       @powers = Power.all.limit 3
     end
+
+    def setFolio
+      d = Delegation.find_by(id:1)
+      setKey = [(0..9),('A'..'Z')].map { |i| i.to_a }.flatten
+      case d.name
+        when "San Jose del Cabo"
+          setAbr='SJC'
+        when "Cabo San Lucas"
+          setAbr='CSL'
+        when "Miraflores"
+          setAbr='MIR'
+        when "Santiago"
+          setAbr='SAN'
+        when "La Rivera"
+          setAbr='RIV'
+      end
+      Time.now.strftime("%d%m%y") + '-' + setAbr + '/' + (0...3).map { setKey[rand(setKey.length)] }.join
+    end
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_service_request
       @service_request = ServiceRequest.find(params[:id])

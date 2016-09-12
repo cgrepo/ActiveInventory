@@ -1,6 +1,11 @@
-$(document).ready ->
+$(document).on "turbolinks:load", ->
 	$('.dependencies_collection').empty()
 	$('.copiers_collection').empty()
+	$('.printers_collection').empty()
+	$('.screens_collection').empty()
+	$('.telephones_collection').empty()
+	$('.powers_collection').empty()
+
 	$('.delegation_collection').on 'change', ->
 		$.ajax
 			url:'/service_requests/get_dependencies'
@@ -8,7 +13,7 @@ $(document).ready ->
 			dataType:'script'
 			data:
 				Delegation_id: $('.delegation_collection option:selected').val()
-		return
+
 
 	$('.dependencies_collection').on 'change', ->
 		#console.log('change')
@@ -18,5 +23,3 @@ $(document).ready ->
 			dataType:'script'
 			data:
 				Dependency_id: $('.dependencies_collection option:selected').val()
-	return
-return

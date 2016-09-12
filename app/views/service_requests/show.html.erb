@@ -1,89 +1,162 @@
 <p id="notice"><%= notice %></p>
+<div class='container'>
+  <div class='row be-gray'>
+    <div class='col-xs-3 col-md-3'>
+      <p>
+        <strong>Idfolio:</strong>
+        <%= @service_request.idFolio %>
+      </p>
+    </div>
+    <div class="col-xs-3 col-md-3">
+      <p>
+        <strong>Tipo:</strong>
+        <%= @service_request.kind %>
+      </p>
+    </div>
+    <div class="col-xs-6 col-md-6">
+      <p>
+        <strong>Diagnostico_TI:</strong>
+        <%= @service_request.itDiagnosis %>
+      </p>
+    </div>
+  </div>
+  <div class='row be-gray'>
+    <div class="col-xs-3 col-md-3">
+      <p>
+        <strong>Documento_Solicitud:</strong>
+        <%= @service_request.DocumentRequest %>
+      </p>
+    </div>
+    <div class="col-xs-3 col-md-3">
+      <p>
+        <strong>Fecha_Solicitud:</strong>
+        <%= @service_request.RequestDate %>
+      </p>
+    </div>
+    <div class="col-xs-3 col-md-3">
+      <p>
+        <strong>Delegacion:</strong>
+        <%= @service_request.Delegation.name %>
+      </p>
+    </div>
+    <% if @service_request.Copier %>
+       <% data = '[ ' + @service_request.Copier.brand + ' ]==>'%>
+       <% if @service_request.Copier.ninventary %>
+       <%   data += @service_request.Copier.ninventary %>
+       <% else @service_request.Copier.ninventary %>
+       <%   data += @service_request.Copier.nserie %>
+       <% end %>
+        <div class="col-xs-3 col-md-3">
+          <p>
+            <strong>Copiadora:</strong>
+            <%= data %>
+          </p>
+        </div>
+    <% end %>
 
-<p>
-  <strong>Idfolio:</strong>
-  <%= @service_request.idFolio %>
-</p>
+    <% if @service_request.Printer %>
+       <% data = '[ ' + @service_request.Printer.brand + ' ]==>'%>
+       <% if @service_request.Printer.ninventary %>
+       <%   data += @service_request.Printer.ninventary %>
+       <% else @service_request.Printer.ninventary %>
+       <%   data += @service_request.Printer.nserie %>
+       <% end %>
+        <div class="col-xs-3 col-md-3">
+          <p>
+            <strong>Impresora:</strong>
+            <%= data %>
+          </p>
+        </div>
+    <% end %>
 
-<p>
-  <strong>Kind:</strong>
-  <%= @service_request.kind %>
-</p>
+    <% if @service_request.Screen %>
+       <% data = '[ ' + @service_request.Screen.brand + ' ]==>'%>
+       <% if @service_request.Screen.ninventary %>
+       <%   data += @service_request.Screen.ninventary %>
+       <% else @service_request.Screen.ninventary %>
+       <%   data += @service_request.Screen.nserie %>
+       <% end %>
+        <div class="col-xs-3 col-md-3">
+          <p>
+            <strong>Monitor:</strong>
+            <%= data %>
+          </p>
+        </div>
+    <% end %>
 
-<p>
-  <strong>Itdiagnosis:</strong>
-  <%= @service_request.itDiagnosis %>
-</p>
+    <% if @service_request.Telephone %>
+       <% data = '[ ' + @service_request.Telephone.brand + ' ]==>'%>
+       <% if @service_request.Telephone.ninventary %>
+       <%   data += @service_request.Telephone.ninventary %>
+       <% else @service_request.Telephone.ninventary %>
+       <%   data += @service_request.Telephone.nserie %>
+       <% end %>
+        <div class="col-xs-3 col-md-3">
+          <p>
+            <strong>Telefono:</strong>
+            <%= data %>
+          </p>
+        </div>
+    <% end %>
 
-<p>
-  <strong>Providerdiagnosis:</strong>
-  <%= @service_request.ProviderDiagnosis %>
-</p>
-
-<p>
-  <strong>Material:</strong>
-  <%= @service_request.material %>
-</p>
-
-<p>
-  <strong>Documentrequest:</strong>
-  <%= @service_request.DocumentRequest %>
-</p>
-
-<p>
-  <strong>Requestdate:</strong>
-  <%= @service_request.RequestDate %>
-</p>
-
-<p>
-  <strong>Executiondate:</strong>
-  <%= @service_request.ExecutionDate %>
-</p>
-
-<p>
-  <strong>History:</strong>
-  <%= @service_request.History %>
-</p>
-
-<p>
-  <strong>Delegation:</strong>
-  <%= @service_request.Delegation %>
-</p>
-
-<p>
-  <strong>Dependency:</strong>
-  <%= @service_request.Dependency %>
-</p>
-
-<p>
-  <strong>Provider:</strong>
-  <%= @service_request.Provider %>
-</p>
-
-<p>
-  <strong>Copier:</strong>
-  <%= @service_request.Copier %>
-</p>
-
-<p>
-  <strong>Printer:</strong>
-  <%= @service_request.Printer %>
-</p>
-
-<p>
-  <strong>Screen:</strong>
-  <%= @service_request.Screen %>
-</p>
-
-<p>
-  <strong>Telephone:</strong>
-  <%= @service_request.Telephone %>
-</p>
-
-<p>
-  <strong>Power:</strong>
-  <%= @service_request.Power %>
-</p>
-
-<%= link_to 'Edit', edit_service_request_path(@service_request) %> |
-<%= link_to 'Back', service_requests_path %>
+    <% if @service_request.Power %>
+       <% data = '[ ' + @service_request.Power.brand + ' ]==>'%>
+       <% if @service_request.Power.ninventary %>
+       <%   data += @service_request.Power.ninventary %>
+       <% else @service_request.Power.ninventary %>
+       <%   data += @service_request.Power.nserie %>
+       <% end %>
+        <div class="col-xs-3 col-md-3">
+          <p>
+            <strong>Regulador/UPS:</strong>
+            <%= data %>
+          </p>
+        </div>
+    <% end %>
+  </div>
+  <div class='row be-gray'>
+    <div class="col-xs-6 col-md-6">
+      <p>
+        <strong>Dependencia:</strong>
+        <%= @service_request.Dependency.name %>
+      </p>
+    </div>
+    <div class="col-xs-6 col-md-6">
+      <p>
+        <strong>Proveedor:</strong>
+        <%= @service_request.Provider.name %>
+      </p>
+    </div>
+  </div>
+  <div class="row be-gray">
+    <div class="col-xs-4 col-md-4">
+      <p>
+        <strong>Diagnostico_Proveedor:</strong>
+        <%= @service_request.ProviderDiagnosis %>
+      </p>
+    </div>
+    <div class="col-xs-4 col-md-4">
+      <p>
+        <strong>Material:</strong>
+        <%= @service_request.material %>
+      </p>
+    </div>
+    <div class="col-xs-4 col-md-4">
+      <p>
+        <strong>Fecha_Ejecucion:</strong>
+        <%= @service_request.ExecutionDate %>
+      </p>
+    </div>
+  </div>
+  <div class="row be-gray">
+    <div class="col-xs col-md">
+      <p>
+        <strong>Bitacora:</strong>
+        <%= @service_request.History %>
+      </p>    
+    </div>
+  </div>
+</div>
+<br>
+<%= link_to 'Editar', edit_service_request_path(@service_request), class:'btn btn-default btn-lg' %> |
+<%= link_to 'Regresar', service_requests_path, class:'btn btn-default btn-lg' %>

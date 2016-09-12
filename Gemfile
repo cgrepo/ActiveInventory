@@ -33,7 +33,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'will_paginate', '~> 3.0.6'
 #gem 'bootstrap3-datetimepicker-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
-
+gem 'jquery-turbolinks'
 group :production do
  gem 'pg'
  gem 'rails_12factor'

@@ -41,7 +41,6 @@
     <div class="row">
       <div class="col-xs col-md-5">
         <%= f.label :Dependencia %><br>
-        <%#= debug @dependencies %>
         <%= f.collection_select(:Dependency_id, @dependencies, :id, :name,
           {:include_blank => true }, {class:'btn  dropdown-toggle smfont dependencies_collection'} ) %>
       </div>
@@ -52,29 +51,30 @@
       </div>
       <div class="col-xs col-md-5">
         <%= f.label :Proveedores %><br>
-        <%= f.collection_select(:Provider_id, Provider.all, :id, :name,  {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} )%>
+        <%= f.collection_select(:Provider_id, Provider.all, :id, :name,  {:include_blank => true }, 
+        {class:'btn  dropdown-toggle smfont'} )%>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-3 col-md-3">
         <%= f.label :Impresoras %><br>
-        <%= f.collection_select(:Printer_id, @printers, :id, :ninventary,
-          {:include_blank => true }, {class:'btn  dropdown-toggle smfont copiers_collection'} ) %>      
+        <%= f.collection_select(:Printer_id, @printers, :id, :ninventary, {:include_blank => true }, 
+        {class:'btn  dropdown-toggle smfont printers_collection'} ) %>      
       </div>
       <div class="col-xs-3 col-md-3">
         <%= f.label :Telefonos %><br>
-        <%= f.collection_select(:Telephone_id, @telephones, :id, :ninventary,
-          {:include_blank => true }, {class:'btn  dropdown-toggle smfont copiers_collection'} ) %>
+        <%= f.collection_select(:Telephone_id, @telephones, :id, :ninventary, {:include_blank => true }, 
+        {class:'btn  dropdown-toggle smfont telephones_collection'} ) %>
       </div>
       <div class="col-xs-3 col-md-3">
          <%= f.label :Monitores %><br>
-        <%= f.collection_select(:Screen_id, @screens, :id, :ninventary,
-          {:include_blank => true }, {class:'btn  dropdown-toggle smfont copiers_collection'} ) %>
+        <%= f.collection_select(:Screen_id, @screens, :id, :ninventary, {:include_blank => true }, 
+        {class:'btn  dropdown-toggle smfont screens_collection'} ) %>
       </div>
       <div class="col-xs-3 col-md-3">
         <%= f.label :Regulador_ups %><br>
-        <%= f.collection_select(:Power_id, @powers, :id, :ninventary,
-          {:include_blank => true }, {class:'btn  dropdown-toggle smfont copiers_collection'} ) %>
+        <%= f.collection_select(:Power_id, @powers, :id, :ninventary, {:include_blank => true }, 
+        {class:'btn  dropdown-toggle smfont powers_collection'} ) %>
       </div>
     </div>
     <div class="row">
