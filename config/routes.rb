@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get 'get_dependencies', to:'service_requests#get_dependencies'
       get 'get_equipments', to:'service_requests#get_equipments'
     end
+    get 'get_pdf', to:'service_requests#get_pdf'
   end
 
   resources :providers

@@ -25,7 +25,6 @@ class ServiceRequestsController < ApplicationController
   # POST /service_requests
   # POST /service_requests.json
   def create
-   
     @service_request = ServiceRequest.new(service_request_params)
     @service_request.idFolio = setFolio
     byebug
@@ -86,6 +85,22 @@ class ServiceRequestsController < ApplicationController
     end
   end
   
+  def get_pdf
+    @service_request = ServiceRequest.find(params[:service_request_id])
+
+    respond_to do |format|
+      format.pdf do
+        
+        pdf = ServiceRequestPdf.new
+        #pdf.text @service_request.idFolio
+        send_data pdf.render, 
+          filename: "solicitud_servicio_#{@service_request.id}",
+          type: 'application/pdf',
+          disposition: 'inline'
+      end
+    end
+  end
+
   private
     
     def set_vars
@@ -114,7 +129,6 @@ class ServiceRequestsController < ApplicationController
       end
       Time.now.strftime("%d%m%y") + '-' + setAbr + '/' + (0...3).map { setKey[rand(setKey.length)] }.join
     end
-
 
     # Use callbacks to share common setup or constraints between actions.
     def set_service_request
