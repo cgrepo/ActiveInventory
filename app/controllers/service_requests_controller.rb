@@ -27,7 +27,7 @@ class ServiceRequestsController < ApplicationController
   def create
     @service_request = ServiceRequest.new(service_request_params)
     @service_request.idFolio = setFolio
-    byebug
+    
     respond_to do |format|
       set_vars
       if @service_request.save
@@ -87,12 +87,12 @@ class ServiceRequestsController < ApplicationController
   
   def get_pdf
     @service_request = ServiceRequest.find(params[:service_request_id])
-
+    
     respond_to do |format|
       format.pdf do
         
-        pdf = ServiceRequestPdf.new
-        #pdf.text @service_request.idFolio
+        pdf = ServiceRequestPdf.new(@service_request)
+        
         send_data pdf.render, 
           filename: "solicitud_servicio_#{@service_request.id}",
           type: 'application/pdf',

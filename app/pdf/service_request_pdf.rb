@@ -1,6 +1,8 @@
 class ServiceRequestPdf < Prawn::Document
-  def initialize
-    super
+  def initialize(service_request)
+    super() # ojo sin los parentesis marca un error loco !!!!
+    @service_request = service_request
+    
 		#-----------START--------------------------------------------------------------------------------------------------------------------
 			Prawn::Font::AFM.hide_m17n_warning = true
 			imgshield = "#{Rails.root.to_s}/app/assets/images/logodire.png"	
@@ -8,8 +10,8 @@ class ServiceRequestPdf < Prawn::Document
 			
 			imgdir = "#{Rails.root.to_s}/app/assets/images/direccion.png"
 			image imgdir, at: [215,710], fit:[302,302]
-			#font_families.update("#{Rails.root.to_s}/app/assets/fonts/Calibri" => { normal:'Calibri.ttf'  }) not working on rails
-			#font_families.update("#{Rails.root.to_s}/app/assets/fonts/Verdana" => { normal:'Verdana.ttf'  }) not working on rails
+			#font_families.update("#{Rails.root.to_s}/app/assets/fonts/Calibri" => { normal:'Calibri.ttf'  }) not working on rails this way
+			#font_families.update("#{Rails.root.to_s}/app/assets/fonts/Verdana" => { normal:'Verdana.ttf'  }) not working on rails this way
 			font_families["Verdana"] = { normal:{file:"#{Rails.root.to_s}/app/assets/fonts/Verdana.ttf", font:"Verdana"} }
 			font_families["Calibri"] = { normal:{file:"#{Rails.root.to_s}/app/assets/fonts/Calibri.ttf", font:"Calibri"} }
 
