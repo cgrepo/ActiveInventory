@@ -25,6 +25,7 @@
         <table class="table table-hover table-striped">
           <thead>
             <tr>
+              <th>#</th>
               <th>Idfolio</th>
               <th>Tipo</th>
               <th>Documento</th>
@@ -39,6 +40,7 @@
           <tbody>
             <% @service_requests.each do |service_request| %>
               <tr>
+                <td><%= service_request.id %></td>
                 <td><%= service_request.idFolio %></td>
                 <td><%= service_request.kind %></td>
                 <td><%= service_request.DocumentRequest %></td> 

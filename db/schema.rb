@@ -288,6 +288,7 @@ ActiveRecord::Schema.define(version: 20160909034215) do
     t.date     "RequestDate"
     t.date     "ExecutionDate"
     t.text     "History"
+    t.text     "Priority"
     t.integer  "Delegation_id"
     t.integer  "Dependency_id"
     t.integer  "Provider_id"

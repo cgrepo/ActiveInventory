@@ -10,6 +10,7 @@ class CreateServiceRequests < ActiveRecord::Migration
       t.date :RequestDate
       t.date :ExecutionDate
       t.text :History
+      t.text :Priority
       t.references :Delegation, index: true, foreign_key: true
       t.references :Dependency, index: true, foreign_key: true
       t.references :Provider, index: true, foreign_key: true
