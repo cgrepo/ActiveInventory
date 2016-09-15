@@ -1,8 +1,28 @@
 class ServiceRequestPdf < Prawn::Document
   def initialize(service_request)
     super() # ojo sin los parentesis marca un error loco !!!!
-    @service_request = service_request
-    
+    #-----------DATA-PARSING-------------------------------------------------------------------------------------------------------------
+	    @service_request = service_request
+	    data = Hash.new
+	    
+	    if @service_request.Priority == 'ALTA' 
+	    	pri = 'URGENTE-ATENDER LA SIGUIENTE SOLICITUD DE MANERA INMEDIATA!   '
+	    else
+	    	pri = 'FAVOR DE ATENDER LA SIGUIENTE SOLICITUD.                                                              '
+	    end
+	    
+
+	   	if @service_request.Copier
+	   		checkout(1,data)
+	   	elsif @service_request.Printer
+	   		checkout(2,data)
+	   	elsif @service_request.Screen
+	   		checkout(3,data)
+	   	elsif @service_request.Telephone
+	   		checkout(4,data)
+	   	elsif @service_request.Power
+	   		checkout(5,data)
+	   	end
 		#-----------START--------------------------------------------------------------------------------------------------------------------
 			Prawn::Font::AFM.hide_m17n_warning = true
 			imgshield = "#{Rails.root.to_s}/app/assets/images/logodire.png"	
@@ -20,13 +40,13 @@ class ServiceRequestPdf < Prawn::Document
 
 			formatted_text_box [
 			  {:text => "PRIORIDAD: " , size:11, style:[:normal], font:'Calibri' },
-			  {:text => " URGENTE-ATENDER LA SIGUIENTE SOLICITUD DE MANERA INMEDIATA!" , size:8, style:[:normal],
+			  {:text => "#{pri}" , size:8, style:[:normal],
 			   	font:'Calibri', color:'f90101' },
 			  {:text => " FECHA: " , size:9, style:[:normal], font:'Verdana', color:'b0a8a8' },
 			  {:text => "#{Time.now.strftime("%m/%d/%Y")} " , size:9, style:[:bold], font:'Helvetica' },
 			  {:text => " FOLIO: " , size:9, style:[:normal], font:'Calibri', color:'b0a8a8' },
-			  {:text => " #10000000000" , size:9, style:[:bold], font:'Verdana' }
-			], at:[30,620]
+			  {:text => " #{@service_request.idFolio}" , size:9, style:[:bold], font:'Verdana' }
+			], at:[25,620]
 
 			formatted_text_box [
 			  {:text => 'Por medio de la presente se solicita el servicio a el equipo especificado en este documento a la empresa:' , size:11, 
@@ -62,66 +82,68 @@ class ServiceRequestPdf < Prawn::Document
   	#-----------FIRST BOX DATA-----------------------------------------------------------------------------------------------------------
 		  formatted_text_box [
 		    {text:'Nombre empresa: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:' BAJA DIGITAL S.A DE C.V. ', size:10, font:'Calibri', style:[:normal], color:'b0a8a8'}
+		    {text:" #{@service_request.Provider.name} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'}
 		  ], at:[10,590]
 		  formatted_text_box [
 		    {text:' Dirección: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:' AVE. IGNACIO ALLENDE #880, LOCAL 1 Y 2 COL. CENTRO LA PAZ BCS.', size:10, font:'Calibri', style:[:normal], color:'b0a8a8'}
+		    {text:" #{@service_request.Provider.address}", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'}
 		  ], at:[10,574]
 		  formatted_text_box [
 		    {text:' Telefono(s): ', size:10, font:'Calibri', style:[:normal]},
-		    {text:' (624)144-4725 (624)144-4725 ', size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
+		    {text:" #{@service_request.Provider.telephone} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
 		    {text:' RFC: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:' BDI981121TY8 ', size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
+		    {text:" #{@service_request.Provider.rfc} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
 		    {text:' Email: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:' carlos_albinogg@yahoo.com.mx-----', size:10, font:'Calibri', style:[:normal], color:'b0a8a8'}
+		    {text:" #{@service_request.Provider.email} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'}
 		  ], at:[10,558]
 		#-----------SECOND BOX DATA----------------------------------------------------------------------------------------------------------
 		  formatted_text_box [ 
 		  	{text:'Dependencia: ', size:10, font:'Calibri' },
-		    {text:' SECRETARIA PARTICULA MUNICIPAL ', size:10, font:'Calibri', color:'b0a8a8'},
+		    {text:" #{@service_request.Dependency.name} ", size:10, font:'Calibri', color:'b0a8a8'},
 		  ], at:[10,535]
 		  formatted_text_box [ 
 		    {text:' Responsable: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:' HÉCTOR ARAGÓN AGÚNDEZ ', size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
+		    {text:" #{@service_request.Dependency.responsable} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
 		    {text:' Folio de solicitud: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:' SOL SISTEMAS', size:10, font:'Calibri', style:[:normal], color:'b0a8a8'}
+		    {text:" #{@service_request.DocumentRequest}", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'}
 		  ], at:[10,520]
 		  formatted_text_box [ 
 		    {text:'Dirección: ', size:10, font:'Calibri'},
-		    {text:'Palacio Municipal, XIi Ayuntamiento de Los Cabos Blvar. Mijares esq. e/ Avee Manuel Doblado', size:10, font:'Calibri', color:'b0a8a8'}
+		    {text:" #{@service_request.Dependency.address} ", size:10, font:'Calibri', color:'b0a8a8'}
 		  ], at:[10,505]
 		  formatted_text_box [ 
 		    {text:'Telefono(s): ', size:10, font:'Calibri'},
-		    {text:'(624)144-4725 (624)144-4725 ', size:10, font:'Calibri', color:'b0a8a8'},
-		    {text:'Telefono(s): ', size:10, font:'Calibri'},
-		    {text:'(624)144-4725', size:10, font:'Calibri', color:'b0a8a8'}
+		    {text:" #{@service_request.Dependency.telephone} ", size:10, font:'Calibri', color:'b0a8a8'},
+		    {text:'Responsable email: ', size:10, font:'Calibri'},
+		    {text:" #{@service_request.Dependency.responsable_email} ", size:10, font:'Calibri', color:'b0a8a8'}
 		  ], at:[10,490]
 		#-----------THIRD BOX DATA-----------------------------------------------------------------------------------------------------------
-		 	desc = 'ANTECEDENTES: CONSTANTE ATASCO DE HOJA, RODILLO DE ACCESO DE HOJA DETERIORADO, RUIDO EN LA UNIDAD ADF. MANTENIMINETO Y DIAGNOSTICO EN GENERAL'
-
+		  
 		  formatted_text_box [ {text:'Descripción del equipo', size:10, font:'Calibri' }, ], at:[10,467]
 		  formatted_text_box [ 
 		    {text:'Marca: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:' CANON ', size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
+		    {text:" #{data[:brand]} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
 		    {text:' Modelo: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:' IMAGERUNNER 2525 ', size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
+		    {text:" #{data[:model]} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
 		    {text:' No. activo: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:' 034794', size:10, font:'Calibri', style:[:normal], color:'b0a8a8'}
+		    {text:" #{data[:inventary]} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'}
 		   ], at:[10,452]
 		   formatted_text_box [ 
 		    {text:'No. serie: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:' FRV90485 ', size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
+		    {text:" #{data[:serie]} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
 		    {text:' Tipo: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:' REPARACION ', size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
+		    {text:" #{@service_request.kind} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
 		    {text:' Localidad: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:' SAN JOSE DEL CABO', size:10, font:'Calibri', style:[:normal], color:'b0a8a8'}
+		    {text:" #{@service_request.Delegation.name} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
+		    # if @service_request.Copier || @service_request.Printer then
+		    # 	{text:' Medidor de Impresion:', size:10, font:'Calibri', style:[:normal]}	
+		    # end
 		   ], at:[10,437]
 		   formatted_text_box [ 
 		    {text:'Descripción del error', size:10, font:'Calibri' },
 		  ], at:[10,422]
 		  formatted_text_box [ 
-		    {text:"#{desc}", size:10, font:'Calibri', style:[:bold], color:'b0a8a8' },
+		    {text:"#{@service_request.itDiagnosis}", size:10, font:'Calibri', style:[:bold], color:'b0a8a8' },
 		  ], at:[10,407]
 		#-----------FOURTH BOX DATA----------------------------------------------------------------------------------------------------------
 		  formatted_text_box [ 
@@ -194,5 +216,42 @@ class ServiceRequestPdf < Prawn::Document
 		      text 'www.loscabos.gob.mx', align: :right
 		    end
 		  end
+  end
+
+  private
+  def checkout(equipment,data)
+  	
+  	case equipment
+  		when 1
+  			data[:brand] = @service_request.Copier.brand? ? @service_request.Copier.brand : 'SIN MARCA'
+	  		data[:brand] = @service_request.Copier.brand? ? @service_request.Copier.brand : 'SIN MARCA'
+	  		data[:model] = @service_request.Copier.model? ? @service_request.Copier.model : 'SIN MODELO'
+	  		data[:inventary] = @service_request.Copier.ninventary? ? @service_request.Copier.ninventary : 'SIN NUMERO'
+	  		data[:serie] = @service_request.Copier.nserie? ? @service_request.Copier.nserie : 'SIN SERIE'
+  		when 2
+  			data[:brand] = @service_request.Printer.brand? ? @service_request.Printer.brand : 'SIN MARCA'
+	  		data[:brand] = @service_request.Printer.brand? ? @service_request.Printer.brand : 'SIN MARCA'
+	  		data[:model] = @service_request.Printer.model? ? @service_request.Printer.model : 'SIN MODELO'
+	  		data[:inventary] = @service_request.Printer.ninventary? ? @service_request.Printer.ninventary : 'SIN NUMERO'
+	  		data[:serie] = @service_request.Printer.nserie? ? @service_request.Printer.nserie : 'SIN SERIE'
+  		when 3
+  			data[:brand] = @service_request.Screen.brand? ? @service_request.Screen.brand : 'SIN MARCA'
+	  		data[:brand] = @service_request.Screen.brand? ? @service_request.Screen.brand : 'SIN MARCA'
+	  		data[:model] = @service_request.Screen.model? ? @service_request.Screen.model : 'SIN MODELO'
+	  		data[:inventary] = @service_request.Screen.ninventary? ? @service_request.Screen.ninventary : 'SIN NUMERO'
+	  		data[:serie] = @service_request.Screen.nserie? ? @service_request.Screen.nserie : 'SIN SERIE'
+  		when 4
+  			data[:brand] = @service_request.Telephone.brand? ? @service_request.Telephone.brand : 'SIN MARCA'
+	  		data[:brand] = @service_request.Telephone.brand? ? @service_request.Telephone.brand : 'SIN MARCA'
+	  		data[:model] = @service_request.Telephone.model? ? @service_request.Telephone.model : 'SIN MODELO'
+	  		data[:inventary] = @service_request.Telephone.ninventary? ? @service_request.Telephone.ninventary : 'SIN NUMERO'
+	  		data[:serie] = @service_request.Telephone.nserie? ? @service_request.Telephone.nserie : 'SIN SERIE'
+  		when 5
+  			data[:brand] = @service_request.Power.brand? ? @service_request.Power.brand : 'SIN MARCA'
+	  		data[:brand] = @service_request.Power.brand? ? @service_request.Power.brand : 'SIN MARCA'
+	  		data[:model] = @service_request.Power.model? ? @service_request.Power.model : 'SIN MODELO'
+	  		data[:inventary] = @service_request.Power.ninventary? ? @service_request.Power.ninventary : 'SIN NUMERO'
+	  		data[:serie] = @service_request.Power.nserie? ? @service_request.Power.nserie : 'SIN SERIE'
+  	end
   end
 end
