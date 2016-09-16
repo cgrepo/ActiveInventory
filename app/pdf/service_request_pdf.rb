@@ -122,23 +122,25 @@ class ServiceRequestPdf < Prawn::Document
 		  formatted_text_box [ {text:'Descripción del equipo', size:10, font:'Calibri' }, ], at:[10,467]
 		  formatted_text_box [ 
 		    {text:'Marca: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:" #{data[:brand]} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
+		    {text:" #{data[:brand]}    ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
 		    {text:' Modelo: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:" #{data[:model]} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
+		    {text:" #{data[:model]}    ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
 		    {text:' No. activo: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:" #{data[:inventary]} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'}
+		    {text:" #{data[:inventary]}      ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'}
 		   ], at:[10,452]
 		   formatted_text_box [ 
 		    {text:'No. serie: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:" #{data[:serie]} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
+		    {text:" #{data[:serie]}      ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
 		    {text:' Tipo: ', size:10, font:'Calibri', style:[:normal]},
-		    {text:" #{@service_request.kind} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
+		    {text:" #{@service_request.kind}       ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
 		    {text:' Localidad: ', size:10, font:'Calibri', style:[:normal]},
 		    {text:" #{@service_request.Delegation.name} ", size:10, font:'Calibri', style:[:normal], color:'b0a8a8'},
-		    # if @service_request.Copier || @service_request.Printer then
-		    # 	{text:' Medidor de Impresion:', size:10, font:'Calibri', style:[:normal]}	
-		    # end
-		   ], at:[10,437]
+		    ], at:[10,437]
+
+		    if @service_request.Copier || @service_request.Printer
+		    	formatted_text_box [ {text:' Medidor de Impresion:', size:10, font:'Calibri', style:[:normal]}	], at:[400,437]	
+		    end
+		   
 		   formatted_text_box [ 
 		    {text:'Descripción del error', size:10, font:'Calibri' },
 		  ], at:[10,422]
