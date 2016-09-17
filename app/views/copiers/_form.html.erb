@@ -12,24 +12,24 @@
   <% end %>
   <div class="container-fluid large-padding be-round_ligth_gray">
     <div class="row">
-      <div class="col-xs-4 col-md-2">        
+      <div class="col-xs col-md-2">        
         <%= f.label :Inventario %><br>
         <%= f.text_field :ninventary, class:'form-control smfont' %>
       </div>
-      <div class="col-xs-4 col-md-2">
+      <div class="col-xs col-md-2">
         <%= f.label :Serie %><br>
         <%= f.text_field :nserie, class:'form-control smfont' %>
       </div>
-      <div class="col-xs-4 col-md-2">        
+      <div class="col-xs col-md-3">        
         <%= f.label :Modelo %><br>
         <%= f.collection_select(:model, BrandModel.where(description:"COPIADORA"), :modelx, :modelx, 
         {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
       </div>
-      <div class="col-xs-4 col-md-2">        
+      <div class="col-xs col-md-2">        
         <%= f.label :Factura %><br>
         <%= f.text_field :nfactura, class:'form-control smfont' %>
       </div>
-      <div class="col-xs-2 col-md-2">        
+      <div class="col-xs col-md-2">        
         <%= f.label :Marca %><br>
         <%= f.collection_select(:brand, BrandModel.where(description:"COPIADORA").group(:brandx).order(:brandx), :brandx, :brandx, 
           {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>

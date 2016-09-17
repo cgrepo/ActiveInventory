@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on "turbolinks:load", ->
+	$('.net').hide ->
+
+	$('.option_type').on 'change', ->
+		if $('.option_type option:selected').val() == 'VOIP'
+			$('.net').show ->
+		else
+			$('.net').hide ->

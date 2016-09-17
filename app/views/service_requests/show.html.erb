@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 <div class='container'>
   <div class='row be-gray'>
-    <div class='col-xs-3 col-md-3'>
+    <div class='col-xs col-md-3'>
       <p>
         <strong>Idfolio:</strong>
         <%= @service_request.idFolio %>
       </p>
     </div>
-    <div class="col-xs-3 col-md-3">
+    <div class="col-xs col-md-3">
       <p>
         <strong>Tipo:</strong>
         <%= @service_request.kind %>
       </p>
     </div>
-    <div class="col-xs-6 col-md-6">
+    <div class="col-xs col-md-6">
       <p>
         <strong>Diagnostico_TI:</strong>
         <%= @service_request.itDiagnosis %>
@@ -21,19 +21,19 @@
     </div>
   </div>
   <div class='row be-gray'>
-    <div class="col-xs-3 col-md-3">
+    <div class="col-xs col-md-3">
       <p>
         <strong>Documento_Solicitud:</strong>
         <%= @service_request.DocumentRequest %>
       </p>
     </div>
-    <div class="col-xs-3 col-md-3">
+    <div class="col-xs col-md-3">
       <p>
         <strong>Fecha_Solicitud:</strong>
         <%= @service_request.RequestDate %>
       </p>
     </div>
-    <div class="col-xs-3 col-md-3">
+    <div class="col-xs col-md-3">
       <p>
         <strong>Delegacion:</strong>
         <%= @service_request.Delegation.name %>
@@ -46,7 +46,7 @@
        <% else @service_request.Copier.ninventary %>
        <%   data += @service_request.Copier.nserie %>
        <% end %>
-        <div class="col-xs-3 col-md-3">
+        <div class="col-xs col-md-3">
           <p>
             <strong>Copiadora:</strong>
             <%= data %>
@@ -61,7 +61,7 @@
        <% else @service_request.Printer.ninventary %>
        <%   data += @service_request.Printer.nserie %>
        <% end %>
-        <div class="col-xs-3 col-md-3">
+        <div class="col-xs col-md-3">
           <p>
             <strong>Impresora:</strong>
             <%= data %>
@@ -76,7 +76,7 @@
        <% else @service_request.Screen.ninventary %>
        <%   data += @service_request.Screen.nserie %>
        <% end %>
-        <div class="col-xs-3 col-md-3">
+        <div class="col-xs col-md-3">
           <p>
             <strong>Monitor:</strong>
             <%= data %>
@@ -91,7 +91,7 @@
        <% else @service_request.Telephone.ninventary %>
        <%   data += @service_request.Telephone.nserie %>
        <% end %>
-        <div class="col-xs-3 col-md-3">
+        <div class="col-xs col-md-3">
           <p>
             <strong>Telefono:</strong>
             <%= data %>
@@ -106,7 +106,7 @@
        <% else @service_request.Power.ninventary %>
        <%   data += @service_request.Power.nserie %>
        <% end %>
-        <div class="col-xs-3 col-md-3">
+        <div class="col-xs col-md-3">
           <p>
             <strong>Regulador/UPS:</strong>
             <%= data %>
@@ -115,13 +115,13 @@
     <% end %>
   </div>
   <div class='row be-gray'>
-    <div class="col-xs-6 col-md-6">
+    <div class="col-xs col-md-6">
       <p>
         <strong>Dependencia:</strong>
         <%= @service_request.Dependency.name %>
       </p>
     </div>
-    <div class="col-xs-6 col-md-6">
+    <div class="col-xs col-md-6">
       <p>
         <strong>Proveedor:</strong>
         <%= @service_request.Provider.name %>
@@ -129,19 +129,19 @@
     </div>
   </div>
   <div class="row be-gray">
-    <div class="col-xs-4 col-md-4">
+    <div class="col-xs col-md-4">
       <p>
         <strong>Diagnostico_Proveedor:</strong>
         <%= @service_request.ProviderDiagnosis %>
       </p>
     </div>
-    <div class="col-xs-4 col-md-4">
+    <div class="col-xs col-md-4">
       <p>
         <strong>Material:</strong>
         <%= @service_request.material %>
       </p>
     </div>
-    <div class="col-xs-4 col-md-4">
+    <div class="col-xs col-md-4">
       <p>
         <strong>Fecha_Ejecucion:</strong>
         <%= @service_request.ExecutionDate %>

@@ -94,7 +94,7 @@ class ServiceRequestsController < ApplicationController
         pdf = ServiceRequestPdf.new(@service_request)
         
         send_data pdf.render, 
-          filename: "solicitud_servicio_#{@service_request.id}",
+          filename: "solicitud_servicio_#{@service_request.id}.pdf",
           type: 'application/pdf',
           disposition: 'inline'
       end

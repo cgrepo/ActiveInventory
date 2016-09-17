@@ -28,7 +28,7 @@ class TelephonesController < ApplicationController
 
     respond_to do |format|
       if @telephone.save
-        format.html { redirect_to @telephone, notice: 'Telephone was successfully created.' }
+        format.html { redirect_to @telephone, notice: 'Telefono fue agreado satisfactoriamente..' }
         format.json { render :show, status: :created, location: @telephone }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class TelephonesController < ApplicationController
   def update
     respond_to do |format|
       if @telephone.update(telephone_params)
-        format.html { redirect_to @telephone, notice: 'Telephone was successfully updated.' }
+        format.html { redirect_to @telephone, notice: 'Telefono fue actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @telephone }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class TelephonesController < ApplicationController
   def destroy
     @telephone.destroy
     respond_to do |format|
-      format.html { redirect_to telephones_url, notice: 'Telephone was successfully destroyed.' }
+      format.html { redirect_to telephones_url, notice: 'Telefono fue borrado satisfactoriamente.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class TelephonesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def telephone_params
-      params.require(:telephone).permit(:ninventary, :nserie, :brand, :model, :buy_date, :genus, :number, :operational, :reazon, :notes, :Dependency_id)
+      params.require(:telephone).permit(:ninventary, :nserie, :brand, :model, :buy_date, :genus, :number, :ip, :mac, :operational, :reazon, :notes, :Dependency_id)
     end
 end

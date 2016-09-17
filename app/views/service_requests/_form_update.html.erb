@@ -13,48 +13,46 @@
 
 <div class="container smfont be-round_ligth_gray">
   <div class="row">
-    <div class="col-xs-3 col-md-3">
+    <div class="col-xs col-md-3">
       <%= f.label :idFolio %><br>
       <%= f.text_field :idFolio, readonly:true, class:'form-control xsfont' %>
     </div>
-    <div class="col-xs-3 col-md-3">
+    <div class="col-xs col-md-3">
       <%= f.label :kind %><br>
       <%= f.text_field :kind, readonly:true, class:'form-control xsfont' %>
     </div>
-    <div class="col-xs-3 col-md-3">
+    <div class="col-xs col-md-3">
       <%= f.label :itDiagnosis %><br>
       <%= f.text_field :itDiagnosis, readonly:true, class:'form-control xsfont' %>
     </div>
-    <div class="col-xs-3 col-md-3">
+    <div class="col-xs col-md-3">
       <%= f.label :DocumentRequest %><br>
       <%= f.text_field :DocumentRequest, readonly:true, class:'form-control xsfont'  %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-3 col-md-3">
+    <div class="col-xs col-md-3">
       <%= f.label :RequestDate %><br>
       <%= f.date_select :RequestDate, disabled:true, class:'form-control xsfont' %>
     </div>
-    <div class="col-xs-2 col-md-2">
+    <div class="col-xs col-md-2">
       <%= f.label :Delegacion %><br>
       <%#= f.text_field :Delegation_id, readonly:true, class:'form-control xsfont' %>
       <%= @service_request.Delegation.name %>
     </div>
-    <div class="col-xs-3 col-md-3">
+    <div class="col-xs col-md-3">
       <%= f.label :Dependencia %><br>
       <%#= f.text_field :Dependency_id, readonly:true, class:'form-control xsfont' %>
       <%= @service_request.Dependency.name %>
     </div>
-    <div class="col-xs-3 col-md-3">
+    <div class="col-xs col-md-3">
       <%= f.label :Proveedor %><br>
       <%#= f.text_field :Provider_id, readonly:true, class:'form-control xsfont' %>
       <%= @service_request.Provider.name %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-2 col-md-2">
-      
-      <%#= f.text_field :Copier_id, readonly:true, class:'form-control xsfont' %>
+    <div class="col-xs col-md-2">
       <% if @service_request.Copier %>
         <%= f.label :Copiadora %><br>
         <% unless @service_request.Copier.ninventary.blank? %>
@@ -97,26 +95,30 @@
          
       <% end %>
     </div>
-    <div class="col-xs-4 col-md-4">
+    <div class="col-xs col-md-4">
       <%= f.label :ProviderDiagnosis %><br>
       <%= f.text_field :ProviderDiagnosis, class:'form-control xsfont' %>
     </div>
-    <div class="col-xs-6 col-md-6">
+    <div class="col-xs col-md-6">
       <%= f.label :material %><br>
     <%= f.text_field :material, class:'form-control xsfont' %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-3 col-md-3">
+    <div class="col-xs-7 col-md-3">
       <%= f.label :ExecutionDate %><br>
-      <%= f.date_select :ExecutionDate %>
+      <%= f.date_select :ExecutionDate, {order: [:day, :month, :year], :include_blank => true},  {} %>
     </div>
-    <div class="col-xs-6 col-md-6">
+  </div>
+  <div class="row">
+    <div class="col-xs-10 col-md-12">
       <%= f.label :History %><br>
-      <%= f.text_area :History, size:'75x2' %>
+      <%= f.text_area :History, size:'80X5' %>
     </div>
+    <br>
+  </div>
+  <div class="row">
     <div class="col-xs-3 col-md-3">
-      <br>
       <br>
       <br>
       <%= f.submit %>

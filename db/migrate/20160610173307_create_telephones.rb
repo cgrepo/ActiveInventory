@@ -8,6 +8,8 @@ class CreateTelephones < ActiveRecord::Migration
       t.string :nfactura
       t.date :buy_date
       t.string :genus
+      t.string :ip
+      t.string :mac
       t.string :number
       t.boolean :operational, :default => true
       t.text :reazon
