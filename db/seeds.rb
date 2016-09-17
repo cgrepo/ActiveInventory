@@ -46,8 +46,8 @@
 		# 	dep.Delegation = Delegation.find_by(name:"Cabo San Lucas")
 		# 	dep.save!
 		# end
-		# 	csl = Delegation.find_by(name:'Cabo San Lucas')
-		# 	sjc = Delegation.find_by(name:'San Jose del Cabo')
+			csl = Delegation.find_by(name:'Cabo San Lucas')
+			sjc = Delegation.find_by(name:'San Jose del Cabo')
 			Dependency.create! [
 
 				{ name:'ADMINISTRACION DE SEG. PUB. Y TRANS. CSL CANGREJOS',	address:'KM. 3.5 CARRETERA A TODOS SANTOS, COL CANGREJOS',	telephone:'14-6-76-00 EXT.1580 624-35-5-95-65',	responsable:'LIC. ROSARIO MARQUEZ MARQUEZ',	responsable_email:'',	Delegation:csl },	
