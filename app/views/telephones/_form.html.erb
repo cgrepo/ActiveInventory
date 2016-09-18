@@ -33,7 +33,7 @@
       </div>
       <div class="col-xs-4 col-md-2">        
         <%= f.label :Marca %><br> 
-        <%= f.collection_select(:brand, BrandModel.where(description:"TELEFONO").group(:brandx).order(:brandx), :brandx, :brandx, 
+        <%= f.collection_select(:brand, BrandModel.where(description:"TELEFONO").group([:id,:brandx]).order(:brandx), :brandx, :brandx, 
           {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
       </div>
       <div class="col-xs-4 col-md-2">        
