@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="container-fluid large-padding be-round_ligth_gray">
+  <div class="container large-padding be-round_ligth_gray">
     <div class="row">
       <div class="col-xs col-md-2">        
         <%= f.label :Inventario %><br>
@@ -19,6 +19,11 @@
       <div class="col-xs col-md-2">
         <%= f.label :Serie %><br>
         <%= f.text_field :nserie, class:'form-control smfont' %>
+      </div>
+      <div class="col-xs col-md-2">        
+        <%= f.label :Marca %><br>
+        <%= f.select :brand, BrandModel.select(:brandx).where(description:'COPIADORA').uniq.pluck(:brandx), 
+          {:include_blank => true }, {class:'btn dropdown-toggle smfont'}  %>
       </div>
       <div class="col-xs col-md-3">        
         <%= f.label :Modelo %><br>
@@ -29,16 +34,11 @@
         <%= f.label :Factura %><br>
         <%= f.text_field :nfactura, class:'form-control smfont' %>
       </div>
-      <div class="col-xs col-md-2">        
-        <%= f.label :Marca %><br>
-        <%= f.collection_select(:brand, BrandModel.where(description:"COPIADORA").group([:id,:brandx]).order(:brandx), :brandx, :brandx, 
-          {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
-      </div>
     </div>
     <div class="row">
       <div class="col-xs-10 col-md-3">        
         <%= f.label :Fecha_Compra %><br>
-        <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]} %>
+        <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]},{class:'btn dropdown-toggle smfont'}  %>
       </div>
       <div class="col-xs-6 col-md-8">        
         <%= f.label :Notas %><br>

@@ -1,48 +1,56 @@
 <p id="notice"><%= notice %></p>
-<div class="container-fluid large-padding be-gray">
+<div class="container large-padding be-gray">
   <div class="row ">
-    <div class="col-xs-5 col-md-2">
+    <div class="col-xs col-md-2">
       <strong>Inventario:</strong>
       <%= @screen.ninventary %>
     </div>
-    <div class="col-xs-4 col-md-2">
+    <div class="col-xs col-md-2">
       <strong>Serie:</strong>
       <%= @screen.nserie %>
     </div>
-    <div class="col-xs-3 col-md-2">
+    <div class="col-xs col-md-2">
       <strong>Marca:</strong>
       <%= @screen.brand %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-4 col-md-2">
+    <div class="col-xs col-md-2">
       <strong>Modelo:</strong>
       <%= @screen.model %>
     </div>
-    <div class="col-xs-4 col-md-2">
+    <div class="col-xs col-md-2">
       <strong>Factura:</strong>
       <%= @screen.nfactura %>
     </div>
-    <div class="col-xs-5 col-md-2">
+    <div class="col-xs col-md-2">
       <strong>Compra:</strong>
       <%= @screen.buy_date %>
     </div>
-    <div class="col-xs-3 col-md">
+    <div class="col-xs col-md-2">
       <strong>Pulgadas:</strong>
       <%= @screen.inch %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12 col-md">     
+    <div class="col-xs col-md-8">     
       <strong>Dependencia:</strong>
       <%= @screen.Dependency.name if  @screen.Dependency %>
     </div>
-    <div class="col-xs-12 col-md">      
+    <div class="col-xs col-md-8">      
       <strong>Notas:</strong>
       <%= @screen.notes %>
     </div>
   </div>
 </div>
-
-<%= link_to 'Editar', edit_screen_path(@screen), class:'btn btn-default btn-lg' %> |
-<%= link_to 'Regresar', screens_path, class:'btn btn-default btn-lg' %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <span class="pull-right">
+        <br>
+        <%= link_to 'Editar', edit_screen_path(@screen), class:'btn btn-default btn-lg' %> |
+        <%= link_to 'Regresar', screens_path, class:'btn btn-default btn-lg' %>
+      </span>
+    </div>
+  </div>
+</div>

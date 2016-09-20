@@ -6,16 +6,16 @@
       </div>
       <div class="col-xs-12">
         <%= form_tag(dependencies_path ,method: "get", remote: true) do  %>  
-          <%= radio_button_tag(:Delegation, 1 ) %>
+          <%= radio_button_tag(:Delegation, @delegations[0][0] ) %>
           <%= label_tag(:delegation_id, "SAN JOSE") %>
-          <%= radio_button_tag(:Delegation, 2 ) %>
+          <%= radio_button_tag(:Delegation, @delegations[1][0] ) %>
           <%= label_tag(:delegation_id, "CABO") %>
-          <%= radio_button_tag(:Delegation, 3 ) %>
-          <%= label_tag(:delegation_id, "SANTIAGO") %>
-          <%= radio_button_tag(:Delegation, 4 ) %>
-          <%= label_tag(:delegation_id, "LA RIVERA") %>
-          <%= radio_button_tag(:Delegation, 5 ) %>
+          <%= radio_button_tag(:Delegation, @delegations[2][0] ) %>
           <%= label_tag(:delegation_id, "MIRAFLORES") %>
+          <%= radio_button_tag(:Delegation, @delegations[3][0] ) %>
+          <%= label_tag(:delegation_id, "SANTIAGO") %>
+          <%= radio_button_tag(:Delegation, @delegations[4][0] ) %>
+          <%= label_tag(:delegation_id, "LA RIVERA") %>
           <%= submit_tag "MOSTRAR", class:'btn btn-default btn-sm' %>
         <% end %>
 

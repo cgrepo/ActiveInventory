@@ -1,42 +1,43 @@
 <p id="notice"><%= notice %></p>
-<div class="container-fluid ">
+<div class="container be-gray">
   <div class="row">
-    <div class="col-xs large-padding be-gray">      
-      <strong>No Inventario:</strong>
-      <%= @copier.ninventary %>
-    </div>
-    <div class="col-xs large-padding be-gray">      
-      <strong>No Serie:</strong>
-      <%= @copier.nserie %>
-    </div>
-    <div class="col-xs large-padding be-gray">      
-      <strong>Marca:</strong>
-      <%= @copier.brand %>
-    </div>
-    <div class="col-xs large-padding be-gray">      
-      <strong>Modelo:</strong>
-      <%= @copier.model %>
-    </div>
-    <div class="col-xs large-padding be-gray">      
-      <strong>ID factura:</strong>
-      <%= @copier.nfactura %>
-    </div>
-    <div class="col-xs large-padding be-gray">      
-        <strong>Fecha compra:</strong>
-        <%= @copier.buy_date %>
-    </div>
-    <div class="col-xs large-padding be-gray">
-        <strong>Notas:</strong>
-        <%= @copier.notes %>
-    </div>
-    <div class="col-xs large-padding be-gray">
-      <% if @copier.Dependency %>
-        <strong>Dependencia:</strong>
-        <%= @copier.Dependency.name %>
-      <% end %>        
-    </div>
-  </div>
-  </div>
+    <div class="col-xs ">      
+      <p><strong>No Inventario:</strong>
+      <%= @copier.ninventary %></p>
+         
+      <p><strong>No Serie:</strong>
+      <%= @copier.nserie %></p>
+   
+      <p><strong>Marca:</strong>
+      <%= @copier.brand %></p>
+        
+      <p><strong>Modelo:</strong>
+      <%= @copier.model %></p>
+     
+      <p><strong>ID factura:</strong>
+      <%= @copier.nfactura %></p>
+     
+      <p><strong>Fecha compra:</strong>
+      <%= @copier.buy_date %></p>
 
-<%= link_to 'Editar', edit_copier_path(@copier), class:'btn btn-default btn-lg' %> |
-<%= link_to 'Regresar', copiers_path, class:'btn btn-default btn-lg' %>
+      <p><strong>Notas:</strong>
+      <%= @copier.notes %></p>
+
+      <% if @copier.Dependency %></p>
+        <p><strong>Dependencia:</strong>
+        <%= @copier.Dependency.name %></p>
+      <% end %></p>        
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <span class="pull-right">
+        <br>
+        <%= link_to 'Editar', edit_copier_path(@copier), class:'btn btn-default btn-lg' %> |
+        <%= link_to 'Regresar', copiers_path, class:'btn btn-default btn-lg' %>
+      </span>
+    </div>
+  </div>
+</div>

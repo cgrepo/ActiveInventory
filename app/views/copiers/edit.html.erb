@@ -2,6 +2,14 @@
 	<h1>Edicion de Copiadora</h1>
 </div>
 <%= render 'form' %>
-
-<%= link_to 'Mostrar', @copier,class:'btn btn-default btn-lg' %> |
-<%= link_to 'Regresar', copiers_path,class:'btn btn-default btn-lg' %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <span class="pull-right">
+        <br>
+				<%= link_to 'Mostrar', @copier,class:'btn btn-default btn-lg' %> |
+				<%= link_to 'Regresar', copiers_path,class:'btn btn-default btn-lg' %>
+      </span>
+    </div>
+  </div>
+</div>

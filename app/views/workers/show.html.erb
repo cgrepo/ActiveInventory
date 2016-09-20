@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
-<div class="container-fluid be-gray large-padding ">
+<div class="container be-gray large-padding ">
   <div class="row">
-    <div class="col-xs large-padding">
+    <div class="col-xs-12">
       <strong>Nombre:</strong><br>
 	  	<%= @worker.name %><br>
       <strong>Email:</strong><br>
@@ -14,6 +14,13 @@
   </div>
 </div>
 <br>
-
-<%= link_to 'Editar', edit_worker_path(@worker) , class:'btn btn-default btn-lg' %> |
-<%= link_to 'Regresar', workers_path , class:'btn btn-default btn-lg' %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <span class="pull-right">
+        <%= link_to 'Editar', edit_worker_path(@worker) , class:'btn btn-default btn-lg' %> |
+        <%= link_to 'Regresar', workers_path , class:'btn btn-default btn-lg' %>
+      </span>
+    </div>
+  </div>
+</div>

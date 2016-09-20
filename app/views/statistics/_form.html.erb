@@ -9,24 +9,22 @@
       </ul>
     </div>
   <% end %>
-  <div class="container-fluid large-padding be-round_ligth_gray">
+  <div class="container large-padding be-round_ligth_gray">
     <div class="row ">
-      <div class="col-xs-4 col-md-2">
+      <div class="col-xs col-md-2">
         <%= f.label :MES %><br>
         <%= f.select :month, [ ['ENERO'], ['FEBRERO'], ['MARZO'], ['ABRIL'], ['MAYO'], ['JUNIO'], ['JULIO'],
                                  ['AGOSTO'], ['SEPTIEMBRE'], ['OCTUBRE'], ['NOVIEMBRE'], ['DICIEMBRE'] ], {}, 
                                  {class:'btn  dropdown-toggle smfont'} %>
       </div>
-      <div class="col-xs-4 col-md-2">
+      <div class="col-xs col-md-2">
         <%= f.label :'Hojas usadas' %><br>
         <%= f.number_field :sheets, class:'form-control smfont' %>
       </div>
-      <div class="col-xs-4 col-md-2">        
+      <div class="col-xs col-md-2">        
         <%= f.label :consumible %><br>
         <%= f.number_field :consumable, class:'form-control smfont' %>
       </div>
-    </div>
-    <div class="row">
       <div class="col-xs-4 col-md-2">
         <%= f.label :Impresora %><br>
         <%= f.text_field :Printer_id, class:'form-control smfont' %>

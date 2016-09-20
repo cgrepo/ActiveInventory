@@ -2,8 +2,16 @@
 	<h1>Editar Computadora</h1>
 </div>
 <%= render 'form' %>
-<br>
-<%= link_to 'Mostrar', @computer, class:'btn btn-default btn-lg' %> |
-<%= link_to 'Regresar', computers_path, class:'btn btn-default btn-lg' %>
-<%#= button_to "Mostrar", @computer, :method => :get %> 
-<%#= button_to "Regresar", computers_path, :method => :get %> 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <span class="pull-right">
+				<br>
+				<%= link_to 'Mostrar', @computer, class:'btn btn-default btn-lg' %> |
+				<%= link_to 'Regresar', computers_path, class:'btn btn-default btn-lg' %>
+				<%#= button_to "Mostrar", @computer, :method => :get %> 
+				<%#= button_to "Regresar", computers_path, :method => :get %> 
+      </span>
+    </div>
+  </div>
+</div>

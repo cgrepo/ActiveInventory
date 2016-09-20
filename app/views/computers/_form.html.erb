@@ -11,135 +11,155 @@
     </div>
   <% end %>
 
-  <div class="container-fluid smfont be-round_ligth_gray large-padding">
+  <div class="container smfont be-round_ligth_gray ">
     <div class="row">
       <div class="col-xs col-md-2">
         <%= f.label :Inventario %><br>
-        <%= f.text_field :ninventary, class:'form-control textbdy' %>
-      </div>
-      <div class="col-xs col-md-2">
-        <%= f.label :Marca %><br>
-        <%= f.collection_select(:brand, BrandModel.where(description:"COMPUTADORA").group([:id,:brandx]), :brandx, :brandx, 
-        {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
+        <%= f.text_field :ninventary, class:'form-control ' %>
       </div>
       <div class="col-xs col-md-2">
         <%= f.label :Serie %><br>
-        <%= f.text_field :nserie, class:'form-control textbdy' %>
+        <%= f.text_field :nserie, class:'form-control ' %>
+      </div>
+      <div class="col-xs col-md-2">
+        <%= f.label :Factura %><br>
+        <%= f.text_field :nfactura, class:'form-control ' %>
+      </div>
+      <div class="col-xs col-md-2">
+        <%= f.label :Nompre_Equipo %><br>
+        <%= f.text_field :name, class:'form-control ' %>
+      </div>
+      <div class="col-xs col-md-3">
+        <%= f.label :Fecha_Compra %><br>
+        <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}, {class:'btn  dropdown-toggle smfont'} %>
+      </div>
     </div>
-    <div class="col-xs col-md-2">
-      <%= f.label :Modelo %><br>
-      <%= f.text_field :model, class:'form-control textbdy' %>
-      <%= f.collection_select(:model, BrandModel.where(description:"COMPUTADORA"), :modelx, :modelx, {:include_blank => true }, 
+    <div class="row">
+      <div class="col-xs col-md-2">
+        <%= f.label :Marca %><br>
+        <%= f.collection_select(:brand, BrandModel.where(description:"COMPUTADORA").group([:id,:brandx]), :brandx, :brandx, 
+        {:include_blank => true }, {class:'btn  dropdown-toggle '} ) %>
+      </div>
+      <div class="col-xs col-md-2">
+        <%= f.label :Modelo %><br>
+        <%#= f.text_field :model, class:'form-control textbdy' %>
+        <%= f.collection_select(:model, BrandModel.where(description:'COMPUTADORA').where("modelx != ''"), :modelx, :modelx, 
+        {:include_blank => true }, {class:'btn  dropdown-toggle '} ) %>
+      </div>
+      <div class="col-xs col-md-2">
+        <%= f.label :Tipo %><br>  
+        <%= f.select :genus, [ ['ESCRITORIO'],['ALL IN ONE'] ,['PORTATIL'], ['SERVIDOR'] ], 
+          {:include_blank => true},  {class:'btn  dropdown-toggle '} %>
+      </div>
+      <div class="col-xs col-md-2">
+        <%= f.label :Disco_Duro %><br>
+        <%= f.collection_select(:hd, Hardd.all, :combined_value, :combined_value, {:include_blank => true}, 
+          {class:'btn  dropdown-toggle smfont'}) %>
+      </div>
+      <div class="col-xs col-md-2">
+        <%= f.label :Memoria %><br>
+        <%= f.collection_select(:memory, Memo.all, :combined_value, :combined_value, {:include_blank => true}, 
           {class:'btn  dropdown-toggle smfont'} ) %>
+      </div>
     </div>
-    <div class="col-xs col-md-2">
-      <%= f.label :Tipo %><br>  
-      <%= f.select :genus, [ ['ESCRITORIO'],['ESCRITORIO ALL IN ONE'] ,['PORTATIL'], ['SERVIDOR'] ], 
-        {:include_blank => true},  {class:'btn  dropdown-toggle smfont'} %>
+    <div class="row">
+      <div class="col-xs col-md-4">
+        <%= f.label :ver_Office %><br>
+        <%= f.collection_select(:voffice, Officev.all.order(:name), :name, :name, {:include_blank => true},
+          {class:'btn  dropdown-toggle smfont'} ) %>
+      </div>
+      <div class="col-xs col-md-4">
+        <%= f.label :Sistema_Operativo %><br>
+        <%= f.collection_select(:os, Osy.all.order(:version), :combined_value, :combined_value, {:include_blank => true}, 
+          {class:'btn  dropdown-toggle smfont'} ) %>
+      </div>
+      <div class="col-xs col-md-4">
+        <%= f.label :Procesador %><br>
+        <%= f.collection_select(:processor, Processor.all.order(:modelp), :combined_value, :combined_value, 
+          {:include_blank => true}, {class:'btn  dropdown-toggle smfont'} ) %>
+      </div>
     </div>
-    <div class="col-xs col-md-2">
-      <%= f.label :Factura %><br>
-      <%= f.text_field :nfactura, class:'form-control textbdy' %>
+    <div class="row">
+      <div class="col-xs col-md-3">
+        <%= f.label :Responsable %><br>
+        <%= f.collection_select(:Worker_id, Worker.all, :id, :name, {:include_blank => true }, 
+          {class:'btn  dropdown-toggle smfont'} ) %>
+      </div>
+      <div class="col-xs col-md-3">
+        <%= f.label :RED %><br>
+        <%= f.collection_select(:Network_id, Network.all, :id, :location, {:include_blank => true}, 
+          {class:'btn  dropdown-toggle smfont'} ) %>
+      </div> 
+      <div class="col-xs col-md-3">
+        <%= f.label :'Usuarios de sistema' %><br>
+        <%= f.text_field :users, placeholder:'usuarios locales', class:'form-control ' %>
+      </div>
+      <div class="col-xs col-md-3">
+        <%= f.label :GRUPO %><br>
+        <%= f.text_field :workgroup, placeholder:'grupo de trabajo', class:'form-control' %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs col-md-2">
-      <%= f.label :Fecha_Compra %><br>
-      <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}  %>
-    </div>
-    <div class="col-xs col-md-2">
-      <%= f.label :Nompre_Equipo %><br>
-      <%= f.text_field :name, class:'form-control textbdy' %>
-    </div>
-    <div class="col-xs col-md-2">
-      <%= f.label :GRUPO %><br>
-      <%= f.text_field :workgroup, placeholder:'grupo de trabajo', class:'form-control txtbdy' %>
-    </div>
-    <div class="col-xs col-md-4">
-      <%= f.label :'Usuarios de sistema' %><br>
-      <%= f.text_field :users, placeholder:'usuarios locales', class:'form-control ' %>
-    </div>
-    <div class="col-xs col-md-2">
-      <%= f.label :Disco_Duro %><br>
-      <%= f.collection_select(:hd, Hardd.all, :combined_value, :combined_value, {:include_blank => true}, 
+    <div class="row">
+      <div class="col-xs col-md-1">
+        <%= f.label :WIFI? %><br>
+        <%= f.check_box :wifi %>
+      </div>
+      <div class="col-xs col-md-2">
+        <%= f.label :Mac_WIFI %><br>
+        <%= f.text_field :macwifi, class:'form-control smfont ' %>
+      </div>
+      <div class="col-xs col-md-2">
+        <%= f.label :IP_WIFI %><br>
+        <%#= f.text_field :ipwifi, :class =>'ipwifi', :disabled => 'false' %>
+        <%= f.text_field :ipwifi, class:'form-control smfont ' %>
+      </div>
+      <div class="col-xs col-md-2">
+        <%= f.label :Mask_WIFI %><br>
+        <%#= f.select :maskwifi, [['255.255.255.0'],['DHCP']], {}, {:class => 'mskwifi', :disabled => 'false'} %>
+        <%= f.select :maskwifi, [['255.255.255.0'],['DHCP']], {}, {class:'btn  dropdown-toggle smfont'} %>
+      </div>
+      <div class="col-xs col-md-5">
+        <%= f.label :Dependencia %><br>
+        <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {:include_blank => true}, 
         {class:'btn  dropdown-toggle smfont'}) %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs col-md-1">
-      <%= f.label :Memoria %><br>
-      <%= f.collection_select(:memory, Memo.all, :combined_value, :combined_value, {:include_blank => true}, 
-        {class:'btn  dropdown-toggle smfont'} ) %>
-    </div>
-    <div class="col-xs col-md-3">
-      <%= f.label :Procesador %><br>
-      <%= f.collection_select(:processor, Processor.all.order(:modelp), :combined_value, :combined_value, 
-        {:include_blank => true}, {class:'btn  dropdown-toggle smfont'} ) %>
-    </div>
-    <div class="col-xs col-md-3">
-      <%= f.label :Sistema_Operativo %><br>
-      <%= f.collection_select(:os, Osy.all.order(:version), :combined_value, :combined_value, {:include_blank => true}, 
-        {class:'btn  dropdown-toggle smfont'} ) %>
-    </div>
-    <div class="col-xs col-md-5">
-      <%= f.label :Dependencia %><br>
-      <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {:include_blank => true}, 
-        {class:'btn  dropdown-toggle smfont'}) %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs col-md-4">
-      <%= f.label :Responsable %><br>
-      <%= f.collection_select(:Worker_id, Worker.all, :id, :name, {:include_blank => true }, 
-        {class:'btn  dropdown-toggle smfont'} ) %>
-    </div>
-    <div class="col-xs col-md-4">
-      <%= f.label :ver_Office %><br>
-      <%= f.collection_select(:voffice, Officev.all.order(:name), :name, :name, {:include_blank => true},
-        {class:'btn  dropdown-toggle smfont'} ) %>
-    </div>
-    <div class="col-xs col-md-4">
-      <%= f.label :RED %><br>
-      <%= f.collection_select(:Network_id, Network.all, :id, :location, {:include_blank => true}, 
-        {class:'btn  dropdown-toggle smfont'} ) %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs col-md-3">
-      <%= f.label :Mac_Lan %><br>
-        <%= f.text_field :maclan, class:'form-control smfont txtnet' %><br>
+    <div class="row">
+      <div class="col-xs col-md-1"></div>
+      <div class="col-xs col-md-2">
+        <%= f.label :Mac_Lan %><br>
+        <%= f.text_field :maclan, class:'form-control smfont ' %>        
+      </div>
+      <div class="col-xs col-md-2">
         <%= f.label :IP_Lan %><br>
-        <%= f.text_field :iplan, class:'form-control smfont txtnet' %>
+        <%= f.text_field :iplan, class:'form-control smfont ' %>
+      </div>
+      <div class="col-xs col-md-2">
         <%= f.label :Mask_Lan %><br>
-        <%= f.select :masklan, [['255.255.255.0'],['DHCP']], {}, {class:'btn  dropdown-toggle smfont'} %><br>
+        <%= f.select :masklan, [['255.255.255.0'],['DHCP']], {}, {class:'btn  dropdown-toggle smfont'} %>
+      </div>
+      <div class="col-xs col-md-5">
+        <%= f.label :Notas %><br>
+        <%= f.text_area :notes, size:"50x2" %>
+      </div>
     </div>
-    <div class="col-xs col-md-3">
-      <%= f.label :WIFI? %><br>
-          <%= f.check_box :wifi %><br>
-          <%= f.label :Mac_WIFI %><br>
-          <%#= f.text_field :macwifi, :class =>'mcwifi', :disabled => 'false' %>
-          <%= f.text_field :macwifi, class:'form-control smfont txtnet' %>
-          <%= f.label :IP_WIFI %><br>
-          <%#= f.text_field :ipwifi, :class =>'ipwifi', :disabled => 'false' %>
-          <%= f.text_field :ipwifi, class:'form-control smfont txtnet' %>
-          <%= f.label :Mask_WIFI %><br>
-          <%#= f.select :maskwifi, [['255.255.255.0'],['DHCP']], {}, {:class => 'mskwifi', :disabled => 'false'} %>
-          <%= f.select :maskwifi, [['255.255.255.0'],['DHCP']], {}, {class:'btn  dropdown-toggle smfont'} %>
+    <div class="row">
+      <div class="col-xs col-md-1">
+        <%= f.label :Bluetooth? %><br>
+        <%= f.check_box :bluetooth %>
+      </div>
+      <div class="col-xs col-md-2">
+        <%= f.label :Mac_Bluetooth %><br>
+        <%= f.text_field :macbluetooth, class:'form-control smfont ' %>
+      </div>
     </div>
-    <div class="col-xs col-md-3">
-       <%= f.label :Bluetooth? %><br>
-          <%= f.check_box :bluetooth %><br>
-          <%= f.label :Mac_Bluetooth %><br>
-          <%= f.text_field :macbluetooth, class:'form-control smfont txtnet' %><br>
-          <%= f.label :Notas %><br>
-          <%= f.text_area :notes, size:"50x3" %>
+    <div class="row">
+      <div class="col-xs-12 ">
+        <span class="pull-left">
+          <br>
+          <%= f.submit  %>
+        </span>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-1">
-      <br>
-      <%= f.submit  %>
-    </div>
-  </div>
-  </div>
+</div>
 <% end %>

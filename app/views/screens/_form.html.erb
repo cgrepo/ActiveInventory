@@ -9,53 +9,53 @@
       </ul>
     </div>
   <% end %>
-  <div class="container-fluid large-padding be-round_ligth_gray">
+  <div class="container large-padding be-round_ligth_gray">
     <div class="row">
-      <div class="col-xs-4 col-md-2">        
+      <div class="col-xs col-md-2">
         <%= f.label :Inventario %><br>
         <%= f.text_field :ninventary, class:'form-control smfont' %>
       </div>
-      <div class="col-xs-4 col-md">        
+      <div class="col-xs col-md-2">
         <%= f.label :Serie %><br>
         <%= f.text_field :nserie, class:'form-control smfont' %>
       </div>
-      <div class="col-xs-4 col-md">        
+      <div class="col-xs-5 col-md-2">
+        <%= f.label :Factura %><br>
+        <%= f.text_field :nfactura, class:'form-control smfont' %>
+      </div>
+      <div class="col-xs col-md-2">
         <%= f.label :Modelo %><br>
         <%= f.collection_select(:model, BrandModel.where(description:"MONITOR"), :modelx, :modelx, 
         {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
-      </div>   
-    </div>
-    <div class="row">
-      <div class="col-xs-3 col-md-1">        
-        <%= f.label :Marca %><br>
-        <%= f.collection_select(:brand, BrandModel.where(description:"MONITOR").group([:id,:brandx]), :brandx, :brandx, 
-          {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
-          <%#= f.text_field :brand %>
       </div>
-      <div class="col-xs-3 col-md-1">        
+      <div class="col-xs col-md-2">
         <%= f.label :Pulgadas %><br>
         <%= f.select :inch, [['14.0'], ['14.5'], ['15.0'], ['17.0'], ['19.0'], ['21.0'] ], {include_blank: true}, 
           {class:'btn  dropdown-toggle smfont'} %>
           <%#= f.text_field :inch %>
       </div>
-      <div class="col-xs-5 col-md-4">        
-        <%= f.label :Factura %><br>
-        <%= f.text_field :nfactura, class:'form-control smfont' %>
-      </div>
-      <div class="col-xs-10 col-md-4">       
-        <%= f.label :Fecha_compra %><br>
-        <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]} %>
+      <div class="col-xs col-md-2">
+        <%= f.label :Marca %><br>
+        <%= f.collection_select(:brand, BrandModel.where(description:"MONITOR").group([:id,:brandx]), :brandx, :brandx, 
+          {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
+          <%#= f.text_field :brand %>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs col-md-4">        
+      <div class="col-xs col-md-4">       
+        <%= f.label :Fecha_compra %><br>
+        <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}, {class:'btn dropdown-toggle'} %>
+      </div>
+      <div class="col-xs-12 col-md-4">
         <%= f.label :Dependency_id %><br>
         <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true}, 
           {class:'btn  dropdown-toggle smfont'}) %>
       </div>
-      <div class="col-xs col-md-5">        
+    </div>
+    <div class="row">
+      <div class="col-xs-8 col-md-6">        
         <%= f.label :Notas %><br>
-        <%= f.text_area :notes, size:"60x3", class:'form-control smfont' %>
+        <%= f.text_area :notes, size:"60x2", class:'form-control smfont' %>
       </div>
     </div>
     <div class="row large-padding">

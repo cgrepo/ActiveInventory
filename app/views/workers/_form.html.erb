@@ -2,7 +2,6 @@
   <% if @worker.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@worker.errors.count, "error") %> No se pudo salvar el usuario:</h2>
-
       <ul>
       <% @worker.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,7 +9,7 @@
       </ul>
     </div>
   <% end %>
-<div class="container-fluid large-padding be-round_ligth_gray">
+<div class="container large-padding be-round_ligth_gray">
   <div class="row">
     <div class="col-xs-6 col-md-3">      
       <%= f.label :Nombre %><br>
@@ -36,7 +35,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs">
+    <div class="col-xs-12">
       <br>
         <%= f.submit %>
       </div>

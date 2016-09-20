@@ -4,6 +4,7 @@ class DependenciesController < ApplicationController
   # GET /dependencies
   # GET /dependencies.json
   def index
+    @delegations = Delegation.all.pluck(:id,:name)
     @delegation = params[:Delegation]
     @dependencies = Dependency.all.order(:name).where(Delegation: @delegation).paginate(page: params[:page], per_page: 7 )
     respond_to do |format|
