@@ -1,21 +1,37 @@
-<div class="container-fluid be-soft_purple large-padding">
-  <p id="notice"><%= notice %></p>
-  <h1>Listado Discos Duros</h1>
+<div class="container-fluid large-padding">
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+      <p id="notice"><%= notice %></p>
+      <h1>Listado Discos Duros</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 col-md-6">
+      <span class="pull-left">
+        <%= will_paginate(@hardds) %>
+      </span>
+    </div>
+    <div class="col-xs-6 col-md-6">
+      <span class="pull-right">
+        <%= link_to 'Agregar Disco', new_hardd_path, class:'btn btn-default btn-lg' %>
+      </span>
+    </div>
+  </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-xs col-md-5">
+    <div class="col-xs col-md-8">
       <div class="table-responsive">
         <table class="table table-hover table-striped">
           <thead>
             <tr>
               <th>Tamaño</th>
-              <th></th>
+              <th colspan="2"></th>
             </tr>
           </thead>
           <tbody>
             <% @hardds.each do |hardd| %>
-              <tr>
+              <tr align="center">
                 <td><%= hardd.combined_value %></td>           
                 <td>
                   <%= link_to 'Editar', edit_hardd_path(hardd), class:'btn btn-default  btn-sm' %>
@@ -27,11 +43,6 @@
         </table>
       </div>
       
-    </div>
-    <div class="col-xs">
-      <%= will_paginate(@hardds) %>
-      <br>
-      <%= link_to 'Agregar Disco', new_hardd_path, class:'btn btn-default  btn-lg' %>
     </div>
   </div>
 </div>

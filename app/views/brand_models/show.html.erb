@@ -1,21 +1,32 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+	<div class="row">
+		<div class="col-md col-xs">
+			<p>
+			  <strong>Tipo:</strong>
+			  <%= @brand_model.description %>
+			</p>
 
-<p>
-  <strong>Tipo:</strong>
-  <%= @brand_model.description %>
-</p>
+			<p>
+			  <strong>Marca:</strong>
+			  <%= @brand_model.brandx %>
+			</p>
 
-<p>
-  <strong>Marca:</strong>
-  <%= @brand_model.brandx %>
-</p>
-
-<p>
-  <strong>Modelo:</strong>
-  <%= @brand_model.modelx %>
-</p>
-
-
-
-<%= link_to 'Editar', edit_brand_model_path(@brand_model), class:'btn btn-default btn-lg' %> |
-<%= link_to 'Regresar', brand_models_path, class:'btn btn-default btn-lg' %>
+			<p>
+			  <strong>Modelo:</strong>
+			  <%= @brand_model.modelx %>
+			</p>			
+		</div>
+	</div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <span class="pull-right">
+				<br>
+				<%= link_to 'Editar', edit_brand_model_path(@brand_model), class:'btn btn-default btn-lg' %> |
+				<%= link_to 'Regresar', brand_models_path, class:'btn btn-default btn-lg' %>
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,34 +1,36 @@
 <p id="notice"><%= notice %></p>
 <h1>Administracion</h1>
+
 <div class="container">
-	<div class="row large-padding ">
-		<div class="col-xs-5 col-md-3">
-			<%= link_to ' PROCESADORES', processors_path, class:'btn btn-default btn-sm glyphicon glyphicon-hourglass' %>
+	<div class="row large-padding be-round_ligth_gray">
+		<div class="col-xs-6 col-md-2 col-md-offset-2">
+			<%= link_to ' MARCAS Y MODELOS', brand_models_path, class:'btn btn-default btn-sm glyphicon glyphicon-cog be-soft_gray' %><br>
+			<%= link_to ' SISTEMAS OPERATIVOS', osies_path, class:'btn btn-default btn-sm glyphicon glyphicon-wrench be-soft_gray'  %>
 		</div>
-		<div class="col-xs-6 col-md-3">
-			<%= link_to ' MARCAS Y MODELOS', brand_models_path, class:'btn btn-default btn-sm glyphicon glyphicon-cog' %>
+		<div class="col-xs-5 col-md-2 col-md-offset-1">
+			<%= link_to ' PROCESADORES', processors_path, class:'btn btn-default btn-sm glyphicon glyphicon-hourglass be-soft_gray' %><br>
+			<%= link_to ' DISCOS DUROS', hardds_path, class:'btn btn-default btn-sm glyphicon glyphicon-hdd be-soft_gray' %>
 		</div>
-		<div class="col-xs-6 col-md-3">
-			<%= link_to ' SISTEMAS OPERATIVOS', osies_path, class:'btn btn-default btn-sm glyphicon glyphicon-wrench'  %>
+		<div class="col-xs-3 col-md-2 col-md-offset-1">
+			<%= link_to ' OFFIMATICA', officevs_path, class:'btn btn-default btn-sm glyphicon glyphicon-book be-soft_gray' %><br>
+			<%= link_to ' MEMORIAS', memos_path, class:'btn btn-default btn-sm glyphicon glyphicon-oil be-soft_gray' %>
 		</div>
-		<div class="col-xs-3 col-md-3">
-			<%= link_to ' OFFIMATICA', officevs_path, class:'btn btn-default btn-sm glyphicon glyphicon-book' %>
-		</div>
-		<div class="col-xs-4 col-md-3">
-			<%= link_to ' MEMORIAS', memos_path, class:'btn btn-default btn-sm glyphicon glyphicon-oil' %>
-		</div>
-		<div class="col-xs-4 col-md-4">
-			<%= link_to ' DISCOS DUROS', hardds_path, class:'btn btn-default btn-sm glyphicon glyphicon-hdd' %>
-		</div>
-		<% ax = ['carlos','mary'] %>
-		<% if ax.include?current_user.username  %>
-			<div class="col-xs-4 col-md-4">
-				<%= link_to ' PROVEEDORES', providers_path, class:'btn btn-default btn-sm glyphicon glyphicon-registration-mark' %>
-			</div>
-			<div class="col-xs-4 col-md-4">
-				<%= link_to ' SERVICIOS ', service_requests_path, class:'btn btn-default btn-sm glyphicon glyphicon-modal-window' %>
-			</div>
-		<% end %>
+
 	</div>
+	
+	<% ax = ['carlos','mary'] %>
+	<% if ax.include?current_user.username  %>
+		<div class="row large-padding be-round_soft_gray">
+			<div class="col-xs-2 col-md-1 col-md-offset-1">
+			</div>
+			<div class="col-xs-6 col-md-5 ">
+				<%= link_to ' PROVEEDORES', providers_path, class:'btn btn-default btn-sm glyphicon glyphicon-registration-mark be-gray' %>				
+			</div>
+			<div class="col-xs-6 col-md-5 ">
+				<%= link_to ' SERVICIOS ', service_requests_path, class:'btn btn-default btn-sm glyphicon glyphicon-modal-window be-gray' %>
+			</div>		
+		</div>
+	<% end %>
 </div>
+
 

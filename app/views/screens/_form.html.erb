@@ -36,9 +36,8 @@
       </div>
       <div class="col-xs col-md-2">
         <%= f.label :Marca %><br>
-        <%= f.collection_select(:brand, BrandModel.where(description:"MONITOR").group([:id,:brandx]), :brandx, :brandx, 
-          {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
-          <%#= f.text_field :brand %>
+        <%= f.select :brand, BrandModel.select(:brandx).where(description:"MONITOR").uniq.pluck(:brandx),
+        {:include_blank => true }, {class:'btn dropdown-toggle smfont'} %>
       </div>
     </div>
     <div class="row">

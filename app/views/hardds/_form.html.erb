@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="container-fluid smfont be-round_ligth_gray large-padding">
-    <div class="row large-padding">
-      <div class="col-xs-4 col-md-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-3 col-md-2 be-round_ligth_gray large-padding">
         <%= f.label :Tamaño %><br>
         <%= f.text_field :size, class:'form-control' %>
       </div>
-      <div class="col-xs-2 col-md">
+      <div class="col-xs-4 col-md-2 be-round_ligth_gray large-padding">
         <%= f.label :Tipo %><br>
         <%= f.select :tsize, [ ['GB'], ['TB'] ], {:include_blank => true}, {class:'btn  dropdown-toggle smfont'} %>
       </div>
     </div>
-    <div class="row large-padding">
-      <div class="col-xs-6">
+    <div class="row ">
+      <div class="col-xs-7 col-md-4 be-round_ligth_gray large-padding">
         <%= f.submit %>
       </div>
     </div>
