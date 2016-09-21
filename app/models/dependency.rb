@@ -1,6 +1,7 @@
 class Dependency < ActiveRecord::Base
   
   belongs_to :Delegation
+  belongs_to :User
   
   has_many :Powers
   has_many :workers

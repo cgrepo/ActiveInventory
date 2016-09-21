@@ -1,29 +1,31 @@
 <p id="notice"><%= notice %></p>
-<div class="container be-gray large-padding">
+<div class="container be-gray ">
   <div class="row">
-    <div class="col-xs-8">
-        <strong>Nombre:</strong>
-        <%= @dependency.name %>
+    <div class="col-xs col-md">
+        <p><strong>Nombre:</strong>
+        <%= @dependency.name %></p>
+        <p><strong>Direccion:</strong>
+        <%= @dependency.address %></p>
+        <p><strong>Telefono:</strong>
+        <%= @dependency.telephone %></p>
+        <p><strong>Responsable:</strong>
+        <%= @dependency.responsable %></p>
+        <p><strong>Responsable email:</strong>
+        <%= @dependency.responsable_email %></p>
+        <p><strong>Delegacion:</strong>
+        <%= @dependency.Delegation.name if @dependency.Delegation %></p>
     </div>
-    <div class="col-xs-8">
-        <strong>Direccion:</strong>
-        <%= @dependency.address %>
-    </div>
-    <div class="col-xs-8">
-        <strong>Telefono:</strong>
-        <%= @dependency.telephone %>
-    </div>
-    <div class="col-xs-8">
-        <strong>Responsable:</strong>
-        <%= @dependency.responsable %>
-    </div>
-    <div class="col-xs-8">
-        <strong>Responsable email:</strong>
-        <%= @dependency.responsable_email %>
-    </div>
-    <div class="col-xs-8">
-        <strong>Delegacion:</strong>
-        <%= @dependency.Delegation.name if @dependency.Delegation %>
+  </div>
+  <div class="row be-soft_purple">
+    <div class="col-xs col-md">
+        <p align="right">
+            <strong>ULTIMA MODIFICACION</strong>
+            <% if @dependency.User %>
+            <%= @dependency.User.username %>
+            <% else %>
+            <%= FALTA ASIGNAR %>
+            <% end %>
+        </p>
     </div>
   </div>
 </div>

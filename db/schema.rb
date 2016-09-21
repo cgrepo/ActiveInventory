@@ -118,11 +118,13 @@ ActiveRecord::Schema.define(version: 20160909034215) do
     t.string   "responsable"
     t.string   "responsable_email"
     t.integer  "Delegation_id"
+    t.integer  "User_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
 
   add_index "dependencies", ["Delegation_id"], name: "index_dependencies_on_Delegation_id"
+  add_index "dependencies", ["User_id"], name: "index_dependencies_on_User_id"
 
   create_table "hardds", force: :cascade do |t|
     t.float    "size"

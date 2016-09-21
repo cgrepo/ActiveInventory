@@ -80,3 +80,4 @@ deshabilitar un collection_select
 #<% @dependencies.each do |dependency| %>
 #	$('.dependencies_collection').append($('<option value="<%=dependency.id %><%=dependencies.name %></option>"'));
 #<% end %>
+t.references :User, index: true, foreign_key: true
