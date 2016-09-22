@@ -1,0 +1,13 @@
+  <div class="row be-soft_purple">
+    <div class="col-xs col-md">
+        <p align="right">
+            <%#= debug entity %>
+            <% unless modified?(entity) then %>
+            <strong>ULTIMA MODIFICACION</strong><br>
+            <%= entity.User.username %>
+            <% else %>
+            <strong> FALTA ASIGNAR </strong>
+            <% end %>
+        </p>
+    </div>
+  </div>

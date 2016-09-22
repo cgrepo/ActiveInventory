@@ -5,6 +5,7 @@ class CreateProcessors < ActiveRecord::Migration
       t.string :genus
       t.string :modelp
       t.string :speed
+      t.references :User, index: true, foreign_key: true
 
       t.timestamps null: false
     end

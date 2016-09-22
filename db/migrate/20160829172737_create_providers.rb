@@ -6,7 +6,8 @@ class CreateProviders < ActiveRecord::Migration
       t.string :telephone
       t.string :rfc
       t.string :email
-
+      t.references :User, index: true, foreign_key: true
+      
       t.timestamps null: false
     end
   end

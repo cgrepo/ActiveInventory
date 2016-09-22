@@ -4,6 +4,8 @@ class CreateBrandModels < ActiveRecord::Migration
       t.string :description
       t.string :brandx
       t.string :modelx
+      t.references :User, index: true, foreign_key: true
+      
       t.timestamps null: false
     end
   end

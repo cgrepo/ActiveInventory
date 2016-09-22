@@ -6,6 +6,7 @@ class CreateStatistics < ActiveRecord::Migration
       t.integer :consumable
       t.references :Copier, index: true, foreign_key: true
       t.references :Printer, index: true, foreign_key: true
+      t.references :User, index: true, foreign_key: true
 
       t.timestamps null: false
     end

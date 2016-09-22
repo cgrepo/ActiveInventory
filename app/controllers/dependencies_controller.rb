@@ -46,6 +46,7 @@ class DependenciesController < ApplicationController
   # PATCH/PUT /dependencies/1
   # PATCH/PUT /dependencies/1.json
   def update
+    set_modified_by
     respond_to do |format|
       if @dependency.update(dependency_params)
         format.html { redirect_to @dependency, notice: 'Dependencia fue actualizada satisfactoriamente.' }
@@ -68,6 +69,9 @@ class DependenciesController < ApplicationController
   end
 
   private
+    def set_modified_by
+      @dependency.User = User.find(session[:user_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_dependency
       @dependency = Dependency.find(params[:id])

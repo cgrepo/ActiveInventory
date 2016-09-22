@@ -20,6 +20,7 @@ class CreateCopiers < ActiveRecord::Migration
       t.text :notes
       t.references :Network, index: true, foreign_key: true
       t.references :Dependency, index: true, foreign_key: true
+      t.references :User, index: true, foreign_key: true
 
       t.timestamps null: false
     end

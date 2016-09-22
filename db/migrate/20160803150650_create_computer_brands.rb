@@ -3,6 +3,7 @@ class CreateComputerBrands < ActiveRecord::Migration
     create_table :computer_brands do |t|
       t.string :name
       t.string :model
+      t.references :User, index: true, foreign_key: true
 
       t.timestamps null: false
     end

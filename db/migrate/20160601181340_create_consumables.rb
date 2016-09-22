@@ -5,6 +5,7 @@ class CreateConsumables < ActiveRecord::Migration
       t.string :model
       t.references :Copier, index: true, foreign_key: true
       t.references :Printer, index: true, foreign_key: true
+      t.references :User, index: true, foreign_key: true
 
       t.timestamps null: false
     end
