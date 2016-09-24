@@ -1,5 +1,6 @@
 class BrandModelsController < ApplicationController
   before_action :set_brand_model, only: [:show, :edit, :update, :destroy]
+  before_action :set_me, only: [:update, :create]
 
   # GET /brand_models
   # GET /brand_models.json
@@ -24,9 +25,7 @@ class BrandModelsController < ApplicationController
   # POST /brand_models
   # POST /brand_models.json
   def create
-    #byebug
     @brand_model = BrandModel.new(brand_model_params)
-
     respond_to do |format|
       if @brand_model.save
         format.html { redirect_to @brand_model, notice: 'Brand model was successfully created.' }
@@ -71,5 +70,9 @@ class BrandModelsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def brand_model_params
       params.require(:brand_model).permit(:description, :brandx, :modelx)
+    end
+
+    def set_me
+      @dependency.User ||= current_user
     end
 end

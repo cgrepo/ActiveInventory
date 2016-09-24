@@ -1,6 +1,7 @@
 class NetworksController < ApplicationController
   before_action :set_network, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_me, only: [:update, :create]
+  
   # GET /networks
   # GET /networks.json
   def index
@@ -40,6 +41,7 @@ class NetworksController < ApplicationController
   # PATCH/PUT /networks/1
   # PATCH/PUT /networks/1.json
   def update
+    
     respond_to do |format|
       if @network.update(network_params)
         format.html { redirect_to @network, notice: 'Red fue actualizada satisfactoriamente.' }
@@ -70,5 +72,9 @@ class NetworksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def network_params
       params.require(:network).permit(:linktype, :genus, :location, :iprange, :ip, :wifirouter, :ssid_name)
+    end
+
+    def set_me
+      @dependency.User ||= current_user
     end
 end

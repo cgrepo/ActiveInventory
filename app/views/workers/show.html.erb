@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<div class="container be-gray large-padding ">
+<div class="container be-gray">
   <div class="row">
     <div class="col-xs-12">
       <strong>Nombre:</strong><br>
@@ -11,6 +11,7 @@
       <strong>Dependencia:</strong><br>
 	  	<%= @worker.Dependency.name if @worker.Dependency %><br>
     </div>
+    <%= render partial:'layouts/user_mod', locals:{:entity => @worker} %>
   </div>
 </div>
 <br>

@@ -1,6 +1,7 @@
 class PrintersController < ApplicationController
   before_action :set_printer, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_me, only: [:update, :create]
+  
   # GET /printers
   # GET /printers.json
   def index
@@ -70,5 +71,9 @@ class PrintersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def printer_params
       params.require(:printer).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :genus, :operational, :reazon, :notes, :Dependency_id)
+    end
+    
+    def set_me
+      @dependency.User ||= current_user
     end
 end

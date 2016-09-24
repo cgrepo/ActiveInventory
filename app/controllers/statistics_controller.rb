@@ -1,6 +1,7 @@
 class StatisticsController < ApplicationController
   before_action :set_statistic, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_me, only: [:update, :create]
+  
   # GET /statistics
   # GET /statistics.json
   def index
@@ -70,5 +71,9 @@ class StatisticsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def statistic_params
       params.require(:statistic).permit(:month, :sheets, :consumable, :Copier_id, :Printer_id)
+    end
+    
+    def set_me
+      @dependency.User ||= current_user
     end
 end

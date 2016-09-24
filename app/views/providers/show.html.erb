@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class='container-fluid'>
-  <div class='row be-gray large-padding'>
+  <div class='row be-gray '>
     <div class='col-xs'>
       <p>
         <strong>Name:</strong>
@@ -28,6 +28,7 @@
       </p>
     </div>
   </div>
+  <%= render partial:'layouts/user_mod', locals:{:entity => @provider} %>
 </div>
 
 <%= link_to 'Editar', edit_provider_path(@provider), class:'btn btn-default btn-lg' %> |

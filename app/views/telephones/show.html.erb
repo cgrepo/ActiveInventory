@@ -1,58 +1,35 @@
 <p id="notice"><%= notice %></p>
-<div class="container-fluid  be-gray">
+<div class="container be-gray">
   <div class="row">
     <div class="col-xs">      
-      <strong>No Inventario:</strong>
-      <%= @telephone.ninventary %>
+      <p><strong>No Inventario:</strong>
+      <%= @telephone.ninventary %><strong>
+   
+      <p><strong>No serie:</strong>
+      <%= @telephone.nserie %><strong>
+ 
+      <p><strong>Marca:</strong>
+      <%= @telephone.brand %><strong>
+
+      <p><strong>Model:</strong>
+      <%= @telephone.model %><strong>
+
+      <p><strong>Tipo:</strong>
+      <%= @telephone.genus %><strong>
+
+      <p><strong>Fecha de Compra:</strong>
+      <%= @telephone.buy_date %><strong>
+
+      <p><strong>Numero:</strong>
+      <%= @telephone.number %><strong>
+
+      <p><strong>Notas:</strong>
+      <%= @telephone.notes %><strong>
+
+      <p><strong>Dependencia:</strong>
+      <%= @telephone.Dependency.name if @telephone.Dependency %><strong>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">      
-      <strong>No serie:</strong>
-      <%= @telephone.nserie %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">      
-      <strong>Marca:</strong>
-      <%= @telephone.brand %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">      
-      <strong>Model:</strong>
-      <%= @telephone.model %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">      
-      <strong>Tipo:</strong>
-      <%= @telephone.genus %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">      
-      <strong>Fecha de Compra:</strong>
-      <%= @telephone.buy_date %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">      
-      <strong>Numero:</strong>
-      <%= @telephone.number %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">      
-      <strong>Notas:</strong>
-      <%= @telephone.notes %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">      
-      <strong>Dependencia:</strong>
-      <%= @telephone.Dependency.name if @telephone.Dependency %>
-    </div>
+    <%= render partial:'layouts/user_mod', locals:{:entity => @telephone} %>
   </div>
 </div>
 <br>

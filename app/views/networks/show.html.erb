@@ -1,42 +1,43 @@
 <p id="notice"><%= notice %></p>
-<div class="container large-padding be-gray">
+<div class="container be-gray">
 	<div class="row ">
-    <div class="col-xs  large-padding">     
-      	<strong>Tipo Enlace:</strong>
-	  		<%= @network.linktype %>
+    <div class="col-xs">     
+      	<p><strong>Tipo Enlace:</strong>
+	  		<%= @network.linktype %></p>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs  large-padding">      
-      	<strong>Locacion:</strong>
-	  		<%= @network.location %>
+    <div class="col-xs">      
+      	<p><strong>Locacion:</strong>
+	  		<%= @network.location %></p>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs  large-padding">      
-      	<strong>Rango IP:</strong>
-	  		<%= @network.iprange %>
+    <div class="col-xs">      
+      	<p><strong>Rango IP:</strong>
+	  		<%= @network.iprange %></p>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs  large-padding">      
-      	<strong>IP Gateway:</strong>
-	  		<%= @network.ip %>
+    <div class="col-xs">      
+      	<p><strong>IP Gateway:</strong>
+	  		<%= @network.ip %></p>
     </div>
   </div>
   <% if @network.wifirouter %>
     <div class="row">
-      <div class="col-xs  large-padding">      
-          <strong>SSID:</strong>
-          <%= @network.ssid_name %>
+      <div class="col-xs">      
+          <p><strong>SSID:</strong>
+          <%= @network.ssid_name %></p>
       </div>
     </div>
   <% end %>
+  <%= render partial:'layouts/user_mod', locals:{:entity => @network} %>
 </div>
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs">
       <span class="pull-right">
         <%= link_to 'Editar', edit_network_path(@network), class:'btn btn-default  btn-lg' %> |
         <%= link_to 'Regresar', networks_path, class:'btn btn-default  btn-lg' %>

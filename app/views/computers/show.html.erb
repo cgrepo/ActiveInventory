@@ -1,113 +1,123 @@
 <p id="notice"><%= notice %></p>
-<div class="container-fluid be-gray large-padding">
-  <div class="row large-padding">
+<div class="container be-gray">
+  <div class="row">
     <div class="col-xs-3 col-md">
-      <strong>Inventario:</strong><br>
-      <%= @computer.ninventary %>
+      <p></p><strong>Inventario:</strong><br>
+      <%= @computer.ninventary %></p>
     </div>
     <div class="col-xs-3 col-md">
-      <strong>Serie:</strong><br>
-      <%= @computer.nserie %>
+      <p><strong>Serie:</strong><br>
+      <%= @computer.nserie %></p>
     </div>
     <div class="col-xs-3 col-md">      
-      <strong>Marca:</strong><br>
-      <%= @computer.brand %>
+      <p><strong>Marca:</strong><br>
+      <%= @computer.brand %></p>
     </div>
     <div class="col-xs-3 col-md">      
-      <strong>Modelo:</strong><br>
-      <%= @computer.model  %>
+      <p><strong>Modelo:</strong><br>
+      <%= @computer.model  %></p>
     </div>
   </div>
-  <div class="row large-padding">
+  <div class="row">
     <div class="col-xs-3 col-md">
-       <strong>TIPO:</strong><br>
-      <%= @computer.genus %>
+       <p><strong>TIPO:</strong><br>
+      <%= @computer.genus %></p>
     </div>
     <div class="col-xs-3 col-md">      
-      <strong>NOMBRE:</strong><br>
-      <%= @computer.name %>
+      <p><strong>NOMBRE:</strong><br>
+      <%= @computer.name %></p>
     </div>
     <div class="col-xs-3 col-md">      
-      <strong>HDD:</strong><br>
-      <%= @computer.hd %>
+      <p><strong>HDD:</strong><br>
+      <%= @computer.hd %></p>
     </div>
     <div class="col-xs-3 col-md">
-      <strong>Memoria:</strong><br>
-      <%= @computer.memory %>
+      <p><strong>Memoria:</strong><br>
+      <%= @computer.memory %></p>
     </div>
   </div>
-  <div class="row large-padding">
+  <div class="row">
     <div class="col-xs-3 col-md">      
-      <strong>Factura:</strong><br>
+      <p><strong>Factura:</strong><br>
       <%= @computer.nfactura %>
     </div>
     <div class="col-xs-3 col-md">
-      <strong>Compra:</strong><br>
+      <p><strong>Compra:</strong><br>
       <%= @computer.buy_date %>
     </div>
     <div class="col-xs-6 col-md">
-      <strong>Procesador:</strong><br>
-      <%= @computer.processor %>
+      <p><strong>Procesador:</strong><br>
+      <%= @computer.processor %></p>
     </div>
   </div>
-  <div class="row large-padding">
+  <div class="row">
     <div class="col-xs-4 col-md-3">      
-      <strong>Usuarios:</strong><br>
-      <%= @computer.users %>
+      <P><strong>Usuarios:</strong><br>
+      <%= @computer.users %></P>
     </div>
     <div class="col-xs-4 col-md-3">      
-      <strong>Responsable:</strong><br>
-      <%= @computer.Worker.name if @computer.Worker %>
+      <P><strong>Responsable:</strong><br>
+      <%= @computer.Worker.name if @computer.Worker %></P>
     </div>
     <div class="col-xs-4 col-md-3">     
-      <strong>Workgroup:</strong><br>
-      <%= @computer.workgroup %>
+      <P><strong>Workgroup:</strong><br>
+      <%= @computer.workgroup %></P>
     </div>
   </div>
-  <div class="row large-padding">
+  <div class="row">
     <div class="col-xs-4 col-md-3">      
-      <strong>Sistema Operativo:</strong><br>
-      <%= @computer.os %>
+      <P><strong>Sistema Operativo:</strong><br>
+      <%= @computer.os %></p>
     </div>
     <div class="col-xs-4 col-md-3">      
-      <strong>Office Ver.:</strong><br>
-      <%= @computer.voffice %>
+      <P><strong>Office Ver.:</strong><br>
+      <%= @computer.voffice %></p>
     </div>
     <div class="col-xs-4 col-md">
-        <strong>Dependencia:</strong><br>
-        <%= @computer.Dependency.name if @computer.Dependency %><br>
+        <P><strong>Dependencia:</strong><br>
+        <%= @computer.Dependency.name if @computer.Dependency %></p>
     </div>
   </div>
-  <div class="row large-pagging">
+  <div class="row">
     <div class="col-xs col-md-3">
-      <strong>LAN:</strong><br>
+      <p><strong>LAN:</strong><br>
       mac: <%= @computer.maclan %><br>
-      <%= @computer.iplan %>/<%= @computer.masklan %>
+      <%= @computer.iplan %>/<%= @computer.masklan %></p>
     </div>
     <% if @computer.wifi %>
       <div class="col-xs col-md-3 ">
-        <strong>WIFI:</strong><br>
+        <p><strong>WIFI:</strong><br>
         mac: <%= @computer.macwifi %><br>
-        <%= @computer.ipwifi %>/<%= @computer.maskwifi %>
+        <%= @computer.ipwifi %>/<%= @computer.maskwifi %></p>
       </div>
     <% end %>
     <% if @computer.bluetooth %>
       <div class="col-xs col-md-3">
-        <strong>BLUETOOTH</strong><br>
-        <%= @computer.macbluetooth %>
+        <p><strong>BLUETOOTH</strong><br>
+        <%= @computer.macbluetooth %></p>
       </div>
     <% end %>
     <div class="col-xs col-md-3">
-      <strong>Conectado a:</strong><br>
-        <%= @computer.Network.location if @computer.Network %>
+      <p><strong>Conectado a:</strong><br>
+        <%= @computer.Network.location if @computer.Network %></p>
     </div>
   </div>
-  <div class="row large-padding">
+  <div class="row">
     <div class="col-xs col-md">
-      <strong>Notas:</strong><br>
-      <%= @computer.notes %>
+      <p><strong>Notas:</strong><br>
+      <%= @computer.notes %></p>
+    </div>
+  </div>
+  <%= render partial:'layouts/user_mod', locals:{:entity => @computer} %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs col-md">
+      <span class="pull-right">
+        <br>
+        <%= link_to 'Editar', edit_computer_path(@computer), class:'btn btn-default btn-lg' %> |
+        <%= link_to 'Regresar', computers_path, class:'btn btn-default btn-lg' %>
+      </span>
     </div>
   </div>
 </div>
-<%= link_to 'Editar', edit_computer_path(@computer), class:'btn btn-default btn-lg' %> |
-<%= link_to 'Regresar', computers_path, class:'btn btn-default btn-lg' %>

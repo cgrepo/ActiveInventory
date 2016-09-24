@@ -1,6 +1,7 @@
 class ConsumablesController < ApplicationController
   before_action :set_consumable, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_me, only: [:update, :create]
+  
   # GET /consumables
   # GET /consumables.json
   def index
@@ -25,7 +26,6 @@ class ConsumablesController < ApplicationController
   # POST /consumables.json
   def create
     @consumable = Consumable.new(consumable_params)
-
     respond_to do |format|
       if @consumable.save
         format.html { redirect_to @consumable, notice: 'Consumible fue creado satisfactoriamente.' }
@@ -70,5 +70,9 @@ class ConsumablesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def consumable_params
       params.require(:consumable).permit(:genus, :model, :Copier_id, :Printer_id)
+    end
+
+    def set_me
+      @dependency.User ||= current_user
     end
 end

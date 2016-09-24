@@ -1,6 +1,7 @@
 class ProcessorsController < ApplicationController
   before_action :set_processor, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_me, only: [:update, :create]
+  
   # GET /processors
   # GET /processors.json
   def index
@@ -70,5 +71,9 @@ class ProcessorsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def processor_params
       params.require(:processor).permit(:brand, :genus, :modelp, :speed)
+    end
+    
+    def set_me
+      @dependency.User ||= current_user
     end
 end

@@ -1,6 +1,7 @@
 class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_me, only: [:update, :create]
+  
   # GET /providers
   # GET /providers.json
   def index
@@ -70,5 +71,9 @@ class ProvidersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
       params.require(:provider).permit(:name, :address, :telephone, :rfc, :email)
+    end
+    
+    def set_me
+      @dependency.User ||= current_user
     end
 end

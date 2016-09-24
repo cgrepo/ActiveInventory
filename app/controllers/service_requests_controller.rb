@@ -1,6 +1,7 @@
 class ServiceRequestsController < ApplicationController
   before_action :set_service_request, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_me, only: [:update, :create]
+  
   # GET /service_requests
   # GET /service_requests.json
   def index
@@ -140,4 +141,7 @@ class ServiceRequestsController < ApplicationController
       params.require(:service_request).permit(:idFolio, :kind, :itDiagnosis, :ProviderDiagnosis, :material, :DocumentRequest, :RequestDate, :ExecutionDate, :History, :Delegation_id, :Dependency_id, :Provider_id, :Copier_id, :Printer_id, :Screen_id, :Telephone_id, :Power_id)
     end
 
+    def set_me
+      @dependency.User ||= current_user
+    end
 end

@@ -11,21 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160909034215) do
+ActiveRecord::Schema.define(version: 20160902205143) do
 
   create_table "brand_models", force: :cascade do |t|
     t.string   "description"
     t.string   "brandx"
     t.string   "modelx"
+    t.integer  "User_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
+  add_index "brand_models", ["User_id"], name: "index_brand_models_on_User_id"
+
   create_table "computer_brands", force: :cascade do |t|
     t.string   "name"
+    t.string   "model"
+    t.integer  "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "computer_brands", ["User_id"], name: "index_computer_brands_on_User_id"
 
   create_table "computers", force: :cascade do |t|
     t.string   "ninventary"
@@ -58,12 +65,14 @@ ActiveRecord::Schema.define(version: 20160909034215) do
     t.integer  "Network_id"
     t.integer  "Dependency_id"
     t.integer  "Worker_id"
+    t.integer  "User_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   add_index "computers", ["Dependency_id"], name: "index_computers_on_Dependency_id"
   add_index "computers", ["Network_id"], name: "index_computers_on_Network_id"
+  add_index "computers", ["User_id"], name: "index_computers_on_User_id"
   add_index "computers", ["Worker_id"], name: "index_computers_on_Worker_id"
 
   create_table "consumables", force: :cascade do |t|
@@ -71,12 +80,14 @@ ActiveRecord::Schema.define(version: 20160909034215) do
     t.string   "model"
     t.integer  "Copier_id"
     t.integer  "Printer_id"
+    t.integer  "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "consumables", ["Copier_id"], name: "index_consumables_on_Copier_id"
   add_index "consumables", ["Printer_id"], name: "index_consumables_on_Printer_id"
+  add_index "consumables", ["User_id"], name: "index_consumables_on_User_id"
 
   create_table "copiers", force: :cascade do |t|
     t.string   "ninventary"
@@ -98,12 +109,14 @@ ActiveRecord::Schema.define(version: 20160909034215) do
     t.text     "notes"
     t.integer  "Network_id"
     t.integer  "Dependency_id"
+    t.integer  "User_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
 
   add_index "copiers", ["Dependency_id"], name: "index_copiers_on_Dependency_id"
   add_index "copiers", ["Network_id"], name: "index_copiers_on_Network_id"
+  add_index "copiers", ["User_id"], name: "index_copiers_on_User_id"
 
   create_table "delegations", force: :cascade do |t|
     t.string   "name"
@@ -129,16 +142,22 @@ ActiveRecord::Schema.define(version: 20160909034215) do
   create_table "hardds", force: :cascade do |t|
     t.float    "size"
     t.string   "tsize"
+    t.integer  "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "hardds", ["User_id"], name: "index_hardds_on_User_id"
+
   create_table "memos", force: :cascade do |t|
     t.float    "size"
     t.string   "msize"
+    t.integer  "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "memos", ["User_id"], name: "index_memos_on_User_id"
 
   create_table "networks", force: :cascade do |t|
     t.string   "linktype"
@@ -147,22 +166,31 @@ ActiveRecord::Schema.define(version: 20160909034215) do
     t.string   "location"
     t.string   "iprange"
     t.string   "ip"
+    t.integer  "User_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
+  add_index "networks", ["User_id"], name: "index_networks_on_User_id"
+
   create_table "officevs", force: :cascade do |t|
     t.string   "name"
+    t.integer  "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "officevs", ["User_id"], name: "index_officevs_on_User_id"
+
   create_table "osies", force: :cascade do |t|
     t.string   "name"
     t.string   "version"
+    t.integer  "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "osies", ["User_id"], name: "index_osies_on_User_id"
 
   create_table "powers", force: :cascade do |t|
     t.string   "ninventary"
@@ -176,11 +204,13 @@ ActiveRecord::Schema.define(version: 20160909034215) do
     t.string   "reazon"
     t.text     "notes"
     t.integer  "Dependency_id"
+    t.integer  "User_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
 
   add_index "powers", ["Dependency_id"], name: "index_powers_on_Dependency_id"
+  add_index "powers", ["User_id"], name: "index_powers_on_User_id"
 
   create_table "printers", force: :cascade do |t|
     t.string   "ninventary"
@@ -203,21 +233,26 @@ ActiveRecord::Schema.define(version: 20160909034215) do
     t.text     "notes"
     t.integer  "Network_id"
     t.integer  "Dependency_id"
+    t.integer  "User_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
 
   add_index "printers", ["Dependency_id"], name: "index_printers_on_Dependency_id"
   add_index "printers", ["Network_id"], name: "index_printers_on_Network_id"
+  add_index "printers", ["User_id"], name: "index_printers_on_User_id"
 
   create_table "processors", force: :cascade do |t|
     t.string   "brand"
     t.string   "genus"
     t.string   "modelp"
     t.string   "speed"
+    t.integer  "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "processors", ["User_id"], name: "index_processors_on_User_id"
 
   create_table "providers", force: :cascade do |t|
     t.string   "name"
@@ -225,9 +260,12 @@ ActiveRecord::Schema.define(version: 20160909034215) do
     t.string   "telephone"
     t.string   "rfc"
     t.string   "email"
+    t.integer  "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "providers", ["User_id"], name: "index_providers_on_User_id"
 
   create_table "screens", force: :cascade do |t|
     t.string   "ninventary"
@@ -242,43 +280,14 @@ ActiveRecord::Schema.define(version: 20160909034215) do
     t.text     "notes"
     t.integer  "Dependency_id"
     t.integer  "Computer_id"
+    t.integer  "User_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   add_index "screens", ["Computer_id"], name: "index_screens_on_Computer_id"
   add_index "screens", ["Dependency_id"], name: "index_screens_on_Dependency_id"
-
-  create_table "service_documents", force: :cascade do |t|
-    t.string   "idFolio"
-    t.string   "kind"
-    t.string   "itDiagnosis"
-    t.string   "ProviderDiagnosis"
-    t.string   "material"
-    t.string   "DocumentRequest"
-    t.date     "RequestDate"
-    t.date     "ExecutionDate"
-    t.text     "History"
-    t.integer  "Delegation_id"
-    t.integer  "Dependency_id"
-    t.integer  "Provider_id"
-    t.integer  "Copier_id"
-    t.integer  "Printer_id"
-    t.integer  "Screen_id"
-    t.integer  "Telephone_id"
-    t.integer  "Power_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
-  add_index "service_documents", ["Copier_id"], name: "index_service_documents_on_Copier_id"
-  add_index "service_documents", ["Delegation_id"], name: "index_service_documents_on_Delegation_id"
-  add_index "service_documents", ["Dependency_id"], name: "index_service_documents_on_Dependency_id"
-  add_index "service_documents", ["Power_id"], name: "index_service_documents_on_Power_id"
-  add_index "service_documents", ["Printer_id"], name: "index_service_documents_on_Printer_id"
-  add_index "service_documents", ["Provider_id"], name: "index_service_documents_on_Provider_id"
-  add_index "service_documents", ["Screen_id"], name: "index_service_documents_on_Screen_id"
-  add_index "service_documents", ["Telephone_id"], name: "index_service_documents_on_Telephone_id"
+  add_index "screens", ["User_id"], name: "index_screens_on_User_id"
 
   create_table "service_requests", force: :cascade do |t|
     t.string   "idFolio"
@@ -299,6 +308,7 @@ ActiveRecord::Schema.define(version: 20160909034215) do
     t.integer  "Screen_id"
     t.integer  "Telephone_id"
     t.integer  "Power_id"
+    t.integer  "User_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
@@ -311,6 +321,7 @@ ActiveRecord::Schema.define(version: 20160909034215) do
   add_index "service_requests", ["Provider_id"], name: "index_service_requests_on_Provider_id"
   add_index "service_requests", ["Screen_id"], name: "index_service_requests_on_Screen_id"
   add_index "service_requests", ["Telephone_id"], name: "index_service_requests_on_Telephone_id"
+  add_index "service_requests", ["User_id"], name: "index_service_requests_on_User_id"
 
   create_table "statistics", force: :cascade do |t|
     t.string   "month"
@@ -318,12 +329,14 @@ ActiveRecord::Schema.define(version: 20160909034215) do
     t.integer  "consumable"
     t.integer  "Copier_id"
     t.integer  "Printer_id"
+    t.integer  "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "statistics", ["Copier_id"], name: "index_statistics_on_Copier_id"
   add_index "statistics", ["Printer_id"], name: "index_statistics_on_Printer_id"
+  add_index "statistics", ["User_id"], name: "index_statistics_on_User_id"
 
   create_table "telephones", force: :cascade do |t|
     t.string   "ninventary"
@@ -340,11 +353,13 @@ ActiveRecord::Schema.define(version: 20160909034215) do
     t.text     "reazon"
     t.text     "notes"
     t.integer  "Dependency_id"
+    t.integer  "User_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
 
   add_index "telephones", ["Dependency_id"], name: "index_telephones_on_Dependency_id"
+  add_index "telephones", ["User_id"], name: "index_telephones_on_User_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
@@ -358,10 +373,12 @@ ActiveRecord::Schema.define(version: 20160909034215) do
     t.string   "email"
     t.text     "profile"
     t.integer  "Dependency_id"
+    t.integer  "User_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   add_index "workers", ["Dependency_id"], name: "index_workers_on_Dependency_id"
+  add_index "workers", ["User_id"], name: "index_workers_on_User_id"
 
 end

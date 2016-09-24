@@ -1,6 +1,7 @@
 class TelephonesController < ApplicationController
   before_action :set_telephone, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_me, only: [:update, :create]
+  
   # GET /telephones
   # GET /telephones.json
   def index
@@ -70,5 +71,9 @@ class TelephonesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def telephone_params
       params.require(:telephone).permit(:ninventary, :nserie, :brand, :model, :buy_date, :genus, :number, :ip, :mac, :operational, :reazon, :notes, :Dependency_id)
+    end
+    
+    def set_me
+      @dependency.User ||= current_user
     end
 end

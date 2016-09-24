@@ -1,5 +1,7 @@
 class CopiersController < ApplicationController
   before_action :set_copier, only: [:show, :edit, :update, :destroy]
+  before_action :set_me, only: [:update, :create]
+  
 
   # GET /copiers
   # GET /copiers.json
@@ -25,7 +27,7 @@ class CopiersController < ApplicationController
   # POST /copiers.json
   def create
     @copier = Copier.new(copier_params)
-
+    
     respond_to do |format|
       if @copier.save
         format.html { redirect_to @copier, notice: 'Copiadora fue creada satisfactoriamente.' }
@@ -70,5 +72,9 @@ class CopiersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def copier_params
       params.require(:copier).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :operational, :reazon, :notes, :Dependency_id)
+    end
+
+    def set_me
+      @dependency.User ||= current_user
     end
 end

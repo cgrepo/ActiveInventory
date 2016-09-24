@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<div class="container large-padding be-gray ">
+<div class="container be-gray ">
   <div class="row">
     <div class="col-xs-12 col-md-12">
       <p><strong>Mes:</strong>
@@ -21,6 +21,7 @@
           <%= @statistic.Printer.model %></p>
         <% end %></p>
     </div>
+    <%= render partial:'layouts/user_mod', locals:{:entity => @statistic} %>
   </div>
 </div>
 <div class="container">

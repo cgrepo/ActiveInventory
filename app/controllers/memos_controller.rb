@@ -1,6 +1,7 @@
 class MemosController < ApplicationController
   before_action :set_memo, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_me, only: [:update, :create]
+  
   # GET /memos
   # GET /memos.json
   def index
@@ -70,5 +71,9 @@ class MemosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def memo_params
       params.require(:memo).permit(:size, :msize)
+    end
+    
+    def set_me
+      @dependency.User ||= current_user
     end
 end

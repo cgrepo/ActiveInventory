@@ -1,13 +1,8 @@
   <div class="row be-soft_purple">
     <div class="col-xs col-md">
         <p align="right">
-            <%#= debug entity %>
-            <% unless modified?(entity) then %>
             <strong>ULTIMA MODIFICACION</strong><br>
-            <%= entity.User.username %>
-            <% else %>
-            <strong> FALTA ASIGNAR </strong>
-            <% end %>
+            <%= entity.User_id ? User.find(entity.User_id).username : "FALTA ASIGNAR"  %>
         </p>
     </div>
   </div>

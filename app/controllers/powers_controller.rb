@@ -1,6 +1,7 @@
 class PowersController < ApplicationController
   before_action :set_power, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_me, only: [:update, :create]
+  
   # GET /powers
   # GET /powers.json
   def index
@@ -70,5 +71,9 @@ class PowersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def power_params
       params.require(:power).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :no_break, :operational, :reazon, :notes, :Dependency_id)
+    end
+
+    def set_me
+      @dependency.User ||= current_user
     end
 end

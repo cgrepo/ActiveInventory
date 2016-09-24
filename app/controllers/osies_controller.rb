@@ -1,6 +1,7 @@
 class OsiesController < ApplicationController
   before_action :set_osy, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_me, only: [:update, :create]
+  
   # GET /osies
   # GET /osies.json
   def index
@@ -70,5 +71,9 @@ class OsiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def osy_params
       params.require(:osy).permit(:name, :version)
+    end
+    
+    def set_me
+      @dependency.User ||= current_user
     end
 end

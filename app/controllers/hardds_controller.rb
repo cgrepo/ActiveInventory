@@ -1,6 +1,7 @@
 class HarddsController < ApplicationController
   before_action :set_hardd, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_me, only: [:update, :create]
+  
   # GET /hardds
   # GET /hardds.json
   def index
@@ -25,7 +26,6 @@ class HarddsController < ApplicationController
   # POST /hardds.json
   def create
     @hardd = Hardd.new(hardd_params)
-
     respond_to do |format|
       if @hardd.save
         format.html { redirect_to @hardd, notice: 'Disco Duro creado.' }
@@ -70,5 +70,9 @@ class HarddsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def hardd_params
       params.require(:hardd).permit(:size, :tsize)
+    end
+    
+    def set_me
+      @dependency.User ||= current_user
     end
 end

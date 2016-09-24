@@ -1,6 +1,7 @@
 class ScreensController < ApplicationController
   before_action :set_screen, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_me, only: [:update, :create]
+  
   # GET /screens
   # GET /screens.json
   def index
@@ -70,5 +71,9 @@ class ScreensController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def screen_params
       params.require(:screen).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :inch, :operational, :reazon, :notes, :Dependency_id, :Computer_id)
+    end
+    
+    def set_me
+      @dependency.User ||= current_user
     end
 end

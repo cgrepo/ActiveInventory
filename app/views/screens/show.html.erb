@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<div class="container large-padding be-gray">
+<div class="container be-gray">
   <div class="row ">
     <div class="col-xs col-md-2">
       <strong>Inventario:</strong>
@@ -41,6 +41,7 @@
       <strong>Notas:</strong>
       <%= @screen.notes %>
     </div>
+    <%= render partial:'layouts/user_mod', locals:{:entity => @screen} %>
   </div>
 </div>
 <div class="container">

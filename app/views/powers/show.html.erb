@@ -2,58 +2,35 @@
 <div class="container be-gray">
   <div class="row ">
     <div class="col-xs">
-      <strong>Numero de Inventario:</strong>
-      <%= @power.ninventary %>
+      <p><strong>Numero de Inventario:</strong>
+      <%= @power.ninventary %></p>
+   
+      <p><strong>Numero de Serie:</strong>
+      <%= @power.nserie %></p>
+ 
+      <p><strong>Marca:</strong>
+      <%= @power.brand %></p>
+  
+      <p><strong>Modelo:</strong>
+      <%= @power.model %></p>
+
+      <p><strong>ID factura:</strong>
+      <%= @power.nfactura %></p>
+ 
+      <p><strong>Fecha compra:</strong>
+      <%= @power.buy_date %></p>
+
+      <p><strong>Bateria incluida:</strong>
+      <%="SI" if @power.no_break %></p>
+
+      <p><strong>Notas:</strong>
+      <%= @power.notes %></p>
+
+      <p><strong>Dependencia:</strong>
+      <%= @power.Dependency.name if @power.Dependency%></p>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs">
-      <strong>Numero de Serie:</strong>
-      <%= @power.nserie %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">
-      <strong>Marca:</strong>
-      <%= @power.brand %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">
-      <strong>Modelo:</strong>
-      <%= @power.model %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">
-      <strong>ID factura:</strong>
-      <%= @power.nfactura %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">
-      <strong>Fecha compra:</strong>
-      <%= @power.buy_date %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">
-      <strong>Bateria incluida:</strong>
-      <%="SI" if @power.no_break %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">
-      <strong>Notas:</strong>
-      <%= @power.notes %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs">
-      <strong>Dependency:</strong>
-      <%= @power.Dependency.name if @power.Dependency%>
-    </div>
-  </div>
+  <%= render partial:'layouts/user_mod', locals:{:entity => @power} %>
 </div>
 <div class="container">
   <div class="row">

@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
 <div class="container be-gray ">
   <div class="row">
-    <div class="col-xs col-md">
-        <p><strong>Nombre:</strong>
-        <%= @dependency.name %></p>
-        <p><strong>Direccion:</strong>
-        <%= @dependency.address %></p>
-        <p><strong>Telefono:</strong>
-        <%= @dependency.telephone %></p>
-        <p><strong>Responsable:</strong>
-        <%= @dependency.responsable %></p>
-        <p><strong>Responsable email:</strong>
-        <%= @dependency.responsable_email %></p>
-        <p><strong>Delegacion:</strong>
-        <%= @dependency.Delegation.name if @dependency.Delegation %></p>
+        <div class="col-xs col-md">
+            <p><strong>Nombre:</strong>
+            <%= @dependency.name %></p>
+            <p><strong>Direccion:</strong>
+            <%= @dependency.address %></p>
+            <p><strong>Telefono:</strong>
+            <%= @dependency.telephone %></p>
+            <p><strong>Responsable:</strong>
+            <%= @dependency.responsable %></p>
+            <p><strong>Responsable email:</strong>
+            <%= @dependency.responsable_email %></p>
+            <p><strong>Delegacion:</strong>
+            <%= @dependency.Delegation.name if @dependency.Delegation %></p>
+        </div>
     </div>
-  </div>
   <%= render partial:'layouts/user_mod', locals:{:entity => @dependency} %>
 </div>
 <br>

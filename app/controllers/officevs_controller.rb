@@ -1,6 +1,7 @@
 class OfficevsController < ApplicationController
   before_action :set_officev, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_me, only: [:update, :create]
+  
   # GET /officevs
   # GET /officevs.json
   def index
@@ -70,5 +71,9 @@ class OfficevsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def officev_params
       params.require(:officev).permit(:name)
+    end
+    
+    def set_me
+      @dependency.User ||= current_user
     end
 end
