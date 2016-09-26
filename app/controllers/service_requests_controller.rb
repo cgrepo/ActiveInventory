@@ -142,6 +142,6 @@ class ServiceRequestsController < ApplicationController
     end
 
     def set_me
-      @dependency.User ||= current_user
+      @service_request.User ||= current_user
     end
 end

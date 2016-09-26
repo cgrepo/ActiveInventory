@@ -74,6 +74,6 @@ class PrintersController < ApplicationController
     end
     
     def set_me
-      @dependency.User ||= current_user
+      @printer.User ||= current_user
     end
 end

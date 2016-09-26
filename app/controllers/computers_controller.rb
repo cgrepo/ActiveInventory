@@ -73,6 +73,6 @@ class ComputersController < ApplicationController
     end
 
     def set_me
-      @dependency.User ||= current_user
+      @computer.User ||= current_user
     end
 end

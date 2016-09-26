@@ -74,6 +74,6 @@ class ProcessorsController < ApplicationController
     end
     
     def set_me
-      @dependency.User ||= current_user
+      @processor.User ||= current_user
     end
 end

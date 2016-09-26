@@ -75,6 +75,6 @@ class CopiersController < ApplicationController
     end
 
     def set_me
-      @dependency.User ||= current_user
+      @copier.User ||= current_user
     end
 end

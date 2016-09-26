@@ -25,7 +25,7 @@
         <th>Marca</th>
         <th>Modelo</th>
         <th>Dependencia</th>
-        <th></th>
+        <th colspan="3"></th>
       </thead>
       <tbody>
         <% @computers.each do |computer| %>
@@ -35,7 +35,7 @@
             <td><%= computer.brand %></td>
             <td><%= computer.model if computer.model %></td>
             <td><%= computer.Dependency.name if computer.Dependency %></td>
-            <td>
+            <td align="right">
               <%= link_to 'Mostrar', computer, class:'btn btn-default  btn-xs' %> 
               <%= link_to 'Editar', edit_computer_path(computer), class:'btn btn-default  btn-xs' %> 
               <%= link_to 'Borrar', computer, method: :delete, data: { confirm: 'Esta usted seguro?' } , 

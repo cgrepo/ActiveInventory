@@ -74,6 +74,6 @@ class MemosController < ApplicationController
     end
     
     def set_me
-      @dependency.User ||= current_user
+      @memo.User ||= current_user
     end
 end

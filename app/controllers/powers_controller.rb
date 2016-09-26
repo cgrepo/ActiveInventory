@@ -74,6 +74,6 @@ class PowersController < ApplicationController
     end
 
     def set_me
-      @dependency.User ||= current_user
+      @power.User ||= current_user
     end
 end

@@ -74,6 +74,6 @@ class OfficevsController < ApplicationController
     end
     
     def set_me
-      @dependency.User ||= current_user
+      @officev.User ||= current_user
     end
 end

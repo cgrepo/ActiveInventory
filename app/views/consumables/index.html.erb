@@ -23,7 +23,7 @@
           <thead>
             <th>Tipo</th>
             <th>Modelo</th>
-            <th></th>
+            <th colspan="3"></th>
           </thead>
           <tbody>
             <% @consumables.each do |consumable| %>
@@ -34,7 +34,7 @@
                 <td>
                   <%= consumable.model %>
                 </td>
-                <td>
+                <td align="right">
                   <%= link_to 'Mostrar', consumable, class:'btn btn-default  btn-sm' %> 
                   <%= link_to 'Editar', edit_consumable_path(consumable), class:'btn btn-default btn-sm' %> 
                   <%= link_to 'Borrar', consumable, method: :delete, data: { confirm: 'Esta usted seguro?' }, 

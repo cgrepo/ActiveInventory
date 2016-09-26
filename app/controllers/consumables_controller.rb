@@ -73,6 +73,6 @@ class ConsumablesController < ApplicationController
     end
 
     def set_me
-      @dependency.User ||= current_user
+      @consumable.User ||= current_user
     end
 end

@@ -74,6 +74,6 @@ class StatisticsController < ApplicationController
     end
     
     def set_me
-      @dependency.User ||= current_user
+      @statistic.User ||= current_user
     end
 end

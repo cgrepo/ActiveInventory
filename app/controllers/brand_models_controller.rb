@@ -73,6 +73,6 @@ class BrandModelsController < ApplicationController
     end
 
     def set_me
-      @dependency.User ||= current_user
+      @brand_model.User ||= current_user
     end
 end

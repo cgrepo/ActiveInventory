@@ -74,6 +74,6 @@ class ScreensController < ApplicationController
     end
     
     def set_me
-      @dependency.User ||= current_user
+      @screen.User ||= current_user
     end
 end

@@ -75,6 +75,6 @@ class NetworksController < ApplicationController
     end
 
     def set_me
-      @dependency.User ||= current_user
+      @network.User ||= current_user
     end
 end

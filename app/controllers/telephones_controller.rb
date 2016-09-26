@@ -74,6 +74,6 @@ class TelephonesController < ApplicationController
     end
     
     def set_me
-      @dependency.User ||= current_user
+      @telephone.User ||= current_user
     end
 end

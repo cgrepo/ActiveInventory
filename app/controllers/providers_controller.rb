@@ -74,6 +74,6 @@ class ProvidersController < ApplicationController
     end
     
     def set_me
-      @dependency.User ||= current_user
+      @provider.User ||= current_user
     end
 end
