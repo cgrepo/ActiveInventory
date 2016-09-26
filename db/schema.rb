@@ -374,10 +374,12 @@ ActiveRecord::Schema.define(version: 20160902205143) do
     t.text     "profile"
     t.integer  "Dependency_id"
     t.integer  "User_id"
+    t.integer  "Delegation_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
+  add_index "workers", ["Delegation_id"], name: "index_workers_on_Delegation_id"
   add_index "workers", ["Dependency_id"], name: "index_workers_on_Dependency_id"
   add_index "workers", ["User_id"], name: "index_workers_on_User_id"
 

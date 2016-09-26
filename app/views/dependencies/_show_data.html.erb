@@ -6,7 +6,7 @@
       <th>Responsable</th>
       <th>Correo</th>
       <th>Delegacion</th>
-      <th></th>
+      <th colspan="3"></th>
     </thead>
     <tbody>
       <% @dependencies.each do |dependency| %>
@@ -16,7 +16,7 @@
           <td> <%= dependency.responsable %></td>
           <td> <%= dependency.responsable_email %></td>
           <td> <%= dependency.Delegation.name if dependency.Delegation %></td>
-          <td>
+          <td align="right">
             <%= link_to 'Mostrar', dependency, class:'btn btn-default  btn-xs' %>
             <%= link_to 'Editar', edit_dependency_path(dependency), class:'btn btn-default  btn-xs' %>
             <%= link_to 'Borrar', dependency,method: :delete, data: { confirm: 'esta usted seguro?' }, class:'btn btn-default btn-xs'%>

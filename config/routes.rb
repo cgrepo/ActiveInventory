@@ -8,6 +8,13 @@ Rails.application.routes.draw do
     end
     get 'get_pdf', to:'service_requests#get_pdf'
   end
+  
+  resources :workers  do
+    collection do
+      get 'get_dependencies', to:'workers#get_dependencies'
+    end
+  end
+  
 
   resources :providers
   get 'reports/index'
@@ -29,7 +36,7 @@ Rails.application.routes.draw do
   resources :copiers
   resources :printers
   resources :networks
-  resources :workers
+
   resources :powers
   resources :dependencies
   resources :telephones

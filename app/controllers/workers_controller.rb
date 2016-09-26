@@ -16,6 +16,7 @@ class WorkersController < ApplicationController
   # GET /workers/new
   def new
     @worker = Worker.new
+    @delegations = Delegation.all
   end
 
   # GET /workers/1/edit
@@ -62,6 +63,14 @@ class WorkersController < ApplicationController
     end
   end
 
+  #POPULATE
+  def get_dependencies
+    @dependencies = Dependency.where(Delegation:params[:Delegation_id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_worker
@@ -70,7 +79,7 @@ class WorkersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def worker_params
-      params.require(:worker).permit(:name, :email, :profile, :Dependency_id)
+      params.require(:worker).permit(:name, :email, :profile, :Dependency_id, :Delegation_id)
     end
     
     def set_me

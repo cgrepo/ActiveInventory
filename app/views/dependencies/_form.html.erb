@@ -35,7 +35,8 @@
       </div>
       <div class="col-xs-8 col-md-7">
           <%= f.label :Direccion %><br>
-          <%= f.select :address, 
+          <%= f.text_field :address, class:'form-control smfont' %>
+          <%#= f.select :address, 
           [ ['Av. Miguel Hidalgo E/Blvd. Constituyentes y Camino al Faro'],
             ['Col. Jacarandas C. Violeta SN'],
             ['Cerrito del Timbre C. Matamoros SN E/Lazaro C. y Niños Heroes'] ], {:include_blank => true}, 
