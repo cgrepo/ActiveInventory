@@ -130,8 +130,8 @@ ActiveRecord::Schema.define(version: 20160902205143) do
     t.string   "telephone"
     t.string   "responsable"
     t.string   "responsable_email"
-    t.integer  "Delegation_id"
     t.integer  "User_id"
+    t.integer  "Delegation_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
