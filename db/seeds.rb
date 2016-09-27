@@ -34,8 +34,7 @@
 
 				csl = Delegation.find_by(name:'Cabo San Lucas')
 				sjc = Delegation.find_by(name:'San Jose del Cabo')
-				Dependency.create! 
-				[
+				Dependency.create! [
 					{ name:'ADMINISTRACION DE SEG. PUB. Y TRANS. CSL CANGREJOS',	address:'KM. 3.5 CARRETERA A TODOS SANTOS, COL CANGREJOS',	telephone:'14-6-76-00 EXT.1580 624-35-5-95-65',	responsable:'LIC. ROSARIO MARQUEZ MARQUEZ',	responsable_email:'',	Delegation:csl },	
 					{ name:'ALMACEN GENERAL MUNICIPAL',	address:'ALTA TENSION S/N COL. ZACATAL, ANTES BODEGON FRUT Y VERDURAS.',	telephone:'10-5-20-51',	responsable:'MIGUEL ANGEL RAMOS PADILLA',	responsable_email:'miguelramos_07@hotmail.com',	Delegation:sjc },	
 					{ name:'CONTRALORIA MUNICIPAL',	address:'Palacio Municipal, XIi Ayuntamiento de Los Cabos Blvar. Mijares esq. e/ Avee Manuel Doblado',	telephone:'14-6-76-00 EXT. 1120',	responsable:'MARIA ELENA CAMACHO LOPEZ',	responsable_email:'nenacamacho08@hotmail.com',	Delegation:sjc },	
