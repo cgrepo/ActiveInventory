@@ -1,6 +1,5 @@
 class ProcessorsController < ApplicationController
   before_action :set_processor, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /processors
   # GET /processors.json
@@ -29,6 +28,7 @@ class ProcessorsController < ApplicationController
 
     respond_to do |format|
       if @processor.save
+        set_me
         format.html { redirect_to @processor, notice: 'Processor was successfully created.' }
         format.json { render :show, status: :created, location: @processor }
       else
@@ -43,6 +43,7 @@ class ProcessorsController < ApplicationController
   def update
     respond_to do |format|
       if @processor.update(processor_params)
+        set_me
         format.html { redirect_to @processor, notice: 'Processor was successfully updated.' }
         format.json { render :show, status: :ok, location: @processor }
       else
@@ -74,6 +75,7 @@ class ProcessorsController < ApplicationController
     end
     
     def set_me
-      @processor.User ||= current_user
+      @processor.User_id = current_user.id
+      @processor.save!
     end
 end

@@ -1,6 +1,5 @@
 class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /providers
   # GET /providers.json
@@ -29,6 +28,7 @@ class ProvidersController < ApplicationController
 
     respond_to do |format|
       if @provider.save
+        set_me
         format.html { redirect_to @provider, notice: 'Proveedor creado satisfactoriamente.' }
         format.json { render :show, status: :created, location: @provider }
       else
@@ -43,6 +43,7 @@ class ProvidersController < ApplicationController
   def update
     respond_to do |format|
       if @provider.update(provider_params)
+        set_me
         format.html { redirect_to @provider, notice: 'Proveedor actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @provider }
       else
@@ -74,6 +75,7 @@ class ProvidersController < ApplicationController
     end
     
     def set_me
-      @provider.User ||= current_user
+      @provider.User_id = current_user.id
+      @provider.save!
     end
 end

@@ -1,6 +1,5 @@
 class MemosController < ApplicationController
   before_action :set_memo, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /memos
   # GET /memos.json
@@ -29,6 +28,7 @@ class MemosController < ApplicationController
 
     respond_to do |format|
       if @memo.save
+        set_me
         format.html { redirect_to @memo, notice: 'Memo was successfully created.' }
         format.json { render :show, status: :created, location: @memo }
       else
@@ -43,6 +43,7 @@ class MemosController < ApplicationController
   def update
     respond_to do |format|
       if @memo.update(memo_params)
+        set_me
         format.html { redirect_to @memo, notice: 'Memo was successfully updated.' }
         format.json { render :show, status: :ok, location: @memo }
       else
@@ -74,6 +75,7 @@ class MemosController < ApplicationController
     end
     
     def set_me
-      @memo.User ||= current_user
+      @memo.User_id = current_user.id
+      @memo.save!
     end
 end

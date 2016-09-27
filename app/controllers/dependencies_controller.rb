@@ -1,6 +1,6 @@
 class DependenciesController < ApplicationController
   before_action :set_dependency, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
+
   #-----USUAL_ACTIONS----------------------------
     # GET /dependencies
     # GET /dependencies.json
@@ -34,6 +34,7 @@ class DependenciesController < ApplicationController
       @dependency = Dependency.new(dependency_params)
       respond_to do |format|
         if @dependency.save
+          set_me
           format.html { redirect_to @dependency, notice: 'Dependencia fue creada satisfactoriamente.' }
           format.json { render :show, status: :created, location: @dependency }
         else
@@ -48,6 +49,7 @@ class DependenciesController < ApplicationController
     def update
       respond_to do |format|
         if @dependency.update(dependency_params)
+          set_me
           format.html { redirect_to @dependency, notice: 'Dependencia fue actualizada satisfactoriamente.' }
           format.json { render :show, status: :ok, location: @dependency }
         else
@@ -79,6 +81,7 @@ class DependenciesController < ApplicationController
     end
 
     def set_me
-      @dependency.User ||= current_user
+      @dependency.User_id = current_user.id
+      @dependency.save!
     end
 end

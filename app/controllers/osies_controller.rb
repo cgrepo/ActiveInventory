@@ -1,6 +1,5 @@
 class OsiesController < ApplicationController
   before_action :set_osy, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /osies
   # GET /osies.json
@@ -29,6 +28,7 @@ class OsiesController < ApplicationController
 
     respond_to do |format|
       if @osy.save
+        set_me
         format.html { redirect_to @osy, notice: 'Osy was successfully created.' }
         format.json { render :show, status: :created, location: @osy }
       else
@@ -43,6 +43,7 @@ class OsiesController < ApplicationController
   def update
     respond_to do |format|
       if @osy.update(osy_params)
+        set_me
         format.html { redirect_to @osy, notice: 'Osy was successfully updated.' }
         format.json { render :show, status: :ok, location: @osy }
       else
@@ -74,6 +75,7 @@ class OsiesController < ApplicationController
     end
     
     def set_me
-      @osy.User ||= current_user
+      @osy.User_id = current_user.id
+      @osy.save!
     end
 end

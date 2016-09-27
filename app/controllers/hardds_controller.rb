@@ -1,6 +1,5 @@
 class HarddsController < ApplicationController
   before_action :set_hardd, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /hardds
   # GET /hardds.json
@@ -28,6 +27,7 @@ class HarddsController < ApplicationController
     @hardd = Hardd.new(hardd_params)
     respond_to do |format|
       if @hardd.save
+        set_me
         format.html { redirect_to @hardd, notice: 'Disco Duro creado.' }
         format.json { render :show, status: :created, location: @hardd }
       else
@@ -42,6 +42,7 @@ class HarddsController < ApplicationController
   def update
     respond_to do |format|
       if @hardd.update(hardd_params)
+        set_me
         format.html { redirect_to @hardd, notice: 'Disco Duro actualizado.' }
         format.json { render :show, status: :ok, location: @hardd }
       else
@@ -73,6 +74,7 @@ class HarddsController < ApplicationController
     end
     
     def set_me
-      @hardd.User ||= current_user
+      @hardd.User_id = current_user.id
+      @hardd.save!
     end
 end

@@ -1,6 +1,5 @@
 class ComputersController < ApplicationController
   before_action :set_computer, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /computers
   # GET /computers.json
@@ -28,6 +27,7 @@ class ComputersController < ApplicationController
     @computer = Computer.new(computer_params)
     respond_to do |format|
       if @computer.save
+        set_me
         format.html { redirect_to @computer, notice: 'Computadora fue creada satisfactoriamente.' }
         format.json { render :show, status: :created, location: @computer }
       else
@@ -42,6 +42,7 @@ class ComputersController < ApplicationController
   def update
     respond_to do |format|
       if @computer.update(computer_params)
+        set_me
         format.html { redirect_to @computer, notice: 'Computadora fue actualizada satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @computer }
       else
@@ -73,6 +74,7 @@ class ComputersController < ApplicationController
     end
 
     def set_me
-      @computer.User ||= current_user
+      @computer.User_id = current_user.id
+      @computer.save!
     end
 end

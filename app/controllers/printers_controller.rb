@@ -1,6 +1,5 @@
 class PrintersController < ApplicationController
   before_action :set_printer, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /printers
   # GET /printers.json
@@ -29,6 +28,7 @@ class PrintersController < ApplicationController
 
     respond_to do |format|
       if @printer.save
+        set_me
         format.html { redirect_to @printer, notice: 'Impresora fue creada satisfactoriamente.' }
         format.json { render :show, status: :created, location: @printer }
       else
@@ -43,6 +43,7 @@ class PrintersController < ApplicationController
   def update
     respond_to do |format|
       if @printer.update(printer_params)
+        set_me
         format.html { redirect_to @printer, notice: 'Impresora fue actualizada satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @printer }
       else
@@ -70,10 +71,11 @@ class PrintersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def printer_params
-      params.require(:printer).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :genus, :operational, :reazon, :notes, :Dependency_id)
+      params.require(:printer).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :genus, :operational, :reazon, :notes, :printer_id)
     end
     
     def set_me
-      @printer.User ||= current_user
+      @printer.User_id = current_user.id
+      @printer.save!
     end
 end

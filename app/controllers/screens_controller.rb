@@ -1,6 +1,5 @@
 class ScreensController < ApplicationController
   before_action :set_screen, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /screens
   # GET /screens.json
@@ -29,6 +28,7 @@ class ScreensController < ApplicationController
 
     respond_to do |format|
       if @screen.save
+        set_me
         format.html { redirect_to @screen, notice: 'Monitor creado satisfactoriamente.' }
         format.json { render :show, status: :created, location: @screen }
       else
@@ -43,6 +43,7 @@ class ScreensController < ApplicationController
   def update
     respond_to do |format|
       if @screen.update(screen_params)
+        set_me
         format.html { redirect_to @screen, notice: 'Monitor actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @screen }
       else
@@ -70,10 +71,11 @@ class ScreensController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def screen_params
-      params.require(:screen).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :inch, :operational, :reazon, :notes, :Dependency_id, :Computer_id)
+      params.require(:screen).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :inch, :operational, :reazon, :notes, :screen_id, :Computer_id)
     end
     
     def set_me
-      @screen.User ||= current_user
+      @screen.User_id = current_user.id
+      @screen.save!
     end
 end

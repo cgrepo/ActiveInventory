@@ -1,6 +1,5 @@
 class OfficevsController < ApplicationController
   before_action :set_officev, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /officevs
   # GET /officevs.json
@@ -29,6 +28,7 @@ class OfficevsController < ApplicationController
 
     respond_to do |format|
       if @officev.save
+        set_me
         format.html { redirect_to @officev, notice: 'Officev was successfully created.' }
         format.json { render :show, status: :created, location: @officev }
       else
@@ -43,6 +43,7 @@ class OfficevsController < ApplicationController
   def update
     respond_to do |format|
       if @officev.update(officev_params)
+        set_me
         format.html { redirect_to @officev, notice: 'Officev was successfully updated.' }
         format.json { render :show, status: :ok, location: @officev }
       else
@@ -74,6 +75,7 @@ class OfficevsController < ApplicationController
     end
     
     def set_me
-      @officev.User ||= current_user
+      @officev.User_id = current_user.id
+      @officev.save!
     end
 end

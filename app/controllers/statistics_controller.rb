@@ -1,6 +1,5 @@
 class StatisticsController < ApplicationController
   before_action :set_statistic, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /statistics
   # GET /statistics.json
@@ -29,6 +28,7 @@ class StatisticsController < ApplicationController
 
     respond_to do |format|
       if @statistic.save
+        set_me
         format.html { redirect_to @statistic, notice: 'Estadistica fue creada satisfactoriamente.' }
         format.json { render :show, status: :created, location: @statistic }
       else
@@ -43,6 +43,7 @@ class StatisticsController < ApplicationController
   def update
     respond_to do |format|
       if @statistic.update(statistic_params)
+        set_me
         format.html { redirect_to @statistic, notice: 'Estadistica fue actualizada satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @statistic }
       else
@@ -74,6 +75,7 @@ class StatisticsController < ApplicationController
     end
     
     def set_me
-      @statistic.User ||= current_user
+      @statistic.User_id = current_user.id
+      @statistic.save!
     end
 end

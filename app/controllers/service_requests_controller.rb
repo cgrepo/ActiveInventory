@@ -1,6 +1,5 @@
 class ServiceRequestsController < ApplicationController
   before_action :set_service_request, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /service_requests
   # GET /service_requests.json
@@ -32,7 +31,7 @@ class ServiceRequestsController < ApplicationController
     respond_to do |format|
       set_vars
       if @service_request.save
-        #byebug
+        set_me
         format.html { redirect_to @service_request, notice: 'Solicitud de servicio creada satisfactoriamente.' }
         format.json { render :show, status: :created, location: @service_request }
       else
@@ -47,6 +46,7 @@ class ServiceRequestsController < ApplicationController
   def update
     respond_to do |format|
       if @service_request.update(service_request_params)
+        set_me
         format.html { redirect_to @service_request, notice: 'Solicitud de servicio actualizada satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @service_request }
       else
@@ -67,7 +67,7 @@ class ServiceRequestsController < ApplicationController
   end
   # POULATE 
   def get_dependencies
-    @dependencies = Dependency.where(Delegation:params[:Delegation_id])
+    @dependencies = service_request.where(Delegation:params[:Delegation_id])
     respond_to do |format|
       format.js
     end
@@ -75,11 +75,11 @@ class ServiceRequestsController < ApplicationController
   
   def get_equipments
 
-    @copiers = Copier.where(Dependency:params[:Dependency_id])
-    @printers = Printer.where(Dependency:params[:Dependency_id])
-    @telephones = Telephone.where(Dependency:params[:Dependency_id])
-    @screens = Screen.where(Dependency:params[:Dependency_id])
-    @powers = Power.where(Dependency:params[:Dependency_id])
+    @copiers = Copier.where(service_request:params[:service_request_id])
+    @printers = Printer.where(service_request:params[:service_request_id])
+    @telephones = Telephone.where(service_request:params[:service_request_id])
+    @screens = Screen.where(service_request:params[:service_request_id])
+    @powers = Power.where(service_request:params[:service_request_id])
 
     respond_to do |format|
       format.js
@@ -105,7 +105,7 @@ class ServiceRequestsController < ApplicationController
   private
     
     def set_vars
-      @dependencies = Dependency.all.limit 3
+      @dependencies = service_request.all.limit 3
       @copiers = Copier.all.limit 3
       @printers = Printer.all.limit 3
       @telephones =Telephone.all.limit 3
@@ -138,10 +138,11 @@ class ServiceRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_request_params
-      params.require(:service_request).permit(:idFolio, :kind, :itDiagnosis, :ProviderDiagnosis, :material, :DocumentRequest, :RequestDate, :ExecutionDate, :History, :Delegation_id, :Dependency_id, :Provider_id, :Copier_id, :Printer_id, :Screen_id, :Telephone_id, :Power_id)
+      params.require(:service_request).permit(:idFolio, :kind, :itDiagnosis, :ProviderDiagnosis, :material, :DocumentRequest, :RequestDate, :ExecutionDate, :History, :Delegation_id, :service_request_id, :Provider_id, :Copier_id, :Printer_id, :Screen_id, :Telephone_id, :Power_id)
     end
 
     def set_me
-      @service_request.User ||= current_user
+      @service_request.User_id = current_user.id
+      @service_request.save!
     end
 end

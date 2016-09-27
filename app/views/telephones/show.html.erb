@@ -22,6 +22,15 @@
 
       <p><strong>Numero:</strong>
       <%= @telephone.number %><strong>
+      <% unless @telephone.ip.blank? %>
+        <p><strong>IP:</strong>
+        <%= @telephone.ip  %></p>
+      <% end %>
+
+      <% unless @telephone.mac.blank? %>
+        <p><strong>Mac:</strong>
+        <%= @telephone.mac  %></p>
+      <% end %>
 
       <p><strong>Notas:</strong>
       <%= @telephone.notes %><strong>
@@ -29,8 +38,8 @@
       <p><strong>Dependencia:</strong>
       <%= @telephone.Dependency.name if @telephone.Dependency %><strong>
     </div>
-    <%= render partial:'layouts/user_mod', locals:{:entity => @telephone} %>
   </div>
+  <%= render partial:'layouts/user_mod', locals:{:entity => @telephone} %>
 </div>
 <br>
 <div class="container">

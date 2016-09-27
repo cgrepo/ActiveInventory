@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
-  <div class="row  be-gray">
+<div class="container be-gray">
+  <div class="row">
     <div class="col-xs">
         <p><strong>Numero de Inventario:</strong>
         <%= @printer.ninventary %></p>
@@ -21,8 +21,8 @@
         <p><strong>Dependency:</strong>
         <%= @printer.Dependency.name if  @printer.Dependency %></p>
      </div>
-     <%= render partial:'layouts/user_mod', locals:{:entity => @printer} %>
   </div>
+  <%= render partial:'layouts/user_mod', locals:{:entity => @printer} %>
 </div>
 <div class="container">
   <div class="row">

@@ -1,6 +1,5 @@
 class NetworksController < ApplicationController
   before_action :set_network, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /networks
   # GET /networks.json
@@ -29,6 +28,7 @@ class NetworksController < ApplicationController
 
     respond_to do |format|
       if @network.save
+        set_me
         format.html { redirect_to @network, notice: 'Red fue creada satisfactoriamente.' }
         format.json { render :show, status: :created, location: @network }
       else
@@ -44,6 +44,7 @@ class NetworksController < ApplicationController
     
     respond_to do |format|
       if @network.update(network_params)
+        set_me
         format.html { redirect_to @network, notice: 'Red fue actualizada satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @network }
       else
@@ -75,6 +76,7 @@ class NetworksController < ApplicationController
     end
 
     def set_me
-      @network.User ||= current_user
+      @network.User_id = current_user.id
+      @network.save!
     end
 end

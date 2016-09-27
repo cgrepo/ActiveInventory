@@ -1,6 +1,5 @@
 class WorkersController < ApplicationController
   before_action :set_worker, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /workers
   # GET /workers.json
@@ -30,6 +29,7 @@ class WorkersController < ApplicationController
 
     respond_to do |format|
       if @worker.save
+        set_me
         format.html { redirect_to @worker, notice: 'Usuario creado satisfactoriamente.' }
         format.json { render :show, status: :created, location: @worker }
       else
@@ -44,6 +44,7 @@ class WorkersController < ApplicationController
   def update
     respond_to do |format|
       if @worker.update(worker_params)
+        set_me
         format.html { redirect_to @worker, notice: 'Usuario actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @worker }
       else
@@ -83,6 +84,7 @@ class WorkersController < ApplicationController
     end
     
     def set_me
-      @worker.User ||= current_user
+      @worker.User_id = current_user.id
+      @worker.save!
     end
 end

@@ -1,6 +1,5 @@
 class TelephonesController < ApplicationController
   before_action :set_telephone, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /telephones
   # GET /telephones.json
@@ -29,6 +28,7 @@ class TelephonesController < ApplicationController
 
     respond_to do |format|
       if @telephone.save
+        set_me
         format.html { redirect_to @telephone, notice: 'Telefono fue agreado satisfactoriamente..' }
         format.json { render :show, status: :created, location: @telephone }
       else
@@ -42,7 +42,9 @@ class TelephonesController < ApplicationController
   # PATCH/PUT /telephones/1.json
   def update
     respond_to do |format|
+      check_voip
       if @telephone.update(telephone_params)
+        set_me
         format.html { redirect_to @telephone, notice: 'Telefono fue actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @telephone }
       else
@@ -70,10 +72,17 @@ class TelephonesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def telephone_params
-      params.require(:telephone).permit(:ninventary, :nserie, :brand, :model, :buy_date, :genus, :number, :ip, :mac, :operational, :reazon, :notes, :Dependency_id)
+      params.require(:telephone).permit(:ninventary, :nserie, :brand, :model, :buy_date, :nfactura, :genus, :number, :ip, :mac, :operational, :reazon, :notes, :telephone_id, :Dependency_id)
     end
-    
+
+    def check_voip
+      return if telephone_params[:genus] == "VOIP"
+      telephone_params[:ip].clear
+      telephone_params[:mac].clear
+    end
+
     def set_me
-      @telephone.User ||= current_user
+      @telephone.User_id = current_user.id
+      @telephone.save!
     end
 end

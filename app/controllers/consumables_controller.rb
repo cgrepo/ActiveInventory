@@ -1,6 +1,5 @@
 class ConsumablesController < ApplicationController
   before_action :set_consumable, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /consumables
   # GET /consumables.json
@@ -25,9 +24,12 @@ class ConsumablesController < ApplicationController
   # POST /consumables
   # POST /consumables.json
   def create
+    
     @consumable = Consumable.new(consumable_params)
+    
     respond_to do |format|
       if @consumable.save
+        set_me
         format.html { redirect_to @consumable, notice: 'Consumible fue creado satisfactoriamente.' }
         format.json { render :show, status: :created, location: @consumable }
       else
@@ -42,6 +44,7 @@ class ConsumablesController < ApplicationController
   def update
     respond_to do |format|
       if @consumable.update(consumable_params)
+        set_me
         format.html { redirect_to @consumable, notice: 'Consumible fue actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @consumable }
       else
@@ -69,10 +72,11 @@ class ConsumablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def consumable_params
-      params.require(:consumable).permit(:genus, :model, :Copier_id, :Printer_id)
+      params.require(:consumable).permit(:genus, :model, :Copier_id, :Printer_id, :User_id)
     end
 
     def set_me
-      @consumable.User ||= current_user
+      @consumable.User_id = current_user.id
+      @consumable.save!
     end
 end

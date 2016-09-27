@@ -1,7 +1,5 @@
 class CopiersController < ApplicationController
   before_action :set_copier, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
-  
 
   # GET /copiers
   # GET /copiers.json
@@ -30,6 +28,7 @@ class CopiersController < ApplicationController
     
     respond_to do |format|
       if @copier.save
+        set_me
         format.html { redirect_to @copier, notice: 'Copiadora fue creada satisfactoriamente.' }
         format.json { render :show, status: :created, location: @copier }
       else
@@ -44,6 +43,7 @@ class CopiersController < ApplicationController
   def update
     respond_to do |format|
       if @copier.update(copier_params)
+        set_me
         format.html { redirect_to @copier, notice: 'Copiadora fue actualizada satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @copier }
       else
@@ -75,6 +75,7 @@ class CopiersController < ApplicationController
     end
 
     def set_me
-      @copier.User ||= current_user
+      @copier.User_id = current_user.id
+      @copier.save!
     end
 end

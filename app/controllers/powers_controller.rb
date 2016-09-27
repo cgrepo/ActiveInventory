@@ -1,6 +1,5 @@
 class PowersController < ApplicationController
   before_action :set_power, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
   
   # GET /powers
   # GET /powers.json
@@ -29,6 +28,7 @@ class PowersController < ApplicationController
 
     respond_to do |format|
       if @power.save
+        set_me
         format.html { redirect_to @power, notice: 'Fuente creada satisfactoriamente.' }
         format.json { render :show, status: :created, location: @power }
       else
@@ -43,6 +43,7 @@ class PowersController < ApplicationController
   def update
     respond_to do |format|
       if @power.update(power_params)
+        set_me
         format.html { redirect_to @power, notice: 'Fuente actualizada satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @power }
       else
@@ -74,6 +75,7 @@ class PowersController < ApplicationController
     end
 
     def set_me
-      @power.User ||= current_user
+      @power.User_id = current_user.id
+      @power.save!
     end
 end

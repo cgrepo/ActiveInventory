@@ -1,6 +1,5 @@
 class BrandModelsController < ApplicationController
   before_action :set_brand_model, only: [:show, :edit, :update, :destroy]
-  before_action :set_me, only: [:update, :create]
 
   # GET /brand_models
   # GET /brand_models.json
@@ -28,6 +27,7 @@ class BrandModelsController < ApplicationController
     @brand_model = BrandModel.new(brand_model_params)
     respond_to do |format|
       if @brand_model.save
+        set_me
         format.html { redirect_to @brand_model, notice: 'Brand model was successfully created.' }
         format.json { render :show, status: :created, location: @brand_model }
       else
@@ -42,6 +42,7 @@ class BrandModelsController < ApplicationController
   def update
     respond_to do |format|
       if @brand_model.update(brand_model_params)
+        set_me
         format.html { redirect_to @brand_model, notice: 'Brand model was successfully updated.' }
         format.json { render :show, status: :ok, location: @brand_model }
       else
@@ -73,6 +74,7 @@ class BrandModelsController < ApplicationController
     end
 
     def set_me
-      @brand_model.User ||= current_user
+      @brand_model.User_id = current_user.id
+      @brand_model.save!
     end
 end
