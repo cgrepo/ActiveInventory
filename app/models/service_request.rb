@@ -1,4 +1,5 @@
 class ServiceRequest < ActiveRecord::Base
+
   belongs_to :Delegation
   belongs_to :Dependency
   belongs_to :Provider
@@ -7,7 +8,8 @@ class ServiceRequest < ActiveRecord::Base
   belongs_to :Screen
   belongs_to :Telephone
   belongs_to :Power
-
+  has_one :User
+  
    HUMANIZED_ATTRIBUTES = {
     :kind=> 'Tipo',
     :itDiagnosis => 'Diagnostico TI',

@@ -5,6 +5,9 @@ class Printer < ActiveRecord::Base
   has_many :Consumables
   has_one :statistic
   has_many	:ServiceRequest
+  has_one :User
+  
   include AtLeastOne
+
 end
  
