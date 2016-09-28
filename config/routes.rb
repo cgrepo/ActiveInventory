@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   #get 'sessions/new'
   #get 'sessions/create'
   #get 'sessions/destroy'
+  get 'get_dependencies', to:'welcome#get_dependencies'
   get "goin" => "welcome#index"
   root to: 'welcome#index'
   resources :sessions, only: [:new, :create, :destroy]

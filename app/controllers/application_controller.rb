@@ -5,12 +5,6 @@ class ApplicationController < ActionController::Base
   before_action 	:ensure_login
   helper_method 	:logged_in?, :current_user
   
-  def get_dependencies
-    @dependencies = Dependency.where(Delegation:params[:Delegation_id])
-    respond_to do |format|
-      format.js
-    end
-  end
 
   protected
   def ensure_login
