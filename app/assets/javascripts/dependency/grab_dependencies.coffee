@@ -3,7 +3,7 @@ $(document).on "turbolinks:load", ->
 
 	$('.delegations_collection').on 'change', ->
 		$.ajax
-			url:'/get_dependencies'
+			url:'/bridge_helper/get_dependencies'
 			type:'GET'
 			dataType:'script'
 			data:
