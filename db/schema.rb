@@ -205,10 +205,12 @@ ActiveRecord::Schema.define(version: 20160902205143) do
     t.text     "notes"
     t.integer  "Dependency_id"
     t.integer  "User_id"
+    t.integer  "Delegation_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
 
+  add_index "powers", ["Delegation_id"], name: "index_powers_on_Delegation_id"
   add_index "powers", ["Dependency_id"], name: "index_powers_on_Dependency_id"
   add_index "powers", ["User_id"], name: "index_powers_on_User_id"
 

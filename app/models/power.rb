@@ -5,5 +5,5 @@ class Power < ActiveRecord::Base
   has_one :User
 
   include AtLeastOne
-  
+
 end
