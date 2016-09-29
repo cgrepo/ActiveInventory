@@ -25,19 +25,22 @@
         <%= f.label :'IP Gateway' %><br>
         <%= f.text_field :ip, class:'form-control smfont' %>
       </div>
-      <div class="col-xs-6 col-md-3">
-        <%= f.label :'Nombre_SSID' %><br>
-        <%= f.text_field :ssid_name, class:'form-control smfont' %>
-      </div>
       <div class="col-xs-2 col-md-1">
         <%= f.label :WIFI? %><br>
-        <%= f.check_box :wifirouter %><br>      
+        <%= f.check_box :wifirouter, class:'wifichk' %><br>      
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <div class="ssid">
+          <%= f.label :'Nombre_SSID' %><br>
+          <%= f.text_field :ssid_name, class:'form-control smfont ' %>
+        </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-md-4">       
+      <div class="col-xs-12 col-md-7">       
         <%= f.label :Locacion %><br>
-        <%= f.select :location, [ ['ED. DELEGACION CSL-COMUNICACION SOCIAL'], ['ED. DELEGACION CSL-RECAUDACION'], 
+        <%= f.text_field :location, class:'form-control smfont ' %>
+        <%#= f.select :location, [ ['ED. DELEGACION CSL-COMUNICACION SOCIAL'], ['ED. DELEGACION CSL-RECAUDACION'], 
           ['ED. DELEGACION CSL-DELEGADO'], ['DIF CSL'], ['OFICINAS DESARROLLO URBANO CSL'], ['PROTECCION CIVIL'], 
           ['ALMACEN-CERRO DEL TIMBRE'], ['ZOFEMAT-CERRO DEL TIMBRE'], ['ECOLOGIA-CERRO DEL TIMBRE'], ['JUVENTUD-CERRO DEL TIMBRE'], 
           ['SERVICIOS PUBLICOS CSL'], ['COMANDANCIA CANGREJOS'], ['BIBLIOTECA LOMAS DEL SOL'], ['BIBLIOTECA AMELIA WILKES'], 

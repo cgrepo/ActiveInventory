@@ -1,3 +1,11 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on "turbolinks:load", ->
+	$('.ssid').hide -> 
+
+	###$('.wifichk').click ->
+		alert("HITTED!!!")###
+
+	$('.wifichk').change ->
+		if $('.wifichk').is(':checked')
+			$('.ssid').fadeToggle()
+		else
+			$('.ssid').hide()
