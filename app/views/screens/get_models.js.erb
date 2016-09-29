@@ -1,0 +1,4 @@
+$('.models').empty();
+<% @models.each do |model| %>
+	$('.models').append($('<option value="<%= model.modelx %>"><%= model.modelx %></option>'));
+<% end %>

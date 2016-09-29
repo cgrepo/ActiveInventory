@@ -23,7 +23,11 @@ Rails.application.routes.draw do
     resources :memos
     resources :computer_brands
     resources :processors
-    resources :screens
+    resources :screens do
+        collection do
+            get 'get_models', to:'screens#get_models'
+        end
+    end
     resources :consumables
     resources :copiers
     resources :printers

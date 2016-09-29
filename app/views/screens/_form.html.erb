@@ -25,9 +25,14 @@
         <%= f.text_field :nfactura, class:'form-control smfont' %>
       </div>
       <div class="col-xs col-md-2">
+        <%= f.label :Marca %><br>
+        <%= f.select :brand, BrandModel.select(:brandx).where(description:"MONITOR").uniq.pluck(:brandx),
+        {:include_blank => true }, {class:'btn dropdown-toggle smfont brands'} %>
+      </div>
+      <div class="col-xs col-md-2">
         <%= f.label :Modelo %><br>
         <%= f.collection_select(:model, BrandModel.where(description:"MONITOR"), :modelx, :modelx, 
-        {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
+        {:include_blank => true }, {class:'btn  dropdown-toggle smfont models'} ) %>
       </div>
       <div class="col-xs col-md-2">
         <%= f.label :Pulgadas %><br>
@@ -35,11 +40,7 @@
           {class:'btn  dropdown-toggle smfont'} %>
           <%#= f.text_field :inch %>
       </div>
-      <div class="col-xs col-md-2">
-        <%= f.label :Marca %><br>
-        <%= f.select :brand, BrandModel.select(:brandx).where(description:"MONITOR").uniq.pluck(:brandx),
-        {:include_blank => true }, {class:'btn dropdown-toggle smfont'} %>
-      </div>
+
     </div>
     <div class="row">
       <div class="col-xs col-md-4">       
