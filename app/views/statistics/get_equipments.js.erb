@@ -1,0 +1,33 @@
+$('.copiers4statistics').empty();
+$('.printers4statistics').empty();
+
+<% if @copiers.count > 0 %>
+	$('.copydiv').show();
+	<% @copiers.each do |copier| %>
+		 <% data = '[ ' + copier.brand + ' ]--' %>
+		 <% if copier.ninventary								%>
+		 <%		data += copier.ninventary 				%>
+		 <%	else copier.ninventary							%>
+		 <%		data += copier.nserie							%>
+		 <%	end																	%>
+		$('.copiers4statistics').append($('<option value="<%= copier.id  %>"><%= data %></option>'));
+	<% end %>
+	<% else %>
+		$('.copydiv').hide();
+<% end %>
+
+
+<% if @printers.count > 0 %>
+	$('.printerdiv').show();
+	<% @printers.each do |printer| %>
+		 <% data = '[ ' + printer.brand + ' ]--'%>
+		 <% if printer.ninventary								%>
+		 <%		data += printer.ninventary 				%>
+		 <%	else printer.ninventary							%>
+		 <%		data += printer.nserie						%>
+		 <%	end																	%>
+		$('.printers4statistics').append($('<option value="<%= printer.id  %>"><%= data %></option>'));
+	<% end %>
+<% else %>
+	$('.printerdiv').hide();
+<% end %>

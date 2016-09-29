@@ -67,28 +67,25 @@ class ServiceRequestsController < ApplicationController
   end
 
   # POULATE 
-  def get_dependencies
-    @dependencies = Dependency.where(Delegation:params[:Delegation_id])
+    def get_dependencies
+      @dependencies = Dependency.where(Delegation:params[:Delegation_id])
 
-    respond_to do |format|
-      format.js
+      respond_to do |format|
+        format.js
+      end
     end
-  end
-  
-  def get_equipments
-
-    @copiers = Copier.where(:Dependency => params[:Dependency_id])
-    @printers = Printer.where(:Dependency => params[:Dependency_id])
-    @telephones = Telephone.where(:Dependency => params[:Dependency_id])
-    @screens = Screen.where(:Dependency => params[:Dependency_id])
-    @powers = Power.where(:Dependency => params[:Dependency_id])
     
+    def get_equipments
+      @copiers = Copier.where(:Dependency => params[:Dependency_id])
+      @printers = Printer.where(:Dependency => params[:Dependency_id])
+      @telephones = Telephone.where(:Dependency => params[:Dependency_id])
+      @screens = Screen.where(:Dependency => params[:Dependency_id])
+      @powers = Power.where(:Dependency => params[:Dependency_id])
     
-
-    respond_to do |format|
-      format.js
+      respond_to do |format|
+        format.js
+      end
     end
-  end
   
   def get_pdf
     @service_request = ServiceRequest.find(params[:service_request_id])
@@ -142,11 +139,12 @@ class ServiceRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_request_params
-      params.require(:service_request).permit(:idFolio, :kind, :itDiagnosis, :ProviderDiagnosis, :material, :DocumentRequest, :RequestDate, :ExecutionDate, :History, :Delegation_id, :service_request_id, :Provider_id, :Copier_id, :Printer_id, :Screen_id, :Telephone_id, :Power_id)
+      params.require(:service_request).permit(:idFolio, :kind, :itDiagnosis, :ProviderDiagnosis, :material, :DocumentRequest, :RequestDate, :ExecutionDate, :History, :Delegation_id, :Dependency_id, :service_request_id, :Provider_id, :Copier_id, :Printer_id, :Screen_id, :Telephone_id, :Power_id, :Priority)
     end
 
     def set_me
       @service_request.User_id = current_user.id
       @service_request.save!
     end
+
 end

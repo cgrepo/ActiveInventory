@@ -337,14 +337,18 @@ ActiveRecord::Schema.define(version: 20160902205143) do
     t.string   "month"
     t.integer  "sheets"
     t.integer  "consumable"
+    t.integer  "Delegation_id"
+    t.integer  "Dependency_id"
     t.integer  "Copier_id"
     t.integer  "Printer_id"
     t.integer  "User_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "statistics", ["Copier_id"], name: "index_statistics_on_Copier_id"
+  add_index "statistics", ["Delegation_id"], name: "index_statistics_on_Delegation_id"
+  add_index "statistics", ["Dependency_id"], name: "index_statistics_on_Dependency_id"
   add_index "statistics", ["Printer_id"], name: "index_statistics_on_Printer_id"
   add_index "statistics", ["User_id"], name: "index_statistics_on_User_id"
 

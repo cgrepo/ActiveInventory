@@ -25,7 +25,6 @@ Rails.application.routes.draw do
     resources :processors
     resources :screens
     resources :consumables
-    resources :statistics
     resources :copiers
     resources :printers
     resources :networks
@@ -46,5 +45,12 @@ Rails.application.routes.draw do
         get 'get_equipments', to:'service_requests#get_equipments'
       end
       get 'get_pdf', to:'service_requests#get_pdf'
+    end
+    
+    resources :statistics do
+      collection do
+        get 'get_dependencies', to:'statistics#get_dependencies'
+        get 'get_equipments', to:'statistics#get_equipments'
+      end
     end
   end

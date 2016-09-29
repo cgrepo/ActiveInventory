@@ -2,7 +2,7 @@ class ServiceRequestPdf < Prawn::Document
   def initialize(service_request)
     super() # ojo sin los parentesis marca un error loco !!!!
     #-----------DATA-PARSING-------------------------------------------------------------------------------------------------------------
-	    stroke_axis
+	    #stroke_axis
 	    @service_request = service_request
 	    data = Hash.new
 	    
@@ -43,9 +43,9 @@ class ServiceRequestPdf < Prawn::Document
 			  {:text => "#{pri}" , size:8, style:[:normal],
 			   	font:'Calibri', color:'f90101' },
 			  {:text => " FECHA: " , size:9, style:[:normal], font:'Verdana', color:'b0a8a8' },
-			  {:text => "#{Time.now.strftime("%m/%d/%Y")} " , size:9, style:[:bold], font:'Helvetica' },
+			  {:text => "#{Time.now.strftime("%m/%d/%Y")} " , size:8, style:[:bold], font:'Helvetica' },
 			  {:text => " FOLIO: " , size:9, style:[:normal], font:'Calibri', color:'b0a8a8' },
-			  {:text => " #{@service_request.idFolio}" , size:9, style:[:bold], font:'Verdana' }
+			  {:text => " #{@service_request.idFolio}" , size:8, style:[:bold], font:'Verdana' }
 			], at:[25,600]
 
 			formatted_text_box [

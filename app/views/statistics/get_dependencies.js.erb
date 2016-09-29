@@ -1,0 +1,4 @@
+$('.dependencies4statistics').empty();
+<% @dependencies.each do |dependency| %>
+	$('.dependencies4statistics').append($('<option value="<%= dependency.id %>"><%= dependency.name %></option>'));
+<% end %>

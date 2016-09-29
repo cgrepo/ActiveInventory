@@ -62,6 +62,23 @@ class StatisticsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  # POULATE 
+    def get_dependencies
+      @dependencies = Dependency.where(:Delegation => params[:Delegation_id])
+      respond_to do |format|
+        format.js
+      end
+    end
+    
+    def get_equipments
+      @copiers = Copier.where(:Dependency => params[:Dependency_id])
+      @printers = Printer.where(:Dependency => params[:Dependency_id])
+
+      #byebug
+      respond_to do |format|
+        format.js
+      end
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -77,5 +94,14 @@ class StatisticsController < ApplicationController
     def set_me
       @statistic.User_id = current_user.id
       @statistic.save!
+    end
+
+    def set_vars
+      @dependencies = Dependency.all.limit 3
+      @copiers = Copier.all.limit 3
+      @printers = Printer.all.limit 3
+      @telephones =Telephone.all.limit 3
+      @screens = Screen.all.limit 3
+      @powers = Power.all.limit 3
     end
 end

@@ -4,6 +4,8 @@ class CreateStatistics < ActiveRecord::Migration
       t.string :month
       t.integer :sheets
       t.integer :consumable
+      t.references :Delegation, index: true, foreign_key: true
+      t.references :Dependency, index: true, foreign_key: true
       t.references :Copier, index: true, foreign_key: true
       t.references :Printer, index: true, foreign_key: true
       t.references :User, index: true, foreign_key: true
