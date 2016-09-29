@@ -1,25 +1,24 @@
 $(document).on "turbolinks:load", ->
-	$('.dependencies_collection').empty()
+	$('.dependencies').empty()
 	$('.copiers_collection').empty()
 	$('.printers_collection').empty()
 	$('.screens_collection').empty()
 	$('.telephones_collection').empty()
 	$('.powers_collection').empty()
 
-	$('.delegation_collection').on 'change', ->
+	$('.delegations').on 'change', ->
 		$.ajax
 			url:'/service_requests/get_dependencies'
 			type:'GET'
 			dataType:'script'
 			data:
-				Delegation_id: $('.delegation_collection option:selected').val()
+				Delegation_id: $('.delegations option:selected').val()
 
 
-	$('.dependencies_collection').on 'change', ->
-		#console.log('change')
+	$('.dependencies').on 'change', ->
 		$.ajax
 			url:'/service_requests/get_equipments'
 			type:'GET'
 			dataType:'script'
 			data:
-				Dependency_id: $('.dependencies_collection option:selected').val()
+				Dependency_id: $('.dependencies option:selected').val()

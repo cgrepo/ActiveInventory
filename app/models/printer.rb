@@ -1,7 +1,7 @@
 class Printer < ActiveRecord::Base
-  
-  belongs_to :Network
+	belongs_to :Delegation
   belongs_to :Dependency
+  belongs_to :Network  
   has_many :Consumables
   has_one :statistic
   has_many	:ServiceRequest

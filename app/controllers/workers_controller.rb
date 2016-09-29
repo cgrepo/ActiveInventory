@@ -64,13 +64,6 @@ class WorkersController < ApplicationController
     end
   end
 
-  #POPULATE
-  def get_dependencies
-    @dependencies = Dependency.where(Delegation:params[:Delegation_id])
-    respond_to do |format|
-      format.js
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

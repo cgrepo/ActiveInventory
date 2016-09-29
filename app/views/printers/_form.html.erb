@@ -10,6 +10,7 @@
     </div>
   <% end %>
   <div class="container large-padding be-round_ligth_gray">
+    <%= render partial:'layouts/dd', locals:{:f => f} %>
     <div class="row">
       <div class="col-xs col-md-2">      
         <%= f.label :Inventario %><br>
@@ -28,13 +29,13 @@
         <%= f.select :brand, BrandModel.select(:brandx).where(description:'IMPRESORA').uniq.pluck(:brandx), 
           {:include_blank => true }, {class:'btn  dropdown-toggle smfont'}  %>
       </div>
+    </div>
+    <div class="row">
       <div class="col-xs col-md-3">       
         <%= f.label :Modelo %><br>
         <%= f.collection_select(:model, BrandModel.where(description:"IMPRESORA"), :modelx, :modelx, 
         {:include_blank => true }, {class:'btn dropdown-toggle smfont'} ) %>
       </div>
-    </div>
-    <div class="row">
       <div class="col-xs col-md-2">        
         <%= f.label :Tipo %><br>
         <%= f.select :genus, [ ['Laser Monocromatica'], ['Laser Color'], ['Injeccion de Tinta'], ['Matricial'] ], 
@@ -43,11 +44,6 @@
       <div class="col-xs col-md-3">       
           <%= f.label :Fecha_de_compra %><br>
           <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}, {class:'btn dropdown-toggle smfont'} %>
-      </div>
-      <div class="col-xs col-md-7">
-        <%= f.label :Dependencia %><br>
-        <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true}, 
-          {class:'btn  dropdown-toggle smfont'}) %>
       </div>
     </div>
     <div class="row">

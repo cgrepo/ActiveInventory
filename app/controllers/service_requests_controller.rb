@@ -65,9 +65,11 @@ class ServiceRequestsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
   # POULATE 
   def get_dependencies
-    @dependencies = service_request.where(Delegation:params[:Delegation_id])
+    @dependencies = Dependency.where(Delegation:params[:Delegation_id])
+
     respond_to do |format|
       format.js
     end
@@ -75,11 +77,13 @@ class ServiceRequestsController < ApplicationController
   
   def get_equipments
 
-    @copiers = Copier.where(service_request:params[:service_request_id])
-    @printers = Printer.where(service_request:params[:service_request_id])
-    @telephones = Telephone.where(service_request:params[:service_request_id])
-    @screens = Screen.where(service_request:params[:service_request_id])
-    @powers = Power.where(service_request:params[:service_request_id])
+    @copiers = Copier.where(:Dependency => params[:Dependency_id])
+    @printers = Printer.where(:Dependency => params[:Dependency_id])
+    @telephones = Telephone.where(:Dependency => params[:Dependency_id])
+    @screens = Screen.where(:Dependency => params[:Dependency_id])
+    @powers = Power.where(:Dependency => params[:Dependency_id])
+    
+    
 
     respond_to do |format|
       format.js
@@ -105,7 +109,7 @@ class ServiceRequestsController < ApplicationController
   private
     
     def set_vars
-      @dependencies = service_request.all.limit 3
+      @dependencies = Dependency.all.limit 3
       @copiers = Copier.all.limit 3
       @printers = Printer.all.limit 3
       @telephones =Telephone.all.limit 3

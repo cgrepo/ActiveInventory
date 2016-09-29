@@ -11,6 +11,7 @@
     </div>
   <% end %>
   <div class="container large-padding be-round_ligth_gray">
+    <%= render partial:'layouts/dd', locals:{:f => f} %>
     <div class="row">
       <div class="col-xs col-md-2">
         <%= f.label :Inventario %><br>
@@ -40,21 +41,11 @@
         <%= f.label :Bateria? %><br>
         <%= f.check_box :no_break %>
       </div>
-            <div class="col-xs col-md-6">
-        <%= f.label :Delegacion %><br>
-        <%= f.collection_select(:Delegation_id, Delegation.all, :id, :name, 
-            {:include_blank => true }, {class:'btn  dropdown-toggle smfont delegations_collection'} ) %>
-      </div>
     </div>
     <div class="row">
       <div class="col-xs col-md-3">
         <%= f.label :Compra %><br>
         <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}, {class:'btn dropdown-toggle smfont'} %>
-      </div>
-      <div class="col-xs col-md-4">
-        <%= f.label :Dependencia %><br>
-        <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true},
-          {class:'btn  dropdown-toggle smfont dependencies_collection'} ) %>
       </div>
     </div>
     <div class="row large-padding">

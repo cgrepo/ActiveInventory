@@ -12,6 +12,7 @@
   <% end %>
 
   <div class="container smfont be-round_ligth_gray ">
+    <%= render partial:'layouts/dd', locals:{:f => f} %>
     <div class="row">
       <div class="col-xs col-md-2">
         <%= f.label :Inventario %><br>
@@ -117,11 +118,6 @@
         <%= f.label :Mask_WIFI %><br>
         <%#= f.select :maskwifi, [['255.255.255.0'],['DHCP']], {}, {:class => 'mskwifi', :disabled => 'false'} %>
         <%= f.select :maskwifi, [['255.255.255.0'],['DHCP']], {}, {class:'btn  dropdown-toggle smfont'} %>
-      </div>
-      <div class="col-xs col-md-5">
-        <%= f.label :Dependencia %><br>
-        <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {:include_blank => true}, 
-        {class:'btn  dropdown-toggle smfont'}) %>
       </div>
     </div>
     <div class="row">

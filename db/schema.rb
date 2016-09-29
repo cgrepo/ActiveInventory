@@ -66,10 +66,12 @@ ActiveRecord::Schema.define(version: 20160902205143) do
     t.integer  "Dependency_id"
     t.integer  "Worker_id"
     t.integer  "User_id"
+    t.integer  "Delegation_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
+  add_index "computers", ["Delegation_id"], name: "index_computers_on_Delegation_id"
   add_index "computers", ["Dependency_id"], name: "index_computers_on_Dependency_id"
   add_index "computers", ["Network_id"], name: "index_computers_on_Network_id"
   add_index "computers", ["User_id"], name: "index_computers_on_User_id"
@@ -107,13 +109,15 @@ ActiveRecord::Schema.define(version: 20160902205143) do
     t.boolean  "operational",   default: true
     t.string   "reazon"
     t.text     "notes"
-    t.integer  "Network_id"
+    t.integer  "Delegation_id"
     t.integer  "Dependency_id"
+    t.integer  "Network_id"
     t.integer  "User_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
 
+  add_index "copiers", ["Delegation_id"], name: "index_copiers_on_Delegation_id"
   add_index "copiers", ["Dependency_id"], name: "index_copiers_on_Dependency_id"
   add_index "copiers", ["Network_id"], name: "index_copiers_on_Network_id"
   add_index "copiers", ["User_id"], name: "index_copiers_on_User_id"
@@ -233,13 +237,15 @@ ActiveRecord::Schema.define(version: 20160902205143) do
     t.boolean  "operational",   default: true
     t.string   "reazon"
     t.text     "notes"
-    t.integer  "Network_id"
+    t.integer  "Delegation_id"
     t.integer  "Dependency_id"
+    t.integer  "Network_id"
     t.integer  "User_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
 
+  add_index "printers", ["Delegation_id"], name: "index_printers_on_Delegation_id"
   add_index "printers", ["Dependency_id"], name: "index_printers_on_Dependency_id"
   add_index "printers", ["Network_id"], name: "index_printers_on_Network_id"
   add_index "printers", ["User_id"], name: "index_printers_on_User_id"
@@ -283,11 +289,13 @@ ActiveRecord::Schema.define(version: 20160902205143) do
     t.integer  "Dependency_id"
     t.integer  "Computer_id"
     t.integer  "User_id"
+    t.integer  "Delegation_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   add_index "screens", ["Computer_id"], name: "index_screens_on_Computer_id"
+  add_index "screens", ["Delegation_id"], name: "index_screens_on_Delegation_id"
   add_index "screens", ["Dependency_id"], name: "index_screens_on_Dependency_id"
   add_index "screens", ["User_id"], name: "index_screens_on_User_id"
 
@@ -354,12 +362,14 @@ ActiveRecord::Schema.define(version: 20160902205143) do
     t.boolean  "operational",   default: true
     t.text     "reazon"
     t.text     "notes"
+    t.integer  "Delegation_id"
     t.integer  "Dependency_id"
     t.integer  "User_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
 
+  add_index "telephones", ["Delegation_id"], name: "index_telephones_on_Delegation_id"
   add_index "telephones", ["Dependency_id"], name: "index_telephones_on_Dependency_id"
   add_index "telephones", ["User_id"], name: "index_telephones_on_User_id"
 

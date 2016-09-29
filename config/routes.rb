@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     #get 'sessions/create'
     #get 'sessions/destroy' 
     get 'bridge_helper/get_dependencies'
-    get 'get_dependencies', to:'welcome#get_dependencies'
+    #get 'get_dependencies', to:'welcome#get_dependencies'
     #get "goin" => "welcome#index"
     #get 'reports/index'
     get 'reports/index'

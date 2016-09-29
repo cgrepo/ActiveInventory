@@ -14,7 +14,8 @@ class CreateScreens < ActiveRecord::Migration
       t.references :Dependency, index: true, foreign_key: true
       t.references :Computer, index: true, foreign_key: true
       t.references :User, index: true, foreign_key: true
-
+      t.references :Delegation, index: true, foreign_key: true
+      
       t.timestamps null: false
     end
   end

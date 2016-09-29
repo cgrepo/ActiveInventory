@@ -18,8 +18,9 @@ class CreateCopiers < ActiveRecord::Migration
       t.boolean :operational, :default => true
       t.string :reazon
       t.text :notes
-      t.references :Network, index: true, foreign_key: true
+      t.references :Delegation, index: true, foreign_key: true
       t.references :Dependency, index: true, foreign_key: true
+      t.references :Network, index: true, foreign_key: true      
       t.references :User, index: true, foreign_key: true
 
       t.timestamps null: false

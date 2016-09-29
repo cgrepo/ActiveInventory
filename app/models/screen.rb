@@ -1,5 +1,6 @@
 class Screen < ActiveRecord::Base
 
+	belongs_to :Delegation
   belongs_to :Dependency
   belongs_to :Computer
   has_many	:ServiceRequest

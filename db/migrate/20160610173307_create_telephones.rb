@@ -14,6 +14,7 @@ class CreateTelephones < ActiveRecord::Migration
       t.boolean :operational, :default => true
       t.text :reazon
       t.text :notes
+      t.references :Delegation, index: true, foreign_key: true
       t.references :Dependency, index: true, foreign_key: true
       t.references :User, index: true, foreign_key: true
 
