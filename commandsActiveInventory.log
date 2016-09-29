@@ -43,6 +43,24 @@ heroku apps:delete activeinventory --confirm activeinventory
 heroku apps:create activeinventory
 git push heroku master
 heroku run rake db:seed
+heroku run bash
+heroku pg:info
+heroku pg:reset postgresql-concave-57019
+
+for some reason when change the local schemma something go wrong and the normal reset:migrate doest not work so first
+on heroku run bash
+$ rake db:reset
+$ rake db:migrate
+$ rake db:reset
+works fine!!!
+
+but when doing this we have date so lets try to see if i can redo some versions
+affected tables copiers, printer, providers, 
+when i try to redo it complain the same things
+??????
+
+so the steps are in bash reload the db rake db:reset
+but the seed file has to be all commented out if not it tries to run it and then it says FUCK U MEN !!!!
 
 u.update(password:"")
 Network.all.pluck :location
