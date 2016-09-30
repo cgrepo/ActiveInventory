@@ -3,8 +3,9 @@ $(document).on "turbolinks:load", ->
 
 	$('.brands').on 'change', ->
 		$.ajax
-			url:'/screens/get_models'
+			url:'/bridge_helper/get_models'
 			type:'GET'
 			dataType:'script'
 			data:
-				brand: $('.brands option:selected').val()
+				brand: $('.brands option:selected').val(),
+				genus: 'MONITOR'

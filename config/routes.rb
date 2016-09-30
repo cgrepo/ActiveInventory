@@ -4,7 +4,13 @@ Rails.application.routes.draw do
     #get 'sessions/new'
     #get 'sessions/create'
     #get 'sessions/destroy' 
-    get 'bridge_helper/get_dependencies'
+    #get 'bridge_helper/get_dependencies' #WORKING!!!
+    resources :bridge_helper do
+        collection do
+            get 'get_models', to:'bridge_helper#get_models'
+            get 'get_dependencies', to:'bridge_helper#get_dependencies'
+        end
+    end
     #get 'get_dependencies', to:'welcome#get_dependencies'
     #get "goin" => "welcome#index"
     #get 'reports/index'
@@ -23,11 +29,12 @@ Rails.application.routes.draw do
     resources :memos
     resources :computer_brands
     resources :processors
-    resources :screens do
-        collection do
-            get 'get_models', to:'screens#get_models'
-        end
-    end
+    resources :screens
+    #  do
+    #     collection do
+    #         get 'get_models', to:'screens#get_models'
+    #     end
+    # end
     resources :consumables
     resources :copiers
     resources :printers

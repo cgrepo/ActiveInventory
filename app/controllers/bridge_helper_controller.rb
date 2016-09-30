@@ -5,4 +5,12 @@ class BridgeHelperController < ApplicationController
       format.js
     end
   end
+	
+	def get_models
+    @models = BrandModel.where(description:params[:genus]).where(:brandx => params[:brand]) 
+    respond_to do |format|
+      format.js
+    end
+  end
+
 end
