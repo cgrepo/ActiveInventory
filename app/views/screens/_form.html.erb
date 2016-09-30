@@ -27,12 +27,12 @@
       <div class="col-xs col-md-2">
         <%= f.label :Marca %><br>
         <%= f.select :brand, BrandModel.select(:brandx).where(description:"MONITOR").uniq.pluck(:brandx),
-        {:include_blank => true }, {class:'btn dropdown-toggle smfont brands'} %>
+        {:include_blank => true }, {class:'btn dropdown-toggle smfont brands4screen'} %>
       </div>
       <div class="col-xs col-md-2">
         <%= f.label :Modelo %><br>
         <%= f.collection_select(:model, BrandModel.where(description:"MONITOR"), :modelx, :modelx, 
-        {:include_blank => true }, {class:'btn  dropdown-toggle smfont models'} ) %>
+        {:include_blank => true }, {class:'btn  dropdown-toggle smfont models4screen'} ) %>
       </div>
       <div class="col-xs col-md-2">
         <%= f.label :Pulgadas %><br>

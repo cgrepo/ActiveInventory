@@ -22,9 +22,9 @@
         <%= f.text_field :nserie, class:'form-control smfont' %>
       </div>
       <div class="col-xs-4 col-md-2">        
-        <%= f.label :Modelo %><br>
-        <%= f.collection_select(:model, BrandModel.where(description:"TELEFONO"), :modelx, :modelx, 
-        {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
+        <%= f.label :Marca %><br> 
+        <%= f.collection_select(:brand, BrandModel.where(description:"TELEFONO").group([:id,:brandx]).order(:brandx), :brandx, :brandx, 
+          {:include_blank => true }, {class:'btn  dropdown-toggle smfont brands4tel'} ) %>
       </div>
     </div>
     <div class="row">
@@ -33,9 +33,9 @@
         <%= f.text_field :number, class:'form-control smfont' %>
       </div>
       <div class="col-xs-4 col-md-2">        
-        <%= f.label :Marca %><br> 
-        <%= f.collection_select(:brand, BrandModel.where(description:"TELEFONO").group([:id,:brandx]).order(:brandx), :brandx, :brandx, 
-          {:include_blank => true }, {class:'btn  dropdown-toggle smfont'} ) %>
+        <%= f.label :Modelo %><br>
+        <%= f.collection_select(:model, BrandModel.where(description:"TELEFONO"), :modelx, :modelx, 
+        {:include_blank => true }, {class:'btn  dropdown-toggle smfont models4tel'} ) %>
       </div>
       <div class="col-xs-4 col-md-2">        
         <%= f.label :Tipo %><br>

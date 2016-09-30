@@ -62,13 +62,6 @@ class ScreensController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  def get_models
-    @models = BrandModel.where(description:"MONITOR").where(:brandx => params[:brand]) 
-    respond_to do |format|
-      format.js
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

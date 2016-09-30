@@ -39,13 +39,13 @@
       <div class="col-xs col-md-2">
         <%= f.label :Marca %><br>
         <%= f.collection_select(:brand, BrandModel.where(description:"COMPUTADORA").group([:id,:brandx]), :brandx, :brandx, 
-        {:include_blank => true }, {class:'btn  dropdown-toggle '} ) %>
+        {:include_blank => true }, {class:'btn  dropdown-toggle brands4pc'} ) %>
       </div>
       <div class="col-xs col-md-2">
         <%= f.label :Modelo %><br>
         <%#= f.text_field :model, class:'form-control textbdy' %>
         <%= f.collection_select(:model, BrandModel.where(description:'COMPUTADORA').where("modelx != ''"), :modelx, :modelx, 
-        {:include_blank => true }, {class:'btn  dropdown-toggle '} ) %>
+        {:include_blank => true }, {class:'btn  dropdown-toggle models4pc'} ) %>
       </div>
       <div class="col-xs col-md-2">
         <%= f.label :Tipo %><br>  

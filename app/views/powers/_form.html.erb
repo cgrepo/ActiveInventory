@@ -24,14 +24,14 @@
       <div class="col-xs col-md-3">
         <%= f.label :Marca %><br>
         <%= f.select :brand, BrandModel.select(:brandx).where(description:"REGULADOR/UPS").uniq.pluck(:brandx),
-        {:include_blank => true }, {class:'btn dropdown-toggle smfont'} %>
+        {:include_blank => true }, {class:'btn dropdown-toggle smfont brands4ups'} %>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-4 col-md-2">        
         <%= f.label :Modelo %><br>
         <%= f.collection_select(:model, BrandModel.where(description:"REGULADOR/UPS"), :modelx, :modelx, 
-        {:include_blank => true }, {class:'btn dropdown-toggle smfont'} ) %>
+        {:include_blank => true }, {class:'btn dropdown-toggle smfont models4ups'} ) %>
       </div>
       <div class="col-xs-4 col-md-3">
         <%= f.label :Factura %><br>

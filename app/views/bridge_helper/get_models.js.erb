@@ -1,4 +1,32 @@
-$('.models').empty();
-<% @models.each do |model| %>
-	$('.models').append($('<option value="<%= model.modelx %>"><%= model.modelx %></option>'));
+<% case params[:genus] %>
+<% when 'MONITOR' %>
+	$('.models4screen').empty();
+	<% @models.each do |model| %>
+		$('.models4screen').append($('<option value="<%= model.modelx %>"><%= model.modelx %></option>'));
+	<% end %>
+<% when 'COMPUTADORA' %>
+		$('.models4pc').empty();
+	<% @models.each do |model| %>
+		$('.models4pc').append($('<option value="<%= model.modelx %>"><%= model.modelx %></option>'));
+	<% end %>
+<% when 'REGULADOR/UPS' %>
+		$('.models4ups').empty();
+	<% @models.each do |model| %>
+		$('.models4ups').append($('<option value="<%= model.modelx %>"><%= model.modelx %></option>'));
+	<% end %>
+<% when 'IMPRESORA' %>
+		$('.models4printer').empty();
+	<% @models.each do |model| %>
+		$('.models4printer').append($('<option value="<%= model.modelx %>"><%= model.modelx %></option>'));
+	<% end %>
+<% when 'COPIADORA' %>
+		$('.models4copier').empty();
+	<% @models.each do |model| %>
+		$('.models4copier').append($('<option value="<%= model.modelx %>"><%= model.modelx %></option>'));
+	<% end %>
+<% when 'TELEFONO' %>
+		$('.models4tel').empty();
+	<% @models.each do |model| %>
+		$('.models4tel').append($('<option value="<%= model.modelx %>"><%= model.modelx %></option>'));
+	<% end %>
 <% end %>

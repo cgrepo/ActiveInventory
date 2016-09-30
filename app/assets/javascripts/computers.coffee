@@ -1,3 +1,11 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on "turbolinks:load", ->
+	$('.models4pc').empty()
+
+	$('.brands4pc').on 'change', ->
+		$.ajax
+			url:'/bridge_helper/get_models'
+			type:'GET'
+			dataType:'script'
+			data:
+				brand: $('.brands4pc option:selected').val(),
+				genus: 'COMPUTADORA'

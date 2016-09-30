@@ -1,11 +1,11 @@
 $(document).on "turbolinks:load", ->
-	$('.models').empty()
+	$('.models4screen').empty()
 
-	$('.brands').on 'change', ->
+	$('.brands4screen').on 'change', ->
 		$.ajax
 			url:'/bridge_helper/get_models'
 			type:'GET'
 			dataType:'script'
 			data:
-				brand: $('.brands option:selected').val(),
+				brand: $('.brands4screen option:selected').val(),
 				genus: 'MONITOR'
