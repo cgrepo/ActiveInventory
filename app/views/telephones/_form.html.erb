@@ -53,14 +53,6 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-10 col-md-5">        
-        <%= f.label :Dependencia %><br>
-        <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true}, 
-          {class:'btn  dropdown-toggle smfont'} ) %><br>
-                 
-      </div>
-    </div>
-    <div class="row">
       <div class="net">
         <div class="col-xs-5 col-md-2">
           <%= f.label :Ip %><br>

@@ -2,6 +2,12 @@
 <div class="container be-gray ">
   <div class="row">
     <div class="col-xs-12 col-md-12">
+      <p><strong>Delegacion</strong><br>
+        <%= @statistic.Delegation.name if @statistic.Delegation %></p>
+     
+      <p><strong>Dependencia</strong><br>
+        <%= @statistic.Dependency.name if @statistic.Dependency %></p>
+     
       <p><strong>Mes:</strong>
       <%= @statistic.month %></p>
      

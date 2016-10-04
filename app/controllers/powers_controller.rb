@@ -71,7 +71,7 @@ class PowersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def power_params
-      params.require(:power).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :no_break, :operational, :reazon, :notes, :Dependency_id)
+      params.require(:power).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :no_break, :operational, :reazon, :notes, :Delegation_id, :Dependency_id)
     end
 
     def set_me

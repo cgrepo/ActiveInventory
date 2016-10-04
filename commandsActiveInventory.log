@@ -99,3 +99,24 @@ deshabilitar un collection_select
 #	$('.dependencies_collection').append($('<option value="<%=dependency.id %><%=dependencies.name %></option>"'));
 #<% end %>
 t.references :User, index: true, foreign_key: true
+
+
+
+				alert('SHOW CON')
+		###	else
+				alert('SHOW CON')		
+		else
+			$('.pwifi').hide()
+			$('.pnet-con').hide()###
+
+###	$('.chknet').change ->
+		if $('.chknet').is(':checked')
+			$('.pnet').fadeToggle()
+			$('.pnet-con').fadeToggle()
+		else
+			$('.pnet').hide()
+			$('.pnet-con').hide() ###
+
+
+	###$('.pwifi').fadeToggle()
+				$('.pnet-con').fadeToggle()###

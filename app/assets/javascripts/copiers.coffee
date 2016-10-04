@@ -1,5 +1,8 @@
 $(document).on "turbolinks:load", ->
 	$('.models4copier').empty()
+	$('.cwifi').hide()
+	$('.cnet').hide()
+	$('.cnet-con').hide()
 
 	$('.brands4copier').on 'change', ->
 		$.ajax
@@ -9,3 +12,41 @@ $(document).on "turbolinks:load", ->
 			data:
 				brand: $('.brands4copier option:selected').val(),
 				genus: 'COPIADORA'
+
+	$('.chkwific').change ->
+		wi = $('.chkwific').is(':checked')
+		net = $('.chknetc').is(':checked')
+		if wi
+			$('.cwifi').show()
+			$('.cnet-con').show()
+			if net				
+				$('.cnet').show()
+			else
+				$('.cnet').hide()
+		else
+			$('.cwifi').hide()
+			if net
+				$('.cnet').show()
+				$('.cnet-con').show()
+			else
+				$('.cnet').hide()
+				$('.cnet-con').hide()
+
+	$('.chknetc').change ->
+		wi = $('.chkwific').is(':checked')
+		net = $('.chknetc').is(':checked')
+		if net
+			$('.cnet').show()
+			$('.cnet-con').show()
+			if wi		
+				$('.cwifi').show()
+			else
+				$('.cwifi').hide()
+		else
+			$('.cnet').hide()
+			if wi
+				$('.cwifi').show()
+				$('.cnet-con').show()
+			else
+				$('.cwife').hide()
+				$('.cnet-con').hide()

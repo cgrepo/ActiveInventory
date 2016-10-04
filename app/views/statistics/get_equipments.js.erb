@@ -3,6 +3,7 @@ $('.printers4statistics').empty();
 
 <% if @copiers.count > 0 %>
 	$('.copydiv').show();
+	$('.copiers4statistics').append($('<option value=""></option>'));
 	<% @copiers.each do |copier| %>
 		 <% data = '[ ' + copier.brand + ' ]--' %>
 		 <% if copier.ninventary								%>
@@ -19,6 +20,7 @@ $('.printers4statistics').empty();
 
 <% if @printers.count > 0 %>
 	$('.printerdiv').show();
+	$('.printers4statistics').append($('<option value=""></option>'));
 	<% @printers.each do |printer| %>
 		 <% data = '[ ' + printer.brand + ' ]--'%>
 		 <% if printer.ninventary								%>

@@ -26,7 +26,7 @@ class WorkersController < ApplicationController
   # POST /workers.json
   def create
     @worker = Worker.new(worker_params)
-
+    
     respond_to do |format|
       if @worker.save
         set_me

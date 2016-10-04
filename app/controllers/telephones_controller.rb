@@ -72,7 +72,7 @@ class TelephonesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def telephone_params
-      params.require(:telephone).permit(:ninventary, :nserie, :brand, :model, :buy_date, :nfactura, :genus, :number, :ip, :mac, :operational, :reazon, :notes, :telephone_id, :Dependency_id)
+      params.require(:telephone).permit(:ninventary, :nserie, :brand, :model, :buy_date, :nfactura, :genus, :number, :ip, :mac, :operational, :reazon, :notes, :Dependency_id, :Delegation_id)
     end
 
     def check_voip

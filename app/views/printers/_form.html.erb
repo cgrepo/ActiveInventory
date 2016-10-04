@@ -47,6 +47,55 @@
       </div>
     </div>
     <div class="row">
+      <div class="col-xs col-md-1">
+        <%= f.label :WIFI? %><br>
+        <%= f.check_box :wifi, class:'chkwifip' %>
+      </div>
+      <div class="pwifi">
+        <div class="col-xs col-md-2">
+          <%= f.label :Mac_WIFI %><br>
+          <%= f.text_field :wifi_mac, placeholder:'00-00-00-00-00-00', class:'form-control smfont' %>
+        </div>
+        <div class="col-xs col-md-2">
+          <%= f.label :IP_WIFI %><br>
+          <%= f.text_field :wifi_ip, placeholder:'000.000.000.000',  class:'form-control smfont' %>
+        </div>
+        <div class="col-xs col-md-2">
+          <%= f.label :MASK_WIFI %><br>
+          <%= f.text_field :wifi_mask, placeholder:'255.255.255.255', class:'form-control smfont' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs col-md-1">
+        <%= f.label :NETWORK? %><br>
+        <%= f.check_box :net, class:'chknetp' %>
+      </div>
+      <div class="pnet">
+        <div class="col-xs col-md-2">
+          <%= f.label :Mac_WIFI %><br>
+          <%= f.text_field :net_mac, placeholder:'00-00-00-00-00-00', class:'form-control smfont' %>
+        </div>
+        <div class="col-xs col-md-2">
+          <%= f.label :IP_WIFI %><br>
+          <%= f.text_field :net_ip, placeholder:'000.000.000.000',  class:'form-control smfont' %>
+        </div>
+        <div class="col-xs col-md-2">
+          <%= f.label :MASK_WIFI %><br>
+          <%= f.text_field :net_mask, placeholder:'255.255.255.255', class:'form-control smfont' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="pnet-con">
+        <div class="col-xs col-md-8">
+          <%= f.label 'RED' %><br>
+          <%= f.collection_select(:Network_id, Network.all, :id, :location, {:include_blank => true}, 
+          {class:'btn  dropdown-toggle smfont'} ) %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-xs-12 col-md-4">
         <%= f.label :Notas %><br>
         <%= f.text_area :notes, size:"50x2", class:'form-control smfont' %>

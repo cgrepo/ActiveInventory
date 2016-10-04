@@ -19,7 +19,28 @@
      
       <p><strong>Fecha compra:</strong>
       <%= @copier.buy_date %></p>
-
+        <% if @copier.net %>
+          <p><strong>DATOS LAN</strong></p>
+          <p>
+            <strong>MAC:</strong>
+            <%= @copier.net_mac %><br>
+            <strong>IP</strong>
+            <%= @copier.net_ip %><br>
+            <strong>MASK</strong>
+            <%= @copier.net_mask %>
+          </p>
+        <% end %>
+        <% if @copier.wifi %>
+          <p><strong>DATOS WIFI</strong></p>
+          <p>
+            <strong>MAC:</strong>
+            <%= @copier.wifi_mac %><br>
+            <strong>IP</strong>
+            <%= @copier.wifi_ip %><br>
+            <strong>MASK</strong>
+            <%= @copier.wifi_mask %>
+          </p>
+        <% end %>
       <p><strong>Notas:</strong>
       <%= @copier.notes %></p>
 

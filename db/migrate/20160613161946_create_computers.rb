@@ -19,12 +19,12 @@ class CreateComputers < ActiveRecord::Migration
       t.string  :name
       t.string  :workgroup
       t.boolean :wifi
-      t.string  :maclan
-      t.string  :iplan
-      t.string  :masklan
       t.string  :macwifi
       t.string  :ipwifi
       t.string  :maskwifi
+      t.string  :maclan
+      t.string  :iplan
+      t.string  :masklan
       t.boolean :operational
       t.text    :reazon
       t.text    :notes

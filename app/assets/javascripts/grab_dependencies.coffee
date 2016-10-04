@@ -1,6 +1,5 @@
 $(document).on "turbolinks:load", ->
-	$('.dependencies_collection').empty()
-
+	
 	$('.delegations_collection').on 'change', ->
 		$.ajax
 			url:'/bridge_helper/get_dependencies'

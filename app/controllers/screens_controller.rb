@@ -71,7 +71,7 @@ class ScreensController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def screen_params
-      params.require(:screen).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :inch, :operational, :reazon, :notes, :screen_id, :Computer_id)
+      params.require(:screen).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :inch, :operational, :reazon, :notes, :screen_id, :Computer_id, :Delegation_id, :Dependency_id )
     end
     
     def set_me

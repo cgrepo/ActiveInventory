@@ -1,5 +1,8 @@
 $(document).on "turbolinks:load", ->
 	$('.models4printer').empty()
+	$('.pwifi').hide()
+	$('.pnet').hide()
+	$('.pnet-con').hide()
 
 	$('.brands4printer').on 'change', ->
 		$.ajax
@@ -9,3 +12,41 @@ $(document).on "turbolinks:load", ->
 			data:
 				brand: $('.brands4printer option:selected').val(),
 				genus: 'IMPRESORA'
+
+	$('.chkwifip').change ->
+		w = $('.chkwifip').is(':checked')
+		n = $('.chknetp').is(':checked')
+		if w
+			$('.pwifi').show()
+			$('.pnet-con').show()
+			if n				
+				$('.pnet').show()
+			else
+				$('.pnet').hide()
+		else
+			$('.pwifi').hide()
+			if n
+				$('.pnet').show()
+				$('.pnet-con').show()
+			else
+				$('.pnet').hide()
+				$('.pnet-con').hide()
+
+	$('.chknetp').change ->
+		w = $('.chkwifip').is(':checked')
+		n = $('.chknetp').is(':checked')
+		if n
+			$('.pnet').show()
+			$('.pnet-con').show()
+			if w		
+				$('.pwifi').show()
+			else
+				$('.pwifi').hide()
+		else
+			$('.pnet').hide()
+			if w
+				$('.pwifi').show()
+				$('.pnet-con').show()
+			else
+				$('.pwife').hide()
+				$('.pnet-con').hide()

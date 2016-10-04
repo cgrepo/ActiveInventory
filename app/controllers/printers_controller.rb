@@ -71,7 +71,9 @@ class PrintersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def printer_params
-      params.require(:printer).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :genus, :operational, :reazon, :notes, :printer_id)
+      params.require(:printer).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :genus, :operational, :reazon, :notes, 
+                                      :net, :net_mac, :net_ip, :net_mask, :wifi, :wifi_mac, :wifi_ip, :wifi_mask,
+                                      :Network_id, :Delegation_id, :Dependency_id)
     end
     
     def set_me

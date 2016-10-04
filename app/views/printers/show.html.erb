@@ -16,10 +16,33 @@
         <%= @printer.buy_date %></p>
         <p><strong>Tipo Impresora:</strong>
         <%= @printer.genus %></p>
+        <% if @printer.net %>
+          <p><strong>DATOS LAN</strong></p>
+          <p>
+            <strong>MAC:</strong>
+            <%= @printer.net_mac %><br>
+            <strong>IP</strong>
+            <%= @printer.net_ip %><br>
+            <strong>MASK</strong>
+            <%= @printer.net_mask %>
+          </p>
+        <% end %>
+        <% if @printer.wifi %>
+          <p><strong>DATOS WIFI</strong></p>
+          <p>
+            <strong>MAC:</strong>
+            <%= @printer.wifi_mac %><br>
+            <strong>IP</strong>
+            <%= @printer.wifi_ip %><br>
+            <strong>MASK</strong>
+            <%= @printer.wifi_mask %>
+          </p>
+        <% end %>
         <p><strong>Notas:</strong>
         <%= @printer.notes %></p>
-        <p><strong>Dependency:</strong>
+        <p><strong>Dependencia:</strong>
         <%= @printer.Dependency.name if  @printer.Dependency %></p>
+
      </div>
   </div>
   <%= render partial:'layouts/user_mod', locals:{:entity => @printer} %>

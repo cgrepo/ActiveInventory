@@ -70,7 +70,7 @@ class ComputersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def computer_params
-      params.require(:computer).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :genus, :processor, :hd, :memory, :bluetooth, :macbluetooth ,:os, :voffice, :users, :name, :workgroup, :wifi, :maclan, :iplan, :masklan, :macwifi, :ipwifi, :maskwifi, :operational, :reazon, :notes, :Network_id, :Dependency_id, :Worker_id)
+      params.require(:computer).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :genus, :processor, :hd, :memory, :bluetooth, :macbluetooth ,:os, :voffice, :users, :name, :workgroup, :wifi, :maclan, :iplan, :masklan, :macwifi, :ipwifi, :maskwifi, :operational, :reazon, :notes, :Network_id, :Delegation_id, :Dependency_id, :Worker_id)
     end
 
     def set_me

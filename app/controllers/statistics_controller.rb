@@ -42,6 +42,7 @@ class StatisticsController < ApplicationController
   # PATCH/PUT /statistics/1.json
   def update
     respond_to do |format|
+      byebug
       if @statistic.update(statistic_params)
         set_me
         format.html { redirect_to @statistic, notice: 'Estadistica fue actualizada satisfactoriamente.' }
@@ -62,6 +63,7 @@ class StatisticsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
   # POULATE 
     def get_dependencies
       @dependencies = Dependency.where(:Delegation => params[:Delegation_id])
@@ -88,7 +90,7 @@ class StatisticsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def statistic_params
-      params.require(:statistic).permit(:month, :sheets, :consumable, :Copier_id, :Printer_id)
+      params.require(:statistic).permit(:month, :sheets, :consumable, :Delegation_id, :Dependency_id, :Copier_id, :Printer_id)
     end
     
     def set_me
