@@ -21,21 +21,27 @@
         <th>Mes de Toma</th>
         <th>Hojas Usadas</th>
         <th>Consumible</th>
+        <th>Delegacion</th>
+        <th>Dependencia</th>
         <th>Equipo</th>
-        <th></th>
+        <th colspan='3'></th>
       </thead>
       <tbody>
         <% @statistics.each do |statistic| %>
           <tr>
             <td> <%= statistic.month %></td>
-            <td> <%= statistic.sheets %></td>
-            <td> <%= statistic.consumable %></td>
+            <td align='center'> <%= statistic.sheets %></td>
+            <td align='center'> <%= statistic.consumable %></td>
+            <td align='rigth'> <%= statistic.Delegation.name %></td>
+            <td > <%= statistic.Dependency.name %></td>
             <td>
               <% if statistic.Copier %>                
-                <%= statistic.Copier %>
+                <strong>COPIADORA</strong>
+                <%= statistic.Copier.model %>
               <% end %>
-              <% if statistic.Printer %> 
-                <%= statistic.Printer %>
+              <% if statistic.Printer %>
+                <strong>IMPRESORA</strong>
+                <%= statistic.Printer.model %>
               <% end %>
             </td>
             <td>

@@ -44,7 +44,7 @@
       </div>
       <div class="col-xs-4 col-md-2 copydiv">        
         <%= f.label :Copiadora %><br>
-        <%= f.collection_select(:Printer_id, Copier.all.limit(1), :id, :ninventary, {include_blank: true},
+        <%= f.collection_select(:Copier_id, Copier.all.limit(1), :id, :ninventary, {include_blank: true},
         class:'btn dropdown-toggle smfont copiers4statistics') %>
       </div>
     </div>

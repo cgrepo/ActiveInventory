@@ -9,16 +9,14 @@ class Statistic < ActiveRecord::Base
   HUMANIZED_ATTRIBUTES = { 
   	:Delegation_id => 'Delegacion',
   	:Dependency_id => 'Dependencia',
-  	:month => 'Mes',
-  	:Copier_id => 'Copiadora',
-  	:Printer_id => 'Impresora'
+  	:month => 'Mes'
   }
   def self.human_attribute_name(attr, options = {})
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
   end
 
-  validates :Delegation_id, :Dependency_id, :Copier_id, :month, presence: { message: "no puede estar en blanco" }
-  validate :check_fields
+  validates :Delegation_id, :Dependency_id, :month, presence: { message: "no puede estar en blanco" }
+  validate :check_equips
 
   def check_fields
    	errors.add(:base, 'Debe tener un numero de hojas o consumibles') if self.sheets.blank? and self.consumable.blank?
