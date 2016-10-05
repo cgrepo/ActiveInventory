@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 
@@ -36,6 +37,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-turbolinks'
 gem 'prawn'
 gem 'responders'
+gem 'filterrific'
 
 group :production do
  gem 'pg'
@@ -50,5 +52,5 @@ group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'sqlite3'
-  gem 'filterrific'
+  
 end
