@@ -11,4 +11,5 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 #http://stackoverflow.com/questions/30564598/specify-a-style-sheet-in-ruby-on-rails
 Rails.application.config.assets.precompile += %w( sessions.scss )
-Rails.application.config.assets.precompile += %w( reports.scss flexboxgrid)
+Rails.application.config.assets.precompile += %w( reports.scss )
+Rails.application.config.assets.precompile += %w( filterrific/filterrific-spinner.gif )

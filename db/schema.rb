@@ -53,13 +53,13 @@ ActiveRecord::Schema.define(version: 20160902205143) do
     t.string   "name"
     t.string   "workgroup"
     t.boolean  "wifi"
-    t.string   "maclan"
-    t.string   "iplan"
-    t.string   "masklan"
     t.string   "macwifi"
     t.string   "ipwifi"
     t.string   "maskwifi"
-    t.boolean  "operational"
+    t.string   "maclan"
+    t.string   "iplan"
+    t.string   "masklan"
+    t.boolean  "operational",   default: true
     t.text     "reazon"
     t.text     "notes"
     t.integer  "Network_id"
@@ -67,8 +67,8 @@ ActiveRecord::Schema.define(version: 20160902205143) do
     t.integer  "Worker_id"
     t.integer  "User_id"
     t.integer  "Delegation_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "computers", ["Delegation_id"], name: "index_computers_on_Delegation_id"
@@ -283,15 +283,15 @@ ActiveRecord::Schema.define(version: 20160902205143) do
     t.string   "nfactura"
     t.date     "buy_date"
     t.float    "inch"
-    t.boolean  "operational"
+    t.boolean  "operational",   default: true
     t.text     "reazon"
     t.text     "notes"
     t.integer  "Dependency_id"
     t.integer  "Computer_id"
     t.integer  "User_id"
     t.integer  "Delegation_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "screens", ["Computer_id"], name: "index_screens_on_Computer_id"

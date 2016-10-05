@@ -8,7 +8,7 @@ class CreateScreens < ActiveRecord::Migration
       t.string :nfactura
       t.date :buy_date
       t.float :inch
-      t.boolean :operational
+      t.boolean :operational, :default => true
       t.text :reazon
       t.text :notes
       t.references :Dependency, index: true, foreign_key: true

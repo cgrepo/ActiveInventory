@@ -4,7 +4,8 @@ class ComputersController < ApplicationController
   # GET /computers
   # GET /computers.json
   def index
-    @computers = Computer.all.order(:name).paginate(page: params[:page], per_page: 10 )
+    @computers = Computer.all.where(operational: true).order(:name).paginate(page: params[:page], per_page: 10 )
+    #@computers = Computer.all.order(:name).paginate(page: params[:page], per_page: 10 ) ORIGINAL
   end
 
   # GET /computers/1
@@ -55,7 +56,9 @@ class ComputersController < ApplicationController
   # DELETE /computers/1
   # DELETE /computers/1.json
   def destroy
-    @computer.destroy
+    #@computer.destroy ----> ORIGINAL
+    @computer.operational = false if @computer.operational
+    @computer.save!
     respond_to do |format|
       format.html { redirect_to computers_url, notice: 'Computadora fue eliminada satisfactoriament.' }
       format.json { head :no_content }

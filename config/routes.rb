@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     #get 'get_dependencies', to:'welcome#get_dependencies'
     #get "goin" => "welcome#index"
     #get 'reports/index'
+    
     get 'reports/index'
     get 'admins/index'
     get "/login" => "sessions#new", as: "login"

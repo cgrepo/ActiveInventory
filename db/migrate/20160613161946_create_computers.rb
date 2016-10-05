@@ -25,7 +25,7 @@ class CreateComputers < ActiveRecord::Migration
       t.string  :maclan
       t.string  :iplan
       t.string  :masklan
-      t.boolean :operational
+      t.boolean :operational, :default => true
       t.text    :reazon
       t.text    :notes
       t.references :Network, index: true, foreign_key: true
