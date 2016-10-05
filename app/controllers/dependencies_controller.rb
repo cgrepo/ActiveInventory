@@ -5,15 +5,44 @@ class DependenciesController < ApplicationController
     # GET /dependencies
     # GET /dependencies.json
     def index
+
       @delegations = Delegation.all.pluck(:id,:name)
       @delegation = params[:Delegation]
+
       @dependencies = Dependency.all.order(:name).where(Delegation: @delegation).paginate(page: params[:page], per_page: 7 )
+      
       respond_to do |format|
         format.html {}
         format.js {}
       end
     end
+    
+    # def searchable
 
+    #   @filterrific = initialize_filterrific(
+    #   Dependency,
+    #   params[:filterrific],
+    #   select_options: {
+    #     sorted_by: Dependency.options_for_sorted_by
+    #   },
+    #   persistence_id: 'shared_key',
+    #   default_filter_params: {},
+    #   available_filters: [],
+    #   ) or return
+    #   byebug
+    #   @dependecies = @filterrific.find.page(params[:page])
+
+    #   # Respond to html for initial page load and to js for AJAX filter updates.
+    #   respond_to do |format|
+    #     format.html
+    #     format.js
+    #   end
+    #   # rescue ActiveRecord::RecordNotFound => e
+    #   #   # There is an issue with the persisted param_set. Reset it.
+    #   #   puts "Had to reset filterrific params: #{ e.message }"
+    #   #   redirect_to(reset_filterrific_url(format: :html)) and return
+    #   # end
+    # end
     # GET /dependencies/1
     # GET /dependencies/1.json
     def show
