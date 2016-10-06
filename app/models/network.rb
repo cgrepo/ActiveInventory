@@ -6,7 +6,6 @@ class Network < ActiveRecord::Base
 	has_one :User
 	HUMANIZED_ATTRIBUTES = { 
   	:linktype => 'Tipo de Conexion',
-  	:wifirouter => 'Wifi',
   	:location => 'Locacion',
     :iprange  => 'Rango IPS',
     :ip =>  'IP Gateway'
@@ -15,6 +14,6 @@ class Network < ActiveRecord::Base
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
   end
   
-  validates :linktype, :wifirouter, :location, :iprange,	:ip, presence: { message: "no puede estar en blanco" }
+  validates :linktype, :location, :iprange,	:ip, presence: { message: "no puede estar en blanco" }
 
 end

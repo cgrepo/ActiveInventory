@@ -46,7 +46,7 @@ class ServiceRequestPdf < Prawn::Document
 			  {:text => "#{Time.now.strftime("%m/%d/%Y")} " , size:8, style:[:bold], font:'Helvetica' },
 			  {:text => " FOLIO: " , size:9, style:[:normal], font:'Calibri', color:'b0a8a8' },
 			  {:text => " #{@service_request.idFolio}" , size:8, style:[:bold], font:'Verdana' }
-			], at:[25,600]
+			], at:[15,600]
 
 			formatted_text_box [
 			  {:text => 'Por medio de la presente se solicita el servicio a el equipo especificado en este documento a la empresa:' , size:11, 

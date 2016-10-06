@@ -11,13 +11,14 @@
 	Osy.destroy_all
 	Officev.destroy_all
 	BrandModel.destroy_all
-	ServiceRequest.destroy_all
+	Provider.destroy_all
 	Copier.destroy_all
 	Printer.destroy_all
-	Provider.destroy_all
+	ServiceRequest.destroy_all
+	
 
  #------BIRTHERS---------------------------------------------
-	  ##---------------USERS-------------------------------------
+	  ##--------------- USERS------------------------------------
 			User.create! [
 			 { username: "carlos", password: "th3pr!mag1n" },
 			 { username: "mary", password: "h3ngell" }
@@ -110,37 +111,37 @@
 			end
 	 	##---------------NETWORKS----------------------------------
 			Network.create! [
-				{linktype:'ADSL-MODEM', location:'DIF CSL', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
-				{linktype:'ADSL-MODEM', location:'DESARROLLO URBANO CSL', iprange:'10.10.10.0/24', ip:'10.10.10.10'},
-				{linktype:'ADSL-MODEM', location:'PROTECCION CIVIL', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
-				{linktype:'ADSL-MODEM', location:'ALMACEN-CERRO DEL TIMBRE', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
-				{linktype:'ADSL-MODEM', location:'ZOFEMAT-CERRO DEL TIMBRE', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
-				{linktype:'ADSL-MODEM', location:'ECOLOGIA-CERRO DEL TIMBRE', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
-				{linktype:'ADSL-MODEM', location:'JUVENTUD-CERRO DEL TIMBRE', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
-				{linktype:'ADSL-MODEM', location:'SERVICIOS PUBLICOS CSL', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
-				{linktype:'ADSL-MODEM', location:'COMANDANCIA CANGREJOS', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
-				{linktype:'ADSL-MODEM', location:'BIBLIOTECA LOMAS DEL SOL', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
-				{linktype:'ADSL-MODEM', location:'BIBLIOTECA AMELIA WILKES', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
-				{linktype:'ADSL-MODEM', location:'CULTURA CSL-CERRO DEL TIMBRE', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
-			  {linktype:'ADSL-MODEM', location:'COMANDANCIA CANGREJOS CSL', iprange:'192.168.1.0/24', ip:'192.168.1.254'},
-				{linktype:'ENLACE-WIFI', location:'MODULO REGISTRO CIVIL', iprange:'', ip:''},
-				{linktype:'ENLACE-WIFI', location:'MODULO DESARROLLO URBANO', iprange:'', ip:''}
+				{linktype:'ADSL-MODEM',  location:'DIF CSL', iprange:'192.168.1.0/24', ip:'192.168.1.254', wifirouter:true, location:'-' },
+				{linktype:'ADSL-MODEM',  location:'DESARROLLO URBANO CSL', iprange:'10.10.10.0/24', ip:'10.10.10.10', wifirouter:true, location:'-' },
+				{linktype:'ADSL-MODEM',  location:'PROTECCION CIVIL', iprange:'192.168.1.0/24', ip:'192.168.1.254', wifirouter:true, location:'-' },
+				{linktype:'ADSL-MODEM',  location:'ALMACEN-CERRO DEL TIMBRE', iprange:'192.168.1.0/24', ip:'192.168.1.254', wifirouter:true, location:'-' },
+				{linktype:'ADSL-MODEM',  location:'ZOFEMAT-CERRO DEL TIMBRE', iprange:'192.168.1.0/24', ip:'192.168.1.254', wifirouter:true, location:'-' },
+				{linktype:'ADSL-MODEM',  location:'ECOLOGIA-CERRO DEL TIMBRE', iprange:'192.168.1.0/24', ip:'192.168.1.254', wifirouter:true, location:'-' },
+				{linktype:'ADSL-MODEM',  location:'JUVENTUD-CERRO DEL TIMBRE', iprange:'192.168.1.0/24', ip:'192.168.1.254', wifirouter:true, location:'-' },
+				{linktype:'ADSL-MODEM',  location:'SERVICIOS PUBLICOS CSL', iprange:'192.168.1.0/24', ip:'192.168.1.254', wifirouter:true, location:'-' },
+				{linktype:'ADSL-MODEM',  location:'COMANDANCIA CANGREJOS', iprange:'192.168.1.0/24', ip:'192.168.1.254', wifirouter:true, location:'-' },
+				{linktype:'ADSL-MODEM',  location:'BIBLIOTECA LOMAS DEL SOL', iprange:'192.168.1.0/24', ip:'192.168.1.254', wifirouter:true, location:'-' },
+				{linktype:'ADSL-MODEM',  location:'BIBLIOTECA AMELIA WILKES', iprange:'192.168.1.0/24', ip:'192.168.1.254', wifirouter:true, location:'-' },
+				{linktype:'ADSL-MODEM',  location:'CULTURA CSL-CERRO DEL TIMBRE', iprange:'192.168.1.0/24', ip:'192.168.1.254', wifirouter:true, location:'-' },
+				{linktype:'ADSL-MODEM',  location:'COMANDANCIA CANGREJOS CSL', iprange:'192.168.1.0/24', ip:'192.168.1.254', wifirouter:true, location:'-' },
+				{linktype:'ENLACE-WIFI', location:'MODULO REGISTRO CIVIL', iprange:'0', ip:'0', wifirouter:false, location:'-' },
+				{linktype:'ENLACE-WIFI', location:'MODULO DESARROLLO URBANO', iprange:'0', ip:'0', wifirouter:false, location:'-' }
 			]
 	  ##---------------WORKERS-----------------------------------
 			 Worker.create! [
-			 	{name:'Carlos A. Garcia G.', email:'carlos.garcia@loscabos.gob.mx', profile:'Asistente de la Direccion Mpal. de Sistemas'},
-			 	{name:'Maria J. Ochoa A.', email:'sistemas_csl@loscabos.gob.mx', profile:'Coordinadora de Sistemas en CSL'},
-			 	{name:'Jose A. Casillas E.', email:'carlos.garcia@loscabos.gob.mx', profile:'Asistente de la Direccion Mpal. de Sistemas'},
-				{name:'Alan Manriquez', email:'', profile:'Inspector Desarrollo Urbano CSL'},
-				{name:'Florencia Olachea Villafaña', email:'dif.enlace.csl@outlook.com', profile:'Recepcion DIF CSL'},
-				{name:'Gabriela vernadet herrera salas', email:'', profile:'Abogada Juridico Dif CSL'},
-				{name:'Gustavo costich olvera ', email:'gustavoco25@gmail.com', profile:'Abogado Juridico Dif CSL'},
-				{name:'Isodel Adara Canett Ojeda', email:'isodel891@hotmail.com', profile:'Coordinadora de Desarrollo Urbano CSL'},
-				{name:'Luz Maria Norrab ', email:'luznorrab@live.com.mx', profile:'Directora de Contabilidad'},
-				{name:'Maria Isabel Ventura Zavala ', email:'isabelventura78@hotmail.com ', profile:'Asistente de Coordinacion de Imagen Urbana CSL'},
-				{name:'Monserrat anahi marron castro ', email:'monse_marron@hotmail.com ', profile:'Abogada Juridico Dif CSL'},
-				{name:'Omar Navarro ', email:'omar.navarro@loscabos.gob.mx ', profile:'Contabilidad SJC'},
-				{name:'Pablo miranda ', email:'', profile:'Inspector Desarrollo Urbano CSL'},
+			 	{name:'Carlos A. Garcia G.', email:'carlos.garcia@loscabos.gob.mx', profile:'Asistente de la Direccion Mpal. de Sistemas', Delegation: Delegation.find_by(name:'Cabo San Lucas'), Dependency: Dependency.first},
+			 	{name:'Maria J. Ochoa A.', email:'sistemas_csl@loscabos.gob.mx', profile:'Coordinadora de Sistemas en CSL', Delegation: Delegation.find_by(name:'Cabo San Lucas'), Dependency: Dependency.first},
+			 	{name:'Jose A. Casillas E.', email:'carlos.garcia@loscabos.gob.mx', profile:'Asistente de la Direccion Mpal. de Sistemas', Delegation: Delegation.find_by(name:'Cabo San Lucas'), Dependency: Dependency.first},
+				{name:'Alan Manriquez', email:'', profile:'Inspector Desarrollo Urbano CSL', Delegation: Delegation.find_by(name:'Cabo San Lucas'), Dependency: Dependency.first},
+				{name:'Florencia Olachea Villafaña', email:'dif.enlace.csl@outlook.com', profile:'Recepcion DIF CSL', Delegation: Delegation.find_by(name:'Cabo San Lucas'), Dependency: Dependency.first},
+				{name:'Gabriela vernadet herrera salas', email:'', profile:'Abogada Juridico Dif CSL', Delegation: Delegation.find_by(name:'Cabo San Lucas'), Dependency: Dependency.first},
+				{name:'Gustavo costich olvera ', email:'gustavoco25@gmail.com', profile:'Abogado Juridico Dif CSL', Delegation: Delegation.find_by(name:'Cabo San Lucas'), Dependency: Dependency.first},
+				{name:'Isodel Adara Canett Ojeda', email:'isodel891@hotmail.com', profile:'Coordinadora de Desarrollo Urbano CSL', Delegation: Delegation.find_by(name:'Cabo San Lucas'), Dependency: Dependency.first},
+				{name:'Luz Maria Norrab ', email:'luznorrab@live.com.mx', profile:'Directora de Contabilidad', Delegation: Delegation.find_by(name:'Cabo San Lucas'), Dependency: Dependency.first},
+				{name:'Maria Isabel Ventura Zavala ', email:'isabelventura78@hotmail.com ', profile:'Asistente de Coordinacion de Imagen Urbana CSL', Delegation: Delegation.find_by(name:'Cabo San Lucas'), Dependency: Dependency.first},
+				{name:'Monserrat anahi marron castro ', email:'monse_marron@hotmail.com ', profile:'Abogada Juridico Dif CSL', Delegation: Delegation.find_by(name:'Cabo San Lucas'), Dependency: Dependency.first},
+				{name:'Omar Navarro ', email:'omar.navarro@loscabos.gob.mx ', profile:'Contabilidad SJC', Delegation: Delegation.find_by(name:'Cabo San Lucas'), Dependency: Dependency.first},
+				{name:'Pablo miranda ', email:'', profile:'Inspector Desarrollo Urbano CSL', Delegation: Delegation.find_by(name:'Cabo San Lucas'), Dependency: Dependency.first}
 			 ]
 	 	##---------------COMPUTERS---------------------------------
 			ComputerBrand.create! [
@@ -239,7 +240,7 @@
 				{name:'WINDOWS SERVER 2012',version:'x64'},
 				{name:'WINDOWS MULTIPOINT SERVER 2010',version:'x64'}
 			]
-	   ##---------------OFFICEs-----------------------------------
+	  ##---------------OFFICEs-----------------------------------
 			Officev.create! [
 				{name:'OFFICE 2000 Standar'},
 				{name:'OFFICE 2000 Profesional'},
@@ -325,7 +326,7 @@
 				{description:'TELEFONO',brandx:'PANASONIC', modelx:'KX-TS6LX'},
 				{description:'TELEFONO',brandx:'CISCO', modelx:'CS-899'}
 			]
-		#---------------PROVIDERS---------------------------------
+	  ##---------------PROVIDERS---------------------------------
 			Provider.create! [
 				{ 
 					name:"COPY SERVICIOS BAJA Y /O DINORA GUILLERMINA ARCE MURILLO", 
@@ -344,41 +345,97 @@
 					email:"facturacioncabo@bajadigital.com.mx"
 				}				
 			]
-	 	##---------------COPIERS-----------------------------------
+	  ##---------------COPIERS-----------------------------------
 			Copier.create! [
-				{ ninventary:'036794',	nserie:'(21)DRL85468',	brand:'CANNON',	model:'IMAGERUNNER 1025if',	Dependency: Dependency.find_by(name:'DIR. MPAL. INVER. PROGRAMAS FED. Y ESTATALES')},
-				{ ninventary:'031328',	nserie:'(21)QLA02913',	brand:'CANNON',	model:'IMAGERUNNER ADVANCE 400iF',	Dependency: Dependency.find_by(name:'COOR. SERVICIOS PUBLICOS CSL')},
-				{ ninventary:'001963',	nserie:'JXY41001',	brand:'CANON',	model:'imageCLASS D880',	Dependency: Dependency.find_by(name:'COOR. PARTICIPACION CIUDADANA CSL')},
-				{ ninventary:'009184',	nserie:'(21)KVH01193',	brand:'CANON',	model:'ImageRUNNER 3530',	Dependency: Dependency.find_by(name:'COOR. OFICIALIA MAYOR CSL ALMACEN')},
-				{ ninventary:'005469',	nserie:'MQ520562',	brand:'CANON',	model:'IMAGERUNNER 1600',	Dependency: Dependency.find_by(name:'COOR. DEPORTE CSL')},
-				{ ninventary:'012671',	nserie:'MQS20726',	brand:'CANON',	model:'IMAGERUNNER 1600',	Dependency: Dependency.find_by(name:'DIR. MPAL. DE RECURSOS HUMANOS')},
-				{ ninventary:'007758',	nserie:'FUM80578',	brand:'CANON',	model:'IMAGERUNNER 2535i',	Dependency: Dependency.find_by(name:'CONTRALORIA MUNICIPAL')},
-				{ ninventary:'034794',	nserie:'FRV90485',	brand:'CANON',	model:'IMAGERUNNER 2525',	Dependency: Dependency.find_by(name:'SECRETARIA PARTICULA MUNICIPAL')},
-				{ ninventary:'037509',	nserie:'EZ510539',	brand:'CANON',	model:'IMAGERUNNER ADVANCE IRC2030',	Dependency: Dependency.find_by(name:'OFICIALIA MAYOR MUNICIPAL')},
-				{ ninventary:'007943',	nserie:'MCE00786',	brand:'CANON',	model:'IMAGERUNNER 2020',	Dependency: Dependency.find_by(name:'DIR. MPAL. DE ATENCON CIUDADANA')},
-				{ ninventary:'033857',	nserie:'(21) N600077307',	brand:'CANON',	model:'IMAGERUNNER ADV-C2230',	Dependency: Dependency.find_by(name:'DIR. GRAL. DE DESARROLLO URBANO')},
-				{ ninventary:'030484',	nserie:'(21)DRL78609',	brand:'CANON',	model:'IMAGERUNNER 1025if',	Dependency: Dependency.find_by(name:'DIR. MPAL. DE EGRESOS')},
-				{ ninventary:'999990',	nserie:'(21)FRU89505',	brand:'CANON',	model:'ImageRUNNER 2525',	Dependency: Dependency.find_by(name:'ADMINISTRACION DE SEG. PUB. Y TRANS. CSL CANGREJOS')},
-				{ ninventary:'021268',	nserie:'(21)DRL07396',	brand:'CANON',	model:'ImageRUNNER 1025if',	Dependency: Dependency.find_by(name:'SECRETARIA PARTICULA MUNICIPAL')},
-				{ ninventary:'030706',	nserie:'NML02552',	brand:'CANON',	model:'ImageRUNNER 6265',	Dependency: Dependency.find_by(name:'1DIR. MPAL. DE CONTABILIDAD')},
-				{ ninventary:'037012',	nserie:'F190502',	brand:'CANON',	model:'ImageRUNNER 1025if',	Dependency: Dependency.find_by(name:'SINDICATURA MUNICIPAL')},
-				{ ninventary:'007853',	nserie:'F1907000',	brand:'CANON',	model:'IMAGERUNNER 2525',	Dependency: Dependency.find_by(name:'DIR. MPAL. ASUNTOS JURIDICOS, LEGIS. Y REGLAMT.')},
-				{ ninventary:'031414',	nserie:'',	brand:'CANON',	model:'ImageRUNNER ADVANCE 4200',	Dependency: Dependency.find_by(name:'DIR. DE ADMINISTRACIÓN')},
-				{ ninventary:'028884',	nserie:'GSS05840',	brand:'CANON',	model:'ImageCLASS D1120',	Dependency: Dependency.find_by(name:'DIR. GRAL. DE FOMENTO ECONOMICO Y TURISMO')},
-				{ ninventary:'025722',	nserie:'30754934',	brand:'KONICA',	model:'MINOLTA BIZHUB 180',	Dependency: Dependency.find_by(name:'DIR. ADM. DE RASTRO T.I.F')},
-				{ ninventary:'038088',	nserie:'XL3502130',	brand:'XEROX',	model:'XEROX WORK CENTRE 5335',	Dependency: Dependency.find_by(name:'DIR. MPAL. INVER. PROGRAMAS FED. Y ESTATALES')},
-				{ ninventary:'011410',	nserie:'RYR382633',	brand:'XEROX',	model:'COPYCENTRE C20',	Dependency: Dependency.find_by(name:'COOR. CASA DE LA CULTURA CSL')},
-				{ ninventary:'027330',	nserie:'NRB448405',	brand:'XEROX',	model:'PHASER 3300 MFP',	Dependency: Dependency.find_by(name:'DIR. MPAL. DE RECURSOS HUMANOS')},
-				{ ninventary:'999991',	nserie:'0034003765D',	brand:'XEROX',	model:'WORK CENTRE 5020',	Dependency: Dependency.find_by(name:'ALMACEN GENERAL MUNICIPAL')},
-				{ ninventary:'017304',	nserie:'00340037708',	brand:'XEROX',	model:'WORK CENTRE 5020',	Dependency: Dependency.find_by(name:'COOR. CONTRALORIA CSL')},
+				{ ninventary:'036794',	nserie:'(21)DRL85468',	brand:'CANNON',	model:'IMAGERUNNER 1025if',	
+					Dependency: Dependency.find_by(name:'DIR. MPAL. INVER. PROGRAMAS FED. Y ESTATALES'),
+					Delegation: Dependency.find_by(name:'DIR. MPAL. INVER. PROGRAMAS FED. Y ESTATALES').Delegation},
+				{ ninventary:'031328',	nserie:'(21)QLA02913',	brand:'CANNON',	model:'IMAGERUNNER ADVANCE 400iF',	
+					Dependency: Dependency.find_by(name:'COOR. SERVICIOS PUBLICOS CSL'),
+					Delegation: Dependency.find_by(name:'COOR. SERVICIOS PUBLICOS CSL').Delegation},
+				{ ninventary:'001963',	nserie:'JXY41001',	brand:'CANON',	model:'imageCLASS D880',	
+					Dependency: Dependency.find_by(name:'COOR. PARTICIPACION CIUDADANA CSL'),
+					Delegation: Dependency.find_by(name:'COOR. PARTICIPACION CIUDADANA CSL').Delegation},
+				{ ninventary:'009184',	nserie:'(21)KVH01193',	brand:'CANON',	model:'ImageRUNNER 3530',	
+					Dependency: Dependency.find_by(name:'COOR. OFICIALIA MAYOR CSL ALMACEN'),
+					Delegation: Dependency.find_by(name:'COOR. OFICIALIA MAYOR CSL ALMACEN').Delegation},
+				{ ninventary:'005469',	nserie:'MQ520562',	brand:'CANON',	model:'IMAGERUNNER 1600',	
+					Dependency: Dependency.find_by(name:'COOR. DEPORTE CSL'),
+					Delegation: Dependency.find_by(name:'COOR. DEPORTE CSL').Delegation},
+				{ ninventary:'012671',	nserie:'MQS20726',	brand:'CANON',	model:'IMAGERUNNER 1600',	
+					Dependency: Dependency.find_by(name:'DIR. MPAL. DE RECURSOS HUMANOS'),
+					Delegation: Dependency.find_by(name:'DIR. MPAL. DE RECURSOS HUMANOS').Delegation},
+				{ ninventary:'007758',	nserie:'FUM80578',	brand:'CANON',	model:'IMAGERUNNER 2535i',	
+					Dependency: Dependency.find_by(name:'CONTRALORIA MUNICIPAL'),
+					Delegation: Dependency.find_by(name:'CONTRALORIA MUNICIPAL').Delegation},
+				{ ninventary:'034794',	nserie:'FRV90485',	brand:'CANON',	model:'IMAGERUNNER 2525',	
+					Dependency: Dependency.find_by(name:'SECRETARIA PARTICULA MUNICIPAL'),
+					Delegation: Dependency.find_by(name:'SECRETARIA PARTICULA MUNICIPAL').Delegation},
+				{ ninventary:'037509',	nserie:'EZ510539',	brand:'CANON',	model:'IMAGERUNNER ADVANCE IRC2030',	
+					Dependency: Dependency.find_by(name:'OFICIALIA MAYOR MUNICIPAL'),
+					Delegation: Dependency.find_by(name:'OFICIALIA MAYOR MUNICIPAL').Delegation},
+				{ ninventary:'007943',	nserie:'MCE00786', brand:'CANON',	model:'IMAGERUNNER 2020',	
+					Dependency: Dependency.find_by(name:'DIR. MPAL. DE ATENCON CIUDADANA'),
+					Delegation: Dependency.find_by(name:'DIR. MPAL. DE ATENCON CIUDADANA').Delegation},
+				{ ninventary:'033857',	nserie:'(21) N600077307',	brand:'CANON',	model:'IMAGERUNNER ADV-C2230',	
+					Dependency: Dependency.find_by(name:'DIR. GRAL. DE DESARROLLO URBANO'),
+					Delegation: Dependency.find_by(name:'DIR. GRAL. DE DESARROLLO URBANO').Delegation},
+				{ ninventary:'030484',	nserie:'(21)DRL78609', brand:'CANON',	model:'IMAGERUNNER 1025if',	
+					Dependency: Dependency.find_by(name:'DIR. MPAL. DE EGRESOS'),
+					Delegation: Dependency.find_by(name:'DIR. MPAL. DE EGRESOS').Delegation},
+				{ ninventary:'999990',	nserie:'(21)FRU89505', brand:'CANON',	model:'ImageRUNNER 2525',	
+					Dependency: Dependency.find_by(name:'ADMINISTRACION DE SEG. PUB. Y TRANS. CSL CANGREJOS'),
+					Delegation: Dependency.find_by(name:'ADMINISTRACION DE SEG. PUB. Y TRANS. CSL CANGREJOS').Delegation},
+				{ ninventary:'021268',	nserie:'(21)DRL07396', brand:'CANON',	model:'ImageRUNNER 1025if',	
+					Dependency: Dependency.find_by(name:'SECRETARIA PARTICULA MUNICIPAL'),
+					Delegation: Dependency.find_by(name:'SECRETARIA PARTICULA MUNICIPAL').Delegation},
+				{ ninventary:'030706',	nserie:'NML02552', brand:'CANON',	model:'ImageRUNNER 6265',	
+					Dependency: Dependency.find_by(name:'DIR. MPAL. DE CONTABILIDAD'),
+					Delegation: Dependency.find_by(name:'DIR. MPAL. DE CONTABILIDAD').Delegation},
+				{ ninventary:'037012',	nserie:'F190502',	brand:'CANON',	model:'ImageRUNNER 1025if',	
+					Dependency: Dependency.find_by(name:'SINDICATURA MUNICIPAL'),
+					Delegation: Dependency.find_by(name:'SINDICATURA MUNICIPAL').Delegation},
+				{ ninventary:'007853',	nserie:'F1907000',	brand:'CANON',	model:'IMAGERUNNER 2525',	
+					Dependency: Dependency.find_by(name:'DIR. MPAL. ASUNTOS JURIDICOS, LEGIS. Y REGLAMT.'),
+					Delegation: Dependency.find_by(name:'DIR. MPAL. ASUNTOS JURIDICOS, LEGIS. Y REGLAMT.').Delegation},
+				{ ninventary:'031414',	nserie:'', brand:'CANON',	model:'ImageRUNNER ADVANCE 4200',	
+					Dependency: Dependency.find_by(name:'DIR. DE ADMINISTRACIÓN'),
+					Delegation: Dependency.find_by(name:'DIR. DE ADMINISTRACIÓN').Delegation},
+				{ ninventary:'028884',	nserie:'GSS05840',	brand:'CANON',	model:'ImageCLASS D1120',	
+					Dependency: Dependency.find_by(name:'DIR. GRAL. DE FOMENTO ECONOMICO Y TURISMO'),
+					Delegation: Dependency.find_by(name:'DIR. GRAL. DE FOMENTO ECONOMICO Y TURISMO').Delegation},
+				{ ninventary:'025722',	nserie:'30754934',	brand:'KONICA',	model:'MINOLTA BIZHUB 180',	
+					Dependency: Dependency.find_by(name:'DIR. ADM. DE RASTRO T.I.F'),
+					Delegation: Dependency.find_by(name:'DIR. ADM. DE RASTRO T.I.F').Delegation},
+				{ ninventary:'038088',	nserie:'XL3502130',	brand:'XEROX',	model:'XEROX WORK CENTRE 5335',
+					Dependency: Dependency.find_by(name:'DIR. MPAL. INVER. PROGRAMAS FED. Y ESTATALES'),
+					Delegation: Dependency.find_by(name:'DIR. MPAL. INVER. PROGRAMAS FED. Y ESTATALES').Delegation},
+				{ ninventary:'011410',	nserie:'RYR382633',	brand:'XEROX',	model:'COPYCENTRE C20',	
+					Dependency: Dependency.find_by(name:'COOR. CASA DE LA CULTURA CSL'),
+					Delegation: Dependency.find_by(name:'COOR. CASA DE LA CULTURA CSL').Delegation},
+				{ ninventary:'027330',	nserie:'NRB448405',	brand:'XEROX',	model:'PHASER 3300 MFP',	
+					Dependency: Dependency.find_by(name:'DIR. MPAL. DE RECURSOS HUMANOS'),
+					Delegation: Dependency.find_by(name:'DIR. MPAL. DE RECURSOS HUMANOS').Delegation},
+				{ ninventary:'999991',	nserie:'0034003765D',	brand:'XEROX',	model:'WORK CENTRE 5020',	
+					Dependency: Dependency.find_by(name:'ALMACEN GENERAL MUNICIPAL'),
+					Delegation: Dependency.find_by(name:'ALMACEN GENERAL MUNICIPAL').Delegation},
+				{ ninventary:'017304',	nserie:'00340037708',	brand:'XEROX',	model:'WORK CENTRE 5020',	
+					Dependency: Dependency.find_by(name:'COOR. CONTRALORIA CSL'),
+					Delegation: Dependency.find_by(name:'COOR. CONTRALORIA CSL').Delegation}
 			]
-	 	##---------------PRINTERS----------------------------------
+	  ##---------------PRINTERS----------------------------------
 			Printer.create! [
-				{ninventary:'032681', nserie:'CNDCGCM133', brand:'HP', model:'LASERJET COLOR HP SERIE 500, M551', genus:'Laser Color', Dependency: Dependency.find_by(name:'DIR. MPAL. CATASTRO')},
-				{ninventary:'032679', nserie:'CNDCGCM13G', brand:'HP', model:'LASERJET COLOR HP SERIE 500, M551', genus:'Laser Color', Dependency: Dependency.find_by(name:'DIR. MPAL. CATASTRO')},
-				{ninventary:'001990', nserie:'CB002245513', brand:'HP', model:'LASERJET COLOR 5100 TN', genus:'Laser Color', Dependency: Dependency.find_by(name:'DIR. MPAL. CATASTRO')}
+				{ninventary:'032681', nserie:'CNDCGCM133', brand:'HP', model:'LASERJET COLOR HP SERIE 500, M551', genus:'Laser Color', 
+					Dependency: Dependency.find_by(name:'DIR. MPAL. CATASTRO'),
+					Delegation: Dependency.find_by(name:'DIR. MPAL. CATASTRO').Delegation},
+				{ninventary:'032679', nserie:'CNDCGCM13G', brand:'HP', model:'LASERJET COLOR HP SERIE 500, M551', genus:'Laser Color', 
+					Dependency: Dependency.find_by(name:'DIR. MPAL. CATASTRO'),
+					Delegation: Dependency.find_by(name:'DIR. MPAL. CATASTRO').Delegation},
+				{ninventary:'001990', nserie:'CB002245513', brand:'HP', model:'LASERJET COLOR 5100 TN', genus:'Laser Color', 
+					Dependency: Dependency.find_by(name:'DIR. MPAL. CATASTRO'),
+					Delegation: Dependency.find_by(name:'DIR. MPAL. CATASTRO').Delegation}
 			]
-	#  	##---------------SERVICEREQUESTS---------------------------
+    ##---------------SERVICEREQUESTS---------------------------
 			ServiceRequest.create! [
 					{ idFolio:'190516140-SJC/CC2',	kind:'REPARACION',		itDiagnosis:'-UNIDAD ADF HACE RUIDO Y SE ATORA',	ProviderDiagnosis:'',	material:'',	DocumentRequest:'DMIPFYE/198/2016',	RequestDate: DateTime.strptime('19/05/2016','%d/%m/%Y'),	Delegation: Delegation.find_by(name:"San Jose del Cabo"),	Dependency: Dependency.find_by(name:'DIR. MPAL. INVER. PROGRAMAS FED. Y ESTATALES' ),	Provider: Provider.find_by(name:'COPY SERVICIOS BAJA Y /O DINORA GUILLERMINA ARCE MURILLO' ),	Copier: Copier.find_by(ninventary:'038088'), Priority:'ALTA' },
 					{ idFolio:'190516140-SJC/F7E',	kind:'REPARACION',		itDiagnosis:'.',	ProviderDiagnosis:'',	material:'',	DocumentRequest:'CORREO 19052016',	RequestDate: DateTime.strptime('19/05/2016','%d/%m/%Y'),	Delegation: Delegation.find_by(name:"San Jose del Cabo"),	Dependency: Dependency.find_by(name:'DIR. MPAL. INVER. PROGRAMAS FED. Y ESTATALES' ),	Provider: Provider.find_by(name:'COPY SERVICIOS BAJA Y /O DINORA GUILLERMINA ARCE MURILLO' ),	Copier: Copier.find_by(ninventary:'036794'), Priority:'ALTA' },
