@@ -31,7 +31,8 @@
       </div>
       <div class="col-xs-1 col-md-2">
           <%= f.label :Delegacion %><br>
-          <%= f.collection_select(:Delegation_id, Delegation.all, :id, :name, {include_blank: true}, {class:'btn  dropdown-toggle'}) %>
+          <%= f.collection_select(:Delegation_id, Delegation.all, :id, :name, {include_blank: true}, 
+          {class:'btn btn-default dropdown-toggle '}) %>
       </div>
       <div class="col-xs-8 col-md-7">
           <%= f.label :Direccion %><br>
@@ -40,7 +41,7 @@
           [ ['Av. Miguel Hidalgo E/Blvd. Constituyentes y Camino al Faro'],
             ['Col. Jacarandas C. Violeta SN'],
             ['Cerrito del Timbre C. Matamoros SN E/Lazaro C. y Niños Heroes'] ], {:include_blank => true}, 
-            {class:'btn dropdown-toggle'} %>
+            {class:'btn  btn-default dropdown-toggle '} %>
       </div>
     </div>
     <div class="row">

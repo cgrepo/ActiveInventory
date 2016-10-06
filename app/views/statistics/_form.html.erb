@@ -14,12 +14,12 @@
       <div class="col-xs col-md-3">
         <%= f.label :Delegacion %><br>
         <%= f.collection_select(:Delegation_id, Delegation.all, :id, :name, {:include_blank => true }, 
-        {class:'btn  dropdown-toggle smfont delegations4statistics'} ) %>
+        {class:'btn btn-default dropdown-toggle smfont delegations4statistics'} ) %>
       </div>
       <div class="col-xs col-md-4">
         <%= f.label :Dependencia %><br>
         <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true}, 
-        {class:'btn dropdown-toggle smfont dependencies4statistics'}) %>
+        {class:'btn  btn-default dropdown-toggle smfont dependencies4statistics'}) %>
       </div>
     </div>
     <div class="row ">
@@ -27,7 +27,7 @@
         <%= f.label :MES %><br>
         <%= f.select :month, [ ['ENERO'], ['FEBRERO'], ['MARZO'], ['ABRIL'], ['MAYO'], ['JUNIO'], ['JULIO'],
                                  ['AGOSTO'], ['SEPTIEMBRE'], ['OCTUBRE'], ['NOVIEMBRE'], ['DICIEMBRE'] ], {}, 
-                                 {class:'btn  dropdown-toggle smfont'} %>
+                                 {class:'btn btn-default dropdown-toggle smfont'} %>
       </div>
       <div class="col-xs col-md-2">
         <%= f.label :'Hojas usadas' %><br>
@@ -40,12 +40,12 @@
       <div class="col-xs-4 col-md-2 printerdiv">
         <%= f.label :Impresora %><br>
         <%= f.collection_select(:Printer_id, Printer.all.limit(1), :id, :ninventary, {include_blank: true},
-        class:'btn dropdown-toggle smfont printers4statistics') %>
+        class:'btn  btn-default dropdown-toggle smfont printers4statistics') %>
       </div>
       <div class="col-xs-4 col-md-2 copydiv">        
         <%= f.label :Copiadora %><br>
         <%= f.collection_select(:Copier_id, Copier.all.limit(1), :id, :ninventary, {include_blank: true},
-        class:'btn dropdown-toggle smfont copiers4statistics') %>
+        class:'btn  btn-default dropdown-toggle smfont copiers4statistics') %>
       </div>
     </div>
     <div class="row large-padding">

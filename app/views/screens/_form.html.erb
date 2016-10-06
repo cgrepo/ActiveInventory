@@ -27,17 +27,17 @@
       <div class="col-xs col-md-2">
         <%= f.label :Marca %><br>
         <%= f.select :brand, BrandModel.select(:brandx).where(description:"MONITOR").uniq.pluck(:brandx),
-        {:include_blank => true }, {class:'btn dropdown-toggle smfont brands4screen'} %>
+        {:include_blank => true }, {class:'btn  btn-default dropdown-toggle smfont brands4screen'} %>
       </div>
       <div class="col-xs col-md-2">
         <%= f.label :Modelo %><br>
         <%= f.collection_select(:model, BrandModel.where(description:"MONITOR"), :modelx, :modelx, 
-        {:include_blank => true }, {class:'btn  dropdown-toggle smfont models4screen'} ) %>
+        {:include_blank => true }, {class:'btn btn-default dropdown-toggle smfont models4screen'} ) %>
       </div>
       <div class="col-xs col-md-2">
         <%= f.label :Pulgadas %><br>
         <%= f.select :inch, [['14.0'], ['14.5'], ['15.0'], ['17.0'], ['19.0'], ['21.0'] ], {include_blank: true}, 
-          {class:'btn  dropdown-toggle smfont'} %>
+          {class:'btn btn-default dropdown-toggle smfont'} %>
           <%#= f.text_field :inch %>
       </div>
 
@@ -45,7 +45,7 @@
     <div class="row">
       <div class="col-xs col-md-4">       
         <%= f.label :Fecha_compra %><br>
-        <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}, {class:'btn dropdown-toggle'} %>
+        <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}, {class:'btn  btn-default dropdown-toggle '} %>
       </div>
     </div>
     <div class="row">

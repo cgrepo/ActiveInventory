@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     #get 'sessions/create'
     #get 'sessions/destroy' 
     #get 'bridge_helper/get_dependencies' #WORKING!!!
-    resources :bridge_helper do
+    resources :bridge_helper, only: [:get_models, :get_dependencies] do
         collection do
             get 'get_models', to:'bridge_helper#get_models'
             get 'get_dependencies', to:'bridge_helper#get_dependencies'

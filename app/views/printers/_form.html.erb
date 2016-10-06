@@ -27,23 +27,24 @@
       <div class="col-xs col-md-2">        
         <%= f.label :Marca %><br>
         <%= f.select :brand, BrandModel.select(:brandx).where(description:'IMPRESORA').uniq.pluck(:brandx), 
-          {:include_blank => true }, {class:'btn  dropdown-toggle smfont brands4printer'}  %>
+          {:include_blank => true }, {class:'btn btn-default dropdown-toggle smfont brands4printer'}  %>
       </div>
     </div>
     <div class="row">
       <div class="col-xs col-md-3">       
         <%= f.label :Modelo %><br>
         <%= f.collection_select(:model, BrandModel.where(description:"IMPRESORA"), :modelx, :modelx, 
-        {:include_blank => true }, {class:'btn dropdown-toggle smfont models4printer'} ) %>
+        {:include_blank => true }, {class:'btn  btn-default dropdown-toggle smfont models4printer'} ) %>
       </div>
       <div class="col-xs col-md-2">        
         <%= f.label :Tipo %><br>
         <%= f.select :genus, [ ['Laser Monocromatica'], ['Laser Color'], ['Injeccion de Tinta'], ['Matricial'] ], 
-          {include_blank: true}, {class:'btn  dropdown-toggle smfont'} %>
+          {include_blank: true}, {class:'btn btn-default dropdown-toggle smfont'} %>
       </div>
       <div class="col-xs col-md-3">       
           <%= f.label :Fecha_de_compra %><br>
-          <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}, {class:'btn dropdown-toggle smfont'} %>
+          <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}, 
+          {class:'btn  btn-default dropdown-toggle smfont'} %>
       </div>
     </div>
     <div class="row">
@@ -91,7 +92,7 @@
         <div class="col-xs col-md-8">
           <%= f.label 'RED' %><br>
           <%= f.collection_select(:Network_id, Network.all, :id, :location, {:include_blank => true}, 
-          {class:'btn  dropdown-toggle smfont'} ) %>
+          {class:'btn btn-default dropdown-toggle smfont'} ) %>
         </div>
       </div>
     </div>
