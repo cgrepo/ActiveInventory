@@ -25,10 +25,10 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid be-blue white">
+    <div class="container-fluid be-gray white">
       <div class="row">
         <div class="col-xs">
-          <nav class="navbar navbar-default be-blue no-borders">
+          <nav class="navbar navbar-default be-gray  no-borders">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
@@ -37,18 +37,29 @@
               </button>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-              <ul class="nav navbar-nav xsfont">
-                <li><%= link_to ' DEPENDENCIAS', dependencies_path, class:'glyphicon glyphicon-home' %></li>
-                <li><%= link_to ' USUARIOS', workers_path, class:'glyphicon glyphicon-user' %></li>
-                <li><%= link_to ' NETWORKS', networks_path, class:'glyphicon glyphicon-random' %></li>
-                <li><%= link_to ' COMPUTADORAS', computers_path, class:'glyphicon glyphicon-object-align-bottom' %></li>
-                <li><%= link_to ' MONITORES', screens_path, class:'glyphicon glyphicon-blackboard' %></li>
-                <li><%= link_to ' UPS/REGULADORES', powers_path, class:'glyphicon glyphicon-flash' %></li>
-                <li><%= link_to ' IMPRESORAS', printers_path, class:'glyphicon glyphicon-print' %></li>
-                <li><%= link_to ' COPIADORAS', copiers_path, class:'glyphicon glyphicon-tint' %></li>
-                <li><%= link_to ' ESTADISTICAS', statistics_path, class:'glyphicon glyphicon-stats' %></li>
-                <li><%= link_to ' CONSUMIBLES', consumables_path, class:'glyphicon glyphicon-cd' %></li>
-                <li><%= link_to ' TELEFONIA', telephones_path, class:'glyphicon glyphicon-earphone' %></li>
+              <ul class="nav navbar-nav">
+                <li><%= link_to ' DEPENDENCIAS', dependencies_path, 
+                class:'btn btn-primary btn-sm btn-transparent xsfont glyphicon glyphicon-home' %></li>
+                <li><%= link_to ' USUARIOS', workers_path, 
+                class:'btn btn-primary btn-sm btn-transparent xsfont glyphicon glyphicon-user' %></li>
+                <li><%= link_to ' NETWORKS', networks_path, 
+                class:'btn btn-primary btn-sm btn-transparent xsfont glyphicon glyphicon-random' %></li>
+                <li><%= link_to ' COMPUTADORAS', computers_path, 
+                class:'btn btn-primary btn-sm btn-transparent xsfont glyphicon glyphicon-object-align-bottom' %></li>
+                <li><%= link_to ' MONITORES', screens_path, 
+                class:'btn btn-primary btn-sm btn-transparent xsfont glyphicon glyphicon-blackboard' %></li>
+                <li><%= link_to ' UPS/REGULADORES', powers_path, 
+                class:'btn btn-primary btn-sm btn-transparent xsfont glyphicon glyphicon-flash' %></li>
+                <li><%= link_to ' IMPRESORAS', printers_path, 
+                class:'btn btn-primary btn-sm btn-transparent xsfont glyphicon glyphicon-print' %></li>
+                <li><%= link_to ' COPIADORAS', copiers_path, 
+                class:'btn btn-primary btn-sm btn-transparent xsfont glyphicon glyphicon-tint' %></li>
+                <li><%= link_to ' ESTADISTICAS', statistics_path, 
+                class:'btn btn-primary btn-sm btn-transparent xsfont glyphicon glyphicon-stats' %></li>
+                <li><%= link_to ' CONSUMIBLES', consumables_path, 
+                class:'btn btn-primary btn-sm btn-transparent xsfont glyphicon glyphicon-cd' %></li>
+                <li><%= link_to ' TELEFONIA', telephones_path, 
+                class:'btn btn-primary btn-sm btn-transparent xsfont glyphicon glyphicon-earphone' %></li>
               </ul>
             </div>
           </nav>
