@@ -1,0 +1,1 @@
+json.array! @common_errors, partial: 'common_errors/common_error', as: :common_error

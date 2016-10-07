@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :equipment_logs
+  resources :common_errors
   ##---------SIMPLE REQUESTS---------------------------------------
     #get 'welcome/index'
     #get 'sessions/new'

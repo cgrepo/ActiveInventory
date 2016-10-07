@@ -1,0 +1,41 @@
+<%= form_for(@equipment_log) do |f| %>
+  <% if @equipment_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@equipment_log.errors.count, "error") %> prohibited this equipment_log from being saved:</h2>
+
+      <ul>
+      <% @equipment_log.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :genus %><br>
+    <%= f.text_field :genus %>
+  </div>
+  <div class="field">
+    <%= f.label :key %><br>
+    <%= f.text_field :key %>
+  </div>
+  <div class="field">
+    <%= f.label :inDate %><br>
+    <%= f.date_select :inDate %>
+  </div>
+  <div class="field">
+    <%= f.label :diagnosis %><br>
+    <%= f.text_area :diagnosis %>
+  </div>
+  <div class="field">
+    <%= f.label :solution %><br>
+    <%= f.text_area :solution %>
+  </div>
+  <div class="field">
+    <%= f.label :outDate %><br>
+    <%= f.date_select :outDate %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

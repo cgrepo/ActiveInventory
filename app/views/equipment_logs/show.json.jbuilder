@@ -1,0 +1,1 @@
+json.partial! "equipment_logs/equipment_log", equipment_log: @equipment_log

@@ -1,0 +1,21 @@
+<%= form_for(@common_error) do |f| %>
+  <% if @common_error.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@common_error.errors.count, "error") %> prohibited this common_error from being saved:</h2>
+
+      <ul>
+      <% @common_error.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

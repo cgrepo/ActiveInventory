@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  genus: MyString
+  key: MyString
+  inDate: 2016-10-07
+  diagnosis: MyText
+  solution: MyText
+  outDate: 2016-10-07
+
+two:
+  genus: MyString
+  key: MyString
+  inDate: 2016-10-07
+  diagnosis: MyText
+  solution: MyText
+  outDate: 2016-10-07

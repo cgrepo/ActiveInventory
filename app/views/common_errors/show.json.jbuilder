@@ -1,0 +1,1 @@
+json.partial! "common_errors/common_error", common_error: @common_error

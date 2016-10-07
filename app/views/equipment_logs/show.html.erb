@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Genus:</strong>
+  <%= @equipment_log.genus %>
+</p>
+
+<p>
+  <strong>Key:</strong>
+  <%= @equipment_log.key %>
+</p>
+
+<p>
+  <strong>Indate:</strong>
+  <%= @equipment_log.inDate %>
+</p>
+
+<p>
+  <strong>Diagnosis:</strong>
+  <%= @equipment_log.diagnosis %>
+</p>
+
+<p>
+  <strong>Solution:</strong>
+  <%= @equipment_log.solution %>
+</p>
+
+<p>
+  <strong>Outdate:</strong>
+  <%= @equipment_log.outDate %>
+</p>
+
+<%= link_to 'Edit', edit_equipment_log_path(@equipment_log) %> |
+<%= link_to 'Back', equipment_logs_path %>
