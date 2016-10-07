@@ -7,6 +7,7 @@ class CreateNetworks < ActiveRecord::Migration
       t.string :location
       t.string :iprange
       t.string :ip
+      t.string :associed_number
       t.references :User, index: true, foreign_key: true
       
       t.timestamps null: false

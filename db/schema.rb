@@ -165,14 +165,15 @@ ActiveRecord::Schema.define(version: 20160902205143) do
 
   create_table "networks", force: :cascade do |t|
     t.string   "linktype"
-    t.boolean  "wifirouter", default: false
+    t.boolean  "wifirouter",      default: false
     t.string   "ssid_name"
     t.string   "location"
     t.string   "iprange"
     t.string   "ip"
+    t.string   "associed_number"
     t.integer  "User_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   add_index "networks", ["User_id"], name: "index_networks_on_User_id"
