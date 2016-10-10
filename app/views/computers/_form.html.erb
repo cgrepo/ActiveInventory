@@ -30,17 +30,19 @@
         <%= f.label :Nompre_Equipo %><br>
         <%= f.text_field :name, class:'form-control ' %>
       </div>
-      <div class="col-xs col-md-3">
+      <div class="col-xs col-md-2">
         <%= f.label :Fecha_Compra %><br>
-        <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}, 
+        <%= f.text_field :buy_date, class:'form-control smfont fechax' %>
+        <%#= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}, 
         {class:'btn btn-default dropdown-toggle smfont'} %>
       </div>
     </div>
     <div class="row">
       <div class="col-xs col-md-2">
         <%= f.label :Marca %><br>
-        <%= f.collection_select(:brand, BrandModel.where(description:"COMPUTADORA").group([:id,:brandx]), :brandx, :brandx, 
-        {:include_blank => true }, {class:'btn btn-default dropdown-toggle  brands4pc'} ) %>
+        <%= f.select(:brand, BrandModel.where(description:"COMPUTADORA").uniq.pluck(:brandx), 
+        {:include_blank => true }, {class:'btn btn-default dropdown-toggle brands4pc'} ) %>
+
       </div>
       <div class="col-xs col-md-2">
         <%= f.label :Modelo %><br>
@@ -61,7 +63,7 @@
       <div class="col-xs col-md-2">
         <%= f.label :Memoria %><br>
         <%= f.collection_select(:memory, Memo.all, :combined_value, :combined_value, {:include_blank => true}, 
-          {class:'btn btn-default dropdown-toggle smfont'} ) %>
+          {class:'btn btn-default dropdown-toggle smfont pcmemo'} ) %>
       </div>
     </div>
     <div class="row">

@@ -4,7 +4,7 @@ class CommonErrorsController < ApplicationController
   # GET /common_errors
   # GET /common_errors.json
   def index
-    @common_errors = CommonError.all
+    @common_errors = CommonError.all.order(:description).paginate(page: params[:page], per_page: 7 )
   end
 
   # GET /common_errors/1
@@ -28,7 +28,7 @@ class CommonErrorsController < ApplicationController
 
     respond_to do |format|
       if @common_error.save
-        format.html { redirect_to @common_error, notice: 'Common error was successfully created.' }
+        format.html { redirect_to @common_error, notice: 'Entrada catalogo correcta.' }
         format.json { render :show, status: :created, location: @common_error }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class CommonErrorsController < ApplicationController
   def update
     respond_to do |format|
       if @common_error.update(common_error_params)
-        format.html { redirect_to @common_error, notice: 'Common error was successfully updated.' }
+        format.html { redirect_to @common_error, notice: 'Actualizacion catalogo correcta.' }
         format.json { render :show, status: :ok, location: @common_error }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class CommonErrorsController < ApplicationController
   def destroy
     @common_error.destroy
     respond_to do |format|
-      format.html { redirect_to common_errors_url, notice: 'Common error was successfully destroyed.' }
+      format.html { redirect_to common_errors_url, notice: 'Entrada catalogo borrada.' }
       format.json { head :no_content }
     end
   end

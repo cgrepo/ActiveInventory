@@ -45,7 +45,8 @@
     <div class="row">
       <div class="col-xs col-md-3">
         <%= f.label :Compra %><br>
-        <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}, 
+        <%= f.text_field :buy_date, class:'form-control smfont fechax' %>
+        <%#= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}, 
         {class:'btn  btn-default dropdown-toggle smfont'} %>
       </div>
     </div>

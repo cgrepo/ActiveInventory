@@ -25,6 +25,13 @@
         <%= f.text_field :nfactura, class:'form-control smfont' %>
       </div>
       <div class="col-xs col-md-2">
+        <%= f.label :Fecha_compra %><br>
+        <%#= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}, {class:'btn  btn-default dropdown-toggle '} %>
+        <%= f.text_field :buy_date, class:'form-control smfont fechax' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs col-md-2">
         <%= f.label :Marca %><br>
         <%= f.select :brand, BrandModel.select(:brandx).where(description:"MONITOR").uniq.pluck(:brandx),
         {:include_blank => true }, {class:'btn  btn-default dropdown-toggle smfont brands4screen'} %>
@@ -39,13 +46,6 @@
         <%= f.select :inch, [['14.0'], ['14.5'], ['15.0'], ['17.0'], ['19.0'], ['21.0'] ], {include_blank: true}, 
           {class:'btn btn-default dropdown-toggle smfont'} %>
           <%#= f.text_field :inch %>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col-xs col-md-4">       
-        <%= f.label :Fecha_compra %><br>
-        <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}, {class:'btn  btn-default dropdown-toggle '} %>
       </div>
     </div>
     <div class="row">

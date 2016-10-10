@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902205143) do
+ActiveRecord::Schema.define(version: 20161007205042) do
 
   create_table "brand_models", force: :cascade do |t|
     t.string   "description"
@@ -23,6 +23,12 @@ ActiveRecord::Schema.define(version: 20160902205143) do
   end
 
   add_index "brand_models", ["User_id"], name: "index_brand_models_on_User_id"
+
+  create_table "common_errors", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "computer_brands", force: :cascade do |t|
     t.string   "name"
@@ -142,6 +148,17 @@ ActiveRecord::Schema.define(version: 20160902205143) do
 
   add_index "dependencies", ["Delegation_id"], name: "index_dependencies_on_Delegation_id"
   add_index "dependencies", ["User_id"], name: "index_dependencies_on_User_id"
+
+  create_table "equipment_logs", force: :cascade do |t|
+    t.string   "genus"
+    t.string   "key"
+    t.date     "inDate"
+    t.text     "diagnosis"
+    t.text     "solution"
+    t.date     "outDate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "hardds", force: :cascade do |t|
     t.float    "size"

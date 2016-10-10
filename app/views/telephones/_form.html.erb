@@ -23,7 +23,7 @@
       </div>
       <div class="col-xs-4 col-md-2">        
         <%= f.label :Marca %><br> 
-        <%= f.collection_select(:brand, BrandModel.where(description:"TELEFONO").group([:id,:brandx]).order(:brandx), :brandx, :brandx, 
+        <%= f.select(:brand, BrandModel.where(description:"TELEFONO").group([:id,:brandx]).uniq.pluck(:brandx), 
           {:include_blank => true }, {class:'btn btn-default dropdown-toggle smfont brands4tel'} ) %>
       </div>
     </div>
@@ -50,7 +50,8 @@
       </div>
       <div class="col-xs-8">        
         <%= f.label :Compra %><br>
-        <%= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]} %>
+        <%= f.text_field :buy_date, class:'form-control smfont fechax' %>
+        <%#= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]} %>
       </div>
     </div>
     <div class="row">
