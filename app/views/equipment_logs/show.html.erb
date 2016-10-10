@@ -1,34 +1,49 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs col-md-8">
+      <p>
+        <strong>Genus:</strong>
+        <%= @equipment_log.genus %>
+      </p>
 
-<p>
-  <strong>Genus:</strong>
-  <%= @equipment_log.genus %>
-</p>
+      <p>
+        <strong>Key:</strong>
+        <%= @equipment_log.key %>
+      </p>
 
-<p>
-  <strong>Key:</strong>
-  <%= @equipment_log.key %>
-</p>
+      <p>
+        <strong>Indate:</strong>
+        <%= @equipment_log.inDate %>
+      </p>
 
-<p>
-  <strong>Indate:</strong>
-  <%= @equipment_log.inDate %>
-</p>
+      <p>
+        <strong>Diagnosis:</strong>
+        <%= @equipment_log.diagnosis %>
+      </p>
 
-<p>
-  <strong>Diagnosis:</strong>
-  <%= @equipment_log.diagnosis %>
-</p>
+      <p>
+        <strong>Solution:</strong>
+        <%= @equipment_log.solution %>
+      </p>
 
-<p>
-  <strong>Solution:</strong>
-  <%= @equipment_log.solution %>
-</p>
+      <p>
+        <strong>Outdate:</strong>
+        <%= @equipment_log.outDate %>
+      </p>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Outdate:</strong>
-  <%= @equipment_log.outDate %>
-</p>
 
-<%= link_to 'Edit', edit_equipment_log_path(@equipment_log) %> |
-<%= link_to 'Back', equipment_logs_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs col-md-8">
+      <span class="pull-right">
+        <br>
+        <%= link_to 'Editar', edit_equipment_log_path(@equipment_log), class:'btn btn-default  btn-lg' %> |
+        <%= link_to 'Regresar', equipment_logs_path, class:'btn btn-default  btn-lg' %>
+      </span>
+    </div>
+  </div>
+</div>

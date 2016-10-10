@@ -1,7 +1,7 @@
 <%= form_for(@equipment_log) do |f| %>
   <% if @equipment_log.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@equipment_log.errors.count, "error") %> prohibited this equipment_log from being saved:</h2>
+      <h2><%= pluralize(@equipment_log.errors.count, "error") %> No se pudo guardad:</h2>
 
       <ul>
       <% @equipment_log.errors.full_messages.each do |message| %>
@@ -10,32 +10,43 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :genus %><br>
-    <%= f.text_field :genus %>
-  </div>
-  <div class="field">
-    <%= f.label :key %><br>
-    <%= f.text_field :key %>
-  </div>
-  <div class="field">
-    <%= f.label :inDate %><br>
-    <%= f.date_select :inDate %>
-  </div>
-  <div class="field">
-    <%= f.label :diagnosis %><br>
-    <%= f.text_area :diagnosis %>
-  </div>
-  <div class="field">
-    <%= f.label :solution %><br>
-    <%= f.text_area :solution %>
-  </div>
-  <div class="field">
-    <%= f.label :outDate %><br>
-    <%= f.date_select :outDate %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="container be-round_ligth_gray">
+    <%#= render partial:'layouts/dd', locals:{:f => f} %>
+    <div class="row">
+      <div class="col-xs col-md-2">
+        <%= f.label :Tipo %><br>
+        <%= f.select :genus, [['COMPUTADORA'], ['COPIADORA'], ['IMPRESORA'], ['UPS'], ['MONITOR'], ['TELEFONO']], 
+        {}, {class:'btn btn-default dropdown-toggle smfont'} %>
+      </div>
+      <div class="col-xs col-md-2">
+        <%= f.label :'Numero(Serial/Inventario)' %><br>
+        <%= f.text_field :key, class:'form-control smfont' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs col-md-2">
+        <%= f.label :Fecha_Ingreso %><br>
+        <%= f.text_field :inDate, class:'form-control smfont fechax txtdate'  %>
+      </div>
+      <div class="col-xs col-md-6">
+        <%= f.label :diagnosis %><br>
+        <%= f.text_area :diagnosis, size:'80x2' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs col-md-2">
+        <%= f.label :Fecha_termino %><br>
+        <%= f.text_field :outDate, class:'form-control smfont fechax txtdate'  %>
+      </div>
+      <div class="col-xs col-md-6">
+        <%= f.label :solution %><br>
+        <%= f.text_area :solution, size:'80x2' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs">
+        <%= f.submit %>
+      </div>
+    </div>
   </div>
 <% end %>

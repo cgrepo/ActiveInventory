@@ -1,6 +1,6 @@
 $(document).on "turbolinks:load", ->
 	$('.models4screen').empty()
-	$('.fechax').datepicker({ dateFormat: 'dd/mm/yy' }).val()
+	
 
 	$('.brands4screen').on 'change', ->
 		$.ajax

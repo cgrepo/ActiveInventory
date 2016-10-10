@@ -43,21 +43,20 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs col-md-3">
+      <div class="col-xs col-md-2">
         <%= f.label :Compra %><br>
-        <%= f.text_field :buy_date, class:'form-control smfont fechax' %>
+        <%= f.text_field :buy_date, class:'form-control smfont fechax txtdate' %>
         <%#= f.date_select :buy_date, {:include_blank => true, order: [:day, :month, :year]}, 
         {class:'btn  btn-default dropdown-toggle smfont'} %>
       </div>
-    </div>
-    <div class="row large-padding">
       <div class="col-xs col-md-4">
-          <%= f.label :Notas %><br>
-          <%= f.text_area :notes, size:"40x2", class:'form-control smfont' %>
-          <br>
-          <%= f.submit %>
-        </div>
-
+        <%= f.label :Notas %><br>
+        <%= f.text_area :notes, size:"40x2", class:'form-control smfont' %>
+      </div>
+    </div>
+    <div class="row">
+      <br>
+      <%= f.submit %>
     </div>
   </div>
 <% end %>

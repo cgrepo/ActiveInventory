@@ -38,6 +38,7 @@ gem 'jquery-turbolinks'
 gem 'prawn'
 gem 'responders'
 gem 'filterrific'
+gem 'jquery-ui-rails'
 
 group :production do
  gem 'pg'
@@ -52,5 +53,5 @@ group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'sqlite3'
-  gem 'jquery-ui-rails'
+  
 end

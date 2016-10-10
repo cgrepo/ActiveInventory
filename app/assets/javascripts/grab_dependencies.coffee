@@ -1,5 +1,6 @@
 $(document).on "turbolinks:load", ->
-	
+	$('.fechax').datepicker({ dateFormat: 'dd/mm/yy' }).val()
+
 	$('.delegations_collection').on 'change', ->
 		$.ajax
 			url:'/bridge_helper/get_dependencies'

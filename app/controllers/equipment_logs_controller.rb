@@ -4,7 +4,7 @@ class EquipmentLogsController < ApplicationController
   # GET /equipment_logs
   # GET /equipment_logs.json
   def index
-    @equipment_logs = EquipmentLog.all
+    @equipment_logs = EquipmentLog.all.order(:genus).paginate(page: params[:page], per_page: 7 )
   end
 
   # GET /equipment_logs/1
