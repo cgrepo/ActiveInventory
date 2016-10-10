@@ -4,7 +4,7 @@ class CopiersController < ApplicationController
   # GET /copiers
   # GET /copiers.json
   def index
-    @copiers = Copier.all.paginate(page: params[:page], per_page: 10 )
+    @copiers = Copier.all.where(operational: true).paginate(page: params[:page], per_page: 10 )
   end
 
   # GET /copiers/1
@@ -56,7 +56,9 @@ class CopiersController < ApplicationController
   # DELETE /copiers/1
   # DELETE /copiers/1.json
   def destroy
-    @copier.destroy
+    #@copier.destroy
+    @copier.operational = false if @copier.operational
+    @copier.save!
     respond_to do |format|
       format.html { redirect_to copiers_url, notice: 'Copiadora fue borrada satisfactoriamente..' }
       format.json { head :no_content }

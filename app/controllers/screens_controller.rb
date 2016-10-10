@@ -4,7 +4,7 @@ class ScreensController < ApplicationController
   # GET /screens
   # GET /screens.json
   def index
-    @screens = Screen.all.paginate(page: params[:page], per_page: 10 )
+    @screens = Screen.all.where(operational: true).paginate(page: params[:page], per_page: 10 )
   end
 
   # GET /screens/1
@@ -56,7 +56,9 @@ class ScreensController < ApplicationController
   # DELETE /screens/1
   # DELETE /screens/1.json
   def destroy
-    @screen.destroy
+    #@screen.destroy
+    @screen.operational = false if @screen.operational
+    @screen.save!
     respond_to do |format|
       format.html { redirect_to screens_url, notice: 'Monitor eliminado satisfactoriamente.' }
       format.json { head :no_content }

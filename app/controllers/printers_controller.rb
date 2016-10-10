@@ -4,7 +4,7 @@ class PrintersController < ApplicationController
   # GET /printers
   # GET /printers.json
   def index
-    @printers = Printer.all.paginate(page: params[:page], per_page: 10 )
+    @printers = Printer.all.where(operational: true).paginate(page: params[:page], per_page: 10 )
   end
 
   # GET /printers/1
@@ -56,7 +56,9 @@ class PrintersController < ApplicationController
   # DELETE /printers/1
   # DELETE /printers/1.json
   def destroy
-    @printer.destroy
+    #@printer.destroy
+    @printer.operational = false if @printer.operational
+    @printer.save!
     respond_to do |format|
       format.html { redirect_to printers_url, notice: 'Impresora fue borrada satisfactoriamente.' }
       format.json { head :no_content }

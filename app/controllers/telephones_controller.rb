@@ -4,7 +4,7 @@ class TelephonesController < ApplicationController
   # GET /telephones
   # GET /telephones.json
   def index
-    @telephones = Telephone.all.paginate(page: params[:page], per_page: 10 )
+    @telephones = Telephone.all.where(operational: true).paginate(page: params[:page], per_page: 10 )
   end
 
   # GET /telephones/1
@@ -57,7 +57,9 @@ class TelephonesController < ApplicationController
   # DELETE /telephones/1
   # DELETE /telephones/1.json
   def destroy
-    @telephone.destroy
+    #@telephone.destroy
+    @telephone.operational = false if @telephone.operational
+    @telephone.save!
     respond_to do |format|
       format.html { redirect_to telephones_url, notice: 'Telefono fue borrado satisfactoriamente.' }
       format.json { head :no_content }

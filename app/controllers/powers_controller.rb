@@ -4,7 +4,7 @@ class PowersController < ApplicationController
     # GET /powers
     # GET /powers.json
     def index
-      @powers = Power.all.paginate(page: params[:page], per_page: 10 )
+      @powers = Power.all.where(operational: true).paginate(page: params[:page], per_page: 10 )
     end
 
     # GET /powers/1
@@ -56,7 +56,9 @@ class PowersController < ApplicationController
     # DELETE /powers/1
     # DELETE /powers/1.json
     def destroy
-      @power.destroy
+      #@power.destroy
+      @power.operational = false if @power.operational
+      @power.save!
       respond_to do |format|
         format.html { redirect_to powers_url, notice: 'Fuente eliminada satisfactoriamente.' }
         format.json { head :no_content }
