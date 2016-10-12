@@ -156,9 +156,12 @@ ActiveRecord::Schema.define(version: 20161007205042) do
     t.text     "diagnosis"
     t.text     "solution"
     t.date     "outDate"
+    t.integer  "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "equipment_logs", ["User_id"], name: "index_equipment_logs_on_User_id"
 
   create_table "hardds", force: :cascade do |t|
     t.float    "size"

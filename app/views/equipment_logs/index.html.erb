@@ -31,6 +31,7 @@
               <th>Diagnostico</th>
               <th>Solucion</th>
               <th>Salida</th>
+              <th>Usuario</th>
               <th colspan="3"></th>
             </tr>
           </thead>
@@ -43,10 +44,13 @@
                 <td><%= equipment_log.diagnosis %></td>
                 <td><%= equipment_log.solution %></td>
                 <td><%= equipment_log.outDate %></td>
+                <td><%= User.find(equipment_log.User_id).username %></td>
                 <td><%= link_to 'Mostar', equipment_log,class:'btn btn-default  btn-sm' %></td>
-                <td><%= link_to 'Editar', edit_equipment_log_path(equipment_log),class:'btn btn-default  btn-sm' %></td>
-                <td><%= link_to 'Borrar', equipment_log, method: :delete, data: { confirm: 'Are you sure?' },
-                class:'btn btn-default  btn-sm' %></td>
+                <% if equipment_log.User_id == @current_user.id %>
+                  <td><%= link_to 'Editar', edit_equipment_log_path(equipment_log),class:'btn btn-default  btn-sm' %></td>
+                  <td><%= link_to 'Borrar', equipment_log, method: :delete, data: { confirm: 'Are you sure?' },
+                  class:'btn btn-default  btn-sm' %></td>
+                <% end %>
               </tr>
             <% end %>
           </tbody>

@@ -1,7 +1,7 @@
 <%= form_for(@equipment_log) do |f| %>
   <% if @equipment_log.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@equipment_log.errors.count, "error") %> No se pudo guardad:</h2>
+      <h2><%= pluralize(@equipment_log.errors.count, "error") %> Bitacora no pudo ser guardada:</h2>
 
       <ul>
       <% @equipment_log.errors.full_messages.each do |message| %>
@@ -29,7 +29,7 @@
         <%= f.text_field :inDate, class:'form-control smfont fechax txtdate'  %>
       </div>
       <div class="col-xs col-md-6">
-        <%= f.label :diagnosis %><br>
+        <%= f.label :Diagostico_inicial %><br>
         <%= f.text_area :diagnosis, size:'80x2' %>
       </div>
     </div>

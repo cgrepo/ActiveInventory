@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
   <div class="row">
-    <div class="col-xs col-md-8">
+    <div class="col-xs col-md">
       <p>
         <strong>Genus:</strong>
         <%= @equipment_log.genus %>
@@ -33,16 +33,18 @@
       </p>
     </div>
   </div>
+  <%= render partial:'layouts/user_mod', locals:{:entity => @equipment_log} %>
 </div>
-
-
 <div class="container">
   <div class="row">
-    <div class="col-xs col-md-8">
+    <div class="col-xs col-md">
       <span class="pull-right">
         <br>
-        <%= link_to 'Editar', edit_equipment_log_path(@equipment_log), class:'btn btn-default  btn-lg' %> |
-        <%= link_to 'Regresar', equipment_logs_path, class:'btn btn-default  btn-lg' %>
+        <%# if @equipment_log.User_id == @current_user.id %>
+        <% if @equipment_log.User_id == @current_user.id %>
+          <%= link_to 'Editar', edit_equipment_log_path(@equipment_log), class:'btn btn-default btn-lg' %> |
+        <% end %>
+        <%= link_to 'Regresar', equipment_logs_path, class:'btn btn-default btn-lg' %>
       </span>
     </div>
   </div>
