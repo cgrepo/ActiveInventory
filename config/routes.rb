@@ -13,6 +13,12 @@ Rails.application.routes.draw do
             get 'get_dependencies', to:'bridge_helper#get_dependencies'
         end
     end
+    resources :computers 
+    # do
+    #     collection do
+    #         get 'addlinks', to:'computers#addlinks'
+    #     end
+    # end
     #get 'get_dependencies', to:'welcome#get_dependencies'
     #get "goin" => "welcome#index"
     #get 'reports/index'
@@ -45,7 +51,7 @@ Rails.application.routes.draw do
     resources :powers
     resources :dependencies
     resources :telephones
-    resources :computers
+    
     resources :sessions, only: [:new, :create, :destroy]
     resources :workers  
     # do
