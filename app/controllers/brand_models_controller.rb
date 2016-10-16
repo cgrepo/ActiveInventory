@@ -15,6 +15,7 @@ class BrandModelsController < ApplicationController
   # GET /brand_models/new
   def new
     @brand_model = BrandModel.new
+    #byebug
   end
 
   # GET /brand_models/1/edit

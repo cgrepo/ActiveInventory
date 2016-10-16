@@ -3,15 +3,21 @@ $(document).on "turbolinks:load", ->
 	$('.pwifi').hide()
 	$('.pnet').hide()
 	$('.pnet-con').hide()
+	$('.brands4printer').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
 
 	$('.brands4printer').on 'change', ->
-		$.ajax
-			url:'/bridge_helper/get_models'
-			type:'GET'
-			dataType:'script'
-			data:
-				brand: $('.brands4printer option:selected').val(),
-				genus: 'IMPRESORA'
+		if $('.brands4printer option:selected').val() == 'plus'
+			url = "/brand_models/new?type=print"
+			if url
+				window.location.replace url
+		else
+			$.ajax
+				url:'/bridge_helper/get_models'
+				type:'GET'
+				dataType:'script'
+				data:
+					brand: $('.brands4printer option:selected').val(),
+					genus: 'IMPRESORA'
 
 	$('.chkwifip').change ->
 		w = $('.chkwifip').is(':checked')

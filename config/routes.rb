@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     resources :osies
     resources :hardds
     resources :memos
-    resources :computer_brands
+    #resources :computer_brands
     resources :processors
     resources :screens
     #  do
