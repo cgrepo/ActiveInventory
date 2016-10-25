@@ -122,45 +122,5 @@ t.references :User, index: true, foreign_key: true
 				
 				
 index.html.erb para dependencies				
-<div class="container-fluid large-padding be-soft_purple">
-  <div class="row ">  
-      <div class="col-xs-12 col-md">
-        <p id="notice"><%= notice %></p>
-        <h2>Listado de Dependencias</h2>
-      </div>
-      <div class="col-xs-12">
-        <%= form_tag(dependencies_path ,method: "get", remote: true) do  %>  
-          <%= radio_button_tag(:Delegation, @delegations[0][0] ) %>
-          <%= label_tag(:delegation_id, "SAN JOSE") %>
-          <%= radio_button_tag(:Delegation, @delegations[1][0] ) %>
-          <%= label_tag(:delegation_id, "CABO") %>
-          <%= radio_button_tag(:Delegation, @delegations[2][0] ) %>
-          <%= label_tag(:delegation_id, "MIRAFLORES") %>
-          <%= radio_button_tag(:Delegation, @delegations[3][0] ) %>
-          <%= label_tag(:delegation_id, "SANTIAGO") %>
-          <%= radio_button_tag(:Delegation, @delegations[4][0] ) %>
-          <%= label_tag(:delegation_id, "LA RIVERA") %>
-          <%= submit_tag "MOSTRAR", class:'btn btn-default btn-sm' %>
-        <% end %>
 
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-7" id="mypaginate">
-        <%= render 'show_paginate' %>
-      </div>
-      <div class="col-xs-5">
-        <span class="pull-right">
-          <%= link_to 'Agregar', new_dependency_path, class:'btn btn-default be-gray btn-lg' %>
-        </span>
-      </div>
-    </div>
-</div>
-
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12" id="mydata">
-        <%= render 'show_data' %>
-      </div>
-    </div>
-  </div>
+ 
