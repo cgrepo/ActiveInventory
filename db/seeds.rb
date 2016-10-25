@@ -16,12 +16,12 @@
 	Printer.destroy_all
 	ServiceRequest.destroy_all
 
-------BIRTHERS---------------------------------------------
-	  ##--------------- USERS------------------------------------
-			User.create! [
-			 { username: "carlos", password: "th3pr!mag1n" },
-			 { username: "mary", password: "h3ngell" }
-			]
+#------BIRTHERS---------------------------------------------
+	  # ##--------------- USERS------------------------------------
+			# User.create! [
+			#  { username: "carlos", password: "th3pr!mag1n" },
+			#  { username: "mary", password: "h3ngell" }
+			# ]
 	  ##---------------DELEGATIONS-------------------------------
 			Delegation.create! [
 				{name:"San Jose del Cabo"},
