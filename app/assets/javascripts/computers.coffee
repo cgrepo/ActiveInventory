@@ -10,6 +10,7 @@ $(document).on "turbolinks:load", ->
 	$('.rekrow').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
 	$('.operasys').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
 	$('.brands4pc').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
+	
 
 	$('.chkblue').change ->
 		if $('.chkblue').is(':checked')
@@ -36,6 +37,14 @@ $(document).on "turbolinks:load", ->
 				data:
 					brand: $('.brands4pc option:selected').val(),
 					genus: 'COMPUTADORA'
+				success: (data) ->
+					$('.models4pc').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
+
+	$('.models4pc').on 'change', ->
+		if $('.models4pc option:selected').val() == 'plus'
+			url = "/brand_models/new"
+			if url
+				window.location.replace url
 
 	$('.drah').on 'change', ->
 		if $('.drah option:selected').val() == 'plus'
