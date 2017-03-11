@@ -39,11 +39,11 @@ gem 'prawn'
 gem 'responders'
 gem 'filterrific'
 gem 'jquery-ui-rails'
-gem 'puma' #recommendation by heroku
+
 group :production do
  gem 'pg'
  gem 'rails_12factor'
-
+ #gem 'puma' #recommendation by heroku
 end
 
 group :development, :test do

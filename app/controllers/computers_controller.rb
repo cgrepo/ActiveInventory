@@ -1,6 +1,6 @@
 class ComputersController < ApplicationController
   before_action :set_computer, only: [:show, :edit, :update, :destroy]
-  
+  #before_action :upsme, only: [:update, :create] does not work fine with create
   # GET /computers
   # GET /computers.json
   def index
@@ -26,6 +26,7 @@ class ComputersController < ApplicationController
   # POST /computers.json
   def create
     @computer = Computer.new(computer_params)
+    upsme
     respond_to do |format|
       if @computer.save
         set_me
@@ -41,6 +42,7 @@ class ComputersController < ApplicationController
   # PATCH/PUT /computers/1
   # PATCH/PUT /computers/1.json
   def update
+    upsme
     respond_to do |format|
       if @computer.update(computer_params)
         set_me
@@ -79,5 +81,10 @@ class ComputersController < ApplicationController
     def set_me
       @computer.User_id = current_user.id
       @computer.save!
+    end
+
+    def upsme
+      @computer.nserie.upcase!
+      @computer.nfactura.upcase!
     end
 end
