@@ -1,6 +1,7 @@
 class WorkersController < ApplicationController
   before_action :set_worker, only: [:show, :edit, :update, :destroy]
   
+
   # GET /workers
   # GET /workers.json
   def index
@@ -26,7 +27,6 @@ class WorkersController < ApplicationController
   # POST /workers.json
   def create
     @worker = Worker.new(worker_params)
-    
     respond_to do |format|
       if @worker.save
         set_me

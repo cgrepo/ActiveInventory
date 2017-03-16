@@ -35,6 +35,7 @@ class DependenciesController < ApplicationController
     # POST /dependencies.json
     def create
       @dependency = Dependency.new(dependency_params)
+      
       respond_to do |format|
         if @dependency.save
           set_me
@@ -53,6 +54,7 @@ class DependenciesController < ApplicationController
       respond_to do |format|
         if @dependency.update(dependency_params)
           set_me
+          
           format.html { redirect_to @dependency, notice: 'Dependencia fue actualizada satisfactoriamente.' }
           format.json { render :show, status: :ok, location: @dependency }
         else

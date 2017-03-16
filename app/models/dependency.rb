@@ -11,6 +11,13 @@ class Dependency < ActiveRecord::Base
 
 	validates :name, :responsable, :Delegation,	presence: { message: "no puede estar en blanco" }
 	
+	def name=(data)
+		write_attribute(:name, data.to_s.upcase!)
+	end
+
+	def address=(data)
+		write_attribute(:address, data.to_s.upcase!)
+	end
 	#ATTENTION THIS IS USING SCOPES JUST TO REMAINDME THAT WE CAN USE DEFINE OR SCOPE IN ORDER TO MAKE SOME METHOD AVAILABLE FOR THE CLASSES
 	# 	filterrific( default_filter_params: { sorted_by: 'created_at_desc' }, available_filters: [:sorted_by ] )
 

@@ -24,4 +24,13 @@ class Telephone < ActiveRecord::Base
   def voip_set?
   	genus == 'VOIP'
   end
+    
+  def nserie=(data)
+    write_attribute(:nserie, data.to_s.upcase!)
+  end
+
+  def notes=(data)
+    write_attribute(:notes, data.to_s.upcase!)
+  end
+  
 end

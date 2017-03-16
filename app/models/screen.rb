@@ -18,4 +18,12 @@ HUMANIZED_ATTRIBUTES = {
   
   validates :brand, :inch, presence: { message: "no puede estar en blanco" }
 
+  def nserie=(data)
+    write_attribute(:nserie, data.to_s.upcase!)
+  end
+
+  def notes=(data)
+    write_attribute(:notes, data.to_s.upcase!)
+  end
+
 end

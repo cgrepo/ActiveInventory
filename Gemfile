@@ -32,7 +32,6 @@ gem 'bcrypt', '~> 3.1.7'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'will_paginate', '~> 3.0.6'
-#gem 'bootstrap3-datetimepicker-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-turbolinks'
 gem 'prawn'
@@ -40,16 +39,19 @@ gem 'responders'
 gem 'filterrific'
 gem 'jquery-ui-rails'
 
+
 group :production do
  gem 'pg'
  gem 'rails_12factor'
- gem 'puma' #recommendation by heroku
+ #gem 'puma' #recommendation by heroku
 end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
+  #gem 'pry'
+  #gem 'pry-stack_explorer'
+	#gem 'pry-debugger'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'sqlite3'
