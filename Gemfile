@@ -43,7 +43,7 @@ gem 'jquery-ui-rails'
 group :production do
  gem 'pg'
  gem 'rails_12factor'
- #gem 'puma' #recommendation by heroku
+ gem 'puma' #recommendation by heroku
 end
 
 group :development, :test do
