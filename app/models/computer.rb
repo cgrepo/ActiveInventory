@@ -10,7 +10,8 @@ class Computer < ActiveRecord::Base
   
   include AtLeastOne
   
-  HUMANIZED_ATTRIBUTES = { 
+  HUMANIZED_ATTRIBUTES = {
+    :ninventary => 'Numero de Inventario',
   	:name => 'Nombre equipo',
   	:brand => 'Marca',
     :genus => 'Tipo',
@@ -31,10 +32,10 @@ class Computer < ActiveRecord::Base
   
   validates :name, :brand, :genus, :processor, :hd, :memory, :os, :voffice, :users, :workgroup,
    :maclan, :iplan, :masklan, presence: { message: "no puede estar en blanco" }
-  
+  validates_numericality_of :ninventary, message:'deben ser solo numeros'
   validates :macbluetooth, presence: { message: "debe proporcionar la mac bluetooth" }, :if => :bluetooth_set?
   validates :macwifi, :ipwifi, :maskwifi, presence: { message: "debe proporcionar todos los datos de wifi" }, :if => :wifi_set?
-  
+  validates :macwifi, mac: true
   def wifi_set?
   	wifi
   end
