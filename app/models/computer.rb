@@ -32,10 +32,19 @@ class Computer < ActiveRecord::Base
   
   validates :name, :brand, :genus, :processor, :hd, :memory, :os, :voffice, :users, :workgroup,
    :maclan, :iplan, :masklan, presence: { message: "no puede estar en blanco" }
+
   validates_numericality_of :ninventary, message:'deben ser solo numeros'
+
   validates :macbluetooth, presence: { message: "debe proporcionar la mac bluetooth" }, :if => :bluetooth_set?
+  validates :macbluetooth, mac: true, :if => :bluetooth_set?
   validates :macwifi, :ipwifi, :maskwifi, presence: { message: "debe proporcionar todos los datos de wifi" }, :if => :wifi_set?
-  validates :macwifi, mac: true
+
+  validates :macwifi, mac: true, :if => :wifi_set?
+
+  validate :valid_ipv4_address, :if => :wifi_set?
+
+  validates :iplan, ipv4: true
+
   def wifi_set?
   	wifi
   end
@@ -44,4 +53,9 @@ class Computer < ActiveRecord::Base
   	bluetooth
   end
 
+  def valid_ipv4_address
+    unless IPAddress.valid? ipwifi
+      errors.add(:ipwifi, "formato IPv4 Incorrecto")
+    end
+  end
 end

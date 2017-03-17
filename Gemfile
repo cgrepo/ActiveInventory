@@ -39,6 +39,7 @@ gem 'responders'
 gem 'filterrific'
 gem 'jquery-ui-rails'
 #gem 'missing_validators'
+gem 'ipaddress'
 
 group :production do
  gem 'pg'
