@@ -25,7 +25,7 @@ class ProvidersController < ApplicationController
   # POST /providers.json
   def create
     @provider = Provider.new(provider_params)
-
+    #upcaseme(@provider,['name','address'])
     respond_to do |format|
       if @provider.save
         set_me

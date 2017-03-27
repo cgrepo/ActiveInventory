@@ -1,5 +1,5 @@
 
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -38,13 +38,14 @@ gem 'prawn'
 gem 'responders'
 gem 'filterrific'
 gem 'jquery-ui-rails'
+gem 'bootstrap_form'
 #gem 'missing_validators'
 gem 'ipaddress'
 
 group :production do
  gem 'pg'
  gem 'rails_12factor'
- #gem 'puma' #recommendation by heroku
+ gem 'puma' #recommendation by heroku
 end
 
 group :development, :test do

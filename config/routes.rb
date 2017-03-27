@@ -31,7 +31,11 @@ Rails.application.routes.draw do
     root to: 'welcome#index'
   ##----------RESOURSES-ADVANCED-----------------------------------
     resources :providers
-    resources :brand_models
+    resources :brand_models do
+        collection do
+            get 'frmprintersm', to:'printers#showmodal'
+        end
+    end
     resources :officevs
     resources :osies
     resources :hardds

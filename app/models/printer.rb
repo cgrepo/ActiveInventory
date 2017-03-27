@@ -9,14 +9,18 @@ class Printer < ActiveRecord::Base
   
   include AtLeastOne
 
-	HUMANIZED_ATTRIBUTES = { :brand => 'Marca'  }
+	HUMANIZED_ATTRIBUTES = { 
+    :ninventary => 'Numero de Inventario',
+    :brand => 'Marca'  
+  }
   def self.human_attribute_name(attr, options = {})
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
   end
   
+  validates_numericality_of :ninventary, message:'deben ser solo numeros'
   validates :brand, :genus, presence: { message: "no puede estar en blanco" }
-  validates :wifi_mac, presence: { message: "debe proporcionar la mac del Wifi" }, :if => :wifi_set?
-  validates :net_mac, presence: { message: "debe proporcionar la mac de Lan" }, :if => :net_set?
+  validates :wifi_mac, mac: true, presence: { message: "debe proporcionar la mac del Wifi" }, :if => :wifi_set?
+  validates :net_mac, mac: true, presence: { message: "debe proporcionar la mac de Lan" }, :if => :net_set?
 
   def wifi_set?
   	wifi
@@ -26,5 +30,8 @@ class Printer < ActiveRecord::Base
   	net
   end
 
+  def ipdata_set?
+    
+  end
 end
  

@@ -19,4 +19,13 @@ class ApplicationController < ActionController::Base
    	@current_user ||= User.find(session[:user_id])
   end
   
+  # def upcaseme(element,*argus)
+  #   byebug
+    
+  #   properties.each { |p| 
+      
+  #     #element.send(p)
+  #     puts p
+  #   }
+  # end
 end
