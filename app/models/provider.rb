@@ -3,12 +3,15 @@ class Provider < ActiveRecord::Base
 	has_many	:ServiceRequest
 	has_one :User
 	
-  def nserie=(data)
-    write_attribute(:nserie, data.to_s.upcase!)
+  def name=(data)
+    write_attribute(:name, data.to_s.upcase!)
   end
 
-  def notes=(data)
-    write_attribute(:notes, data.to_s.upcase!)
+  def address=(data)
+    write_attribute(:address, data.to_s.upcase!)
   end
   
+  def rfc=(data)
+  	write_attribute(:rfc, data.to_s.upcase!)
+  end
 end
