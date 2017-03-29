@@ -30,8 +30,8 @@ class Printer < ActiveRecord::Base
   	net
   end
 
-  def ipdata_set?
+  # def ipdata_set?
     
-  end
+  # end
 end
  

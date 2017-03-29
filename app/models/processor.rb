@@ -9,6 +9,6 @@ class Processor < ActiveRecord::Base
 	end
 
   def modelp=(data)
-    write_attribute(:modelp, data.to_s.upcase!)
+    write_attribute(:modelp, data.to_s.upcase)
   end
 end

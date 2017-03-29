@@ -5,7 +5,7 @@ class Consumable < ActiveRecord::Base
   has_one :User
  	
   def model=(data)
-    write_attribute(:model, data.to_s.upcase!)
+    write_attribute(:model, data.to_s.upcase)
   end
 
 end

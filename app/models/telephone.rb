@@ -26,11 +26,11 @@ class Telephone < ActiveRecord::Base
   end
     
   def nserie=(data)
-    write_attribute(:nserie, data.to_s.upcase!)
+    write_attribute(:nserie, data.to_s.upcase)
   end
 
   def notes=(data)
-    write_attribute(:notes, data.to_s.upcase!)
+    write_attribute(:notes, data.to_s.upcase)
   end
   
 end

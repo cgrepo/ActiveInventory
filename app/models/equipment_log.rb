@@ -15,15 +15,15 @@ class EquipmentLog < ActiveRecord::Base
   validates :genus, :key, :inDate, :diagnosis, presence: { message: "no puede estar en blanco" }
 
   def diagnosis=(data)
-    write_attribute(:diagnosis, data.to_s.upcase!)
+    write_attribute(:diagnosis, data.to_s.upcase)
   end
 
   def solution=(data)
-    write_attribute(:solution, data.to_s.upcase!)
+    write_attribute(:solution, data.to_s.upcase)
   end
 
   def key=(data)
-    write_attribute(:key, data.to_s.upcase!)
+    write_attribute(:key, data.to_s.upcase)
   end
   
 end
