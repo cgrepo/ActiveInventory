@@ -1,6 +1,6 @@
 class Osy < ActiveRecord::Base
 
-	upcaseas_one :User
+	has_one :User
 	
 	def combined_value
 		self.name + ' ' +  self.version.to_s
