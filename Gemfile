@@ -1,5 +1,5 @@
 
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -41,6 +41,7 @@ gem 'jquery-ui-rails'
 gem 'bootstrap_form'
 #gem 'missing_validators'
 gem 'ipaddress'
+gem 'will_paginate-bootstrap'
 
 group :production do
  gem 'pg'
