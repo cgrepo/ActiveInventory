@@ -17,9 +17,15 @@
           <td> <%= dependency.responsable_email %></td>
           <td> <%= dependency.Delegation.name if dependency.Delegation %></td>
           <td align="right">
-            <%= link_to 'Mostrar', dependency, class:'btn btn-default  btn-xs' %>
-            <%= link_to 'Editar', edit_dependency_path(dependency), class:'btn btn-default  btn-xs' %>
-            <%= link_to 'Borrar', dependency,method: :delete, data: { confirm: 'esta usted seguro?' }, class:'btn btn-default btn-xs'%>
+            <%= link_to dependency, class:'btn btn-default btn-xs' do %>
+              <%= octicon 'eye', class:'rigth' %>
+            <% end %>
+            <%= link_to edit_dependency_path(dependency), class:'btn btn-default btn-xs' do %>
+              <%= octicon 'pencil', class:'rigth' %>
+            <% end %>
+            <%= link_to dependency,method: :delete, data: { confirm: 'esta usted seguro?' }, class:'btn btn-default btn-xs' do %>
+              <%= octicon 'trashcan', class:'rigth' %>
+            <% end %>
           </td>
         </tr>
       <% end %>
