@@ -42,6 +42,7 @@ gem 'bootstrap_form'
 #gem 'missing_validators'
 gem 'ipaddress'
 gem 'will_paginate-bootstrap'
+gem 'octicons_helper'
 
 group :production do
  gem 'pg'
