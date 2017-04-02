@@ -24,8 +24,8 @@ class ServiceRequest < ActiveRecord::Base
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
   end
 
-  # validates :kind, :itDiagnosis, :RequestDate, :DocumentRequest, :Delegation, :Dependency,  :Provider, 
-  # 	presence: { message: "no puede estar en blanco" }
+  validates :kind, :itDiagnosis, :RequestDate, :DocumentRequest, :Delegation, :Dependency,  :Provider, 
+  	presence: { message: "no puede estar en blanco" }
 
 
 end
