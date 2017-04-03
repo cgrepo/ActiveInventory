@@ -5,19 +5,29 @@
         <h2>Listado de Dependencias</h2>
     </div>
     <div class="col-xs-12">
-        <%= form_tag(dependencies_path ,method: "get", remote: false) do  %>  
-          <%= radio_button_tag(:Delegation, @delegations[0][0] ) %>
-          <%= label_tag(:delegation_id, "SAN JOSE") %>
-          <%= radio_button_tag(:Delegation, @delegations[1][0] ) %>
-          <%= label_tag(:delegation_id, "CABO") %>
-          <%= radio_button_tag(:Delegation, @delegations[2][0] ) %>
-          <%= label_tag(:delegation_id, "MIRAFLORES") %>
-          <%= radio_button_tag(:Delegation, @delegations[3][0] ) %>
-          <%= label_tag(:delegation_id, "SANTIAGO") %>
-          <%= radio_button_tag(:Delegation, @delegations[4][0] ) %>
-          <%= label_tag(:delegation_id, "LA RIVERA") %>
-          <%#= submit_tag "MOSTRAR", class:'btn btn-default btn-sm' %>
+      <%= bootstrap_form_tag url: dependencies_path, method:'get', remote: false, layout: :inline do |f|%>
+        <%= f.form_group :delegation_level  do %>
+          <%= f.radio_button :delegation_level, 1, label: "San Jose" %>
+          <%= f.radio_button :delegation_level, 2, label: "San Lucas" %>
+          <%= f.radio_button :delegation_level, 3, label: "Miraflores" %>
+          <%= f.radio_button :delegation_level, 4, label: "Santiago" %>
+          <%= f.radio_button :delegation_level, 5, label: "La Rivera" %>
         <% end %>
+      <% end %>
+        
+        <%#= form_tag(dependencies_path ,method: "get", remote: false) do  %>  
+          <%#= radio_button_tag(:Delegation, @delegations[0][0] ) %>
+          <%#= label_tag(:delegation_id, "SAN JOSE") %>
+          <%#= radio_button_tag(:Delegation, @delegations[1][0] ) %>
+          <%#= label_tag(:delegation_id, "CABO") %>
+          <%#= radio_button_tag(:Delegation, @delegations[2][0] ) %>
+          <%#= label_tag(:delegation_id, "MIRAFLORES") %>
+          <%#= radio_button_tag(:Delegation, @delegations[3][0] ) %>
+          <%#= label_tag(:delegation_id, "SANTIAGO") %>
+          <%#= radio_button_tag(:Delegation, @delegations[4][0] ) %>
+          <%#= label_tag(:delegation_id, "LA RIVERA") %>
+          <%#= submit_tag "MOSTRAR", class:'btn btn-default btn-sm' %>
+        <%# end %>
     </div>
   </div>
   <div class="row">
