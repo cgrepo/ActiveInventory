@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007205042) do
+ActiveRecord::Schema.define(version: 20170405175435) do
 
   create_table "brand_models", force: :cascade do |t|
     t.string   "description"
@@ -295,6 +295,30 @@ ActiveRecord::Schema.define(version: 20161007205042) do
   end
 
   add_index "providers", ["User_id"], name: "index_providers_on_User_id"
+
+  create_table "scanners", force: :cascade do |t|
+    t.string   "ninventary"
+    t.string   "nserie"
+    t.string   "brand"
+    t.string   "model"
+    t.string   "nfactura"
+    t.date     "buy_date"
+    t.boolean  "net",           default: false
+    t.string   "ipnet"
+    t.string   "masknet"
+    t.string   "netmac"
+    t.boolean  "operational",   default: true
+    t.text     "reazon"
+    t.integer  "Delegation_id"
+    t.integer  "Dependency_id"
+    t.integer  "Network_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "scanners", ["Delegation_id"], name: "index_scanners_on_Delegation_id"
+  add_index "scanners", ["Dependency_id"], name: "index_scanners_on_Dependency_id"
+  add_index "scanners", ["Network_id"], name: "index_scanners_on_Network_id"
 
   create_table "screens", force: :cascade do |t|
     t.string   "ninventary"

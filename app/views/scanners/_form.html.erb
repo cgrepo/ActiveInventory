@@ -1,0 +1,47 @@
+<%= bootstrap_form_for(@scanner) do |f| %>
+  <% if @scanner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scanner.errors.count, "error") %> No se pudo guardar el escanner:</h2>
+      <ul>
+        <% @scanner.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container large-padding be-round_ligth_gray">
+    <div class='row'>
+      <div class='col-xs col-md-12'>
+        <%= render partial:'layouts/dd', locals:{:f => f} %>    
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-xs col-md-2'>
+        <%= f.text_field_with_bootstrap :ninventary, label:'Inventario' %>
+      </div>
+      <div class='col-xs col-md-2'>
+        <%= f.text_field_with_bootstrap :nserie, label:'Serie' %>
+      </div>
+      <div class='col-xs col-md-2'>
+        <%= f.select_with_bootstrap :brand, BrandModel.select(:brandx).where(description:"ESCANER").uniq.pluck(:brandx),
+        {:include_blank => true, label:'Marca' }, {class:'btn  btn-default dropdown-toggle smfont brands4scanner'}  %>
+      </div>
+      <div class='col-xs col-md-2'>
+        <%= f.collection_select_with_bootstrap(:model, BrandModel.where(description:"ESCANER"), :modelx, :modelx, 
+        {:include_blank => true, label:'Modelo' }, {class:'btn btn-default dropdown-toggle smfont models4scanner'} ) %>
+      </div>
+    </div>
+    <%= f.text_field_with_bootstrap :nfactura, label:'Factura' %>
+    <%= f.text_field_with_bootstrap :buy_date, label:'Fecha_compra' %>
+    <%= f.check_box_with_bootstrap :net, label:'Red?' %>
+    <%= f.text_field_with_bootstrap :ipnet, label:'IP' %>
+    <%= f.text_field_with_bootstrap :masknet, label:'Mascara' %>
+    <%= f.text_field_with_bootstrap :netmac, label:'MAc' %>
+    <%= f.check_box_with_bootstrap :operational, label:'Operacional' %>
+    <%= f.text_area_with_bootstrap :reazon, label:'Razon' %>
+    <%= f.text_field_with_bootstrap :Network_id, label:'Red' %>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

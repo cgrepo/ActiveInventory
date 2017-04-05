@@ -1,8 +1,10 @@
 $(document).on "turbolinks:load", ->
+	$brands = $('.brands4screen')
+	$selectedBrand = $('.brands4screen option:selected')
 	$('.models4screen').empty()
-	$('.brands4screen').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
-
-	$('.brands4screen').on 'change', ->
+	$brands.append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
+	
+	$brands.on 'change', ->
 		if $('.brands4screen option:selected').val() == 'plus'
 			url = "/brand_models/new?type=screen"
 			if url
@@ -13,5 +15,8 @@ $(document).on "turbolinks:load", ->
 				type:'GET'
 				dataType:'script'
 				data:
-					brand: $('.brands4screen option:selected').val(),
+					brand: $selectedBrand.val(),
 					genus: 'MONITOR'
+				success: (data) ->
+					alert data
+			#$('.models4screen').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')

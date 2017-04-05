@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ninventary: MyString
+  nserie: MyString
+  bran: MyString
+  model: MyString
+  nfactura: MyString
+  buy_date: 2017-04-05
+  net: false
+  ipnet: MyString
+  masknet: MyString
+  netmac: MyString
+  operational: false
+  reazon: MyText
+  Delegation_id: 
+  Dependency_id: 
+  Network_id: 
+
+two:
+  ninventary: MyString
+  nserie: MyString
+  bran: MyString
+  model: MyString
+  nfactura: MyString
+  buy_date: 2017-04-05
+  net: false
+  ipnet: MyString
+  masknet: MyString
+  netmac: MyString
+  operational: false
+  reazon: MyText
+  Delegation_id: 
+  Dependency_id: 
+  Network_id: 

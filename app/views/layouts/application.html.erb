@@ -16,7 +16,6 @@
               usuario [ <%= current_user.username.upcase %> ]
             </span>
            	<span class="pull-right">
-           	 	 
               <%= link_to 'ADMIN', admins_index_path, class:'btn btn-default btn-sm btn-transparent ' %> 
            	 	<%= link_to "Logout", logout_path, method: :delete, class:'btn btn-danger btn-sm btn-transparent ' %> 
               <span class="glyphicon glyphicon-log-in"></span>
@@ -56,6 +55,8 @@
                 class:'xsfont glyphicon glyphicon-flash' %></li>
                 <li><%= link_to ' IMPRESORAS', printers_path, 
                 class:'xsfont glyphicon glyphicon-print' %></li>
+                <li><%= link_to ' SCANNERS', scanners_path, 
+                class:'xsfont glyphicon glyphicon-duplicate' %></li>
                 <li><%= link_to ' COPIADORAS', copiers_path, 
                 class:'xsfont glyphicon glyphicon-tint' %></li>
                 <li><%= link_to ' ESTADISTICAS', statistics_path, 

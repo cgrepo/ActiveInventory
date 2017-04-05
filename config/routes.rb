@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :scanners
   resources :equipment_logs
   resources :common_errors
   ##---------SIMPLE REQUESTS---------------------------------------

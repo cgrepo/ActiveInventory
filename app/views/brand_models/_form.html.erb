@@ -23,15 +23,17 @@
         <%    ob = 'REGULADOR/UPS' %>
         <%  when 'print' %>
         <%    ob = 'IMPRESORA' %>
+        <%  when 'scanner' %>
+        <%    ob = 'ESCANER' %>
         <%  when 'copy' %>
         <%    ob = 'COPIADORA' %>
         <%  when 'phone' %>
         <%    ob = 'TELEFONO' %>
         <% end %>
-        <%= f.select :description, [ ['COMPUTADORA'], ['REGULADOR/UPS'], ['MONITOR'], ['IMPRESORA'], ['COPIADORA'], ['TELEFONO'] ],
-         {selected:ob},
-         {class:'btn btn-default dropdown-toggle smfont'}  %><br>
-
+        <%= f.select :description,
+          [ ['COMPUTADORA'],['REGULADOR/UPS'],['MONITOR'],['ESCANER'],['IMPRESORA'],['COPIADORA'],['TELEFONO'] ],
+          {selected:ob},
+          {class:'btn btn-default dropdown-toggle smfont'}  %><br>
         <%= f.label :Marca %><br>
         <%= f.text_field :brandx, class:'form-control smfont ups' %>
         <%= f.label :Modelo %><br>

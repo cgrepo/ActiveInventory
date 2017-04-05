@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Scanners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ninventary</th>
+      <th>Nserie</th>
+      <th>Bran</th>
+      <th>Model</th>
+      <th>Nfactura</th>
+      <th>Buy date</th>
+      <th>Net</th>
+      <th>Ipnet</th>
+      <th>Masknet</th>
+      <th>Netmac</th>
+      <th>Operational</th>
+      <th>Reazon</th>
+      <th>Delegation</th>
+      <th>Dependency</th>
+      <th>Network</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scanners.each do |scanner| %>
+      <tr>
+        <td><%= scanner.ninventary %></td>
+        <td><%= scanner.nserie %></td>
+        <td><%= scanner.bran %></td>
+        <td><%= scanner.model %></td>
+        <td><%= scanner.nfactura %></td>
+        <td><%= scanner.buy_date %></td>
+        <td><%= scanner.net %></td>
+        <td><%= scanner.ipnet %></td>
+        <td><%= scanner.masknet %></td>
+        <td><%= scanner.netmac %></td>
+        <td><%= scanner.operational %></td>
+        <td><%= scanner.reazon %></td>
+        <td><%= scanner.Delegation %></td>
+        <td><%= scanner.Dependency %></td>
+        <td><%= scanner.Network %></td>
+        <td><%= link_to 'Show', scanner %></td>
+        <td><%= link_to 'Edit', edit_scanner_path(scanner) %></td>
+        <td><%= link_to 'Destroy', scanner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Scanner', new_scanner_path %>
