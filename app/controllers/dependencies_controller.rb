@@ -9,7 +9,7 @@ class DependenciesController < ApplicationController
       @delegations = Delegation.all.pluck(:id,:name)
       @delegation = params[:Delegation]
 
-      @dependencies = Dependency.all.order(:name).where(Delegation: @delegation).paginate(page: params[:page], per_page: 7 )
+      @dependencies = Dependency.all.order(:name).where(Delegation: @delegation).paginate(page: params[:page], per_page: 15 )
       
       respond_to do |format|
         format.html {}
