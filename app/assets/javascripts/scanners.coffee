@@ -18,4 +18,13 @@ $(document).on "turbolinks:load", ->
             data:
                 brand: $('.brands4scanner option:selected').val(),
                 genus: 'ESCANER'
-                
+    $('#showNet').hide()
+    $('#net').change ->
+        active = $('#net').is(':checked')
+        if active
+            $('#showNet').fadeToggle()
+        else
+            $('#showNet').fadeToggle()
+
+    $('label:eq(1)').remove()
+    $('label:eq(2)').remove()

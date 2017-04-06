@@ -28,6 +28,7 @@ class ScannersController < ApplicationController
 
     respond_to do |format|
       if @scanner.save
+        set_me
         format.html { redirect_to @scanner, notice: 'Scanner creado satisfactoriamente!.' }
         format.json { render :show, status: :created, location: @scanner }
       else
@@ -42,6 +43,7 @@ class ScannersController < ApplicationController
   def update
     respond_to do |format|
       if @scanner.update(scanner_params)
+        set_me
         format.html { redirect_to @scanner, notice: 'Scanner actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @scanner }
       else
@@ -70,5 +72,10 @@ class ScannersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def scanner_params
       params.require(:scanner).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :net, :ipnet, :masknet, :netmac, :operational, :reazon, :Delegation_id, :Dependency_id, :Network_id)
+    end
+    
+    def set_me
+      @scanner.User_id = current_user.id
+      @scanner.save!
     end
 end

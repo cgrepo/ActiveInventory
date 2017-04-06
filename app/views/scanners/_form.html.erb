@@ -30,18 +30,41 @@
         <%= f.collection_select_with_bootstrap(:model, BrandModel.where(description:"ESCANER"), :modelx, :modelx, 
         {:include_blank => true, label:'Modelo' }, {class:'btn btn-default dropdown-toggle smfont models4scanner'} ) %>
       </div>
+      <div class='col-xs col-md-2'>
+        <%= f.text_field_with_bootstrap :nfactura, label:'Factura' %>
+      </div>
+      <div class='col-xs col-md-2'>
+        <%= f.text_field_with_bootstrap :buy_date, label:'Fecha_compra', class:'fechax' %>
+      </div>
     </div>
-    <%= f.text_field_with_bootstrap :nfactura, label:'Factura' %>
-    <%= f.text_field_with_bootstrap :buy_date, label:'Fecha_compra' %>
-    <%= f.check_box_with_bootstrap :net, label:'Red?' %>
-    <%= f.text_field_with_bootstrap :ipnet, label:'IP' %>
-    <%= f.text_field_with_bootstrap :masknet, label:'Mascara' %>
-    <%= f.text_field_with_bootstrap :netmac, label:'MAc' %>
-    <%= f.check_box_with_bootstrap :operational, label:'Operacional' %>
-    <%= f.text_area_with_bootstrap :reazon, label:'Razon' %>
-    <%= f.text_field_with_bootstrap :Network_id, label:'Red' %>
-    <div class="actions">
-      <%= f.submit %>
+    <div class='row'>
+      <div class='col-xs col-md-1'>
+        <%= f.check_box_with_bootstrap :net, label:'Network', id:'net' %>
+      </div>
+      <div class='col-xs col-md-9' id='showNet'>
+        <div class='row'>
+          <div class='col-xs col-md-3'>
+            <%= f.text_field_with_bootstrap :ipnet, label:'IP', placeholder:'000.000.000.000' %>
+          </div>
+          <div class='col-xs col-md-3'>
+            <%= f.text_field_with_bootstrap :masknet, label:'Mascara', placeholder:'255.255.255.255' %>
+          </div>
+          <div class='col-xs col-md-3'>
+            <%= f.text_field_with_bootstrap :netmac, label:'MAC', placeholder:'00-00-00-00-00-00' %>
+          </div>
+          <div class='col-xs col-md-3'>
+            <%= f.collection_select_with_bootstrap(:Network_id, Network.all, :id, :location, 
+            {:include_blank => true, label:'Red conectada'}) %>
+          </div>
+        </div>
+      </div>
+      <%#= f.check_box_with_bootstrap :operational, label:'Operacional' %>
+      <%#= f.text_area_with_bootstrap :reazon, label:'Razon' %>
+    </div>
+    <div class='row'>
+      <div class='col-xs col-md-2'>
+        <%= f.submit %>
+      </div>
     </div>
   </div>
 <% end %>

@@ -312,6 +312,7 @@ ActiveRecord::Schema.define(version: 20170405175435) do
     t.integer  "Delegation_id"
     t.integer  "Dependency_id"
     t.integer  "Network_id"
+    t.integer  "User_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
@@ -319,6 +320,7 @@ ActiveRecord::Schema.define(version: 20170405175435) do
   add_index "scanners", ["Delegation_id"], name: "index_scanners_on_Delegation_id"
   add_index "scanners", ["Dependency_id"], name: "index_scanners_on_Dependency_id"
   add_index "scanners", ["Network_id"], name: "index_scanners_on_Network_id"
+  add_index "scanners", ["User_id"], name: "index_scanners_on_User_id"
 
   create_table "screens", force: :cascade do |t|
     t.string   "ninventary"

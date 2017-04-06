@@ -42,7 +42,6 @@
         <%= @printer.notes %></p>
         <p><strong>Dependencia:</strong>
         <%= @printer.Dependency.name if  @printer.Dependency %></p>
-
      </div>
   </div>
   <%= render partial:'layouts/user_mod', locals:{:entity => @printer} %>
