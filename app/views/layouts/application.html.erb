@@ -47,18 +47,24 @@
                 class:'xsfont glyphicon glyphicon-user' %></li>
                 <li><%= link_to ' NETWORKS', networks_path, 
                 class:'xsfont glyphicon glyphicon-random' %></li>
-                <li><%= link_to ' COMPUTADORAS', computers_path, 
-                class:'xsfont glyphicon glyphicon-object-align-bottom' %></li>
-                <li><%= link_to ' MONITORES', screens_path, 
-                class:'xsfont glyphicon glyphicon-blackboard' %></li>
-                <li><%= link_to ' UPS/REGULADORES', powers_path, 
-                class:'xsfont glyphicon glyphicon-flash' %></li>
-                <li><%= link_to ' IMPRESORAS', printers_path, 
-                class:'xsfont glyphicon glyphicon-print' %></li>
-                <li><%= link_to ' SCANNERS', scanners_path, 
-                class:'xsfont glyphicon glyphicon-duplicate' %></li>
-                <li><%= link_to ' COPIADORAS', copiers_path, 
-                class:'xsfont glyphicon glyphicon-tint' %></li>
+                <li class='dropdown'>
+                 <%= link_to ' EQUIPOS', '#', 
+                  class:'dropdown-toggle xsfont glyphicon glyphicon-wrench', data: {toggle:'dropdown'}, id:'menuref'  %>
+                  <ul class='dropdown-menu be-gray'>
+                    <li><%= link_to ' COMPUTADORAS', computers_path, 
+                    class:'xsfont glyphicon glyphicon-object-align-bottom' %></li>
+                    <li><%= link_to ' MONITORES', screens_path, 
+                    class:'xsfont glyphicon glyphicon-blackboard' %></li>
+                    <li><%= link_to ' UPS/REGULADORES', powers_path, 
+                    class:'xsfont glyphicon glyphicon-flash' %></li>
+                    <li><%= link_to ' IMPRESORAS', printers_path, 
+                    class:'xsfont glyphicon glyphicon-print' %></li>
+                    <li><%= link_to ' SCANNERS', scanners_path, 
+                    class:'xsfont glyphicon glyphicon-duplicate' %></li>
+                    <li><%= link_to ' COPIADORAS', copiers_path, 
+                    class:'xsfont glyphicon glyphicon-tint' %></li>
+                  </ul>
+                </li>
                 <li><%= link_to ' ESTADISTICAS', statistics_path, 
                 class:'xsfont glyphicon glyphicon-stats' %></li>
                 <li><%= link_to ' CONSUMIBLES', consumables_path, 
