@@ -19,6 +19,11 @@
 	<% @models.each do |model| %>
 		$('.models4printer').append($('<option value="<%= model.modelx %>"><%= model.modelx %></option>'));
 	<% end %>
+<% when 'ESCANER' %>
+		$('.models4scanner').empty();
+	<% @models.each do |model| %>
+		$('.models4scanner').append($('<option value="<%= model.modelx %>"><%= model.modelx %></option>'));
+	<% end %>
 <% when 'COPIADORA' %>
 		$('.models4copier').empty();
 	<% @models.each do |model| %>

@@ -1,14 +1,21 @@
 $(document).on "turbolinks:load", ->
-    $brand = $('.brands4scanner')
-    $models = $('.models4scanner')
-    $models.empty()
-    $brand.append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
+    $('.brands4scanner').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
+    $('.models4scanner').empty()
     
-    $brand.on 'change', ->
-        selection = $(this).val()
-        alert selection
-        if selection == 'plus'
+    $('.brands4scanner').on 'change', ->
+        if $('.brands4scanner option:selected').val() == 'plus'
             url = "/brand_models/new?type=scanner"
             if url
-                alert url
                 window.location.replace url
+        if $('.brands4scanner option:selected').val() == ''
+            return
+        else
+           $.ajax
+            url: '/bridge_helper/get_models'
+            data:
+                brand: $('.brands4scanner option:selected').val(),
+                genus: 'ESCANER',
+                cache: false,
+                dataType:'script'
+            success: (data) ->
+                alert data
