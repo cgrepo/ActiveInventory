@@ -8,14 +8,14 @@ $(document).on "turbolinks:load", ->
             if url
                 window.location.replace url
         if $('.brands4scanner option:selected').val() == ''
+            $('.models4scanner').empty()
             return
         else
            $.ajax
             url: '/bridge_helper/get_models'
+            cache: false
+            dataType:'script'
             data:
                 brand: $('.brands4scanner option:selected').val(),
-                genus: 'ESCANER',
-                cache: false,
-                dataType:'script'
-            success: (data) ->
-                alert data
+                genus: 'ESCANER'
+                
