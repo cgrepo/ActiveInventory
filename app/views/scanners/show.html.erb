@@ -24,47 +24,47 @@
       </p>
       <p>
         <strong>Buy date:</strong>
-        <%= @scanner.buy_date %>
+        <%#= @scanner.buy_date %>
       </p>
       <p>
         <strong>Net:</strong>
-        <%= @scanner.net %>
+        <%#= @scanner.net %>
       </p>
       <p>
         <strong>Ipnet:</strong>
-        <%= @scanner.ipnet %>
+        <%#= @scanner.ipnet %>
       </p>
       <p>
         <strong>Masknet:</strong>
-        <%= @scanner.masknet %>
+        <%#= @scanner.masknet %>
       </p>
       <p>
         <strong>Netmac:</strong>
-        <%= @scanner.netmac %>
+        <%#= @scanner.netmac %>
       </p>
       <p>
         <strong>Operational:</strong>
-        <%= @scanner.operational %>
+        <%#= @scanner.operational %>
       </p>
       <p>
         <strong>Reazon:</strong>
-        <%= @scanner.reazon %>
+        <%#= @scanner.reazon %>
       </p>
       <p>
         <strong>Delegation:</strong>
-        <%= Delegation.find(@scanner.delegation_id).name %>
+        <%#= Delegation.find(@scanner.delegation_id).name %>
       </p>
       <p>
         <strong>Dependency:</strong>
-        <%= Dependency.find(@scanner.dependency_id).name %>
+        <%#= Dependency.find(@scanner.dependency_id).name %>
 </p>
       <p>
         <strong>Network:</strong>
-        <%= Network.find(@scanner.network_id).location %>
+        <%#= Network.find(@scanner.network_id).location %>
       </p>
      </div>
   </div>
-  <%= render partial:'layouts/user_mod', locals:{:entity => @scanner} %>
+  <%#= render partial:'layouts/user_mod', locals:{:entity => @scanner} %>
 </div>
 <div class="container">
   <div class="row">
