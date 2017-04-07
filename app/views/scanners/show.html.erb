@@ -39,6 +39,10 @@
           <strong>Netmac:</strong>
           <%= @scanner.netmac %>
         </p>
+        <p>
+          <strong>Network:</strong>
+          <%= Network.find(@scanner.network_id).location %>
+        </p>
       <% end %>
       <% unless @scanner.operational %>
         <p>
@@ -47,16 +51,12 @@
         </p>
       <% end %> 
       <p>
-        <strong>Delegation:</strong>
+        <strong>Delegacion:</strong>
         <%= Delegation.find(@scanner.delegation_id).name %>
       </p>
       <p>
-        <strong>Dependency:</strong>
-        <%#= Dependency.find(@scanner.dependency_id).name %>
-      </p>
-      <p>
-        <strong>Network:</strong>
-        <%#= Network.find(@scanner.network_id).location %>
+        <strong>Dependencia:</strong>
+        <%= Dependency.find(@scanner.dependency_id).name %>
       </p>
      </div>
   </div>
