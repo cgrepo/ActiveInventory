@@ -8,6 +8,7 @@ class Dependency < ActiveRecord::Base
   has_many :Copiers
   has_many :Printers
   has_many :Computers
+  has_many :Scanners
 
 	validates :name, :responsable, :Delegation,	presence: { message: "no puede estar en blanco" }
 	

@@ -3,6 +3,7 @@ class Network < ActiveRecord::Base
 	has_many :Computers
 	has_many :Printers
 	has_many :Copiers
+	has_many :Scanners
 	has_one :User
 	HUMANIZED_ATTRIBUTES = { 
   	:linktype => 'Tipo de Conexion',
