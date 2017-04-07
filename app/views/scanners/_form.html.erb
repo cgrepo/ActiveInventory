@@ -10,11 +10,18 @@
     </div>
   <% end %>
   <div class="container large-padding be-round_ligth_gray">
-    <div class='row'>
-      <div class='col-xs col-md-12'>
-        <%= render partial:'layouts/dd', locals:{:f => f} %>    
+    <div class="row">
+      <div class="col-xs col-md-3">
+        <%= f.label :Delegacion %><br>
+        <%= f.collection_select(:Delegation_id, Delegation.all, :id, :name, {:include_blank => true }, 
+        {class:'btn btn-default dropdown-toggle smfont delegations_collection'} ) %>
       </div>
-    </div>
+      <div class="col-xs col-md-4">
+        <%= f.label :Dependencia %><br>
+        <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true}, 
+        {class:'btn btn-default dropdown-toggle smfont dependencies_collection'}) %>
+      </div>
+</div>
     <div class='row'>
       <div class='col-xs col-md-2'>
         <%= f.text_field_with_bootstrap :ninventary, label:'Inventario' %>
