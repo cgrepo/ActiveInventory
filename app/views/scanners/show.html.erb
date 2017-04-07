@@ -52,15 +52,15 @@
       </p>
       <p>
         <strong>Delegation:</strong>
-        <%= @scanner.Delegation.name %>
+        <%= Delegation.find(@scanner.delegation_id).name %>
       </p>
       <p>
         <strong>Dependency:</strong>
-        <%= @scanner.Dependency.name %>
+        <%= Dependency.find(@scanner.dependency_id).name %>
 </p>
       <p>
         <strong>Network:</strong>
-        <%= @scanner.Network.location %>
+        <%= Network.find(@scanner.network_id).location %>
       </p>
      </div>
   </div>
