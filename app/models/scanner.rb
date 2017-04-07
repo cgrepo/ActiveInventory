@@ -1,5 +1,6 @@
 class Scanner < ActiveRecord::Base
-  belongs_to :Delegation
-  belongs_to :Dependency
-  belongs_to :Network
+  belongs_to :delegation
+  belongs_to :dependency
+  belongs_to :network
+  
 end
