@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405175435) do
+ActiveRecord::Schema.define(version: 20170407021444) do
 
   create_table "brand_models", force: :cascade do |t|
     t.string   "description"
@@ -130,9 +130,12 @@ ActiveRecord::Schema.define(version: 20170405175435) do
 
   create_table "delegations", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "delegation_id"
   end
+
+  add_index "delegations", ["delegation_id"], name: "index_delegations_on_delegation_id"
 
   create_table "dependencies", force: :cascade do |t|
     t.string   "name"
@@ -309,12 +312,12 @@ ActiveRecord::Schema.define(version: 20170405175435) do
     t.string   "netmac"
     t.boolean  "operational",   default: true
     t.text     "reazon"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "Delegation_id"
     t.integer  "Dependency_id"
     t.integer  "Network_id"
     t.integer  "User_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
   end
 
   add_index "scanners", ["Delegation_id"], name: "index_scanners_on_Delegation_id"
