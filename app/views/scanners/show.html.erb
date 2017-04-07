@@ -3,53 +3,49 @@
   <div class="row">
     <div class="col-xs">
       <p>
-        <strong>Ninventary:</strong>
+        <strong>INVENTARIO:</strong>
         <%= @scanner.ninventary %>
       </p>
       <p>
-        <strong>Nserie:</strong>
+        <strong>SERIE:</strong>
         <%= @scanner.nserie %>
       </p>
       <p>
-        <strong>Bran:</strong>
+        <strong>MARCA:</strong>
         <%= @scanner.brand %>
       </p>
       <p>
-        <strong>Model:</strong>
+        <strong>MODELO:</strong>
         <%= @scanner.model %>
       </p>
       <p>
-        <strong>Nfactura:</strong>
+        <strong>FACTURA:</strong>
         <%= @scanner.nfactura %>
       </p>
       <p>
-        <strong>Buy date:</strong>
+        <strong>FECHA COMPRA:</strong>
         <%#= @scanner.buy_date %>
       </p>
-      <p>
-        <strong>Net:</strong>
-        <%#= @scanner.net %>
-      </p>
-      <p>
-        <strong>Ipnet:</strong>
-        <%#= @scanner.ipnet %>
-      </p>
-      <p>
-        <strong>Masknet:</strong>
-        <%#= @scanner.masknet %>
-      </p>
-      <p>
-        <strong>Netmac:</strong>
-        <%#= @scanner.netmac %>
-      </p>
-      <p>
-        <strong>Operational:</strong>
-        <%#= @scanner.operational %>
-      </p>
-      <p>
-        <strong>Reazon:</strong>
-        <%#= @scanner.reazon %>
-      </p>
+      <% if @scanner.net %>
+        <p>
+          <strong>Ipnet:</strong>
+          <%= @scanner.ipnet %>
+        </p>
+        <p>
+          <strong>Masknet:</strong>
+          <%= @scanner.masknet %>
+        </p>
+        <p>
+          <strong>Netmac:</strong>
+          <%= @scanner.netmac %>
+        </p>
+      <% end %>
+      <% unless @scanner.operational %>
+        <p>
+          <strong>No Operacional:</strong>
+          <%= @scanner.reazon %>
+        </p>
+      <% end %> 
       <p>
         <strong>Delegation:</strong>
         <%#= Delegation.find(@scanner.delegation_id).name %>
@@ -57,14 +53,21 @@
       <p>
         <strong>Dependency:</strong>
         <%#= Dependency.find(@scanner.dependency_id).name %>
-</p>
+      </p>
       <p>
         <strong>Network:</strong>
         <%#= Network.find(@scanner.network_id).location %>
       </p>
      </div>
   </div>
-  <%#= render partial:'layouts/user_mod', locals:{:entity => @scanner} %>
+  <div class="row be-soft_purple">
+    <div class="col-xs col-md">
+      <p align="right">
+        <strong>ULTIMA MODIFICACION</strong><br>
+        <%= @scanner.user_id ? User.find(@scanner.user_id).username : "FALTA ASIGNAR"  %>
+      </p>
+    </div>
+  </div>
 </div>
 <div class="container">
   <div class="row">
