@@ -71,7 +71,7 @@ class ScannersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def scanner_params
-      params.require(:scanner).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :net, :ipnet, :masknet, :netmac, :operational, :reazon, :Delegation_id, :Dependency_id, :Network_id)
+      params.require(:scanner).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :net, :ipnet, :masknet, :netmac, :operational, :reazon, :delegation_id, :dependency_id, :network_id)
     end
     
     def set_me

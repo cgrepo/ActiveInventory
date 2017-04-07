@@ -26,5 +26,5 @@ $(document).on "turbolinks:load", ->
         else
             $('#showNet').fadeToggle()
 
-    $('label:eq(1)').remove()
-    $('label:eq(2)').remove()
+    #$('label:eq(1)').remove()
+    #$('label:eq(2)').remove()
