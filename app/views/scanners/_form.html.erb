@@ -12,11 +12,11 @@
   <div class="container large-padding be-round_ligth_gray">
     <div class="row">
       <div class="col-xs col-md-6">
-        <%= f.collection_select_with_bootstrap(:Delegation_id, Delegation.all, :id, :name, {:include_blank => true }, 
+        <%= f.collection_select_with_bootstrap(:delegation_id, Delegation.all, :id, :name, {:include_blank => true }, 
         {class:'btn btn-default dropdown-toggle delegations_collection', label:'Delegacion'} ) %>
       </div>
       <div class="col-xs col-md-6">
-        <%= f.collection_select_with_bootstrap(:Dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true}, 
+        <%= f.collection_select_with_bootstrap(:dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true}, 
         {class:'btn btn-default dropdown-toggle dependencies_collection', label:'Dependencia'}) %>
       </div>
 </div>
