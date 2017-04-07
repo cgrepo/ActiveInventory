@@ -58,7 +58,7 @@
             <%= f.text_field_with_bootstrap :netmac, label:'MAC', placeholder:'00-00-00-00-00-00' %>
           </div>
           <div class='col-xs col-md-3'>
-            <%= f.collection_select_with_bootstrap(:Network_id, Network.all, :id, :location, 
+            <%= f.collection_select_with_bootstrap(network_id, Network.all, :id, :location, 
             {:include_blank => true, label:'Red conectada'}) %>
           </div>
         </div>
