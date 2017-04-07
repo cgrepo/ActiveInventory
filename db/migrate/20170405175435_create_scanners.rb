@@ -13,7 +13,7 @@ class CreateScanners < ActiveRecord::Migration
       t.string :netmac
       t.boolean :operational, :default => true
       t.text :reazon
-      t.references :Delegation, index: true, foreign_key: true
+      t.references :Delegation, index: true#, foreign_key: true
       t.references :Dependency, index: true, foreign_key: true
       t.references :Network, index: true, foreign_key: true
       t.references :User, index: true, foreign_key: true
