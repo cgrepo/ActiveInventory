@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-xs col-md-3">
         <%= f.label :Delegacion %><br>
-        <%= f.collection_select(:Delegation_id, Delegation.all, :id, :name, {:include_blank => true }, 
+        <%= f.collection_select(:delegation_id, Delegation.all, :id, :name, {:include_blank => true }, 
         {class:'btn btn-default dropdown-toggle smfont delegations_collection'} ) %>
       </div>
       <div class="col-xs col-md-4">
