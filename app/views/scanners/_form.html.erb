@@ -14,12 +14,12 @@
       <div class="col-xs col-md-3">
         <%= f.label :Delegacion %><br>
         <%= f.collection_select(:delegation_id, Delegation.all, :id, :name, {:include_blank => true }, 
-        {class:'btn btn-default dropdown-toggle smfont delegations_collection'} ) %>
+        {class:'btn btn-default dropdown-toggle delegations_collection'} ) %>
       </div>
       <div class="col-xs col-md-4">
         <%= f.label :Dependencia %><br>
         <%= f.collection_select(:dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true}, 
-        {class:'btn btn-default dropdown-toggle smfont dependencies_collection'}) %>
+        {class:'btn btn-default dropdown-toggle dependencies_collection'}) %>
       </div>
 </div>
     <div class='row'>

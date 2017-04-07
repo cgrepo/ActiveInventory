@@ -75,7 +75,7 @@ class ScannersController < ApplicationController
     end
     
     def set_me
-      @scanner.User_id = current_user.id
+      @scanner.user_id = current_user.id
       @scanner.save!
     end
 end
