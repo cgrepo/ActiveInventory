@@ -33,7 +33,7 @@ class Computer < ActiveRecord::Base
   validates :name, :brand, :genus, :processor, :hd, :memory, :os, :voffice, :users, :workgroup,
    :maclan, :iplan, :masklan, presence: { message: "no puede estar en blanco" }
 
-  validates_numericality_of :ninventary, message:'deben ser solo numeros'
+  
 
   validates :macbluetooth, presence: { message: "debe proporcionar la mac bluetooth" }, :if => :bluetooth_set?
   validates :macbluetooth, mac: true, :if => :bluetooth_set?
