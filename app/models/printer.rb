@@ -17,7 +17,7 @@ class Printer < ActiveRecord::Base
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
   end
   
-  validates_numericality_of :ninventary, message:'deben ser solo numeros'
+  
   validates :ninventary, uniqueness: {message: "El numero de Inventario ya ha sido usado"}
   validates :brand, :genus, presence: { message: "no puede estar en blanco" }
   validates :wifi_mac, mac: true, presence: { message: "debe proporcionar la mac del Wifi" }, :if => :wifi_set?
