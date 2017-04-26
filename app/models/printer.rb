@@ -11,14 +11,13 @@ class Printer < ActiveRecord::Base
 
 	HUMANIZED_ATTRIBUTES = { 
     :ninventary => 'Numero de Inventario',
-    :brand => 'Marca'  
+    :brand => 'Marca',
+    :genus => 'Tipo'
   }
   def self.human_attribute_name(attr, options = {})
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
   end
-  
-  
-  validates :ninventary, uniqueness: {message: "El numero de Inventario ya ha sido usado"}
+
   validates :brand, :genus, presence: { message: "no puede estar en blanco" }
   validates :wifi_mac, mac: true, presence: { message: "debe proporcionar la mac del Wifi" }, :if => :wifi_set?
   validates :net_mac, mac: true, presence: { message: "debe proporcionar la mac de Lan" }, :if => :net_set?
@@ -30,9 +29,23 @@ class Printer < ActiveRecord::Base
   def net_set?
   	net
   end
-
+  
+  def nserie=(data)
+    write_attribute(:nserie, data.to_s.upcase)
+  end
+  
+  def wifi_mac=(data)
+    write_attribute(:wifi_mac, data.to_s.upcase)
+  end
+  
+  def net_mac=(data)
+    write_attribute(:net_mac, data.to_s.upcase)
+  end
+  
+  def notes=(data)
+    write_attribute(:notes, data.to_s.upcase)
+  end
   # def ipdata_set?
-    
   # end
 end
  

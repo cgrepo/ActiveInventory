@@ -15,7 +15,13 @@ module AtLeastOne
 
 	def check_fields
     errors.add(:base, 'Debe tener un numero de inventario o serie') if self.ninventary.blank? and self.nserie.blank?
-    validates_numericality_of :ninventary, message:'deben ser solo numeros' unless self.ninventary.blank?
+    unless self.ninventary.blank?
+      validates_numericality_of :ninventary, message:'deben ser solo numeros'
+      validates :ninventary, uniqueness: {message: "El numero de Inventario ya ha sido usado"}
+    end
+    unless self.nserie.blank?
+      validates :nserie, uniqueness: {message: "El numero de Serie ya ha sido usado"}
+    end
     return true
   end
 
