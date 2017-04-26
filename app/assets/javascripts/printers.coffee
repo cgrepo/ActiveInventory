@@ -7,7 +7,7 @@ $(document).on "turbolinks:load", ->
 
 	$('.brands4printer').on 'change', ->
 		if $('.brands4printer option:selected').val() == 'plus'
-			url = "/brand_models/new?type=print"
+			url = "/brand_models/new?type=IMPRESORA"
 			if url
 				window.location.replace url
 		else

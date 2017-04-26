@@ -39,7 +39,7 @@
               <td><%= brand_model.brandx %></td>
               <td><%= brand_model.modelx %></td>
               <td align="right">
-                <%= link_to 'Editar', edit_brand_model_path(brand_model), class:'btn btn-default btn-sm' %>
+                <%= link_to 'Editar', edit_brand_model_path(brand_model, type:brand_model.description), class:'btn btn-default btn-sm' %>
                 <%= link_to 'Borrar', brand_model, method: :delete, data: { confirm: 'Esta usted seguro?' }, 
                   class:'btn btn-default btn-sm' %>
               </td>

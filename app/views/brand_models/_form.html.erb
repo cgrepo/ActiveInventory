@@ -2,7 +2,6 @@
   <% if @brand_model.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@brand_model.errors.count, "error") %> prohibited this brand_model from being saved:</h2>
-
       <ul>
       <% @brand_model.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,28 +10,31 @@
     </div>
   <% end %>
   <div class="container">
+    <%# if params[:action] = 'edit' %>
+    <%#= params[:type] %>
+    <%# end %>
     <div class="row">
       <div class="col-xs-6 col-md-4 be-soft_gray">
         <%= f.label :Tipo %><br>
-        <% case params[:type] %>
-        <%  when 'screen' %>
-        <%    ob = 'MONITOR' %>
-        <%  when 'pc' %>
-        <%    ob = 'COMPUTADORA' %>
-        <%  when 'pow' %>
-        <%    ob = 'REGULADOR/UPS' %>
-        <%  when 'print' %>
-        <%    ob = 'IMPRESORA' %>
-        <%  when 'scanner' %>
-        <%    ob = 'ESCANER' %>
-        <%  when 'copy' %>
-        <%    ob = 'COPIADORA' %>
-        <%  when 'phone' %>
-        <%    ob = 'TELEFONO' %>
-        <% end %>
+        <%# case params[:type] %>
+        <%#  when 'screen' %>
+        <%#    ob = 'MONITOR' %>
+        <%#  when 'pc' %>
+        <%#    ob = 'COMPUTADORA' %>
+        <%#  when 'pow' %>
+        <%#    ob = 'REGULADOR/UPS' %>
+        <%#  when 'print' %>
+        <%#    ob = 'IMPRESORA' %>
+        <%#  when 'scanner' %>
+        <%#    ob = 'ESCANER' %>
+        <%#  when 'copy' %>
+        <%#    ob = 'COPIADORA' %>
+        <%#  when 'phone' %>
+        <%#    ob = 'TELEFONO' %>
+        <%# end %>
         <%= f.select :description,
           [ ['COMPUTADORA'],['REGULADOR/UPS'],['MONITOR'],['ESCANER'],['IMPRESORA'],['COPIADORA'],['TELEFONO'] ],
-          {selected:ob},
+          {selected:params[:type]},
           {class:'btn btn-default dropdown-toggle smfont'}  %><br>
         <%= f.label :Marca %><br>
         <%= f.text_field :brandx, class:'form-control smfont ups' %>
