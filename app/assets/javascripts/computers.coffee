@@ -26,7 +26,7 @@ $(document).on "turbolinks:load", ->
 
 	$('.brands4pc').on 'change', ->
 		if $('.brands4pc option:selected').val() == 'plus'
-			url = "/brand_models/new?pc"
+			url = "/brand_models/new?COMPUTADORA"
 			if url
 				window.location.replace url
 		else

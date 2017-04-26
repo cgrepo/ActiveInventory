@@ -7,7 +7,7 @@ $(document).on "turbolinks:load", ->
 
 	$('.brands4copier').on 'change', ->
 		if $('.brands4copier option:selected').val() == 'plus'
-			url = "/brand_models/new?type=copy"
+			url = "/brand_models/new?type=COPIADORA"
 			if url
 				window.location.replace url
 		else

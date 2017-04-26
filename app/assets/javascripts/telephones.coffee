@@ -5,7 +5,7 @@ $(document).on "turbolinks:load", ->
 
 	$('.brands4tel').on 'change', ->
 		if $('.brands4tel option:selected').val() == 'plus'
-			url = "/brand_models/new?type=phone"
+			url = "/brand_models/new?type=TELEFONO"
 			if url
 				window.location.replace url
 		else

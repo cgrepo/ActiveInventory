@@ -4,7 +4,7 @@ $(document).on "turbolinks:load", ->
     
     $('.brands4scanner').on 'change', ->
         if $('.brands4scanner option:selected').val() == 'plus'
-            url = "/brand_models/new?type=scanner"
+            url = "/brand_models/new?type=ESCANER"
             if url
                 window.location.replace url
         if $('.brands4scanner option:selected').val() == ''

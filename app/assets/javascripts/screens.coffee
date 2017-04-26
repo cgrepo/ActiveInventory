@@ -4,7 +4,7 @@ $(document).on "turbolinks:load", ->
 
 	$('.brands4screen').on 'change', ->
 		if $('.brands4screen option:selected').val() == 'plus'
-			url = "/brand_models/new?type=copy"
+			url = "/brand_models/new?type=MONITOR"
 			if url
 				window.location.replace url
 		else
