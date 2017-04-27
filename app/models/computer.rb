@@ -30,19 +30,15 @@ class Computer < ActiveRecord::Base
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
   end
   
-  validates :name, :brand, :genus, :processor, :hd, :memory, :os, :voffice, :users, :workgroup,
-   :maclan, :iplan, :masklan, presence: { message: "no puede estar en blanco" }
-
-  
-
-  validates :macbluetooth, presence: { message: "debe proporcionar la mac bluetooth" }, :if => :bluetooth_set?
+  validates :name, :brand, :genus, :processor, :hd, :memory, :os, :voffice, :users, :workgroup, :maclan, :iplan, :masklan, 
+    presence: { message: "no puede estar en blanco" }
+  validates :macbluetooth, 
+    presence: { message: "debe proporcionar la mac bluetooth" }, :if => :bluetooth_set?
   validates :macbluetooth, mac: true, :if => :bluetooth_set?
-  validates :macwifi, :ipwifi, :maskwifi, presence: { message: "debe proporcionar todos los datos de wifi" }, :if => :wifi_set?
-
+  validates :macwifi, :ipwifi, :maskwifi, 
+    presence: { message: "debe proporcionar todos los datos de wifi" }, :if => :wifi_set?
   validates :macwifi, mac: true, :if => :wifi_set?
-
   validate :valid_ipv4_address, :if => :wifi_set?
-
   validates :iplan, ipv4: true
 
   def wifi_set?
