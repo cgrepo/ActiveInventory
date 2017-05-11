@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170407021444) do
+ActiveRecord::Schema.define(version: 20170511184509) do
 
   create_table "brand_models", force: :cascade do |t|
     t.string   "description"
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(version: 20170407021444) do
     t.integer  "User_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.string   "hostname"
   end
 
   add_index "copiers", ["Delegation_id"], name: "index_copiers_on_Delegation_id"
