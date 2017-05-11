@@ -18,7 +18,8 @@ class Copier < ActiveRecord::Base
   validates :brand, presence: { message: "no puede estar en blanco" }
   validates :wifi_mac, presence: { message: "debe proporcionar la mac del Wifi" }, :if => :wifi_set?
   validates :net_mac, presence: { message: "debe proporcionar la mac de Lan" }, :if => :net_set?
-  validates :ninventary, uniqueness: {message: "Ya existe un numero de invetario asignado"}
+
+  
   def wifi_set?
   	wifi
   end
@@ -35,4 +36,11 @@ class Copier < ActiveRecord::Base
     write_attribute(:notes, data.to_s.upcase)
   end
   
+  def wifi_mac=(data)
+    write_attribute(:wifi_mac, data.to_s.upcase)
+  end
+  
+  def net_mac=(data)
+    write_attribute(:net_mac, data.to_s.upcase)
+  end
 end
