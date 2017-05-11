@@ -41,6 +41,10 @@
             <%= @copier.wifi_mask %>
           </p>
         <% end %>
+        <% if @copier.wifi || @copier.net %>
+          <strong>HOSTNAME</strong><br>
+          <%= @copier.hostname %>
+        <% end %>
       <p><strong>Notas:</strong>
       <%= @copier.notes %></p>
 

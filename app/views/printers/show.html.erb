@@ -38,6 +38,10 @@
             <%= @printer.wifi_mask %>
           </p>
         <% end %>
+        <% if @printer.wifi || @printer.net %>
+          <strong>HOSTNAME</strong><br>
+          <%= @printer.hostname %>
+        <% end %>
         <p><strong>Notas:</strong>
         <%= @printer.notes %></p>
         <p><strong>Dependencia:</strong>

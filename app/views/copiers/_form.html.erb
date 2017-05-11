@@ -92,10 +92,14 @@
         </div>
         <div class="row">
           <div class="cnet-con">
-            <div class="col-xs col-md-8">
+            <div class="col-xs col-md-5">
               <%= f.label 'RED' %><br>
               <%= f.collection_select(:Network_id, Network.all, :id, :location, {:include_blank => true}, 
               {class:'btn btn-default dropdown-toggle smfont'} ) %>
+            </div>
+            <div class='col-xs col-md-4'>
+              <%= f.label 'Nombre_Host' %>
+              <%= f.text_field :hostname, placeholder:'HOSTNAME', class:'form-control' %>
             </div>
           </div>
         </div>

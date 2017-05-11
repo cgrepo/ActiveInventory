@@ -75,7 +75,7 @@ class CopiersController < ApplicationController
     def copier_params
       params.require(:copier).permit( :ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :operational, :reazon, :notes, 
                                       :net, :net_mac, :net_ip, :net_mask, :wifi, :wifi_mac, :wifi_ip, :wifi_mask,
-                                      :Network_id, :Delegation_id, :Dependency_id)
+                                      :Network_id, :Delegation_id, :hostname, :Dependency_id)
     end
 
     def set_me
