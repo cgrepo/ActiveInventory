@@ -7,9 +7,15 @@ $(document).on "turbolinks:load", ->
 
 	$('.brands4printer').on 'change', ->
 		if $('.brands4printer option:selected').val() == 'plus'
-			url = "/brand_models/new?type=IMPRESORA"
-			if url
-				window.location.replace url
+			$.ajax
+				type:'GET'
+				url: '/printers/showmodal'
+				dataType: 'script'
+
+				
+			# url = "/brand_models/new?type=IMPRESORA"
+			# if url
+			# 	window.location.replace url
 		else
 			$.ajax
 				url:'/bridge_helper/get_models'

@@ -27,16 +27,18 @@ Rails.application.routes.draw do
     get 'reports/index'
     get 'admins/index'
     get "/login" => "sessions#new", as: "login"
+    get '/printers/showmodal' => 'printers#showmodal'
     delete "/logout" => "sessions#destroy", as: "logout"
     #get "repo" => "reports#index"
     root to: 'welcome#index'
   ##----------RESOURSES-ADVANCED-----------------------------------
     resources :providers
-    resources :brand_models do
-        collection do
-            get 'frmprintersm', to:'printers#showmodal'
-        end
-    end
+    resources :brand_models 
+    # do
+    #     collection do
+    #         get 'printermodal', to:'printers#showmodal'
+    #     end
+    # end
     resources :officevs
     resources :osies
     resources :hardds

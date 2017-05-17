@@ -15,7 +15,6 @@ class BrandModelsController < ApplicationController
   # GET /brand_models/new
   def new
     @brand_model = BrandModel.new
-    #byebug
   end
 
   # GET /brand_models/1/edit
@@ -63,12 +62,14 @@ class BrandModelsController < ApplicationController
     end
   end
   
-  def showmodal
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
+  # def showmodal
+  #   byebug
+  #   @brand_model = BrandModel.new
+  #   respond_to do |format|
+  #     format.html
+  #     format.js
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
