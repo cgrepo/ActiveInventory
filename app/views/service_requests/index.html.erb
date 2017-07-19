@@ -45,42 +45,17 @@
                 <td><%= service_request.kind %></td>
                 <td><%= service_request.DocumentRequest %></td> 
                 <td><%= service_request.RequestDate %></td>
-               
-                <% if service_request.Delegation %>
-                  <td><%= service_request.Delegation.name %></td>
-                <% end %>
-                
-                <% if service_request.Dependency %>
-                  <td><%= service_request.Dependency.name %></td>
-                <% end %>
-                
-                <% if service_request.Provider %>
-                  <td><%= service_request.Provider.name[0..18] %></td>
-                <% end %>
-                <% if service_request.Copier %>
-                  <td>COPIADORA<%#= service_request.Copier.ninventary %></td>
-                <% end %>
-                
-                <% if service_request.Printer %>
-                  <td>IMPRESORA
-                    <%#= service_request.Printer.ninventary %></td>
-                <% end %>
-                
-                <% if service_request.Screen %>
-                  <td>MONITOR
-                    <%#= service_request.Screen.ninventary %></td>
-                <% end %>
-                
-                <% if service_request.Telephone %>
-                  <td>TELEFONO
-                    <%#= service_request.Telephone.ninventary %></td>
-                <% end %>
-
-                <% if service_request.Power %>
-                  <td>REGULADOR/UPS
-                    <%#= service_request.Power.ninventary %></td>
-                <% end %>
-
+                <td><%= service_request.Delegation.name if service_request.Delegation %></td>
+                <td><%= service_request.Dependency.name if service_request.Dependency %></td>
+                <td><%= service_request.Provider.name[0..18] if service_request.Provider %></td>
+                <td>
+                    <%= 'COPIADORA' if service_request.Copier %>
+                    <%= 'SCANNER' if service_request.Scanner %>
+                    <%= 'IMPRESORA' if service_request.Printer %>
+                    <%= 'MONITOR' if service_request.Screen %>
+                    <%= 'TELEFONO' if service_request.Telephone %>
+                    <%= 'REGULADOR/UPS' if service_request.Power %>
+                </td>
                 <td><%= link_to 'Mostrar', service_request, class:'btn btn-default btn-sm' %></td>
                 <td><%= link_to 'Editar', edit_service_request_path(service_request), class:'btn btn-default btn-sm' %></td>
                 <td><%= link_to 'Borrar', service_request, method: :delete, data: { confirm: 'Esta seguro?' },

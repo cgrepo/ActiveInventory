@@ -141,7 +141,7 @@ class ServiceRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_request_params
-      params.require(:service_request).permit(:idFolio, :kind, :itDiagnosis, :ProviderDiagnosis, :material, :DocumentRequest, :RequestDate, :ExecutionDate, :History, :Delegation_id, :Dependency_id, :service_request_id, :Provider_id, :Copier_id, :Printer_id, :Screen_id, :Telephone_id, :Power_id, :Priority)
+      params.require(:service_request).permit(:idFolio, :kind, :itDiagnosis, :ProviderDiagnosis, :material, :DocumentRequest, :RequestDate, :ExecutionDate, :History, :Delegation_id, :Dependency_id, :service_request_id, :Provider_id, :Copier_id, :Printer_id, :Screen_id, :Telephone_id, :Power_id, :Scanner_id, :Priority)
     end
 
     def set_me
