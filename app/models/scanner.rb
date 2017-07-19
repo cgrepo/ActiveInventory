@@ -3,4 +3,5 @@ class Scanner < ActiveRecord::Base
   belongs_to :Dependency
   belongs_to :Network
   has_many	:ServiceRequest
+  has_one :User
 end

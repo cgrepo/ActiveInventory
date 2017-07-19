@@ -41,7 +41,7 @@
         </p>
         <p>
           <strong>Network:</strong>
-          <%= Network.find(@scanner.network_id).location %>
+          <%= Network.find(@scanner.Network_id).location %>
         </p>
       <% end %>
       <% unless @scanner.operational %>
@@ -52,11 +52,11 @@
       <% end %> 
       <p>
         <strong>Delegacion:</strong>
-        <%= Delegation.find(@scanner.delegation_id).name %>
+        <%= Delegation.find(@scanner.Delegation_id).name %>
       </p>
       <p>
         <strong>Dependencia:</strong>
-        <%= Dependency.find(@scanner.dependency_id).name %>
+        <%= Dependency.find(@scanner.Dependency_id).name %>
       </p>
      </div>
   </div>
@@ -64,7 +64,7 @@
     <div class="col-xs col-md">
       <p align="right">
         <strong>ULTIMA MODIFICACION</strong><br>
-        <%= @scanner.user_id ? User.find(@scanner.user_id).username : "FALTA ASIGNAR"  %>
+        <%= @scanner.User_id ? User.find(@scanner.User_id).username : "FALTA ASIGNAR"  %>
       </p>
     </div>
   </div>
