@@ -4,7 +4,7 @@ class ScannersController < ApplicationController
   # GET /scanners
   # GET /scanners.json
   def index
-    @scanners = Scanner.all.all.where(operational: true).paginate(page: params[:page], per_page: 10 )
+    @scanners = Scanner.all.where(operational: true).paginate(page: params[:page], per_page: 10 )
   end
 
   # GET /scanners/1
@@ -71,11 +71,11 @@ class ScannersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def scanner_params
-      params.require(:scanner).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :net, :ipnet, :masknet, :netmac, :operational, :reazon, :delegation_id, :dependency_id, :network_id)
+      params.require(:scanner).permit(:ninventary, :nserie, :brand, :model, :nfactura, :buy_date, :net, :ipnet, :masknet, :netmac, :operational, :reazon, :Delegation_id, :Dependency_id, :Network_id)
     end
     
     def set_me
-      @scanner.user_id = current_user.id
+      @scanner.User_id = current_user.id
       @scanner.save!
     end
 end
