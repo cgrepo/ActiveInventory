@@ -8,6 +8,7 @@ class ServiceRequest < ActiveRecord::Base
   belongs_to :Screen
   belongs_to :Telephone
   belongs_to :Power
+  belongs_to :Scanner
   has_one :User
   
    HUMANIZED_ATTRIBUTES = {
