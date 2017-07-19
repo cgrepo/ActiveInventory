@@ -35,8 +35,8 @@
             <td><%= scanner.nserie %></td>
             <td><%= scanner.brand %></td>
             <td><%= scanner.model %></td>
-            <td><%= Delegation.find(scanner.Delegation_id).name %></td>
-            <td><%= Dependency.find(scanner.Dependency_id).name %></td>
+            <td><%= Delegation.find(scanner.delegation_id).name %></td>
+            <td><%= Dependency.find(scanner.dependency_id).name %></td>
             <td><%= link_to 'Show', scanner %></td>
             <td><%= link_to 'Edit', edit_scanner_path(scanner) %></td>
             <td><%= link_to 'Destroy', scanner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
