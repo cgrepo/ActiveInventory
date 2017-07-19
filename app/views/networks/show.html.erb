@@ -5,6 +5,12 @@
       	<p><strong>Tipo Enlace:</strong>
 	  		<%= @network.linktype %></p>
     </div>
+    <% if @network.linktype = 'ADSL-MODEM' %>
+    <div class='col-xs'>
+      <p><strong>Numero Asociado:</strong>
+      <%= @network.associed_number %></p>
+    </div>
+    <% end %>
   </div>
   <div class="row">
     <div class="col-xs">      

@@ -44,9 +44,10 @@
         <%= f.label :Solicitud %><br>
         <%= f.text_field :DocumentRequest, class:'form-control xsfont' %>
       </div>
-      <div class="col-xs col-md-3">
+      <div class="col-xs col-md-2">
         <%= f.label :Fecha_solicitud %><br>
-        <%= f.date_select :RequestDate, {order: [:day, :month, :year], :include_blank => true},  {} %>
+        <%#= f.date_select :RequestDate, {order: [:day, :month, :year], :include_blank => true},  {} %>
+        <%= f.text_field :RequestDate, class:'form-control xdate' %>
       </div>
     </div>
     <div class="row">
@@ -54,6 +55,11 @@
         <%= f.label :Copiadoras %><br>
         <%= f.collection_select(:Copier_id, @copiers, :id, :ninventary,
           {:include_blank => true }, {class:'btn btn-default dropdown-toggle smfont copiers_collection'} ) %>
+      </div>
+      <div class="col-xs col-md-2">
+        <%= f.label :Scanners %><br>
+        <%= f.collection_select(:Scanner_id, @scanners, :id, :ninventary,
+          {:include_blank => true }, {class:'btn btn-default dropdown-toggle smfont scanners_collection'} ) %>
       </div>
       <div class="col-xs col-md-5">
         <%= f.label :Proveedores %><br>

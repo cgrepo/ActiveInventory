@@ -72,7 +72,7 @@ class NetworksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def network_params
-      params.require(:network).permit(:linktype, :genus, :location, :iprange, :ip, :wifirouter, :ssid_name)
+      params.require(:network).permit(:linktype, :genus, :location, :iprange, :ip, :wifirouter, :ssid_name, :associed_number)
     end
 
     def set_me

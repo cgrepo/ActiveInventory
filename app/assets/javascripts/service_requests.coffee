@@ -5,7 +5,8 @@ $(document).on "turbolinks:load", ->
 	$('.screens_collection').empty()
 	$('.telephones_collection').empty()
 	$('.powers_collection').empty()
-
+	$('.screens_collection').empty()
+	
 	$('.delegations').on 'change', ->
 		$.ajax
 			url:'/service_requests/get_dependencies'

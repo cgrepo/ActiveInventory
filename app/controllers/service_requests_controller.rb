@@ -81,7 +81,8 @@ class ServiceRequestsController < ApplicationController
       @telephones = Telephone.where(:Dependency => params[:Dependency_id])
       @screens = Screen.where(:Dependency => params[:Dependency_id])
       @powers = Power.where(:Dependency => params[:Dependency_id])
-    
+      @scanners = Scanner.where(:Dependency => params[:Dependency_id])
+      
       respond_to do |format|
         format.js
       end
@@ -112,6 +113,7 @@ class ServiceRequestsController < ApplicationController
       @telephones =Telephone.all.limit 3
       @screens = Screen.all.limit 3
       @powers = Power.all.limit 3
+      @scanners = Scanner.all.limit 3
     end
 
     def setFolio

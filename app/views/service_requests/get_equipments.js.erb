@@ -11,6 +11,20 @@ $('.copiers_collection').empty();
 	<% end %>
 <% end %>
 
+$('.scanners_collection').empty();
+<% if @scanners %>
+	<% @scanners.each do |scanner| %>
+		 <% data = '[ ' + scanner.brand + ' ]--' %>
+		 <% if scanner.ninventary								%>
+		 <%		data += scanner.ninventary 				%>
+		 <%	else scanner.ninventary							%>
+		 <%		data += scanner.nserie							%>
+		 <%	end																	%>
+		$('.scanners_collection').append($('<option value="<%= scanner.id  %>"><%= data %></option>'));
+	<% end %>
+<% end %>
+
+
 $('.printers_collection').empty();
 <% if @printers %>
 	<% @printers.each do |printer| %>

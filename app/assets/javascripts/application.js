@@ -17,4 +17,5 @@
 //= require bootstrap-sprockets
 //= require filterrific/filterrific-jquery
 //= require jquery-ui/datepicker
+//= require cafe
 //= require_tree .
