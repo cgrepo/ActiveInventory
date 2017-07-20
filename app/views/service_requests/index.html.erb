@@ -43,9 +43,9 @@
             <% @service_requests.each do |service_request| %>
               <tr>
                 <td><%= service_request.id %></td>
-                <td><%#= service_request.idFolio %></td>
+                <!--<td><%#= service_request.idFolio %></td> -->
                 <td><%= service_request.kind %></td>
-                <td><%#= service_request.DocumentRequest %></td> 
+                <!--<td><%#= service_request.DocumentRequest %></td>  -->
                 <td><%= service_request.RequestDate %></td>
                 <td><%= service_request.Delegation.name if service_request.Delegation %></td>
                 <td><%= service_request.Dependency.name if service_request.Dependency %></td>
