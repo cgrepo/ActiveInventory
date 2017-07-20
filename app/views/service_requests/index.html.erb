@@ -6,11 +6,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-6 col-md-6">
-      <span class="pull-left">
-        <%= will_paginate(@service_requests, renderer: BootstrapPagination::Rails) %>
-      </span>
-    </div>
+    <div class="col-xs-6 col-md-6"></div>
     <div class="col-xs-6 col-md-6">
       <span class="pull-right">
         <%= link_to 'Agregar', new_service_request_path, class:'btn btn-default btn-lg '%>
@@ -93,7 +89,13 @@
         </table>
       </div>
     </div>
-
+  </div>
+  <div class='row'>
+    <div class="col-xs-6 col-md-6">
+      <span class="pull-left">
+        <%= will_paginate(@service_requests, renderer: BootstrapPagination::Rails) %>
+      </span>
+    </div>
   </div>
 </div>
 <br>
