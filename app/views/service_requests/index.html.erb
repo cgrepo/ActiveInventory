@@ -18,7 +18,7 @@
     </div>
   </div>
 </div>
-<div class="container ">
+<div class="container-fluid ">
   <div class="row">
     <div class="col-xs col-md">
       <div class="table-responsive">
@@ -26,14 +26,16 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Idfolio</th>
+              <!--<th>Idfolio</th>-->
               <th>Tipo</th>
-              <th>Documento</th>
+              <!--<th>Documento</th>-->
               <th>Solicitud</th>
               <th>Delegacion</th>
               <th>Dependencia</th>
               <th>Proveedor</th>
               <th>Equipo</th>
+              <th>Marca</th>
+              <th>Modelo</th>
               <th colspan="3"></th>
             </tr>
           </thead>
@@ -41,9 +43,9 @@
             <% @service_requests.each do |service_request| %>
               <tr>
                 <td><%= service_request.id %></td>
-                <td><%= service_request.idFolio %></td>
+                <td><%#= service_request.idFolio %></td>
                 <td><%= service_request.kind %></td>
-                <td><%= service_request.DocumentRequest %></td> 
+                <td><%#= service_request.DocumentRequest %></td> 
                 <td><%= service_request.RequestDate %></td>
                 <td><%= service_request.Delegation.name if service_request.Delegation %></td>
                 <td><%= service_request.Dependency.name if service_request.Dependency %></td>
@@ -56,10 +58,35 @@
                     <%= 'TELEFONO' if service_request.Telephone %>
                     <%= 'REGULADOR/UPS' if service_request.Power %>
                 </td>
-                <td><%= link_to 'Mostrar', service_request, class:'btn btn-default btn-sm' %></td>
-                <td><%= link_to 'Editar', edit_service_request_path(service_request), class:'btn btn-default btn-sm' %></td>
-                <td><%= link_to 'Borrar', service_request, method: :delete, data: { confirm: 'Esta seguro?' },
-                    class:'btn btn-default btn-sm' %></td>
+                <td>
+                    <%= service_request.Copier.brand if service_request.Copier %>
+                    <%= service_request.Scanner.brand if service_request.Scanner %>
+                    <%= service_request.Printer.brand if service_request.Printer %>
+                    <%= service_request.Screen.brand if service_request.Screen %>
+                    <%= service_request.Telephone.brand if service_request.Telephone %>
+                    <%= service_request.Power.brand if service_request.Power %>
+                </td>
+                <td>
+                    <%= service_request.Copier.model if service_request.Copier %>
+                    <%= service_request.Scanner.model if service_request.Scanner %>
+                    <%= service_request.Printer.model if service_request.Printer %>
+                    <%= service_request.Screen.model if service_request.Screen %>
+                    <%= service_request.Telephone.model if service_request.Telephone %>
+                    <%= service_request.Power.model if service_request.Power %>
+                </td>
+                
+                <td><%= link_to service_request, class:'btn btn-default btn-sm' do %>
+                      <%= octicon 'eye', :height => 20 %>
+                    <% end %>
+                </td>
+                <td><%= link_to edit_service_request_path(service_request), class:'btn btn-default btn-sm' do %>
+                      <%= octicon 'pencil', :height => 20 %>
+                    <% end %>
+                </td>
+                <td><%= link_to service_request, method: :delete, data: { confirm: 'Esta seguro?' }, class:'btn btn-default btn-sm' do %>
+                      <%= octicon 'trashcan', :height => 20 %>
+                    <% end %>
+                </td>
               </tr>
             <% end %>
           </tbody>
