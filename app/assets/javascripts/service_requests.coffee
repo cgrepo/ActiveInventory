@@ -6,6 +6,7 @@ $(document).on "turbolinks:load", ->
 	$('.telephones_collection').empty()
 	$('.powers_collection').empty()
 	$('.screens_collection').empty()
+	$('.scanners_collection').empty()
 	
 	$('.delegations').on 'change', ->
 		$.ajax
@@ -14,7 +15,6 @@ $(document).on "turbolinks:load", ->
 			dataType:'script'
 			data:
 				Delegation_id: $('.delegations option:selected').val()
-
 
 	$('.dependencies').on 'change', ->
 		$.ajax

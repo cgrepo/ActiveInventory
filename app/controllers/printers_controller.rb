@@ -66,6 +66,7 @@ class PrintersController < ApplicationController
   end
 
   def showmodal
+    @brandmodel = BrandModel.new
     respond_to do |format|
       format.html
       format.js

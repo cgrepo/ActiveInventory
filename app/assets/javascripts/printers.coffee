@@ -11,8 +11,6 @@ $(document).on "turbolinks:load", ->
 				type:'GET'
 				url: '/printers/showmodal'
 				dataType: 'script'
-
-				
 			# url = "/brand_models/new?type=IMPRESORA"
 			# if url
 			# 	window.location.replace url
