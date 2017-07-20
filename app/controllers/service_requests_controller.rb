@@ -81,7 +81,7 @@ class ServiceRequestsController < ApplicationController
       @telephones = Telephone.where(:Dependency => params[:Dependency_id])
       @screens = Screen.where(:Dependency => params[:Dependency_id])
       @powers = Power.where(:Dependency => params[:Dependency_id])
-      @scanners = Scanner.where(:Dependency => params[:Dependency_id])
+      @scanners = Scanner.where(:dependency_id => params[:Dependency_id])
       
       respond_to do |format|
         format.js
