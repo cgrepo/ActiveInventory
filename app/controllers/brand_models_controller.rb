@@ -76,7 +76,6 @@ class BrandModelsController < ApplicationController
     @brand_model.modelx = params[:model]
     @brand_model.description=params[:desc]
     if @brand_model.save
-      byebug
       @brands = BrandModel.select(:brandx).where(description:'IMPRESORA').uniq.pluck(:brandx)
       respond_to do |format|
         format.html { render :partial => 'addBrand'}

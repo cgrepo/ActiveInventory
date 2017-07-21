@@ -70,9 +70,11 @@ $(document).on "turbolinks:load", ->
 	        			desc:'IMPRESORA'
 	        		}
 		        success: (data) ->
-	           		alert 'success'
+	           		$('#printer_brand').empty()
+	           		$('#printer_brand').append(data)
+	           		$('#modal-window').modal('hide')
 	            error: (data) ->
-	            	alert 'error'
+	            	alert 'error' + data
 valuesCompleated=->
     if $('#brand_model_brandx').val() == ''
         alert 'Proporcione la Marca'
