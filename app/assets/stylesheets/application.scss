@@ -318,3 +318,16 @@ tr th:last-child {
     color: #fff;
     background: #fff;
 }
+.full_borders{
+  border-top-style:solid;
+  border-bottom-style:solid;
+  border-right-style:solid;
+  border-left-style:solid;
+  border-left-width:thin;
+  border-right-width:thin;
+  border-top-width:thin;
+  border-bottom-width:thin;
+}
+.have_border_heroku{
+  border-color: #AF9BC5;
+}

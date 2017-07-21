@@ -16,16 +16,16 @@
         <%= f.label :Inventario %><br>
         <%= f.text_field :ninventary, class:'form-control smfont' %>
       </div>
-      <div class="col-xs col-md-2">       
+      <div class="col-xs col-md-2 ">       
         <%= f.label :Serie %><br>
         <%= f.text_field :nserie, class:'form-control smfont ups' %>
       </div>
-      <div class="col-xs col-md-2">        
+      <div class="col-xs col-md-2 ">        
         <%= f.label :Marca %><br>
         <%= f.select :brand, BrandModel.select(:brandx).where(description:'IMPRESORA').uniq.pluck(:brandx), 
           {:include_blank => true }, {class:'btn btn-default dropdown-toggle smfont brands4printer'}  %>
       </div>
-      <div class="col-xs col-md-3">
+      <div class="col-xs col-md-3 ">
         <%= f.label :Modelo %><br>
         <%= f.collection_select(:model, BrandModel.where(description:"IMPRESORA"), :modelx, :modelx, 
         {:include_blank => true }, {class:'btn  btn-default dropdown-toggle smfont models4printer'} ) %>

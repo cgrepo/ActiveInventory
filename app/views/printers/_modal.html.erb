@@ -5,11 +5,9 @@
             <h4 class="modal-title">AGREGAR MODELO Y MARCA NUEVA</h4>
         </div>
         <div class="modal-body">
-          <%= bootstrap_form_for(@brandmodel, layout: :horizontal) do |f| %>
-            <%#= f.number_field_with_bootstrap :copy, label:'Ejemplar', control_col: "col-md-5", label_col:'col-md-3' %>
-            <%#= f.number_field_with_bootstrap :volumen, control_col: "col-md-5", label_col:'col-md-3' %>
-            <%#= f.number_field_with_bootstrap :tome, label:'Tomo', control_col: "col-md-5", label_col:'col-md-3' %>
-            <%#= f.number_field_with_bootstrap :accessible, label:'Accesible', control_col: "col-md-5", label_col:'col-md-3' %>
+          <%= bootstrap_form_for(@brandmodel, layout: :horizontal, :html => {id:'commitAddBrandModel'}) do |f| %>
+            <%= f.text_field_with_bootstrap :brandx, label:'Marca' %>
+            <%= f.text_field_with_bootstrap :modelx, label:'Modelo' %>
             <%= f.submit %>
           <% end %>
         </div>

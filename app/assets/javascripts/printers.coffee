@@ -4,7 +4,6 @@ $(document).on "turbolinks:load", ->
 	$('.pnet').hide()
 	$('.pnet-con').hide()
 	$('.brands4printer').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
-
 	$('.brands4printer').on 'change', ->
 		if $('.brands4printer option:selected').val() == 'plus'
 			$.ajax
@@ -22,7 +21,6 @@ $(document).on "turbolinks:load", ->
 				data:
 					brand: $('.brands4printer option:selected').val(),
 					genus: 'IMPRESORA'
-
 	$('.chkwifip').change ->
 		w = $('.chkwifip').is(':checked')
 		n = $('.chknetp').is(':checked')
@@ -41,7 +39,6 @@ $(document).on "turbolinks:load", ->
 			else
 				$('.pnet').hide()
 				$('.pnet-con').hide()
-
 	$('.chknetp').change ->
 		w = $('.chkwifip').is(':checked')
 		n = $('.chknetp').is(':checked')
@@ -60,3 +57,27 @@ $(document).on "turbolinks:load", ->
 			else
 				$('.pwife').hide()
 				$('.pnet-con').hide()
+	$(document).on 'submit', 'form#commitAddBrandModel', (e) ->
+		e.preventDefault()
+		if valuesCompleated
+			$.ajax
+	        	type:'GET'
+	        	url:'/brand_models/addBrandModel'
+	        	data:
+	        		{ 
+	        			brand: $('#brand_model_brandx').val()
+	        			model:$('#brand_model_modelx').val()
+	        			desc:'IMPRESORA'
+	        		}
+		        success: (data) ->
+	           		alert 'success'
+	            error: (data) ->
+	            	alert 'error'
+valuesCompleated=->
+    if $('#brand_model_brandx').val() == ''
+        alert 'Proporcione la Marca'
+        return false
+    if $('#brand_model_modelx').val() == ''
+        alert 'Proporcione el Modelo'
+        return false
+    return true
