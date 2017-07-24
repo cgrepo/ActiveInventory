@@ -21,6 +21,17 @@ $(document).on "turbolinks:load", ->
 				data:
 					brand: $('.brands4printer option:selected').val(),
 					genus: 'IMPRESORA'
+				success: (data) ->
+					$('.models4printer').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
+	$('.models4printer').on 'change', ->
+		if $('.models4printer option:selected').val() == 'plus'
+			$.ajax
+				type:'GET'
+				url: '/printers/showmodal'
+				dataType: 'script'
+				success: (data) ->
+					$('#brand_model_brandx').val($('.brands4printer option:selected').val())
+					$('#brand_model_brandx').attr('disabled','true')
 	$('.chkwifip').change ->
 		w = $('.chkwifip').is(':checked')
 		n = $('.chknetp').is(':checked')
@@ -71,6 +82,7 @@ $(document).on "turbolinks:load", ->
 	        		}
 		        success: (data) ->
 	           		$('#printer_brand').empty()
+	           		$('#printer_model').empty()
 	           		$('#printer_brand').append(data)
 	           		$('#modal-window').modal('hide')
 	            error: (data) ->
