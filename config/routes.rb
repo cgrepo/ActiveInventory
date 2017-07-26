@@ -14,10 +14,11 @@ Rails.application.routes.draw do
       get 'addBrandModel', to: 'brand_models#addBrandModel'
     end
   end
-  resources :bridge_helper, only: [:get_models, :get_dependencies] do
+  resources :bridge_helper, only: [:get_models, :get_dependencies, :showmodal] do
     collection do
       get 'get_models', to:'bridge_helper#get_models'
       get 'get_dependencies', to:'bridge_helper#get_dependencies'
+      get 'showmodal', to:'bridge_helper#showmodal'
     end
   end
   resources :service_requests do

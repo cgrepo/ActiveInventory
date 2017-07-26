@@ -26,9 +26,13 @@ $(document).on "turbolinks:load", ->
 
 	$('.brands4pc').on 'change', ->
 		if $('.brands4pc option:selected').val() == 'plus'
-			url = "/brand_models/new?COMPUTADORA"
-			if url
-				window.location.replace url
+			$.ajax
+				type:'GET'
+				url: '/bridge_helper/showmodal'
+				dataType: 'script'
+			# url = "/brand_models/new?COMPUTADORA"
+			# if url
+			# 	window.location.replace url
 		else
 			$.ajax
 				url:'/bridge_helper/get_models'
