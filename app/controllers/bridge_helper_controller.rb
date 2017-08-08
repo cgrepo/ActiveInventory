@@ -11,11 +11,4 @@ class BridgeHelperController < ApplicationController
 	    format.js
 	  end
   end
-  def showmodal
-    @brandmodel = BrandModel.new
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
 end

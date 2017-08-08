@@ -7,14 +7,19 @@ Rails.application.routes.draw do
   delete "/logout" => "sessions#destroy", as: "logout"
   resources :scanners, :equipment_logs, :common_errors, :providers, :consumables, :copiers
   resources :printers, :networks, :powers, :dependencies, :telephones, :memos, :processors
-  resources :computers, :officevs, :osies, :hardds, :workers, :screens
+  resources :officevs, :osies, :hardds, :workers, :screens
   resources :sessions, only: [:new, :create, :destroy]
+  resources :computers do
+    collection do
+      get 'showmodal', to: 'computers#showmodal'
+    end
+  end
   resources :brand_models do
     collection do
       get 'addBrandModel', to: 'brand_models#addBrandModel'
     end
   end
-  resources :bridge_helper, only: [:get_models, :get_dependencies, :showmodal] do
+  resources :bridge_helper, only: [:get_models, :get_dependencies] do
     collection do
       get 'get_models', to:'bridge_helper#get_models'
       get 'get_dependencies', to:'bridge_helper#get_dependencies'
