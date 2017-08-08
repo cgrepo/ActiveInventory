@@ -89,9 +89,9 @@ $(document).on "turbolinks:load", ->
 	        			desc:'COMPUTADORA'
 	        		}
 		        success: (data) ->
-	           		$('#printer_brand').empty()
-	           		$('#printer_model').empty()
-	           		$('#printer_brand').append(data)
+	           		$('#computer_brand').empty()
+	           		$('#computer_model').empty()
+	           		$('#computer_brand').append(data)
 	           		$('#modal-window').modal('hide')
 	            error: (data) ->
 	            	alert 'error' + data
