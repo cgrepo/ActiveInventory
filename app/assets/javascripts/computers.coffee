@@ -43,9 +43,16 @@ $(document).on "turbolinks:load", ->
 					$('.models4pc').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
 	$('.models4pc').on 'change', ->
 		if $('.models4pc option:selected').val() == 'plus'
-			url = "/brand_models/new"
-			if url
-				window.location.replace url
+			$.ajax
+				type:'GET'
+				url: '/computers/showmodal'
+				dataType: 'script'
+				success: (data) ->
+					$('#brand_model_brandx').val($('.brands4pc option:selected').val())
+					$('#brand_model_brandx').attr('disabled','true')
+			# url = "/brand_models/new"
+			# if url
+			# 	window.location.replace url
 	$('.drah').on 'change', ->
 		if $('.drah option:selected').val() == 'plus'
 			url = "/hardds/new"
