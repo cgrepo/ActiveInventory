@@ -6,12 +6,17 @@ Rails.application.routes.draw do
   get '/printers/showmodal' => 'printers#showmodal'
   delete "/logout" => "sessions#destroy", as: "logout"
   resources :equipment_logs, :common_errors, :providers, :consumables, :copiers
-  resources :printers, :networks, :powers, :dependencies, :telephones, :memos, :processors
+  resources :printers, :networks, :dependencies, :telephones, :memos, :processors
   resources :officevs, :osies, :hardds, :workers
   resources :sessions, only: [:new, :create, :destroy]
   resources :computers do
     collection do
       get 'showmodal', to: 'computers#showmodal'
+    end
+  end
+  resources :powers do
+    collection do
+      get 'showmodal', to: 'powers#showmodal'
     end
   end
   resources :scanners do
@@ -49,4 +54,4 @@ Rails.application.routes.draw do
       get 'get_equipments', to:'statistics#get_equipments'
     end
   end
-  end
+end
