@@ -75,6 +75,18 @@ class ComputersController < ApplicationController
     end
   end
   
+  def addBrandModel4pc
+    respond_to do |format|
+      #byebug
+      if BrandModel.create(description:'COMPUTADORA',brandx:params[:brand], modelx:params[:model], User_id:current_user.id)
+        @brands = BrandModel.select(:brandx).where(description:'COMPUTADORA').uniq.pluck(:brandx)
+        format.html { render :partial => 'brand_models/addBrand'}
+      else
+        alert:'Error al agregar Marca-Modelo!'
+      end
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_computer

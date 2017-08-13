@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :computers do
     collection do
       get 'showmodal', to: 'computers#showmodal'
+      get 'addBrandModel4pc', to: 'computers#addBrandModel4pc'
     end
   end
   resources :powers do
