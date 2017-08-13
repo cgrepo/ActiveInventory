@@ -65,7 +65,10 @@ $(document).on "turbolinks:load", ->
 					type:'GET'
 					dataType:'script'
 					data:
-						brand: $('.brands4pc option:selected').val(),
+						{
+						brand: $('.brands4pc option:selected').val()
+						genus:'COMPUTADORA'
+						}
 					success: (data) ->
 						$('.models4pc').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
 	$('.models4pc').on 'change', ->
@@ -73,7 +76,6 @@ $(document).on "turbolinks:load", ->
 			$.ajax
 				type:'GET'
 				url: '/computers/showmodal'
-				dataType: 'script'
 				success: (data) ->
 					$('#brand_model_brandx').val($('.brands4pc option:selected').val())
 					$('#brand_model_brandx').attr('disabled','true')

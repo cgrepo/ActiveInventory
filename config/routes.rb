@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :powers do
     collection do
       get 'showmodal', to: 'powers#showmodal'
+      get 'addBrandModel4pow', to: 'computers#addBrandModel4pow'
     end
   end
   resources :copiers do
