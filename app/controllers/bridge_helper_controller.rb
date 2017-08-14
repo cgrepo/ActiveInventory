@@ -6,7 +6,6 @@ class BridgeHelperController < ApplicationController
     end
   end
   def get_models
-    byebug
 	  @models = BrandModel.where(description:params[:genus]).where(:brandx => params[:brand]) 
 	  respond_to do |format|
 	    format.js
