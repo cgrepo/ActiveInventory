@@ -1,28 +1,15 @@
 class CopiersController < ApplicationController
   before_action :set_copier, only: [:show, :edit, :update, :destroy]
-
-  # GET /copiers
-  # GET /copiers.json
   def index
     @copiers = Copier.all.where(operational: true).paginate(page: params[:page], per_page: 10 )
   end
-
-  # GET /copiers/1
-  # GET /copiers/1.json
   def show
   end
-
-  # GET /copiers/new
   def new
     @copier = Copier.new
   end
-
-  # GET /copiers/1/edit
   def edit
   end
-
-  # POST /copiers
-  # POST /copiers.json
   def create
     @copier = Copier.new(copier_params)
     
@@ -37,9 +24,6 @@ class CopiersController < ApplicationController
       end
     end
   end
-
-  # PATCH/PUT /copiers/1
-  # PATCH/PUT /copiers/1.json
   def update
     respond_to do |format|
       if @copier.update(copier_params)
@@ -52,11 +36,7 @@ class CopiersController < ApplicationController
       end
     end
   end
-
-  # DELETE /copiers/1
-  # DELETE /copiers/1.json
   def destroy
-    #@copier.destroy
     @copier.operational = false if @copier.operational
     @copier.save!
     respond_to do |format|
@@ -66,13 +46,22 @@ class CopiersController < ApplicationController
   end
   
   def showmodal
-       @brandmodel = BrandModel.new
-       respond_to do |format|
-         format.html
-         format.js
-       end
+    @brandmodel = BrandModel.new
+    respond_to do |format|
+      format.html
+      format.js
     end
-  
+  end
+  def addBrandModel4copier
+    respond_to do |format|
+      if BrandModel.create(description:'COPIADORA',brandx:params[:brand], modelx:params[:model], User_id:current_user.id)
+        @brands = BrandModel.select(:brandx).where(description:'COPIADORA').uniq.pluck(:brandx)
+        format.html { render :partial => 'brand_models/addBrand'}
+      else
+        alert:'Error al agregar Marca-Modelo!'
+      end
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_copier

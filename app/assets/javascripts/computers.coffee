@@ -72,7 +72,6 @@ $(document).on "turbolinks:load", ->
 						$('.models4pc').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
 	$('.models4pc').on 'change', ->
 		if $('.models4pc option:selected').val() == 'plus'
-			renderModal()
 			$.ajax
 				type:'GET'
 				url: '/computers/showmodal'
@@ -99,8 +98,6 @@ $(document).on "turbolinks:load", ->
 	           		$('#modal-window').modal('hide')
 	            error: (data) ->
 	            	alert 'error' + data
-	renderModal=->
-		
 valuesCompleated=->
     if $('#brand_model_brandx').val() == ''
         alert 'Proporcione la Marca'

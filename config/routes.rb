@@ -15,15 +15,16 @@ Rails.application.routes.draw do
       get 'addBrandModel4pc', to: 'computers#addBrandModel4pc'
     end
   end
+  resources :copiers do
+    collection do
+      get 'showmodal', to: 'copiers#showmodal'
+      get 'addBrandModel4copier', to: 'copiers#addBrandModel4copier'
+    end
+  end
   resources :powers do
     collection do
       get 'showmodal', to: 'powers#showmodal'
-      get 'addBrandModel4pow', to: 'computers#addBrandModel4pow'
-    end
-  end
-  resources :copiers do
-    collection do
-      get 'showmodal', to: 'powers#showmodal'
+      get 'addBrandModel4pow', to: 'powers#addBrandModel4pow'
     end
   end
   resources :scanners do
