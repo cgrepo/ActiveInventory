@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   resources :scanners do
     collection do
       get 'showmodal', to: 'scanners#showmodal'
+      get 'addBrandModel4scanner', to: 'scanners#addBrandModel4scanner'
     end
   end
   resources :screens do

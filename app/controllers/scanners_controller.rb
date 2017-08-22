@@ -62,7 +62,25 @@ class ScannersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def showmodal
+    @brandmodel = BrandModel.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  
+  def addBrandModel4scanner
+    respond_to do |format|
+      #byebug
+      if BrandModel.create(description:'ESCANER',brandx:params[:brand], modelx:params[:model], User_id:current_user.id)
+        @brands = BrandModel.select(:brandx).where(description:'ESCANER').uniq.pluck(:brandx)
+        format.html { render :partial => 'brand_models/addBrand'}
+      else
+        alert:'Error al agregar Marca-Modelo!'
+      end
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_scanner
