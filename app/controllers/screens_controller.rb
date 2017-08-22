@@ -73,6 +73,16 @@ class ScreensController < ApplicationController
     end
   end
   
+  def addBrandModel4screen
+    respond_to do |format|
+      if BrandModel.create(description:'MONITOR',brandx:params[:brand], modelx:params[:model], User_id:current_user.id)
+        @brands = BrandModel.select(:brandx).where(description:'MONITOR').uniq.pluck(:brandx)
+        format.html { render :partial => 'brand_models/addBrand'}
+      else
+        alert:'Error al agregar Marca-Modelo!'
+      end
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_screen

@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   resources :screens do
     collection do
       get 'showmodal', to: 'screens#showmodal'
+      get 'addBrandModel4screen', to: 'screens#addBrandModel4screen'
     end
   end
   resources :brand_models do

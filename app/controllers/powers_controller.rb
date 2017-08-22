@@ -74,7 +74,6 @@ class PowersController < ApplicationController
     end
     def addBrandModel4pow
       respond_to do |format|
-
         if BrandModel.create(description:'REGULADOR/UPS',brandx:params[:brand], modelx:params[:model], User_id:current_user.id)
           @brands = BrandModel.select(:brandx).where(description:'REGULADOR/UPS').uniq.pluck(:brandx)
           format.html { render :partial => 'brand_models/addBrand'}
