@@ -65,13 +65,23 @@ class PrintersController < ApplicationController
     end
   end
 
-  def showmodal
-    @brandmodel = BrandModel.new
-    respond_to do |format|
-      format.html
-      format.js
+    def showmodal
+      @brandmodel = BrandModel.new
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
-  end
+    def addBrandModel4printer
+      respond_to do |format|
+        if BrandModel.create(description:'IMPRESORA',brandx:params[:brand], modelx:params[:model], User_id:current_user.id)
+          @brands = BrandModel.select(:brandx).where(description:'IMPRESORA').uniq.pluck(:brandx)
+          format.html { render :partial => 'brand_models/addBrand'}
+        else
+          alert:'Error al agregar Marca-Modelo!'
+        end
+      end
+    end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_printer
