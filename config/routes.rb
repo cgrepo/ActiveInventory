@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'printers/addBrandModel4printer' => 'printers#addBrandModel4printer'
   delete "/logout" => "sessions#destroy", as: "logout"
   resources :equipment_logs, :common_errors, :providers, :consumables
-  resources :printers, :networks, :dependencies, :telephones, :memos
+  resources :printers, :networks, :dependencies, :memos
   resources :officevs, :osies, :hardds, :workers, :processors
   resources :sessions, only: [:new, :create, :destroy]
   resources :computers do
@@ -38,6 +38,12 @@ Rails.application.routes.draw do
     collection do
       get 'showmodal', to: 'screens#showmodal'
       get 'addBrandModel4screen', to: 'screens#addBrandModel4screen'
+    end
+  end
+  resources :telephones do
+    collection do
+      get 'showmodal', to: 'telephones#showmodal'
+      get 'addBrandModel4telephone', to: 'telephones#addBrandModel4telephone'
     end
   end
   resources :brand_models do
