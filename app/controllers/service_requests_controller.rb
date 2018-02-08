@@ -117,7 +117,7 @@ class ServiceRequestsController < ApplicationController
     end
 
     def setFolio
-      d = Delegation.find_by(id:1)
+      d = Delegation.find_by(id:@service_request.Delegation_id)
       setKey = [(0..9),('A'..'Z')].map { |i| i.to_a }.flatten
       case d.name
         when "San Jose del Cabo"
