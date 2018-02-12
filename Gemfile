@@ -45,7 +45,8 @@ gem 'will_paginate-bootstrap'
 gem 'octicons_helper'
 
 group :production do
- gem 'pg'
+ #gem 'pg'
+ gem "pg", "~> 0.18"
  gem 'rails_12factor'
  gem 'puma' #recommendation by heroku
 end

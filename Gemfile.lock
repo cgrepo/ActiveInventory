@@ -204,7 +204,7 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails
   octicons_helper
-  pg
+  pg (~> 0.18)
   prawn
   pry
   puma
