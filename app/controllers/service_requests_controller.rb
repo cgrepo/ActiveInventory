@@ -131,7 +131,10 @@ class ServiceRequestsController < ApplicationController
         when "La Rivera"
           setAbr='RIV'
       end
-      Time.now.strftime("%d%m%y") + '-' + setAbr + '/' + (0...3).map { setKey[rand(setKey.length)] }.join
+      
+      newId = ServiceRequest.last.id
+      Time.now.strftime("%d%m%y") + '-' + setAbr + '/' + newId.to_s
+      #(0...3).map { setKey[rand(setKey.length)] }.join maryjean :(
     end
 
     # Use callbacks to share common setup or constraints between actions.
