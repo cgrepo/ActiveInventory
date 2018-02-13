@@ -43,4 +43,8 @@ class Copier < ActiveRecord::Base
   def net_mac=(data)
     write_attribute(:net_mac, data.to_s.upcase)
   end
+  
+  def showData
+    '['+self.ninventary+--+self.nserie+']'
+  end
 end
