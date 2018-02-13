@@ -132,7 +132,7 @@ class ServiceRequestsController < ApplicationController
           setAbr='RIV'
       end
       
-      newId = ServiceRequest.last.id
+      newId = ServiceRequest.last.id+1
       Time.now.strftime("%d%m%y") + '-' + setAbr + '/' + newId.to_s
       #(0...3).map { setKey[rand(setKey.length)] }.join maryjean :(
     end
