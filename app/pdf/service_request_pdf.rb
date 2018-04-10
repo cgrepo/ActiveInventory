@@ -28,16 +28,20 @@ class ServiceRequestPdf < Prawn::Document
 			imgshield = "#{Rails.root.to_s}/app/assets/images/logodire.png"	
 			image imgshield, at: [26,710], fit:[82,82]
 			
-			imgdir = "#{Rails.root.to_s}/app/assets/images/direccion.png"
-			image imgdir, at: [215,710], fit:[302,302]
+			#imgdir = "#{Rails.root.to_s}/app/assets/images/direccion.png"
+			#image imgdir, at: [215,710], fit:[302,302]-------------------------->DISABLED JUST 4 NOW
 			#font_families.update("#{Rails.root.to_s}/app/assets/fonts/Calibri" => { normal:'Calibri.ttf'  }) not working on rails this way
 			#font_families.update("#{Rails.root.to_s}/app/assets/fonts/Verdana" => { normal:'Verdana.ttf'  }) not working on rails this way
 			font_families["Verdana"] = { normal:{file:"#{Rails.root.to_s}/app/assets/fonts/Verdana.ttf", font:"Verdana"} }
 			font_families["Calibri"] = { normal:{file:"#{Rails.root.to_s}/app/assets/fonts/Calibri.ttf", font:"Calibri"} }
-
+			#ADDED THIS LINE------------------------------------------------------------
 			formatted_text_box [
-			  {:text => "SOLICITUD DE SERVICIO" , size:24, style:[:bold], font:"Verdana", color:'747373'  }, ], at:[130,650], width:420, height:300
-
+			  {:text => "DIRECCION MUNICIPAL DE INFORMATICA Y SISTEMAS" , size:14, style:[:bold], font:"Verdana", color:'000000'  }, ], at:[96,690], width:500, height:100
+			#--------------------------END----------------------------------------------
+			#formatted_text_box [ ----> ORIGINAL COORDINATED TEXT
+			#  {:text => "SOLICITUD DE SERVICIO" , size:22, style:[:bold], font:"Verdana", color:'747373'  }, ], at:[130,650], width:420, height:300
+			formatted_text_box [ 
+			  {:text => "SOLICITUD DE SERVICIO" , size:22, style:[:bold], font:"Verdana", color:'747373'  }, ], at:[140,660], width:420, height:300
 			formatted_text_box [
 			  {:text => "PRIORIDAD: " , size:11, style:[:normal], font:'Calibri' },
 			  {:text => "#{pri}" , size:8, style:[:normal],
