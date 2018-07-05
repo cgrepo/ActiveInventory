@@ -1,30 +1,41 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
     <div class='row'>
-        <%= bootstrap_form_for(@computer) do |f| %>
+        <%= bootstrap_form_for(@computer, :url => { :action => :computerDown }) do |f| %>
             <div class='col-xs col-md-4 be-gray'>
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title" align='center'>EQUIPO A DAR DE BAJA</h4>
                     <h6 class="card-subtitle mb-2 text-muted">
-                         <%= "Dependencia #{@computer.Dependency.name} " %><br>
+                        <%= "Dependencia #{@computer.Dependency.name} " %><br>
                         <%= "No Oficial #{@computer.ninventary} " %><br>
                         <%= "No Serie #{@computer.nserie} " %>
                     </h6>
                     <h6>
                         <%= f.text_area_with_bootstrap :reazon, label:'Razon de Baja' %>
                     </h6>
+                    <p><%= f.submit %></p>
                   </div>
                 </div>
             </div>
             <div class='col-xs col-md-8'>
                 <div class='row'>
-                    <div class='col-xs col-md-6'>
-                         <!-- <img id="img_prev" src="#" width='210' height=230 /> -->
-                          <%#= image_tag @computer.picture1, class:'img-fluid card thumbnail', size:'210x230', id:'picture1'  %>
-                          <%= f.file_field_with_bootstrap :picture, label:'Foto No serie' %>
-                          <%#= hidden_field_tag(:person_id, @person.id) %>
+                    <div class='col-xs col-md-3'>
+                          <%= f.file_field_with_bootstrap :picture1, label:'Foto No serie' %>
                     </div>
+                    <div class='col-xs col-md-5' id='pic1'></div>
+                </div>
+                <div class='row'>
+                    <div class='col-xs col-md-3'>
+                          <%= f.file_field_with_bootstrap :picture2, label:'Foto No oficial' %>
+                    </div>
+                    <div class='col-xs col-md-5' id='pic2'></div>
+                </div>
+                <div class='row'>
+                    <div class='col-xs col-md-3'>
+                          <%= f.file_field_with_bootstrap :picture3, label:'Foto estado' %>
+                    </div>
+                    <div class='col-xs col-md-5' id='pic3'></div>
                 </div>
             </div>
         <% end %>

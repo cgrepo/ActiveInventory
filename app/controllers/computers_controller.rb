@@ -1,5 +1,5 @@
 class ComputersController < ApplicationController
-  before_action :set_computer, only: [:show, :edit, :update, :destroy, :downPc ]
+  before_action :set_computer, only: [:show, :edit, :update, :destroy, :downPc, :computerDown ]
   #before_action :upsme, only: [:update, :create] does not work fine with create
   # GET /computers
   # GET /computers.json
@@ -88,7 +88,21 @@ class ComputersController < ApplicationController
   end
   
   def downPc
-    
+  end
+  
+  def computerDown
+    respond_to do |format|
+      @computer.operational = false
+      if @computer.update(computer_params)
+        format.html { redirect_to nonOper_computers_url, notice: 'Computadora fue actualizada satisfactoriamente.' }
+      else
+        format.html { render :downPc }
+      end
+    end
+  end
+  
+  def nonOper
+    @nonOperationals = Computer.where(operational:false)
   end
   private
     # Use callbacks to share common setup or constraints between actions.

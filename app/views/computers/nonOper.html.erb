@@ -1,0 +1,32 @@
+
+    <div class='container'>
+        <div class='row'>
+            <div class='col-xs col-md-10' align='center'>
+                <table class="table table-striped table-hover " align='center'>
+                <thead>
+                    <tr>
+                        <th>Dependencia</th>
+                        <th>No serie</th>
+                        <th>No Oficial</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @nonOperationals.each do |dead| %>
+                    <tr>
+                        <td><%= dead.Dependency.name %></td>
+                            <td><%= dead.ninventary %></td>
+                            <td><%= dead.nserie %></td>
+                        </tr>
+                        <tr>
+                            <td><%= image_tag dead.picture1, class:'img-fluid card thumbnail', size:'50x50', id:'actual_pic1'  %></td>
+                            <td><%= image_tag dead.picture2, class:'img-fluid card thumbnail', size:'50x50', id:'actual_pic2'  %><</td>
+                            <td><%= image_tag dead.picture3, class:'img-fluid card thumbnail', size:'50x50', id:'actual_pic3'  %><</td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    
