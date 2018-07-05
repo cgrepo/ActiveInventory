@@ -43,6 +43,7 @@ gem 'bootstrap_form'
 gem 'ipaddress'
 gem 'will_paginate-bootstrap'
 gem 'octicons_helper'
+gem 'carrierwave', '~> 1.0'
 
 group :production do
  #gem 'pg'
