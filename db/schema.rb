@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170718204445) do
+ActiveRecord::Schema.define(version: 20180705035201) do
 
   create_table "brand_models", force: :cascade do |t|
     t.string   "description"
@@ -75,6 +75,9 @@ ActiveRecord::Schema.define(version: 20170718204445) do
     t.integer  "Delegation_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.string   "picture1"
+    t.string   "picture2"
+    t.string   "picture3"
   end
 
   add_index "computers", ["Delegation_id"], name: "index_computers_on_Delegation_id"
