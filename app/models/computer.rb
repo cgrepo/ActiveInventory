@@ -1,4 +1,7 @@
 class Computer < ActiveRecord::Base
+	mount_uploader :picture1, MyPictureUploader
+	mount_uploader :picture2, MyPictureUploader
+	mount_uploader :picture3, MyPictureUploader
 	
 	belongs_to :Delegation
   belongs_to :Dependency
