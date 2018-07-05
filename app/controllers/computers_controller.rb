@@ -1,5 +1,5 @@
 class ComputersController < ApplicationController
-  before_action :set_computer, only: [:show, :edit, :update, :destroy]
+  before_action :set_computer, only: [:show, :edit, :update, :destroy, :downPc ]
   #before_action :upsme, only: [:update, :create] does not work fine with create
   # GET /computers
   # GET /computers.json
@@ -87,6 +87,9 @@ class ComputersController < ApplicationController
     end
   end
   
+  def downPc
+    
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_computer

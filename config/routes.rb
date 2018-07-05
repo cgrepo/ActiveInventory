@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     collection do
       get 'showmodal', to: 'computers#showmodal'
       get 'addBrandModel4pc', to: 'computers#addBrandModel4pc'
+      get 'downPc/:id', action:'downPc',    controller:'computers', as:'downPc'
     end
   end
   resources :copiers do
