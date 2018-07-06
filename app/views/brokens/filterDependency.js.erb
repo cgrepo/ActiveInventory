@@ -1,6 +1,12 @@
 <% if @computers.count > 0 %>
     $('#computers').html("<%= escape_javascript render(:partial => 'tblPC') %>");
     $('#computers').show();
+    /*$('#pcKill').click( function setDown() { 
+        if (confirm('Seguro que quiere dar de baja el equipo?'))
+            alert('equipo eliminado');
+        else
+            alert('equipo no eliminado');
+    } ); */
 <% else %>
     $('#computers').hide();
 <% end %>

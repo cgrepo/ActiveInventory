@@ -63,6 +63,16 @@ class BrokensController < ApplicationController
     end
   end
   
+  def eqKill
+    respond_to do |format|  
+      case params[:type]
+        when 'COMP'
+          @eq = Computer.find(params[:id])
+          format.js #{render :partial => 'showModal'}
+      end
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_broken

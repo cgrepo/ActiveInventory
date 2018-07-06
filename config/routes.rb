@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :brokens do
     collection do
       get 'filterDependency', action:'filterDependency', controller:'brokens', as:'filterDependency'
+      get 'eqKill/:id', action:'eqKill', controller:'brokens', as:'eqKill'
     end
   end
   resources :computers do
