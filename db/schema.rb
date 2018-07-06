@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180705035201) do
+ActiveRecord::Schema.define(version: 20180705184504) do
 
   create_table "brand_models", force: :cascade do |t|
     t.string   "description"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20180705035201) do
   end
 
   add_index "brand_models", ["User_id"], name: "index_brand_models_on_User_id"
+
+  create_table "brokens", force: :cascade do |t|
+    t.string   "idEquipment"
+    t.text     "notes"
+    t.string   "picOf"
+    t.string   "picSerie"
+    t.string   "pic"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "common_errors", force: :cascade do |t|
     t.string   "description"

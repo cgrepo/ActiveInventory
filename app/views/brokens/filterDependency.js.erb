@@ -1,0 +1,6 @@
+<% if @computers.count > 0 %>
+    $('#computers').html("<%= escape_javascript render(:partial => 'tblPC') %>");
+    $('#computers').show();
+<% else %>
+    $('#computers').hide();
+<% end %>

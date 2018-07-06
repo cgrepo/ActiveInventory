@@ -1,0 +1,35 @@
+<%= bootstrap_form_for(@broken) do |f| %>
+  <% if @broken.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@broken.errors.count, "error") %> prohibited this broken from being saved:</h2>
+
+      <ul>
+      <% @broken.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="container smfont be-round_ligth_gray ">
+    <div class='row'>
+      <%= bootstrap_form_tag url: '/broken' do |f| %>
+        <div class='col-xs col-md-4'>
+          <%= f.collection_select(:Dependency_id, Dependency.all.where(Delegation:@csl), 
+            :id, :name, {:include_blank => true }, 
+            {:data=> {
+              :remote => true, :url => url_for(:controller => "brokens", 
+                                      :action => "filterDependency") 
+            }  } 
+            ) %>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class='col-xs col-md-5' id='computers'></div>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

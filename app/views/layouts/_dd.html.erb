@@ -6,7 +6,7 @@
   </div>
   <div class="col-xs col-md-4">
     <%= f.label :Dependencia %><br>
-    <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, {include_blank: true}, 
-    {class:'btn btn-default dropdown-toggle smfont dependencies_collection'}) %>
+    <%= f.collection_select(:Dependency_id, Dependency.all.order(:name), :id, :name, 
+    {include_blank: true}, {class:'btn btn-default dropdown-toggle smfont dependencies_collection'}) %>
   </div>
 </div>

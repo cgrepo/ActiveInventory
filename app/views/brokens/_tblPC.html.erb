@@ -1,0 +1,20 @@
+<table class="table table-striped table-hover ">
+    <thead>
+        <th>EQUIPO</th>
+        <th>ID</th>
+        <th>SERIE</th>
+        <th>ACTIVO</th>
+        <th colspan='1'></th>
+    </thead>
+    <tbody>
+        <% @computers.each do |pc| %>
+            <tr>
+                <td>COMPUTADORA</td>
+                <td><%= pc.id %></td>
+                <td><%= pc.nserie %></td>
+                <td><%= pc.ninventary %></td>
+            </tr>
+            
+        <% end %>
+    </tbody>
+</table>

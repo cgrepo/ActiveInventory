@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root to: 'welcome#index'
   get 'reports/index'
   get 'admins/index'
@@ -10,6 +11,11 @@ Rails.application.routes.draw do
   resources :printers, :networks, :dependencies, :memos
   resources :officevs, :osies, :hardds, :workers, :processors
   resources :sessions, only: [:new, :create, :destroy]
+  resources :brokens do
+    collection do
+      get 'filterDependency', action:'filterDependency', controller:'brokens', as:'filterDependency'
+    end
+  end
   resources :computers do
     collection do
       get   'showmodal',        to: 'computers#showmodal'
