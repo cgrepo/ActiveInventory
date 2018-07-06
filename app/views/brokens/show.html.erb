@@ -1,29 +1,46 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Idequipment:</strong>
-  <%= @broken.idEquipment %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @broken.notes %>
-</p>
-
-<p>
-  <strong>Picof:</strong>
-  <%= @broken.picOf %>
-</p>
-
-<p>
-  <strong>Picserie:</strong>
-  <%= @broken.picSerie %>
-</p>
-
-<p>
-  <strong>Pic:</strong>
-  <%= @broken.pic %>
-</p>
-
+<div class='container-fluid be-soft_gray'>
+  <div class='row'>
+    <div class='col-xs col-md-6'>
+      <p id="notice"><%= notice %></p>      
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-xs col-md-5'>
+      <p>
+        <strong>Dependencia:</strong>
+        <%= @broken.Dependency.name %>
+      </p>
+    </div>
+    <div class='col-x col-md-3'>
+      <p>
+        <strong>TIPO:</strong>
+        <%= @broken.gender %>
+      </p>
+    </div>
+    <div class='col-x col-md-3'>
+      <p>
+        <strong>COMENTARIOS:</strong>
+        <%= @broken.notes %>
+      </p>
+    </div>
+  </div>
+  <div class='row'>
+    <p>
+      <div class='container be-soft_gray'>
+        <div class='row'>
+          <div class='col-xs-4'>
+            <%= image_tag @broken.picOf, class:'img-fluid card thumbnail', size:'200x200', id:'picOf'  %>
+          </div>
+          <div class='col-xs-4'>
+            <%= image_tag @broken.picSerie, class:'img-fluid card thumbnail', size:'250x230', id:'picSerie'  %>
+          </div>
+          <div class='col-xs-4'>
+            <%= image_tag @broken.pic, class:'img-fluid card thumbnail', size:'250x230', id:'pic'  %>
+          </div>
+        </div>
+      </div>
+    </p>
+  </div>
+</div>
 <%= link_to 'Edit', edit_broken_path(@broken) %> |
 <%= link_to 'Back', brokens_path %>

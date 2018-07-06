@@ -25,14 +25,24 @@ ActiveRecord::Schema.define(version: 20180705184504) do
   add_index "brand_models", ["User_id"], name: "index_brand_models_on_User_id"
 
   create_table "brokens", force: :cascade do |t|
-    t.string   "idEquipment"
+    t.integer  "idDelegation"
+    t.integer  "idDependency"
+    t.integer  "idEquipment"
+    t.string   "gender"
     t.text     "notes"
     t.string   "picOf"
     t.string   "picSerie"
     t.string   "pic"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "Dependency_id"
+    t.integer  "User_id"
+    t.integer  "Delegation_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
+
+  add_index "brokens", ["Delegation_id"], name: "index_brokens_on_Delegation_id"
+  add_index "brokens", ["Dependency_id"], name: "index_brokens_on_Dependency_id"
+  add_index "brokens", ["User_id"], name: "index_brokens_on_User_id"
 
   create_table "common_errors", force: :cascade do |t|
     t.string   "description"

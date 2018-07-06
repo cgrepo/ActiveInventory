@@ -18,7 +18,6 @@ class BrokensController < ApplicationController
 
   def create
     @broken = Broken.new(broken_params)
-
     respond_to do |format|
       if @broken.save
         format.html { redirect_to @broken, notice: 'Broken was successfully created.' }
@@ -50,6 +49,7 @@ class BrokensController < ApplicationController
     end
   end
   
+  
   def filterDependency
     @computers = Computer.where(Dependency_id:params[:Dependency_id])
     @printers = Printer.where(:Dependency => params[:Dependency_id])
@@ -64,11 +64,18 @@ class BrokensController < ApplicationController
   end
   
   def eqKill
+    
     @broken = Broken.new
+    @broken.gender = params[:type]
     respond_to do |format|  
       case params[:type]
         when 'COMP'
-          @eq = Computer.find(params[:id])
+          @pc = Computer.find(params[:id])
+          @broken.idEquipment =  @pc.id
+          @broken.Delegation_id = @pc.Delegation_id
+          @broken.Dependency_id = @pc.Dependency_id
+          #@pc.operational = false
+          #@pc.save
       end
       format.js
     end
@@ -82,6 +89,6 @@ class BrokensController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def broken_params
-      params.require(:broken).permit(:idEquipment, :notes, :picOf, :picSerie, :pic)
+      params.require(:broken).permit(:idEquipment, :notes, :picOf, :picSerie, :pic, :gender, :Delegation_id, :Dependency_id, :User_id)
     end
 end
