@@ -5,10 +5,13 @@
             <h4 class="modal-title">BAJAR EQUIPO <%= @eq.ninventary %></h4>
         </div>
         <div class="modal-body">
-          <%#= bootstrap_form_for(@otherService, layout: :horizontal, remote:true, :html => {id:'edOServiceCommit', format:'js'}) do |f| %>
-            <%#= f.text_field_with_bootstrap :name, label:'SERVICIO', label_col:'col-xs col-md-4', control_col:'col-xs col-md-8' %>
-            <%#= f.submit 'Guardar', class:'btn btn-md btn-primary' %>
-          <%# end %>
+          <%= bootstrap_form_for(@broken, layout: :horizontal, remote:true ) do |f| %>
+            <%= f.text_area_with_bootstrap :notes,     label:'COMENTARIOS', label_col:'col-xs col-md-4', control_col:'col-xs col-md-8' %>
+            <%= f.file_field_with_bootstrap :picOf,    label:'Foto No oficial', label_col:'col-xs col-md-4', control_col:'col-xs col-md-8' %>
+            <%= f.file_field_with_bootstrap :picSerie, label:'Foto No serie', label_col:'col-xs col-md-4', control_col:'col-xs col-md-8' %>
+            <%= f.file_field_with_bootstrap :pic, label:'Foto estado', label_col:'col-xs col-md-4', control_col:'col-xs col-md-8' %>
+            <%= f.submit 'Guardar', class:'btn btn-md btn-primary' %>
+          <% end %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

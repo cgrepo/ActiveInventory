@@ -64,12 +64,13 @@ class BrokensController < ApplicationController
   end
   
   def eqKill
+    @broken = Broken.new
     respond_to do |format|  
       case params[:type]
         when 'COMP'
           @eq = Computer.find(params[:id])
-          format.js #{render :partial => 'showModal'}
       end
+      format.js
     end
   end
   
