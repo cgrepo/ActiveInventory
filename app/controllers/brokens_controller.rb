@@ -18,9 +18,16 @@ class BrokensController < ApplicationController
 
   def create
     @broken = Broken.new(broken_params)
+    
+    case @broken.gender
+      when 'COMP'
+        @eq = Computer.find(@broken.idEquipment)
+    end
+    #@eq.class.name
     respond_to do |format|
       if @broken.save
         format.html { redirect_to @broken, notice: 'Broken was successfully created.' }
+        @eq.update(:operational=>false)
         format.json { render :show, status: :created, location: @broken }
       else
         format.html { render :new }
@@ -51,13 +58,12 @@ class BrokensController < ApplicationController
   
   
   def filterDependency
-    @computers = Computer.where(Dependency_id:params[:Dependency_id])
-    @printers = Printer.where(:Dependency => params[:Dependency_id])
-    @telephones = Telephone.where(:Dependency => params[:Dependency_id])
-    @screens = Screen.where(:Dependency => params[:Dependency_id])
-    @powers = Power.where(:Dependency => params[:Dependency_id])
-    @scanners = Scanner.where(:dependency_id => params[:Dependency_id])
-    #byebug
+    @computers = Computer.where(Dependency_id:params[:Dependency_id]).where(:operational => true)
+    @printers = Printer.where(:Dependency => params[:Dependency_id]).where(:operational => true)
+    @telephones = Telephone.where(:Dependency => params[:Dependency_id]).where(:operational => true)
+    @screens = Screen.where(:Dependency => params[:Dependency_id]).where(:operational => true)
+    @powers = Power.where(:Dependency => params[:Dependency_id]).where(:operational => true)
+    @scanners = Scanner.where(:dependency_id => params[:Dependency_id]).where(:operational => true)
     respond_to do |format|
         format.js
     end
@@ -75,7 +81,9 @@ class BrokensController < ApplicationController
           @broken.Delegation_id = @pc.Delegation_id
           @broken.Dependency_id = @pc.Dependency_id
           #@pc.operational = false
+          #byebug
           #@pc.save
+          
       end
       format.js
     end
