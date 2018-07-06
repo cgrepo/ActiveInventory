@@ -1,8 +1,8 @@
 class CreateBrokens < ActiveRecord::Migration
   def change
     create_table :brokens do |t|
-      t.integer :idDelegation
-      t.integer :idDependency
+      #t.integer :idDelegation
+      #t.integer :idDependency
       t.integer :idEquipment
       t.string :gender
       t.text :notes
