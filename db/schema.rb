@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180705184504) do
+ActiveRecord::Schema.define(version: 20180706211056) do
 
   create_table "brand_models", force: :cascade do |t|
     t.string   "description"
@@ -31,9 +31,12 @@ ActiveRecord::Schema.define(version: 20180705184504) do
     t.string   "picOf"
     t.string   "picSerie"
     t.string   "pic"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "Delegation_id"
   end
+
+  add_index "brokens", ["Delegation_id"], name: "index_brokens_on_Delegation_id"
 
   create_table "common_errors", force: :cascade do |t|
     t.string   "description"
