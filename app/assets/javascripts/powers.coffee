@@ -50,6 +50,7 @@ $(document).on "turbolinks:load", ->
 					$('#modal-window').modal('hide')
 				error: (data) ->
 					alert 'error' + data
+		return
 valuesCompleated=->
 	if $('#brand_model_brandx').val() == ''
 		alert 'Proporcione la Marca'

@@ -1,0 +1,23 @@
+<table id='tblPrint' class="table table-striped table-hover ">
+    <thead>
+        <th>EQUIPO</th>
+        <th>ID</th>
+        <th>SERIE</th>
+        <th>ACTIVO</th>
+        <th colspan='1'></th>
+    </thead>
+    <tbody>
+        <% @printers.each do |pr| %>
+            <tr>
+                <td>IMPRESORA</td>
+                <td><%= pr.id %></td>
+                <td><%= pr.nserie %></td>
+                <td><%= pr.ninventary %></td>
+                <td>
+                    <%= link_to 'Baja Equipo', eqKill_brokens_path(id:pr.id,type:'PRINT'), remote:true, :class=>"btn btn-danger glyphicon glyphicon-fire" %>
+                </td>
+            </tr>
+        
+        <% end %>
+    </tbody>
+</table>

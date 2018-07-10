@@ -1,0 +1,23 @@
+<table id='tblCopy' class="table table-striped table-hover ">
+    <thead>
+        <th>EQUIPO</th>
+        <th>ID</th>
+        <th>SERIE</th>
+        <th>ACTIVO</th>
+        <th colspan='1'></th>
+    </thead>
+    <tbody>
+        <% @copiers.each do |cp| %>
+            <tr>
+                <td>COPIADORA</td>
+                <td><%= cp.id %></td>
+                <td><%= cp.nserie %></td>
+                <td><%= cp.ninventary %></td>
+                <td>
+                    <%= link_to 'Baja Equipo', eqKill_brokens_path(id:cp.id,type:'COPY'), remote:true, :class=>"btn btn-danger glyphicon glyphicon-fire" %>
+                </td>
+            </tr>
+        
+        <% end %>
+    </tbody>
+</table>

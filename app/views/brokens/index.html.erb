@@ -34,18 +34,35 @@
             <tr>
               <td><%= broken.Delegation.name %></td>
               <td><%= broken.Dependency.name %></td>
-              <td><%= broken.gender %></td>
               <td>
-                <% case broken.gender                       %>
-                <% when 'COMP'                              %>
-                <%   pc = Computer.find(broken.idEquipment) %>
-                <%   if pc.ninventary.size > 0              %>
-                <%=    pc.ninventary                        %>
-                <%   else                                   %>
-                <%=     pc.nserie                           %>
-                <%   end                                    %>
-                <% end                                      %>
+                <% case broken.gender     %>
+                <%  when 'COMP'           %>
+                <%    pc = Computer.find(broken.idEquipment) %>
+                <%    if pc.ninventary.size > 0              %>
+                <%      @iden = pc.ninventary                %>
+                <%    else                                   %>
+                <%      @iden = pc.nserie                    %>
+                <%    end                                    %>
+                <%=   'COMPUTADORA'                          %>
+                <%  when 'PRINT'                             %>
+                <%    pr = Printer.find(broken.idEquipment)  %>
+                <%    if pr.ninventary.size > 0              %>
+                <%      @iden = pr.ninventary                %>
+                <%    else                                   %>
+                <%      @iden = pr.nserie                    %>
+                <%    end                                    %>
+                <%=   'IMPRESORA'                            %>
+                <%  when 'COPY'                              %>
+                <%    cp = Copier.find(broken.idEquipment)   %>
+                <%    if cp.ninventary.size > 0              %>
+                <%      @iden = cp.ninventary                %>
+                <%    else                                   %>
+                <%      @iden = cp.nserie                    %>
+                <%    end                                    %>
+                <%=   'COPIADORA'                            %>
+                <% end                    %>
               </td>
+              <td> <%= @iden %> </td>
               <td><%= link_to 'Show', broken %></td>
               <!--<td><%#= link_to 'Edit', edit_broken_path(broken) %></td>-->
               <td><%= link_to 'Destroy', broken, method: :delete, data: { confirm: 'Are you sure?' } %></td>

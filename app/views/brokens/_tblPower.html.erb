@@ -1,0 +1,23 @@
+<table id='tblPower' class="table table-striped table-hover ">
+    <thead>
+        <th>EQUIPO</th>
+        <th>ID</th>
+        <th>SERIE</th>
+        <th>ACTIVO</th>
+        <th colspan='1'></th>
+    </thead>
+    <tbody>
+        <% @powers.each do |pw| %>
+            <tr>
+                <td>COPIADORA</td>
+                <td><%= pw.id %></td>
+                <td><%= pw.nserie %></td>
+                <td><%= pw.ninventary %></td>
+                <td>
+                    <%= link_to 'Baja Equipo', eqKill_brokens_path(id:pw.id,type:'POW'), remote:true, :class=>"btn btn-danger glyphicon glyphicon-fire" %>
+                </td>
+            </tr>
+        
+        <% end %>
+    </tbody>
+</table>

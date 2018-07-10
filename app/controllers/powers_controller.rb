@@ -68,13 +68,20 @@ class PowersController < ApplicationController
     def showmodal
        @brandmodel = BrandModel.new
        respond_to do |format|
-         format.html
+         #format.html
          format.js
        end
     end
     def addBrandModel4pow
       respond_to do |format|
-        if BrandModel.create(description:'REGULADOR/UPS',brandx:params[:brand], modelx:params[:model], User_id:current_user.id)
+        
+        @brandModel=BrandModel.new
+        @brandModel.description=params[:desc]
+        @brandModel.brandx=params[:brand]
+        @brandModel.modelx=params[:model]
+        @brandModel.User_id=current_user.id
+        byebug
+        if @brandModel.save
           @brands = BrandModel.select(:brandx).where(description:'REGULADOR/UPS').uniq.pluck(:brandx)
           format.html { render :partial => 'brand_models/addBrand'}
         else

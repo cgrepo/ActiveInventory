@@ -10,3 +10,24 @@
 <% else %>
     $('#computers').hide();
 <% end %>
+
+<% if @printers.count > 0 %>
+    $('#printers').html("<%= escape_javascript render(:partial => 'tblPrint') %>");
+    $('#printers').show();
+<% else %>
+    $('#printers').hide();
+<% end %>
+
+<% if @copiers.count > 0 %>
+    $('#copiers').html("<%= escape_javascript render(:partial => 'tblCopier') %>");
+    $('#copiers').show();
+<% else %>
+    $('#copiers').hide();
+<% end %>
+
+<% if @powers.count > 0 %>
+    $('#powers').html("<%= escape_javascript render(:partial => 'tblPower') %>");
+    $('#powers').show();
+<% else %>
+    $('#powers').hide();
+<% end %>
