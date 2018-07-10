@@ -31,3 +31,10 @@
 <% else %>
     $('#powers').hide();
 <% end %>
+
+<% if @screens.count > 0 %>
+    $('#screens').html("<%= escape_javascript render(:partial => 'tblScreen') %>");
+    $('#screens').show();
+<% else %>
+    $('#screens').hide();
+<% end %>

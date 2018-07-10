@@ -28,6 +28,8 @@ class BrokensController < ApplicationController
         @eq = Copier.find(@broken.idEquipment)
       when 'POW'
         @eq = Power.find(@broken.idEquipment)
+      when 'SCREEN'
+        @eq = Screen.find(@broken.idEquipment)
     end
     #@eq.class.name
     respond_to do |format|
@@ -69,6 +71,7 @@ class BrokensController < ApplicationController
     @copiers = Copier.where(:Dependency => params[:Dependency_id]).where(:operational => true)
     @telephones = Telephone.where(:Dependency => params[:Dependency_id]).where(:operational => true)
     @screens = Screen.where(:Dependency => params[:Dependency_id]).where(:operational => true)
+    byebug
     @powers = Power.where(:Dependency => params[:Dependency_id]).where(:operational => true)
     @scanners = Scanner.where(:dependency_id => params[:Dependency_id]).where(:operational => true)
     respond_to do |format|
@@ -83,28 +86,33 @@ class BrokensController < ApplicationController
     respond_to do |format|  
       case params[:type]
         when 'COMP'
-          @pc = Computer.find(params[:id])
-          @broken.idEquipment =  @pc.id
-          @broken.Delegation_id = @pc.Delegation_id
-          @broken.Dependency_id = @pc.Dependency_id
+          @eq = Computer.find(params[:id])
+          #@broken.idEquipment =  @pc.id
+          #@broken.Delegation_id = @pc.Delegation_id
+          #@broken.Dependency_id = @pc.Dependency_id
         when 'PRINT'
-          @pr = Printer.find(params[:id])
-          @broken.idEquipment =  @pr.id
-          @broken.Delegation_id = @pr.Delegation_id
-          @broken.Dependency_id = @pr.Dependency_id
+          @eq = Printer.find(params[:id])
+          #@broken.idEquipment =  @pr.id
+          #@broken.Delegation_id = @pr.Delegation_id
+          #@broken.Dependency_id = @pr.Dependency_id
         when 'COPY'
-          byebug
-          @cp = Copier.find(params[:id])
-          @broken.idEquipment =  @cp.id
-          @broken.Delegation_id = @cp.Delegation_id
-          @broken.Dependency_id = @cp.Dependency_id
+          @eq = Copier.find(params[:id])
+          #@broken.idEquipment =  @cp.id
+          #@broken.Delegation_id = @cp.Delegation_id
+          #@broken.Dependency_id = @cp.Dependency_id
         when 'POW'
+          @eq = Power.find(params[:id])
+          #@broken.idEquipment =  @pw.id
+          #@broken.Delegation_id = @pw.Delegation_id
+          #@broken.Dependency_id = @pw.Dependency_id
+        when 'SCREEN'
           byebug
-          @pw = Power.find(params[:id])
-          @broken.idEquipment =  @pw.id
-          @broken.Delegation_id = @pw.Delegation_id
-          @broken.Dependency_id = @pw.Dependency_id
+          @eq = Screen.find(params[:id])
       end
+      @broken.idEquipment =  @eq.id
+      @broken.Delegation_id = @eq.Delegation_id
+      @broken.Dependency_id = @eq.Dependency_id
+      
       format.js
     end
   end
