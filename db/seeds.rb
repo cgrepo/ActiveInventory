@@ -498,8 +498,13 @@
 # 			]
 
 del = Delegation.find_by(:name => 'Cabo San Lucas')
-dep = Dependency.find_by(:name => 'COORD. DE PREPA ABIERTA CSL')
+# dep = Dependency.find_by(:name => 'COORD. DE PREPA ABIERTA CSL')
+# Computer.create! [
+# 	{ninventary:'006542', nserie:'', brand:'CLON', model:'CLON', Dependency:dep, Delegation:del},
+# 	{ninventary:'', nserie:'940009067986',brand:'CLON', model:'CLON', Dependency:dep, Delegation:del}
+# 	]
+dep = Dependency.find_by(:name => 'DIF CSL')
 Computer.create! [
-	{ninventary:'006542', nserie:'', brand:'CLON', model:'CLON', Dependency:dep, Delegation:del},
-	{ninventary:'', nserie:'940009067986',brand:'CLON', model:'CLON', Dependency:dep, Delegation:del}
+	{ninventary:'010364', nserie:'MXD60801XW', brand:'HP', model:'COMPAQ DX 2000MT', Dependency:dep, Delegation:del},
+	{ninventary:'012085', nserie:'MXX14402BL',brand:'HP', model:'PAVILION SLIMLINE S5-1124LA', Dependency:dep, Delegation:del}
 	]
