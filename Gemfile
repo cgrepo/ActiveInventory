@@ -44,6 +44,7 @@ gem 'ipaddress'
 gem 'will_paginate-bootstrap'
 gem 'octicons_helper'
 gem 'carrierwave', '~> 1.0'
+gem 'prawn-table'
 
 group :production do
  #gem 'pg'

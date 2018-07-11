@@ -1,0 +1,65 @@
+class BrokenEquipment < Prawn::Document
+    
+    def initialize(brokens)
+        super()
+        stroke_axis
+        @brokens = brokens
+        Prawn::Font::AFM.hide_m17n_warning = true
+        printRepo
+    end
+    
+    def printRepo
+        imgshield = "#{Rails.root.to_s}/app/assets/images/logodire.png"	
+		image imgshield, at: [10,710], fit:[82,82]
+		font_families["Verdana"] = { normal:{file:"#{Rails.root.to_s}/app/assets/fonts/Verdana.ttf", font:"Verdana"} }
+		font_families["Calibri"] = { normal:{file:"#{Rails.root.to_s}/app/assets/fonts/Calibri.ttf", font:"Calibri"} }
+		formatted_text_box [
+			  {:text => "COORDINACION MUNICIPAL DE INFORMATICA Y SISTEMAS" , size:14, style:[:bold], font:"Verdana", color:'000000'  }, ], at:[96,690], width:500, height:100
+		formatted_text_box [ 
+			  {:text => "EQUIPO PARA BAJA" , size:22, style:[:bold], font:"Verdana", color:'747373'  }, ], at:[180,660], width:420, height:300
+        move_down 110
+        data = [['No OFICIAL','No SERIE','DEPENDENCIA','DESCRIPCION','MODELO']]
+        @brokens.each do |broken|
+            eqInfo = getEquipmentData(broken)
+            imageNoOficial = broken.picOf.path
+            imageNoSerie =   broken.picSerie.path
+            imageFull =      broken.pic.path
+            
+            data += [
+                        [eqInfo[0],eqInfo[1],broken.Dependency.name,eqInfo[2],eqInfo[3]],
+                        [{:image => imageNoOficial, :fit => [70,80]},{:image => imageNoSerie, :fit => [70,80]},{:image => imageFull, :fit => [100,100]},"",""]
+                    ]
+        end
+        table( data,header:true, :position=> :center,:cell_style=>{size:7, :padding=>[64,0,0,90]}) do
+                cells.padding = 12
+                #cells.borders = [:left, :right]
+                cells.borders = []
+                #row(0).borders = [:bottom,:top]
+                row(0).border_width = 0.5
+                row(0).font_style = :bold
+                row(0).background_color = 'f0f0f0'
+        end
+    end
+    private
+    
+    def getEquipmentData(brokenEquipment)
+        #byebug
+        case brokenEquipment.gender
+            when 'COMP'
+                pc = Computer.find(brokenEquipment.idEquipment)
+                return pc.ninventary,pc.nserie,'COMPUTADORA',pc.model
+            when 'PRINT'
+                printer = Printer.find(brokenEquipment.idEquipment)
+                return printer.ninventary,printer.nserie,'IMPRESORA',printer.model
+            when 'POW'
+                ups = Power.find(brokenEquipment.idEquipment)
+                return ups.ninventary,ups.nserie,'REGULADOR/UPS',ups.model
+            when 'COPY'
+                copier = Copier.find(brokenEquipment.idEquipment)
+                return copier.ninventary,copier.nserie,'COPIADORA',copier.model
+            when 'SCREEN'
+                screen = Screen.find(brokenEquipment.idEquipment)
+                return screen.ninventary,screen.nserie,'MONITOR',screen.model
+        end
+    end
+end

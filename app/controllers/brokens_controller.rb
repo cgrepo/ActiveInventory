@@ -80,7 +80,6 @@ class BrokensController < ApplicationController
   end
   
   def eqKill
-    
     @broken = Broken.new
     @broken.gender = params[:type]
     respond_to do |format|  
@@ -117,6 +116,19 @@ class BrokensController < ApplicationController
     end
   end
   
+  def brokenRepo
+    @brokens = Broken.all
+    respond_to do |format|
+      format.pdf do
+        pdf = BrokenEquipment.new(@brokens)
+        
+        send_data pdf.render, 
+          filename: "reporte_equipos_baja.pdf",
+          type: 'application/pdf',
+          disposition: 'inline'
+      end
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_broken
