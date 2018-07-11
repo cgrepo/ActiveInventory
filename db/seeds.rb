@@ -496,3 +496,10 @@
 # 				{ idFolio:'28031787-SJC/528', 	kind:'MANTENIMIENTO', 	itDiagnosis:'MANTENIMIENTO PREVENTIVO E INSTALACION DE PIEZA QUE REQUIERA, EQUIPO DE ALTA CARGA DE TRABAJO.', ProviderDiagnosis:'', material:'', 	DocumentRequest:'DMC-XII-243', 	RequestDate: DateTime.strptime('28/03/2017','%d/%m/%Y'), 	Delegation: Delegation.find_by(name:'San Jose del Cabo'), 	Dependency: Dependency.find_by(name:'DIR. MPAL. CATASTRO'), 	Provider: Provider.find(2), 	Printer: Printer.find_by(ninventary:'999995') },
 # 				{ idFolio:'28031787-CSL/926', 	kind:'MANTENIMIENTO', 	itDiagnosis:'MANTENIMIENTO EN GENERAL, IMPRIME MUY BORROSO Y ALARMA CAMBIO DE KIT DE MANTENIMIENTO.  REMPLAZO DE PIEZA REQUERIDA EQUIPO DE ALTA CARGA DE TRABAJO.', ProviderDiagnosis:'', material:'', 	DocumentRequest:'SOL. SISTEMAS', 	RequestDate: DateTime.strptime('28/03/2017','%d/%m/%Y'), 	Delegation: Delegation.find_by(name:'Cabo San Lucas'), 	Dependency: Dependency.find_by(name:'DIR. MPAL. CATASTRO'), 	Provider: Provider.find(2), 	Printer: Printer.find_by(ninventary:'032677') },
 # 			]
+
+del = Delegation.find_by(:name => 'Cabo San Lucas')
+dep = Dependency.find_by(:name => 'COORD. DE PREPA ABIERTA CSL')
+Computer.create! [
+	{ninventary:'006542', nserie:'', brand:'CLON', model:'CLON', Dependency:dep, Delegation:del},
+	{ninventary:'', nserie:'940009067986',brand:'CLON', model:'CLON', Dependency:dep, Delegation:del}
+	]
