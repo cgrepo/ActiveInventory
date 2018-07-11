@@ -15,9 +15,9 @@ class Copier < ActiveRecord::Base
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
   end
   
-  validates :brand, presence: { message: "no puede estar en blanco" }
-  validates :wifi_mac, presence: { message: "debe proporcionar la mac del Wifi" }, :if => :wifi_set?
-  validates :net_mac, presence: { message: "debe proporcionar la mac de Lan" }, :if => :net_set?
+  # validates :brand, presence: { message: "no puede estar en blanco" }
+  # validates :wifi_mac, presence: { message: "debe proporcionar la mac del Wifi" }, :if => :wifi_set?
+  # validates :net_mac, presence: { message: "debe proporcionar la mac de Lan" }, :if => :net_set?
 
   
   def wifi_set?

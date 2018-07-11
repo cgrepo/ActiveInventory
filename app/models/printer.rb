@@ -18,9 +18,9 @@ class Printer < ActiveRecord::Base
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
   end
 
-  validates :brand, :genus, presence: { message: "no puede estar en blanco" }
-  validates :wifi_mac, mac: true, presence: { message: "debe proporcionar la mac del Wifi" }, :if => :wifi_set?
-  validates :net_mac, mac: true, presence: { message: "debe proporcionar la mac de Lan" }, :if => :net_set?
+  # validates :brand, :genus, presence: { message: "no puede estar en blanco" }
+  # validates :wifi_mac, mac: true, presence: { message: "debe proporcionar la mac del Wifi" }, :if => :wifi_set?
+  # validates :net_mac, mac: true, presence: { message: "debe proporcionar la mac de Lan" }, :if => :net_set?
 
   def wifi_set?
   	wifi
