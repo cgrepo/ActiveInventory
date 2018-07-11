@@ -34,7 +34,7 @@ class BrokenEquipment < Prawn::Document
                 cells.padding = 12
                 #cells.borders = [:left, :right]
                 cells.borders = []
-                #row(0).borders = [:bottom,:top]
+                row(0).borders = [:bottom,:top]
                 row(0).border_width = 0.5
                 row(0).font_style = :bold
                 row(0).background_color = 'f0f0f0'
