@@ -12,7 +12,7 @@ class BrandModel < ActiveRecord::Base
   end
   
   def brand_names
-    unless self.brandx.match(/ACER|ASUS|CLON|COMPAQ|DELL|EPSON|HP|IBM|LENOVO|SAMSUNG|SONY|ISB SOLABASIC|CANON|KONICA|XEROX|PANASONIC|CISCO|VIEWSONIC/)
+    unless self.brandx.match(/ACER|ASUS|CLON|COMPAQ|DELL|EPSON|HP|IBM|LENOVO|SAMSUNG|SONY|ISB SOLABASIC|CANON|KONICA|XEROX|PANASONIC|CISCO|VIEWSONIC|APC/)
       errors.add(:brandx, "Nombre de la Marca es Incorrecto")
     end
   end
