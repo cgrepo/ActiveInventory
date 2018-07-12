@@ -71,7 +71,6 @@ class BrokensController < ApplicationController
     @copiers = Copier.where(:Dependency => params[:Dependency_id]).where(:operational => true)
     @telephones = Telephone.where(:Dependency => params[:Dependency_id]).where(:operational => true)
     @screens = Screen.where(:Dependency => params[:Dependency_id]).where(:operational => true)
-    byebug
     @powers = Power.where(:Dependency => params[:Dependency_id]).where(:operational => true)
     @scanners = Scanner.where(:dependency_id => params[:Dependency_id]).where(:operational => true)
     respond_to do |format|
@@ -105,7 +104,6 @@ class BrokensController < ApplicationController
           #@broken.Delegation_id = @pw.Delegation_id
           #@broken.Dependency_id = @pw.Dependency_id
         when 'SCREEN'
-          byebug
           @eq = Screen.find(params[:id])
       end
       @broken.idEquipment =  @eq.id
