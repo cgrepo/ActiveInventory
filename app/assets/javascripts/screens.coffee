@@ -41,6 +41,7 @@ $(document).on "turbolinks:load", ->
 					$('#modal-window').modal('hide')
 				error: (data) ->
 					alert 'error' + data
+		return
 	$('#screen_model').on 'change', ->
 		if $('#screen_model option:selected').val() == 'plus'
 			$.ajax
