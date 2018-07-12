@@ -497,7 +497,7 @@
 # 				{ idFolio:'28031787-CSL/926', 	kind:'MANTENIMIENTO', 	itDiagnosis:'MANTENIMIENTO EN GENERAL, IMPRIME MUY BORROSO Y ALARMA CAMBIO DE KIT DE MANTENIMIENTO.  REMPLAZO DE PIEZA REQUERIDA EQUIPO DE ALTA CARGA DE TRABAJO.', ProviderDiagnosis:'', material:'', 	DocumentRequest:'SOL. SISTEMAS', 	RequestDate: DateTime.strptime('28/03/2017','%d/%m/%Y'), 	Delegation: Delegation.find_by(name:'Cabo San Lucas'), 	Dependency: Dependency.find_by(name:'DIR. MPAL. CATASTRO'), 	Provider: Provider.find(2), 	Printer: Printer.find_by(ninventary:'032677') },
 # 			]
 
-del = Delegation.find_by(:name => 'Cabo San Lucas')
+#del = Delegation.find_by(:name => 'Cabo San Lucas')
 # dep = Dependency.find_by(:name => 'COORD. DE PREPA ABIERTA CSL')
 # Computer.create! [
 # 	{ninventary:'006542', nserie:'', brand:'CLON', model:'CLON', Dependency:dep, Delegation:del},
@@ -509,21 +509,21 @@ del = Delegation.find_by(:name => 'Cabo San Lucas')
 # 	{ninventary:'012085', nserie:'MXX14402BL',brand:'HP', model:'PAVILION SLIMLINE S5-1124LA', Dependency:dep, Delegation:del}
 # 	]
 
-dep = Dependency.find_by(:name => 'TRANSITO CSL JUEZ CALIFICADOR')
-Computer.create! [
-	{ninventary:'005161', nserie:'', brand:'HP', model:'COMPAQ DX 2000MT', Dependency:dep, Delegation:del}
-	]
+# dep = Dependency.find_by(:name => 'TRANSITO CSL JUEZ CALIFICADOR')
+# Computer.create! [
+# 	{ninventary:'005161', nserie:'', brand:'HP', model:'COMPAQ DX 2000MT', Dependency:dep, Delegation:del}
+# 	]
 	
-dep = Dependency.find_by(:name => 'TRANSITO CSL ADMINISTRACION')
-Computer.create! [
-	{ninventary:'005156', nserie:'', brand:'HP', model:'COMPAQ DX 2000MT', Dependency:dep, Delegation:del}
-	]
-dep = Dependency.find_by(:name => 'TRANSITO CSL CAJAS')
-Computer.create! [
-	{ninventary:'003442', nserie:'MXJ64900JP', brand:'HP', model:'COMPAQ DC7700', Dependency:dep, Delegation:del}
-	]
-dep = Dependency.find_by(:name => 'COORD. VISITADURIA INTERNA CSL')
-Computer.create! [
-	{ninventary:'002236', nserie:'MXJ605001Q', brand:'HP', model:'COMPAQ DC 7600', Dependency:dep, Delegation:del}
-	]
+# dep = Dependency.find_by(:name => 'TRANSITO CSL ADMINISTRACION')
+# Computer.create! [
+# 	{ninventary:'005156', nserie:'', brand:'HP', model:'COMPAQ DX 2000MT', Dependency:dep, Delegation:del}
+# 	]
+# dep = Dependency.find_by(:name => 'TRANSITO CSL CAJAS')
+# Computer.create! [
+# 	{ninventary:'003442', nserie:'MXJ64900JP', brand:'HP', model:'COMPAQ DC7700', Dependency:dep, Delegation:del}
+# 	]
+# dep = Dependency.find_by(:name => 'COORD. VISITADURIA INTERNA CSL')
+# Computer.create! [
+# 	{ninventary:'002236', nserie:'MXJ605001Q', brand:'HP', model:'COMPAQ DC 7600', Dependency:dep, Delegation:del}
+# 	]
 	
