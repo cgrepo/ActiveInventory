@@ -22,6 +22,7 @@ $(document).on "turbolinks:load", ->
 						}
 					success: (data) ->
 						$('#screen_model').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
+		return
 	$(document).on 'submit', 'form#modal4screens', (e) ->
 		e.preventDefault()
 		if valuesCompleated()
