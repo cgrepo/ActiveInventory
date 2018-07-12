@@ -81,6 +81,7 @@ $(document).on "turbolinks:load", ->
 					$('#modal-window').modal('hide')
 				error: (data) ->
 					alert 'error' + data
+		return
 	$('#printer_model').on 'change', ->
 		if $('#printer_model option:selected').val() == 'plus'
 			$.ajax
