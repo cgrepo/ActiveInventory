@@ -61,6 +61,7 @@ $(document).on "turbolinks:load", ->
 						}
 					success: (data) ->
 						$('#printer_model').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
+		return
 	$(document).on 'submit', 'form#modal4printers', (e) ->
 		e.preventDefault()
 		if valuesCompleated()
