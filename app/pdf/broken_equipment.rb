@@ -2,7 +2,7 @@ class BrokenEquipment < Prawn::Document
     
     def initialize(brokens)
         super()
-        stroke_axis
+        #stroke_axis
         @brokens = brokens
         Prawn::Font::AFM.hide_m17n_warning = true
         printRepo
@@ -21,9 +21,21 @@ class BrokenEquipment < Prawn::Document
         data = [['No OFICIAL','No SERIE','DEPENDENCIA','DESCRIPCION','MODELO']]
         @brokens.each do |broken|
             eqInfo = getEquipmentData(broken)
-            imageNoOficial = broken.picOf.path
-            imageNoSerie =   broken.picSerie.path
-            imageFull =      broken.pic.path
+            if broken.picOf.path
+                imageNoOficial = broken.picOf.path
+            else
+                imageNoOficial = "#{Rails.root.to_s}/app/assets/images/blocked.png"
+            end
+            if broken.picSerie.path
+                imageNoSerie =   broken.picSerie.path
+            else
+                imageNoSerie = "#{Rails.root.to_s}/app/assets/images/blocked.png"
+            end
+            if broken.pic.path
+                imageFull = broken.pic.path
+            else
+                imageFull = "#{Rails.root.to_s}/app/assets/images/blocked.png"
+            end
             
             data += [
                         [eqInfo[0],eqInfo[1],broken.Dependency.name,eqInfo[2],eqInfo[3]],
