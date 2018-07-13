@@ -41,6 +41,7 @@ class BrokenEquipment < Prawn::Document
                         [eqInfo[0],eqInfo[1],broken.Dependency.name,eqInfo[2],eqInfo[3]],
                         [{:image => imageNoOficial, :fit => [70,80]},{:image => imageNoSerie, :fit => [70,80]},{:image => imageFull, :fit => [100,100]},"",""]
                     ]
+            break
         end
         table( data,header:true, :position=> :center,:cell_style=>{size:7, :padding=>[64,0,0,90]}) do
                 cells.padding = 12
