@@ -118,10 +118,12 @@ class BrokensController < ApplicationController
   end
   
   def brokenRepo
-    @brokens = Broken.all
+    #@brokens = Broken.all
+    @broken = Broken.all.first
+    
     respond_to do |format|
       format.pdf do
-        pdf = BrokenEquipment.new(@brokens)
+        pdf = BrokenEquipment.new(@broken)
         
         send_data pdf.render, 
           filename: "reporte_equipos_baja.pdf",
