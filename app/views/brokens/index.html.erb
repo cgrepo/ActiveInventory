@@ -65,7 +65,7 @@
               </td>
               <td> <%= @iden %> </td>
               <td><%= link_to 'Show', broken %></td>
-              <!--<td><%#= link_to 'Edit', edit_broken_path(broken) %></td>-->
+              <td><%= link_to 'Edit', edit_broken_path(broken),remote:true %></td>-
               <td><%= link_to 'Destroy', broken, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
@@ -74,3 +74,4 @@
     </div>
   </div>
 </div>
+<div id="modal-EditWindow" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>

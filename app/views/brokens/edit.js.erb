@@ -1,0 +1,7 @@
+//<!--<h1>Editing Broken</h1>-->
+//<%#= render 'form' %>
+//<%#= link_to 'Show', @broken %> |
+//<%#= link_to 'Back', brokens_path %>
+
+$('#modal-EditWindow').html("<%= escape_javascript render(:partial => 'showModalEdit') %>");
+$('#modal-EditWindow').modal('show');

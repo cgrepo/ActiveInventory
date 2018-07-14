@@ -42,5 +42,6 @@
     </p>
   </div>
 </div>
-<%= link_to 'Edit', edit_broken_path(@broken) %> |
+<%= link_to 'Edit', edit_broken_path(@broken),remote:true %> |
 <%= link_to 'Back', brokens_path %>
+<div id="modal-EditWindow" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
