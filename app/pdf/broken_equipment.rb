@@ -1,9 +1,9 @@
 class BrokenEquipment < Prawn::Document
     
-    def initialize(broken)
+    def initialize(brokens)
         super()
         #stroke_axis
-        @broken = broken
+        @brokens = brokens
         Prawn::Font::AFM.hide_m17n_warning = true
         printRepo
     end
@@ -19,47 +19,31 @@ class BrokenEquipment < Prawn::Document
 			  {:text => "EQUIPO PARA BAJA" , size:22, style:[:bold], font:"Verdana", color:'747373'  }, ], at:[180,660], width:420, height:300
         move_down 110
         data = [['No OFICIAL','No SERIE','DEPENDENCIA','DESCRIPCION','MODELO']]
-        # @brokens.each do |broken|
-        #     #byebug
-        #     eqInfo = getEquipmentData(broken)
-        #     if broken.picOf.path
-        #         imageNoOficial = broken.picOf.path
-        #     else
-        #         imageNoOficial = "#{Rails.root.to_s}/app/assets/images/blocked.png"
-        #     end
-        #     if broken.picSerie.path
-        #         imageNoSerie =   broken.picSerie.path
-        #     else
-        #         imageNoSerie = "#{Rails.root.to_s}/app/assets/images/blocked.png"
-        #     end
-        #     if broken.pic.path
-        #         imageFull = broken.pic.path
-        #     else
-        #         imageFull = "#{Rails.root.to_s}/app/assets/images/blocked.png"
-        #     end
-        
-            eqInfo = getEquipmentData(@broken)
-            if @broken.picOf.path
-                imageNoOficial = @broken.picOf.path
+        @brokens.each do |broken|
+            #byebug
+            eqInfo = getEquipmentData(broken)
+            if broken.picOf.path
+                imageNoOficial = broken.picOf.path
             else
                 imageNoOficial = "#{Rails.root.to_s}/app/assets/images/blocked.png"
             end
-            if @broken.picSerie.path
-                imageNoSerie =   @broken.picSerie.path
+            if broken.picSerie.path
+                imageNoSerie =   broken.picSerie.path
             else
                 imageNoSerie = "#{Rails.root.to_s}/app/assets/images/blocked.png"
             end
-            if @broken.pic.path
-                imageFull = @broken.pic.path
+            if broken.pic.path
+                imageFull = broken.pic.path
             else
                 imageFull = "#{Rails.root.to_s}/app/assets/images/blocked.png"
             end
+            
             data += [
-                        [eqInfo[0],eqInfo[1],@broken.Dependency.name,eqInfo[2],eqInfo[3]],
+                        [eqInfo[0],eqInfo[1],broken.Dependency.name,eqInfo[2],eqInfo[3]],
                         [{:image => imageNoOficial, :fit => [70,80]},{:image => imageNoSerie, :fit => [70,80]},{:image => imageFull, :fit => [100,100]},"",""]
                     ]
-            #break
-        #end
+            break
+        end
         table( data,header:true, :position=> :center,:cell_style=>{size:7, :padding=>[64,0,0,90]}) do
                 cells.padding = 12
                 #cells.borders = [:left, :right]
@@ -73,6 +57,7 @@ class BrokenEquipment < Prawn::Document
     private
     
     def getEquipmentData(brokenEquipment)
+        #byebug
         case brokenEquipment.gender
             when 'COMP'
                 pc = Computer.find(brokenEquipment.idEquipment)

@@ -61,7 +61,23 @@
                 <%      @iden = cp.nserie                    %>
                 <%    end                                    %>
                 <%=   'COPIADORA'                            %>
-                <% end                    %>
+                <%  when 'SCREEN'                            %>
+                <%    cp = Copier.find(broken.idEquipment)   %>
+                <%    if cp.ninventary.size > 0              %>
+                <%      @iden = cp.ninventary                %>
+                <%    else                                   %>
+                <%      @iden = cp.nserie                    %>
+                <%    end                                    %>
+                <%=   'MONITOR'                              %>
+                <% end                                       %>
+                <%  when 'POW'                               %>
+                <%    cp = Copier.find(broken.idEquipment)   %>
+                <%    if cp.ninventary.size > 0              %>
+                <%      @iden = cp.ninventary                %>
+                <%    else                                   %>
+                <%      @iden = cp.nserie                    %>
+                <%    end                                    %>
+                <%=   'REGULADOR/UPS'                        %>
               </td>
               <td> <%= @iden %> </td>
               <td><%= link_to 'Show', broken %></td>

@@ -88,24 +88,12 @@ class BrokensController < ApplicationController
       case params[:type]
         when 'COMP'
           @eq = Computer.find(params[:id])
-          #@broken.idEquipment =  @pc.id
-          #@broken.Delegation_id = @pc.Delegation_id
-          #@broken.Dependency_id = @pc.Dependency_id
         when 'PRINT'
           @eq = Printer.find(params[:id])
-          #@broken.idEquipment =  @pr.id
-          #@broken.Delegation_id = @pr.Delegation_id
-          #@broken.Dependency_id = @pr.Dependency_id
         when 'COPY'
           @eq = Copier.find(params[:id])
-          #@broken.idEquipment =  @cp.id
-          #@broken.Delegation_id = @cp.Delegation_id
-          #@broken.Dependency_id = @cp.Dependency_id
         when 'POW'
           @eq = Power.find(params[:id])
-          #@broken.idEquipment =  @pw.id
-          #@broken.Delegation_id = @pw.Delegation_id
-          #@broken.Dependency_id = @pw.Dependency_id
         when 'SCREEN'
           @eq = Screen.find(params[:id])
       end
@@ -118,12 +106,10 @@ class BrokensController < ApplicationController
   end
   
   def brokenRepo
-    #@brokens = Broken.all
-    @broken = Broken.all.first
-    
+      @brokens = Broken.all
     respond_to do |format|
       format.pdf do
-        pdf = BrokenEquipment.new(@broken)
+        pdf = BrokenEquipment.new(@brokens)
         
         send_data pdf.render, 
           filename: "reporte_equipos_baja.pdf",
