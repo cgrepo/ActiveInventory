@@ -2,7 +2,7 @@ class BrokensController < ApplicationController
   before_action :set_broken, only: [:show, :edit, :update, :destroy]
 
   def index
-    @brokens = Broken.all.paginate(page: params[:page], per_page: 10 )
+    @brokens = Broken.where(gender:'COMP').paginate(page: params[:page], per_page: 10 )
     #@brokens = Broken.first(6)
   end
 
