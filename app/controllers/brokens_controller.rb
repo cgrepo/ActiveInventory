@@ -3,6 +3,7 @@ class BrokensController < ApplicationController
 
   def index
     @brokens = Broken.all.paginate(page: params[:page], per_page: 10 )
+    #@brokens = Broken.first(6)
   end
 
   def show
@@ -106,7 +107,11 @@ class BrokensController < ApplicationController
   end
   
   def brokenRepo
-      @brokens = Broken.all
+    @brokens = Broken.all
+    # respond_to do |format|
+    #   format.html { render :layout => false  } 
+    # end
+    
     respond_to do |format|
       format.pdf do
         pdf = BrokenEquipment.new(@brokens)

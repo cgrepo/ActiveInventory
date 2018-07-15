@@ -1,5 +1,5 @@
 class BrokenEquipment < Prawn::Document
-    
+    require "open-uri"
     def initialize(brokens)
         super()
         #stroke_axis
@@ -37,10 +37,12 @@ class BrokenEquipment < Prawn::Document
             else
                 imageFull = "#{Rails.root.to_s}/app/assets/images/blocked.png"
             end
-            
+            #byebug
+            #image = open("http://bobsriverside.com/uploads/marvelous-anime-girl-black-hair-blue-eyes-braids-choker-dress-horns-long-picture-of-woman-with-ideas-and-style_TFAST_2790.jpg")
+            #imageNoSerie = image
             data += [
                         [eqInfo[0],eqInfo[1],broken.Dependency.name,eqInfo[2],eqInfo[3]],
-                        [{:image => imageNoOficial, :fit => [100,110]},{:image => imageNoSerie, :fit => [100,110]},{:image => imageFull, :fit => [130,150]},"",""]
+                        [{:image => imageNoOficial, :fit => [110,120]},{:image => imageNoSerie, :fit => [150,170]},{:image => imageFull, :fit => [130,140]},"",""]
                     ]
             #break
         end
