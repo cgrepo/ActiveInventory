@@ -39,48 +39,58 @@
               <td><%= broken.Delegation.name %></td>
               <td><%= broken.Dependency.name %></td>
               <td>
-                <% case broken.gender     %>
-                <%  when 'COMP'           %>
-                <%    pc = Computer.find(broken.idEquipment) %>
-                <%    if pc.ninventary.size > 0 && pc.nil? == false   %>
-                <%      @iden = pc.ninventary                %>
-                <%    else                                   %>
-                <%      @iden = pc.nserie                    %>
-                <%    end                                    %>
-                <%=   'COMPUTADORA'                          %>
-                <%  when 'PRINT'                             %>
-                <%    pr = Printer.find(broken.idEquipment)  %>
-                <%    if pr.ninventary.size > 0 && pr.nil? == false   %>
-                <%      @iden = pr.ninventary                %>
-                <%    else                                   %>
-                <%      @iden = pr.nserie                    %>
-                <%    end                                    %>
-                <%=   'IMPRESORA'                            %>
-                <%  when 'COPY'                              %>
-                <%    cp = Copier.find(broken.idEquipment)   %>
-                <%    if cp.ninventary.size > 0 && cp.nil? == false   %>
-                <%      @iden = cp.ninventary                %>
-                <%    else                                   %>
-                <%      @iden = cp.nserie                    %>
-                <%    end                                    %>
-                <%=   'COPIADORA'                            %>
-                <%  when 'SCREEN'                            %>
-                <%    sc = Screen.find(broken.idEquipment)   %>
-                <%    if sc.ninventary.size > 0  && sc.nil? == false   %>
-                <%      @iden = sc.ninventary                %>
-                <%    else                                   %>
-                <%      @iden = sc.nserie                    %>
-                <%    end                                    %>
-                <%=   'MONITOR'                              %>
-                <%  when 'POW'                               %>
-                <%    pw = Power.find(broken.idEquipment)   %>
-                <%    if cp.ninventary.size > 0  && pw.nil? == false   %>
-                <%      @iden = pw.ninventary                %>
-                <%    else                                   %>
-                <%      @iden = pw.nserie                    %>
-                <%    end                                    %>
-                <%=   'REGULADOR/UPS'                        %>
-                <% end                                       %>
+                <% case broken.gender                            %>
+                <%  when 'COMP'                                  %>
+                <%    pc = Computer.find(broken.idEquipment)     %>
+                <%    unless pc.nil?                             %>
+                <%      if pc.ninventary.size > 0                %>
+                <%        @iden = pc.ninventary                  %>
+                <%      else                                     %>
+                <%        @iden = pc.nserie                      %>
+                <%      end                                      %>
+                <%=     'COMPUTADORA'                            %>
+                <%    end                                        %>
+                <%  when 'PRINT'                                 %>
+                <%    pr = Printer.find(broken.idEquipment)      %>
+                <%    unless pr.nil?                             %>
+                <%      if pr.ninventary.size > 0                %>
+                <%        @iden = pr.ninventary                  %>
+                <%      else                                     %>
+                <%        @iden = pr.nserie                      %>
+                <%      end                                      %>
+                <%=     'IMPRESORA'                              %>
+                <%    end                                        %>
+                <%  when 'COPY'                                  %>
+                <%    cp = Copier.find(broken.idEquipment)       %>
+                <%    unless cp.nil?                             %>
+                <%      if cp.ninventary.size > 0                %>
+                <%        @iden = cp.ninventary                  %>
+                <%      else                                     %>
+                <%        @iden = cp.nserie                      %>
+                <%      end                                      %>
+                <%=     'COPIADORA'                              %>
+                <%    end                                        %>
+                <%  when 'SCREEN'                                %>
+                <%    sc = Screen.find(broken.idEquipment)       %>
+                <%    unless sc.nil?                             %>
+                <%      if sc.ninventary.size > 0                %>
+                <%        @iden = sc.ninventary                  %>
+                <%      else                                     %>
+                <%        @iden = sc.nserie                      %>
+                <%      end                                      %>
+                <%=     'MONITOR'                                %>
+                <%    end                                        %>
+                <%  when 'POW'                                   %>
+                <%    pw = Power.find(broken.idEquipment)        %>
+                <%    unless pw.nil?                             %>
+                <%      if pw.ninventary.size > 0                %>
+                <%        @iden = pw.ninventary                  %>
+                <%      else                                     %>
+                <%        @iden = pw.nserie                      %>
+                <%      end                                      %>
+                <%=     'REGULADOR/UPS'                          %>
+                <%    end                                        %>
+                <% end                                           %>
               </td>
               <td> <%= @iden %> </td>
               <td><%= link_to 'Show', broken %></td>
