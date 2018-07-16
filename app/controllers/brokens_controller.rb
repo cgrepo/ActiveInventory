@@ -2,7 +2,7 @@ class BrokensController < ApplicationController
   before_action :set_broken, only: [:show, :edit, :update, :destroy]
 
   def index
-    @brokens = Broken.order(:gender)
+    @brokens = Broken.order(:gender).paginate(page: params[:page], per_page: 10 )
     #@brokens = Broken.where("gender NOT LIKE 'PRINT' ").paginate(page: params[:page], per_page: 10 )
     #@brokens = Broken.first(6)
   end
