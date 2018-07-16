@@ -109,7 +109,7 @@ class BrokensController < ApplicationController
   def brokenRepo
     @brokens = Broken.where(gender:'COMP')
     respond_to do |format|
-      format.html# { render :layout => false  }
+      format.html #{ render :layout => false  }
       format.pdf do
         pdf = BrokenEquipment.new(@brokens)
         send_data pdf.render,

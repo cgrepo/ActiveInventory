@@ -1,42 +1,54 @@
 <div class='container'>
     <div class='row'>
-        <div class='col-xs col-md-1 be-gray' align='center'>No OFICIAL</div>
-        <div class='col-xs col-md-3 be-gray' align='center'>No SERIE</div>
-        <div class='col-xs col-md-4 be-gray' align='center'>DEPENDENCIA</div>
-        <div class='col-xs col-md-2 be-gray' align='center'>DESCRIPCION</div>
-        <div class='col-xs col-md-2 be-gray' align='center'>MODELO</div>
+        <div class='col-xs col-md-12'>
+            <table>
+                <thead>
+                    <tr>
+                        <th>NO OFICIAL</th>
+                        <th>NO SERIE</th>
+                        <th>DEPENDENCIA</th>
+                        <th>DESCRIPCION</th>
+                        <th>MODELO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @brokens.each do |broken| %>
+                    <%  case broken.gender                       %>
+                    <%   when 'COMP'                             %>
+                    <%    eq = Computer.find(broken.idEquipment) %>
+                    <%    desc = 'COMPUTADORA'                   %>
+                    <%   when 'PRINT'                            %>
+                    <%    eq = Printer.find(broken.idEquipment)  %>
+                    <%    desc = 'IMPRESORA'                     %>
+                    <%   when 'COPY'                             %>
+                    <%    eq = Copier.find(broken.idEquipment)   %>
+                    <%    desc = 'COPIADORA'                     %>
+                    <%   when 'POW'                              %>
+                    <%    eq = Power.find(broken.idEquipment)    %>
+                    <%    desc = 'REGULADOR/UPS'                 %>
+                    <%   when 'SCREEN'                           %>
+                    <%    eq = Screen.find(broken.idEquipment)   %>
+                    <%    desc = 'MONITOR'                       %>
+                    <%  end                                      %>
+                    <%  if eq                                    %>
+                    <tr>
+                        <td><%= eq.ninventary %></td>
+                        <td><%= eq.nserie %></td>
+                        <td><%= eq.Dependency.name %></td>
+                        <td><%= desc %></td>
+                        <td><%= eq.model %></td>
+                    </tr>
+                    <tr>
+                        <td><%= image_tag "http://mail.loscabos.gob.mx/eqpics/NO_011693.jpg", size: "150x100" %></td>
+                        <td></td>
+                        <td><%= image_tag "http://mail.loscabos.gob.mx/eqpics/NO_011693_NS.jpg", size: "180x100" %></td>
+                        <td></td>
+                        <td><%= image_tag "http://mail.loscabos.gob.mx/eqpics/NO_011693_IMG.jpg", size: "190x200" %></td>
+                    </tr>
+                    <%  end                                      %>
+                    <% end                                       %>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <% @brokens.each do |broken| %>
-        <% case broken.gender                      %>
-        <% when 'COMP'                             %>
-        <%  eq = Computer.find(broken.idEquipment) %>
-        <%  desc = 'COMPUTADORA'            %>
-        <% when 'PRINT'                            %>
-        <%  eq = Printer.find(broken.idEquipment)  %>
-        <%  desc = 'IMPRESORA'            %>
-        <% when 'COPY'                             %>
-        <%  eq = Copier.find(broken.idEquipment)   %>
-        <%  desc = 'COPIADORA'            %>
-        <% when 'POW'                              %>
-        <%  eq = Power.find(broken.idEquipment)    %>
-        <%  desc = 'REGULADOR/UPS'            %>
-        <% when 'SCREEN'                           %>
-        <%  eq = Screen.find(broken.idEquipment)   %>
-        <%  desc = 'MONITOR'            %>
-        <% end                                     %>
-        <% if eq %>
-            <div class='row'>
-                <div class='col-xs col-md-1' align='center'><%= eq.ninventary %></div>
-                <div class='col-xs col-md-3' align='center'><%= eq.nserie %></div>
-                <div class='col-xs col-md-4' align='center'><%= eq.Dependency.name %></div>
-                <div class='col-xs col-md-2' align='center'><%= desc %></div>
-                <div class='col-xs col-md-2' align='center'><%= eq.model %></div>
-            </div>
-            <div class='row'>
-                <div class='col-xs col-md-4' align='center'><%= image_tag "http://mail.loscabos.gob.mx/eqpics/NO_006581.jpg", size: "16x10" %></div>
-                <div class='col-xs col-md-4' align='center'><%= image_tag "http://mail.loscabos.gob.mx/eqpics/NO_006581.jpg", size: "16x10" %></div>
-                <div class='col-xs col-md-4' align='center'><%= image_tag "http://mail.loscabos.gob.mx/eqpics/NO_006581.jpg", size: "16x10" %></div>
-            </div>
-        <% end %>
-    <% end %>
 </div>
