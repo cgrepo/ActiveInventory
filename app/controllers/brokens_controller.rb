@@ -22,6 +22,9 @@ class BrokensController < ApplicationController
 
   def create
     @broken = Broken.new(broken_params)
+    @broken.picOf = "http://mail.loscabos.gob.mx/eqpics/#{@broken.picOf}"
+    @broken.picSerie ="http://mail.loscabos.gob.mx/eqpics/#{@broken.picSerie }"
+    @broken.pic = "http://mail.loscabos.gob.mx/eqpics/#{@broken.pic}"
     
     case @broken.gender
       when 'COMP'
@@ -49,8 +52,12 @@ class BrokensController < ApplicationController
   end
 
   def update
+    @broken.notes=broken_params[:notes]
+    @broken.picOf="http://mail.loscabos.gob.mx/eqpics/#{broken_params[:picOf]}"
+    @broken.picSerie="http://mail.loscabos.gob.mx/eqpics/#{broken_params[:picSerie] }"
+    @broken.pic="http://mail.loscabos.gob.mx/eqpics/#{broken_params[:pic]}"
     respond_to do |format|
-      if @broken.update(broken_params)
+      if @broken.save
         format.html { redirect_to @broken, notice: 'Broken was successfully updated.' }
         format.json { render :show, status: :ok, location: @broken }
       else
