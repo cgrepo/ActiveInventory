@@ -2,7 +2,7 @@ class BrokenEquipment < Prawn::Document
     require "open-uri"
     def initialize(brokens)
         super()
-        #stroke_axis
+        stroke_axis
         @brokens = brokens
         Prawn::Font::AFM.hide_m17n_warning = true
         #printRepo
@@ -22,18 +22,46 @@ class BrokenEquipment < Prawn::Document
     end
     
     def printRepo2
+        formatted_text_box [
+			  {:text => "NO OFICIAL" , size:10, style:[:bold], font:"Verdana", color:'000000'  }, 
+			  ], at:[20,600], width:70, height:20
+        formatted_text_box [
+			  {:text => "NO SERIE" , size:10, style:[:bold], font:"Verdana", color:'000000'  }, 
+			  ], at:[100,600], width:50, height:20
+	    formatted_text_box [
+			  {:text => "DEPENDENCIA" , size:10, style:[:bold], font:"Verdana", color:'000000'  }, 
+			  ], at:[175,600], width:80, height:20
+	    formatted_text_box [
+			  {:text => "DESCRIPCION" , size:10, style:[:bold], font:"Verdana", color:'000000'  }, 
+			  ], at:[345,600], width:80, height:20
+		formatted_text_box [
+			  {:text => "MODELO" , size:10, style:[:bold], font:"Verdana", color:'000000'  }, 
+			  ], at:[440,600], width:60, height:20
+		
+		rowData = 585
+	#	rowImg  = 570
         @brokens.each do |broken|
             eqInfo = getEquipmentData(broken)
-            data = [['No OFICIAL','No SERIE','DEPENDENCIA','DESCRIPCION','MODELO']]
-            table( data,header:true, :position=> :center,:cell_style=>{size:7, :padding=>[64,0,0,90]}) do
-                cells.padding = 12
-                #cells.borders = [:left, :right]
-                cells.borders = []
-                row(0).borders = [:bottom,:top]
-                row(0).border_width = 0.5
-                row(0).font_style = :bold
-                row(0).background_color = 'f0f0f0'
-            end
+            formatted_text_box [
+    			  {:text => "011742" , size:8, style:[:bold], font:"Verdana", color:'000000'  }, 
+    			  ], at:[26,rowData], width:40, height:20
+    	    formatted_text_box [
+    			  {:text => eqInfo[1] , size:8, style:[:bold], font:"Verdana", color:'000000'  }, 
+    			  ], at:[100,rowData], width:70, height:20
+    	    formatted_text_box [
+    			  {:text => 'COOR. DE INFORMATICA Y SISTEMAS', size:8, style:[:bold], font:"Verdana", color:'000000'  }, 
+    			  ], at:[175,rowData], width:180, height:20
+    		formatted_text_box [
+    			  {:text => 'REGULADOR/UPS', size:8, style:[:bold], font:"Verdana", color:'000000'  }, 
+    			  ], at:[345,rowData], width:150, height:20
+    		formatted_text_box [
+    			  {:text => "MXD60801WG332dss23" , size:8, style:[:bold], font:"Verdana", color:'000000'  }, 
+    			  ], at:[440,rowData], width:150, height:20
+    		rowData = rowData - 20
+    		image open(broken.picOf), at: [50,rowData], fit:[82,82]
+    		image open(broken.picSerie), at: [210,rowData], fit:[82,82]
+    		image open(broken.pic), at: [400,rowData], fit:[95,95]
+    		rowData = rowData - 100
         end
     end
     
