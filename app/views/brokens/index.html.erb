@@ -52,7 +52,7 @@
                 <%    end                                        %>
                 <%  when 'PRINT'                                 %>
                 <%    pr = Printer.find(broken.idEquipment)      %>
-                <%=   pr.nil? %>
+                <%=   pr.class %>
                 <%#    unless pr.nil?                             %>
                 <%#      if pr.ninventary.size > 0                %>
                 <%#        @iden = pr.ninventary                  %>
