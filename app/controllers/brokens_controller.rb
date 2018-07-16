@@ -115,7 +115,7 @@ class BrokensController < ApplicationController
   end
   
   def brokenRepo
-    @brokens = Broken.where(gender:'COMP')
+    @brokens = Broken.order(:gender)
     respond_to do |format|
       format.html  { render :layout => false  }
       format.pdf do
