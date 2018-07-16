@@ -6,16 +6,37 @@
         <div class='col-xs col-md-2 be-gray' align='center'>DESCRIPCION</div>
         <div class='col-xs col-md-2 be-gray' align='center'>MODELO</div>
     </div>
-    <div class='row'>
-        <div class='col-xs col-md-1' align='center'>006576</div>
-        <div class='col-xs col-md-3' align='center'>00ksk$jtjqwe</div>
-        <div class='col-xs col-md-4' align='center'>COOR. DE INFORMATICA Y SISTEMAS</div>
-        <div class='col-xs col-md-2' align='center'>REGULADOR/UPS</div>
-        <div class='col-xs col-md-2' align='center'>XS-1-234-PFG</div>
-    </div>
-    <div class='row'>
-        <div class='col-xs col-md-4' align='center'><%= image_tag "http://mail.loscabos.gob.mx/eqpics/NO_006581.jpg", size: "16x10" %></div>
-        <div class='col-xs col-md-4' align='center'><%= image_tag "http://mail.loscabos.gob.mx/eqpics/NO_006581.jpg", size: "16x10" %></div>
-        <div class='col-xs col-md-4' align='center'><%= image_tag "http://mail.loscabos.gob.mx/eqpics/NO_006581.jpg", size: "16x10" %></div>
-    </div>
+    <% @brokens.each do |broken| %>
+        <% case broken.gender                      %>
+        <% when 'COMP'                             %>
+        <%  eq = Computer.find(broken.idEquipment) %>
+        <%  desc = 'COMPUTADORA'            %>
+        <% when 'PRINT'                            %>
+        <%  eq = Printer.find(broken.idEquipment)  %>
+        <%  desc = 'IMPRESORA'            %>
+        <% when 'COPY'                             %>
+        <%  eq = Copier.find(broken.idEquipment)   %>
+        <%  desc = 'COPIADORA'            %>
+        <% when 'POW'                              %>
+        <%  eq = Power.find(broken.idEquipment)    %>
+        <%  desc = 'REGULADOR/UPS'            %>
+        <% when 'SCREEN'                           %>
+        <%  eq = Screen.find(broken.idEquipment)   %>
+        <%  desc = 'MONITOR'            %>
+        <% end                                     %>
+        <% if eq %>
+            <div class='row'>
+                <div class='col-xs col-md-1' align='center'><%= eq.ninventary %></div>
+                <div class='col-xs col-md-3' align='center'><%= eq.nserie %></div>
+                <div class='col-xs col-md-4' align='center'><%= eq.Dependency.name %></div>
+                <div class='col-xs col-md-2' align='center'><%= desc %></div>
+                <div class='col-xs col-md-2' align='center'><%= eq.model %></div>
+            </div>
+            <div class='row'>
+                <div class='col-xs col-md-4' align='center'><%= image_tag "http://mail.loscabos.gob.mx/eqpics/NO_006581.jpg", size: "16x10" %></div>
+                <div class='col-xs col-md-4' align='center'><%= image_tag "http://mail.loscabos.gob.mx/eqpics/NO_006581.jpg", size: "16x10" %></div>
+                <div class='col-xs col-md-4' align='center'><%= image_tag "http://mail.loscabos.gob.mx/eqpics/NO_006581.jpg", size: "16x10" %></div>
+            </div>
+        <% end %>
+    <% end %>
 </div>
