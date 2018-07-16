@@ -108,20 +108,20 @@ class BrokensController < ApplicationController
   
   def brokenRepo
     @brokens = Broken.all
-    # respond_to do |format|
-    #   format.html { render :layout => false  } 
-    # end
-    
     respond_to do |format|
-      format.pdf do
-        pdf = BrokenEquipment.new(@brokens)
-        
-        send_data pdf.render, 
-          filename: "reporte_equipos_baja.pdf",
-          type: 'application/pdf',
-          disposition: 'inline'
-      end
+      format.html# { render :layout => false  } 
     end
+    
+    # respond_to do |format|
+    #   format.pdf do
+    #     pdf = BrokenEquipment.new(@brokens)
+        
+    #     send_data pdf.render, 
+    #       filename: "reporte_equipos_baja.pdf",
+    #       type: 'application/pdf',
+    #       disposition: 'inline'
+    #   end
+    # end
   end
   private
     # Use callbacks to share common setup or constraints between actions.
