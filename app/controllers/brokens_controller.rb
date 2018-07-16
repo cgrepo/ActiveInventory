@@ -54,6 +54,9 @@ class BrokensController < ApplicationController
 
   def update
     @broken.notes=broken_params[:notes]
+    @broken.picOf=""
+    @broken.picSerie=""
+    @broken.pic=""
     @broken.picOf="http://mail.loscabos.gob.mx/eqpics/#{broken_params[:picOf]}"
     @broken.picSerie="http://mail.loscabos.gob.mx/eqpics/#{broken_params[:picSerie] }"
     @broken.pic="http://mail.loscabos.gob.mx/eqpics/#{broken_params[:pic]}"
