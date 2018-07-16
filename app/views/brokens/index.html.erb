@@ -52,14 +52,15 @@
                 <%    end                                        %>
                 <%  when 'PRINT'                                 %>
                 <%    pr = Printer.find(broken.idEquipment)      %>
-                <%    unless pr.nil?                             %>
-                <%      if pr.ninventary.size > 0                %>
-                <%        @iden = pr.ninventary                  %>
-                <%      else                                     %>
-                <%        @iden = pr.nserie                      %>
-                <%      end                                      %>
-                <%=     'IMPRESORA'                              %>
-                <%    end                                        %>
+                <%=   pr.nil? %>
+                <%#    unless pr.nil?                             %>
+                <%#      if pr.ninventary.size > 0                %>
+                <%#        @iden = pr.ninventary                  %>
+                <%#      else                                     %>
+                <%#        @iden = pr.nserie                      %>
+                <%#      end                                      %>
+                <%#=     'IMPRESORA'                              %>
+                <%#    end                                        %>
                 <%  when 'COPY'                                  %>
                 <%    cp = Copier.find(broken.idEquipment)       %>
                 <%    unless cp.nil?                             %>
