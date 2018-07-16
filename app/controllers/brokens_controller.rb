@@ -2,7 +2,7 @@ class BrokensController < ApplicationController
   before_action :set_broken, only: [:show, :edit, :update, :destroy]
 
   def index
-    @brokens = Broken.where(gender:'COMP').paginate(page: params[:page], per_page: 10 )
+    @brokens = Broken.order(:gender).paginate(page: params[:page], per_page: 10 )
     #@brokens = Broken.first(6)
   end
 
@@ -116,7 +116,7 @@ class BrokensController < ApplicationController
   def brokenRepo
     @brokens = Broken.where(gender:'COMP')
     respond_to do |format|
-      format.html { render :layout => false  }
+      format.html  { render :layout => false  }
       format.pdf do
         pdf = BrokenEquipment.new(@brokens)
         send_data pdf.render,
