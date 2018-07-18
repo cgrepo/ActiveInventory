@@ -42,7 +42,8 @@ $(document).on "turbolinks:load", ->
 					$('#modal-window').modal('hide')
 				error: (data) ->
 					alert 'error' + data
-		return
+	return
+	
 	$('#screen_model').on 'change', ->
 		if $('#screen_model option:selected').val() == 'plus'
 			$.ajax
@@ -52,6 +53,7 @@ $(document).on "turbolinks:load", ->
 				success: (data) ->
 					$('#brand_model_brandx').val($('#screen_brand option:selected').val())
 					$('#brand_model_brandx').attr('disabled','true')
+
 valuesCompleated=->
 	if $('#brand_model_brandx').val() == ''
 		alert 'Proporcione la Marca'
