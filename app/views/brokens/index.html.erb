@@ -43,17 +43,17 @@
                 <%  when 'COMP'                                  %>
                 <%    pc = Computer.find(broken.idEquipment)     %>
                 <%    unless pc.nil?                             %>
-                <%      if pc.ninventary.size > 0                %>
+                <%      unless pc.ninventary.nil?                %>
                 <%        @iden = pc.ninventary                  %>
                 <%      else                                     %>
-                <%        @iden = pc.nserie                      %>
+                <%          @iden = pc.nserie                    %>
                 <%      end                                      %>
                 <%=     'COMPUTADORA'                            %>
                 <%    end                                        %>
                 <%  when 'PRINT'                                 %>
                 <%    pr = Printer.find(broken.idEquipment)      %>
                 <%    unless pr.nil?                             %>
-                <%      if pr.ninventary.size > 0                %>
+                <%      unless pr.ninventary.nil?                %>
                 <%        @iden = pr.ninventary                  %>
                 <%      else                                     %>
                 <%        @iden = pr.nserie                      %>
@@ -63,7 +63,7 @@
                 <%  when 'COPY'                                  %>
                 <%    cp = Copier.find(broken.idEquipment)       %>
                 <%    unless cp.nil?                             %>
-                <%      if cp.ninventary.size > 0                %>
+                <%      unless cp.ninventary.nil?                %>
                 <%        @iden = cp.ninventary                  %>
                 <%      else                                     %>
                 <%        @iden = cp.nserie                      %>
@@ -73,7 +73,7 @@
                 <%  when 'SCREEN'                                %>
                 <%    sc = Screen.find(broken.idEquipment)       %>
                 <%    unless sc.nil?                             %>
-                <%      if sc.ninventary.size > 0                %>
+                <%      unless sc.ninventary.nil?                %>
                 <%        @iden = sc.ninventary                  %>
                 <%      else                                     %>
                 <%        @iden = sc.nserie                      %>
@@ -83,7 +83,7 @@
                 <%  when 'POW'                                   %>
                 <%    pw = Power.find(broken.idEquipment)        %>
                 <%    unless pw.nil?                             %>
-                <%      if pw.ninventary.size > 0                %>
+                <%      unless pw.ninventary.nil?                %>
                 <%        @iden = pw.ninventary                  %>
                 <%      else                                     %>
                 <%        @iden = pw.nserie                      %>
