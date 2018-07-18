@@ -41,7 +41,7 @@
     <div class="col-xs col-md-4">
       <%= bootstrap_form_tag url: findDependency_brokens_path do |f| %>
           <% @csl = Delegation.find_by :name => 'Cabo San Lucas' %>
-          <%= f.collection_select(:Dependency_id, Dependency.all.where(Delegation:@csl), 
+          <%= f.collection_select(:Dependency_id, Dependency.all.where(Delegation:@csl).order(:name), 
             :id, :name, {:include_blank => true }, 
             {:data=> { :remote => true, :url => url_for(:controller => "brokens", :action => "findDependency") } } ) %>
       <% end %>
