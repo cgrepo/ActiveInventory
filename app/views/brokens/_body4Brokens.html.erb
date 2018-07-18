@@ -1,0 +1,64 @@
+          <% @brokens.each do |broken| %>
+            <tr>
+              <td><%= broken.Delegation.name %></td>
+              <td><%= broken.Dependency.name %></td>
+              <td>
+                <% case broken.gender                            %>
+                <%  when 'COMP'                                  %>
+                <%    pc = Computer.find(broken.idEquipment)     %>
+                <%    unless pc.nil?                             %>
+                <%      unless pc.ninventary.nil?                %>
+                <%        @iden = pc.ninventary                  %>
+                <%      else                                     %>
+                <%          @iden = pc.nserie                    %>
+                <%      end                                      %>
+                <%=     'COMPUTADORA'                            %>
+                <%    end                                        %>
+                <%  when 'PRINT'                                 %>
+                <%    pr = Printer.find(broken.idEquipment)      %>
+                <%    unless pr.nil?                             %>
+                <%      unless pr.ninventary.nil?                %>
+                <%        @iden = pr.ninventary                  %>
+                <%      else                                     %>
+                <%        @iden = pr.nserie                      %>
+                <%      end                                      %>
+                <%=     'IMPRESORA'                              %>
+                <%    end                                        %>
+                <%  when 'COPY'                                  %>
+                <%    cp = Copier.find(broken.idEquipment)       %>
+                <%    unless cp.nil?                             %>
+                <%      unless cp.ninventary.nil?                %>
+                <%        @iden = cp.ninventary                  %>
+                <%      else                                     %>
+                <%        @iden = cp.nserie                      %>
+                <%      end                                      %>
+                <%=     'COPIADORA'                              %>
+                <%    end                                        %>
+                <%  when 'SCREEN'                                %>
+                <%    sc = Screen.find(broken.idEquipment)       %>
+                <%    unless sc.nil?                             %>
+                <%      unless sc.ninventary.nil?                %>
+                <%        @iden = sc.ninventary                  %>
+                <%      else                                     %>
+                <%        @iden = sc.nserie                      %>
+                <%      end                                      %>
+                <%=     'MONITOR'                                %>
+                <%    end                                        %>
+                <%  when 'POW'                                   %>
+                <%    pw = Power.find(broken.idEquipment)        %>
+                <%    unless pw.nil?                             %>
+                <%      unless pw.ninventary.nil?                %>
+                <%        @iden = pw.ninventary                  %>
+                <%      else                                     %>
+                <%        @iden = pw.nserie                      %>
+                <%      end                                      %>
+                <%=     'REGULADOR/UPS'                          %>
+                <%    end                                        %>
+                <% end                                           %>
+              </td>
+              <td> <%= @iden %> </td>
+              <td><%= link_to 'Show', broken %></td>
+              <td><%= link_to 'Edit', edit_broken_path(broken),remote:true %></td>-
+              <td><%= link_to 'Destroy', broken, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>

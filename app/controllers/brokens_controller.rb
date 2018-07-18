@@ -131,6 +131,15 @@ class BrokensController < ApplicationController
     end
   end
   
+  def findDependency
+    unless params[:Dependency_id] == ""
+      dependency = Dependency.find(params[:Dependency_id])
+      @brokens = Broken.where(Dependency:dependency).order(:gender).paginate(page: params[:page], per_page: 10 )
+    else
+      @brokens = Broken.order(:Dependency_id).order(:gender).paginate(page: params[:page], per_page: 10 )
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_broken

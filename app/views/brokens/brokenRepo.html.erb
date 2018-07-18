@@ -53,18 +53,18 @@
                     <%    desc = 'MONITOR'                       %>
                     <%  end                                      %>
                     <%  if eq                                    %>
-                    <tr>
-                        <td><%= eq.ninventary %></td>
-                        <td><%= eq.nserie %></td>
-                        <td><%= eq.Dependency.name %></td>
-                        <td><%= desc %></td>
-                        <td><%= eq.model %></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><%= image_tag broken.picOf, size: "150x100" %></td>
-                        <td colspan="2"><%= image_tag broken.picSerie, size: "180x100" %></td>
-                        <td><%= image_tag broken.pic, size: "190x190" %></td>
-                    </tr>
+                        <tr>
+                            <td><%= eq.ninventary %></td>
+                            <td><%= eq.nserie %></td>
+                            <td><%= eq.Dependency.name %></td>
+                            <td><%= desc %></td>
+                            <td><%= eq.model %></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><%= image_tag broken.picOf, size: "150x100" %></td>
+                            <td colspan="2"><%= image_tag broken.picSerie, size: "180x100" %></td>
+                            <td><%= image_tag broken.pic, size: "190x190" %></td>
+                        </tr>
                     <%  end                                      %>
                     <% end                                       %>
                 </tbody>
