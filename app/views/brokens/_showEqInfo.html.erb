@@ -3,23 +3,26 @@
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <% unless @eq.nil? %>    
             <h4 class="modal-title">
-                <% case  @eq.class.name %>
-                <%   when 'Computer' %>
-                <%=      ' COMPUTADORA' %>
-                <%   when 'Printer' %>
-                <%=      ' IMPRESORA' %>
-                <%   when 'Copier' %> 
-                <%=     ' COPIADORA' %>
-                <%   when 'Scanner' %>
-                <%=      ' ESCANER' %>
-                <%   when 'Power' %> 
-                <%=      ' REGULADOR/UPS' %>
-                <%   when 'Telephone' %>
-                <%=      ' TELEFONO' %>
-                <%   when 'Screen' %>
-                <%=      ' MONITOR' %>
-                <% end %>
+                
+                    <% case  @eq.class.name %>
+                    <%   when 'Computer' %>
+                    <%=      ' COMPUTADORA' %>
+                    <%   when 'Printer' %>
+                    <%=      ' IMPRESORA' %>
+                    <%   when 'Copier' %> 
+                    <%=     ' COPIADORA' %>
+                    <%   when 'Scanner' %>
+                    <%=      ' ESCANER' %>
+                    <%   when 'Power' %> 
+                    <%=      ' REGULADOR/UPS' %>
+                    <%   when 'Telephone' %>
+                    <%=      ' TELEFONO' %>
+                    <%   when 'Screen' %>
+                    <%=      ' MONITOR' %>
+                    <% end %>
+               
             </h4>
         </div>
         <div class="modal-body">
@@ -44,6 +47,7 @@
                
            </div>
         </div>
+        <% end %>
         <div class="modal-footer">
           <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
         </div>
