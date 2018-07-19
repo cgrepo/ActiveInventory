@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :brokens do
     collection do
+      get 'findEquipment',    action:'findEquipment',    controller:'brokens', as:'findEquipment'
       get 'filterDependency', action:'filterDependency', controller:'brokens', as:'filterDependency'
       get 'findDependency',   action:'findDependency',   controller:'brokens', as:'findDependency'
       get 'eqKill/:id',       action:'eqKill',           controller:'brokens', as:'eqKill'

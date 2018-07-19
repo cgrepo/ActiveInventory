@@ -81,7 +81,7 @@ class BrokensController < ApplicationController
   
   
   def filterDependency
-    @computers = Computer.where(Dependency_id:params[:Dependency_id]).where(:operational => true)
+    @computers = Computer.where(:Dependency_id => params[:Dependency_id]).where(:operational => true)
     @printers = Printer.where(:Dependency => params[:Dependency_id]).where(:operational => true)
     @copiers = Copier.where(:Dependency => params[:Dependency_id]).where(:operational => true)
     @telephones = Telephone.where(:Dependency => params[:Dependency_id]).where(:operational => true)
@@ -137,6 +137,78 @@ class BrokensController < ApplicationController
       @brokens = Broken.where(Dependency:dependency).order(:gender).paginate(page: params[:page], per_page: 10 )
     else
       @brokens = Broken.order(:Dependency_id).order(:gender).paginate(page: params[:page], per_page: 10 )
+    end
+  end
+  
+  def findEquipment
+    @eq = Computer.find_by(ninventary:params[:id])
+    if @eq
+      return 
+    else
+      @eq = Computer.find_by(nserie:params[:id])
+      if @eq
+        return
+      end
+    end
+    
+    @eq = Printer.find_by(ninventary:params[:id])
+    if @eq
+      return 
+    else
+      @eq = Printer.find_by(nserie:params[:id])
+      if @eq
+        return
+      end
+    end
+    
+    @eq = Copier.find_by(ninventary:params[:id])
+    if @eq
+      return 
+    else
+      @eq = Copier.find_by(nserie:params[:id])
+      if @eq
+        return
+      end
+    end
+    
+    @eq = Telephone.find_by(ninventary:params[:id])
+    if @eq
+      return 
+    else
+      @eq = Telephone.find_by(nserie:params[:id])
+      if @eq
+        return
+      end
+    end
+    
+    @eq = Screen.find_by(ninventary:params[:id])
+    if @eq
+      return 
+    else
+      @eq = Screen.find_by(nserie:params[:id])
+      if @eq
+        return
+      end
+    end
+    
+    @eq = Power.find_by(ninventary:params[:id])
+    if @eq
+      return 
+    else
+      @eq = Power.find_by(nserie:params[:id])
+      if @eq
+        return
+      end
+    end
+    
+    @eq = Scanner.find_by(ninventary:params[:id])
+    if @eq
+      return 
+    else
+      @eq = Scanner.find_by(nserie:params[:id])
+      if @eq
+        return
+      end
     end
   end
   
