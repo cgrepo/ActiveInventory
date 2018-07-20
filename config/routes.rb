@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resources :computers do
     collection do
       get   'showmodal',        to: 'computers#showmodal'
-      get   'addBrandModel4pc', to: 'computers#addBrandModel4pc'
+      post  'addBrandModel4pc', to: 'computers#addBrandModel4pc'
       get   'downPc/:id',   action:'downPc',       controller:'computers', as:'downPc'
       patch 'computerDown/:id', action:'computerDown', controller:'computers', as:'computerDown'
       get   'nonOper', to:'computers#nonOper'

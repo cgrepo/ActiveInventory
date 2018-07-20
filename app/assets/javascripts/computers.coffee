@@ -83,7 +83,7 @@ $(document).on "turbolinks:load", ->
 		e.preventDefault()
 		if valuesCompleated()
 			$.ajax
-	        	type:'GET'
+	        	type:'POST'
 	        	url:'/computers/addBrandModel4pc'
 	        	data:
 	        		{ 
@@ -98,7 +98,7 @@ $(document).on "turbolinks:load", ->
 	           		$('#modal-window').modal('hide')
 	            error: (data) ->
 	            	alert 'error' + data
-		return
+	return
 valuesCompleated=->
     if $('#brand_model_brandx').val() == ''
         alert 'Proporcione la Marca'
