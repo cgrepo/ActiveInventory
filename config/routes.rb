@@ -34,31 +34,31 @@ Rails.application.routes.draw do
   resources :copiers do
     collection do
       get 'showmodal', to: 'copiers#showmodal'
-      get 'addBrandModel4copier', to: 'copiers#addBrandModel4copier'
+      post 'addBrandModel4copier', to: 'copiers#addBrandModel4copier'
     end
   end
   resources :powers do
     collection do
       get 'showmodal', to: 'powers#showmodal'
-      get 'addBrandModel4pow', to: 'powers#addBrandModel4pow'
+      post 'addBrandModel4pow', to: 'powers#addBrandModel4pow'
     end
   end
   resources :scanners do
     collection do
       get 'showmodal', to: 'scanners#showmodal'
-      get 'addBrandModel4scanner', to: 'scanners#addBrandModel4scanner'
+      post 'addBrandModel4scanner', to: 'scanners#addBrandModel4scanner'
     end
   end
   resources :screens do
     collection do
       get 'showmodal', to: 'screens#showmodal'
-      get 'addBrandModel4screen', to: 'screens#addBrandModel4screen'
+      post 'addBrandModel4screen', to: 'screens#addBrandModel4screen'
     end
   end
   resources :telephones do
     collection do
       get 'showmodal', to: 'telephones#showmodal'
-      get 'addBrandModel4telephone', to: 'telephones#addBrandModel4telephone'
+      post 'addBrandModel4telephone', to: 'telephones#addBrandModel4telephone'
     end
   end
   resources :brand_models do

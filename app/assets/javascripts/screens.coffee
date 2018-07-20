@@ -22,12 +22,21 @@ $(document).on "turbolinks:load", ->
 						}
 					success: (data) ->
 						$('#screen_model').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
-		return
+	$('#screen_model').on 'change', ->
+		if $('#screen_model option:selected').val() == 'plus'
+			$.ajax
+				type:'GET'
+				url: '/screens/showmodal'
+				dataType: 'script'
+				success: (data) ->
+					$('#brand_model_brandx').val($('#screen_brand option:selected').val())
+					$('#brand_model_brandx').attr('disabled','true')
+
 	$(document).on 'submit', 'form#modal4screens', (e) ->
 		e.preventDefault()
 		if valuesCompleated()
 			$.ajax
-				type:'GET'
+				type:'POST'
 				url:'/screens/addBrandModel4screen'
 				data:
 					{
@@ -44,16 +53,7 @@ $(document).on "turbolinks:load", ->
 					alert 'error' + data
 	return
 	
-	$('#screen_model').on 'change', ->
-		if $('#screen_model option:selected').val() == 'plus'
-			$.ajax
-				type:'GET'
-				url: '/screens/showmodal'
-				dataType: 'script'
-				success: (data) ->
-					$('#brand_model_brandx').val($('#screen_brand option:selected').val())
-					$('#brand_model_brandx').attr('disabled','true')
-
+	
 valuesCompleated=->
 	if $('#brand_model_brandx').val() == ''
 		alert 'Proporcione la Marca'
