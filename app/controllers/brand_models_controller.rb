@@ -63,7 +63,6 @@ class BrandModelsController < ApplicationController
   end
   
   # def showmodal
-  #   byebug
   #   @brand_model = BrandModel.new
   #   respond_to do |format|
   #     format.html

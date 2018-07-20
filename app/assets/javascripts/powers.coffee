@@ -35,7 +35,7 @@ $(document).on "turbolinks:load", ->
 		e.preventDefault()
 		if valuesCompleated()
 			$.ajax
-				type:'GET'
+				type:'POST'
 				url:'/powers/addBrandModel4pow'
 				data:
 					{
@@ -50,7 +50,7 @@ $(document).on "turbolinks:load", ->
 					$('#modal-window').modal('hide')
 				error: (data) ->
 					alert 'error' + data
-		return
+	return
 valuesCompleated=->
 	if $('#brand_model_brandx').val() == ''
 		alert 'Proporcione la Marca'

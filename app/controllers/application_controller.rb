@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
   end
   
   # def upcaseme(element,*argus)
-  #   byebug
     
   #   properties.each { |p| 
       

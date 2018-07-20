@@ -80,7 +80,6 @@ class PowersController < ApplicationController
         @brandModel.brandx=params[:brand]
         @brandModel.modelx=params[:model]
         @brandModel.User_id=current_user.id
-        byebug
         if @brandModel.save
           @brands = BrandModel.select(:brandx).where(description:'REGULADOR/UPS').uniq.pluck(:brandx)
           format.html { render :partial => 'brand_models/addBrand'}
