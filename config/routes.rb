@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'admins/index'
   get "/login" => "sessions#new", as: "login"
   get '/printers/showmodal' => 'printers#showmodal'
-  get 'printers/addBrandModel4printer' => 'printers#addBrandModel4printer'
+  post 'printers/addBrandModel4printer' => 'printers#addBrandModel4printer'
   delete "/logout" => "sessions#destroy", as: "logout"
   resources :equipment_logs, :common_errors, :providers, :consumables
   resources :printers, :networks, :dependencies, :memos

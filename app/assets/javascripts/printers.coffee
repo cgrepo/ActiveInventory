@@ -56,21 +56,29 @@ $(document).on "turbolinks:load", ->
 					dataType:'script'
 					data:
 						{
-							brand: $('#printer_brand option:selected').val()
+							brand:$('#printer_brand option:selected').val()
 							genus:'IMPRESORA'
 						}
 					success: (data) ->
 						$('#printer_model').append('<option class="be-soft_purple smfont" value="plus">AGREGAR</option>')
-		return
+	$('#printer_model').on 'change', ->
+		if $('#printer_model option:selected').val() == 'plus'
+			$.ajax
+				type:'GET'
+				url: '/printers/showmodal'
+				dataType: 'script'
+				success: (data) ->
+					$('#brand_model_brandx').val($('#printer_brand option:selected').val())
+					$('#brand_model_brandx').attr('disabled','true')
 	$(document).on 'submit', 'form#modal4printers', (e) ->
 		e.preventDefault()
 		if valuesCompleated()
 			$.ajax
-				type:'GET'
+				type:'POST'
 				url:'/printers/addBrandModel4printer'
 				data:
 					{
-						brand: $('#brand_model_brandx').val()
+						brand:$('#brand_model_brandx').val()
 						model:$('#brand_model_modelx').val()
 						desc:'IMPRESORA'
 					}
@@ -81,16 +89,8 @@ $(document).on "turbolinks:load", ->
 					$('#modal-window').modal('hide')
 				error: (data) ->
 					alert 'error' + data
-		return
-	$('#printer_model').on 'change', ->
-		if $('#printer_model option:selected').val() == 'plus'
-			$.ajax
-				type:'GET'
-				url: '/printers/showmodal'
-				dataType: 'script'
-				success: (data) ->
-					$('#brand_model_brandx').val($('#printer_brand option:selected').val())
-					$('#brand_model_brandx').attr('disabled','true')
+	return
+	
 valuesCompleated=->
 	if $('#brand_model_brandx').val() == ''
 		alert 'Proporcione la Marca'
