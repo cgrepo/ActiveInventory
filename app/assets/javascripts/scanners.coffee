@@ -42,7 +42,7 @@ $(document).on "turbolinks:load", ->
         e.preventDefault()
         if valuesCompleated()
             $.ajax
-                type:'GET'
+                type:'POST'
                 url:'/scanners/addBrandModel4scanner'
                 data:
                     {
@@ -57,6 +57,7 @@ $(document).on "turbolinks:load", ->
                     $('#modal-window').modal('hide')
                 error: (data) ->
                     alert 'error' + data
+    return
 valuesCompleated=->
     if $('#brand_model_brandx').val() == ''
         alert 'Proporcione la Marca'
@@ -65,21 +66,3 @@ valuesCompleated=->
         alert 'Proporcione el Modelo'
         return false
     return true
-    # $('.brands4scanner').on 'change', ->
-    #     if $('.brands4scanner option:selected').val() == 'plus'
-    #         url = "/brand_models/new?type=ESCANER"
-    #         if url
-    #             window.location.replace url
-    #     if $('.brands4scanner option:selected').val() == ''
-    #         $('.models4scanner').empty()
-    #         return
-    #     else
-    #       $.ajax
-    #         url: '/bridge_helper/get_models'
-    #         cache: false
-    #         dataType:'script'
-    #         data:
-    #             brand: $('.brands4scanner option:selected').val(),
-    #             genus: 'ESCANER'
-    #$('label:eq(1)').remove()
-    #$('label:eq(2)').remove()

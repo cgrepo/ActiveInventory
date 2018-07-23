@@ -20,7 +20,7 @@ $(document).on "turbolinks:load", ->
 					dataType:'script'
 					data:
 						{
-						brand: $('#copier_brand option:selected').val()
+						brand:$('#copier_brand option:selected').val()
 						genus:'COPIADORA'
 						}
 					success: (data) ->
@@ -38,7 +38,7 @@ $(document).on "turbolinks:load", ->
 		e.preventDefault()
 		if valuesCompleated()
 			$.ajax
-	        	type:'GET'
+	        	type:'POST'
 	        	url:'/copiers/addBrandModel4copier'
 	        	data:
 	        		{ 
@@ -53,6 +53,7 @@ $(document).on "turbolinks:load", ->
 	           		$('#modal-window').modal('hide')
 	            error: (data) ->
 	            	alert 'error' + data
+	return
 valuesCompleated=->
     if $('#brand_model_brandx').val() == ''
         alert 'Proporcione la Marca'
